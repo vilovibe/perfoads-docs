@@ -8,7 +8,7 @@ Welcome to the PerfoAds documentation. Navigate using the sections below.
 
 ## 📚 Getting Started
 
-- [What is PerfoAds?](phase-1-essential/01-what-is-ads-optimizer.md)
+- [What is PerfoAds?](phase-1-essential/01-what-is-perfoads.md)
 - [Quick Start Guide](phase-1-essential/02-quick-start-guide.md)
 - [Adding Your First Client](phase-1-essential/03-adding-first-client.md)
 - [Understanding the Dashboard](phase-1-essential/04-understanding-dashboard.md)
