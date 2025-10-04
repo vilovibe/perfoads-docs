@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Context Entries - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Custom Context Entries</h1>
+<p>Custom Context Entries are free-form notes you add to give AI information that doesn&#39;t fit in structured Business Profile fields. Use them for temporary situations, unique constraints, strategic priorities, or anything AI should know that isn&#39;t captured elsewhere. This guide shows you how to use custom context effectively.</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ul>
+<li>What custom context is and when to use it</li>
+<li>How to create effective context entries</li>
+<li>Real examples for common scenarios</li>
+<li>Best practices for context management</li>
+<li>When to use custom vs Business Profile</li>
+<li>Organizing and maintaining context</li>
+</ul>
+<p><strong>Time needed</strong>: 8 minutes to read</p>
+<hr>
+<h2>What Are Custom Context Entries?</h2>
+<p><strong>Definition</strong>: Free-text notes (title + description) that provide AI with additional business context not captured in structured Business Profile fields</p>
+<p><strong>Format</strong>:</p>
+<pre><code>Title: Short summary (5-10 words)
+Note: Detailed explanation (1-3 paragraphs)
+</code></pre>
+<p><strong>Purpose</strong>:</p>
+<ul>
+<li>Handle unique client situations</li>
+<li>Document temporary constraints</li>
+<li>Record strategic decisions</li>
+<li>Preserve institutional knowledge</li>
+</ul>
+<p>[Screenshot: Custom Context Entry form]
+<em>Simple title + note format for any context</em></p>
+<hr>
+<h2>When to Use Custom Context</h2>
+<h3>Use custom context when:</h3>
+<p><strong>✅ Temporary situations</strong>:</p>
+<pre><code>Example: &quot;Website redesign Oct 15-30 - pause conversion alerts&quot;
+</code></pre>
+<p><strong>✅ Unique business constraints</strong>:</p>
+<pre><code>Example: &quot;Client can only handle 40 leads/month due to capacity&quot;
+</code></pre>
+<p><strong>✅ Strategic preferences</strong>:</p>
+<pre><code>Example: &quot;Client prefers manual bidding for control - no automation suggestions&quot;
+</code></pre>
+<p><strong>✅ Past attempts and failures</strong>:</p>
+<pre><code>Example: &quot;Tried Display campaigns Q1 2024 - 12% ROAS, don&#39;t suggest again&quot;
+</code></pre>
+<p><strong>✅ Client communication preferences</strong>:</p>
+<pre><code>Example: &quot;Client checks account daily - explanations should be simple, non-technical&quot;
+</code></pre>
+<p><strong>✅ Seasonal considerations</strong>:</p>
+<pre><code>Example: &quot;Budget triples Nov-Dec for holiday season - plan expansion now&quot;
+</code></pre>
+<hr>
+<h3>Don&#39;t use custom context for:</h3>
+<p><strong>❌ Data that belongs in Business Profile</strong>:</p>
+<pre><code>Bad: Custom note about target CPA
+Good: Fill out Target CPA field in Business Profile
+</code></pre>
+<p><strong>❌ Information AI already has</strong>:</p>
+<pre><code>Bad: &quot;Campaign performance declining&quot;
+Good: AI already sees performance data
+</code></pre>
+<p><strong>❌ Frequently changing data</strong>:</p>
+<pre><code>Bad: &quot;This week&#39;s budget is $800&quot;
+Good: Use structured budget fields
+</code></pre>
+<p><strong>❌ Instructions for yourself</strong>:</p>
+<pre><code>Bad: &quot;Remember to check this Friday&quot;
+Good: Use external task manager
+</code></pre>
+<hr>
+<h2>Creating Custom Context Entries</h2>
+<h3>How to Add Context</h3>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Go to Client Details → Context Tab</li>
+<li>Click &quot;Add Custom Context Entry&quot;</li>
+<li>Fill out form:<ul>
+<li>Title: Short summary</li>
+<li>Note: Detailed explanation</li>
+</ul>
+</li>
+<li>Click Save</li>
+</ol>
+<p><strong>Visibility</strong>: AI sees all custom context entries in every conversation</p>
+<hr>
+<h3>Writing Effective Context</h3>
+<p><strong>Good title format</strong>:</p>
+<pre><code>✅ &quot;Website Redesign Timeline&quot;
+✅ &quot;Preferred Bidding Strategy&quot;
+✅ &quot;Q4 Budget Increase&quot;
+✅ &quot;Geographic Expansion Plan&quot;
+</code></pre>
+<p><strong>Bad title format</strong>:</p>
+<pre><code>❌ &quot;Note 1&quot;
+❌ &quot;Important&quot;
+❌ &quot;Read this&quot;
+❌ &quot;Context&quot;
+</code></pre>
+<p><strong>Good note format</strong>:</p>
+<ul>
+<li><strong>First sentence</strong>: What AI should know</li>
+<li><strong>Second sentence</strong>: Why it matters</li>
+<li><strong>Third sentence</strong>: How to act on it (if applicable)</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code>Title: &quot;Seasonal Budget Strategy&quot;
+
+Note: &quot;Client triples budget to $15K/month during Nov-Dec
+for holiday shopping season (normal budget is $5K/month).
+Any expansion recommendations between Aug-Oct should account
+for this planned Q4 scale-up. Don&#39;t suggest major structural
+changes in Oct that won&#39;t work at 3x scale.&quot;
+</code></pre>
+<hr>
+<h2>Common Use Cases &amp; Examples</h2>
+<h3>Use Case 1: Temporary Technical Issues</h3>
+<p><strong>Scenario</strong>: Website under construction, conversions will be weird</p>
+<p><strong>Custom Context</strong>:</p>
+<pre><code>Title: &quot;Website Migration in Progress&quot;
+
+Note: &quot;Client is migrating to new e-commerce platform Oct 10-20.
+Conversion tracking will be unstable during this period. If zero
+conversions are detected Oct 10-20, this is expected and not a
+tracking failure. Resume normal conversion monitoring after Oct 21.
+Expect 3-5 days for tracking to stabilize post-migration.&quot;
+</code></pre>
+<p><strong>AI will</strong>:</p>
+<ul>
+<li>Not generate conversion tracking failure alerts Oct 10-20</li>
+<li>Explain zero conversions as expected if asked</li>
+<li>Resume normal monitoring after Oct 21</li>
+</ul>
+<hr>
+<h3>Use Case 2: Strategic Constraints</h3>
+<p><strong>Scenario</strong>: Client has strong preference against certain strategies</p>
+<p><strong>Custom Context</strong>:</p>
+<pre><code>Title: &quot;Manual Bidding Preference&quot;
+
+Note: &quot;Client is former Google Ads expert and strongly prefers
+manual bidding for full control. Has tried Target CPA twice
+(2022, 2023) and was unhappy with results both times. Do not
+recommend automated bidding strategies. Focus optimization
+recommendations on bid adjustments, Quality Score, and keyword
+management within manual CPC framework.&quot;
+</code></pre>
+<p><strong>AI will</strong>:</p>
+<ul>
+<li>Never suggest Target CPA or automated bidding</li>
+<li>Focus on manual optimization tactics</li>
+<li>Respect client&#39;s informed preference</li>
+</ul>
+<hr>
+<h3>Use Case 3: Capacity Limitations</h3>
+<p><strong>Scenario</strong>: Business can&#39;t handle unlimited leads</p>
+<p><strong>Custom Context</strong>:</p>
+<pre><code>Title: &quot;Lead Capacity Limit&quot;
+
+Note: &quot;Client&#39;s sales team can only handle 60 qualified leads
+per month (current staffing of 2 salespeople). Exceeding this
+leads to poor follow-up and wasted leads. If campaigns are
+generating &gt;60 leads/month, recommend reducing spend or
+increasing lead quality filters, not scaling up. Client plans
+to hire 3rd salesperson in Q1 2026, at which point capacity
+increases to ~90 leads/month.&quot;
+</code></pre>
+<p><strong>AI will</strong>:</p>
+<ul>
+<li>Optimize for lead quality, not volume</li>
+<li>Not suggest scaling if at 60 leads/month</li>
+<li>Consider capacity in all recommendations</li>
+<li>Remember Q1 2026 capacity increase</li>
+</ul>
+<hr>
+<h3>Use Case 4: Past Failed Experiments</h3>
+<p><strong>Scenario</strong>: Tried something, didn&#39;t work, don&#39;t want to repeat</p>
+<p><strong>Custom Context</strong>:</p>
+<pre><code>Title: &quot;Display Campaign History&quot;
+
+Note: &quot;Tested Display campaigns extensively Q4 2024 with $2,800
+total spend across 3 different approaches: standard Display,
+responsive Display ads, and image ads. Best result was 1.8 ROAS
+(vs 4.2 on Search). Client decided Display doesn&#39;t work for this
+B2B service business model. Do not suggest Display campaigns
+unless client&#39;s business model changes significantly. YouTube
+pre-roll was also tested (2.1 ROAS) - similar conclusion.&quot;
+</code></pre>
+<p><strong>AI will</strong>:</p>
+<ul>
+<li>Not waste time suggesting Display</li>
+<li>Reference this history if asked about channel expansion</li>
+<li>Understand Display was properly tested, not dismissed prematurely</li>
+</ul>
+<hr>
+<h3>Use Case 5: Geographic Strategy</h3>
+<p><strong>Scenario</strong>: Specific geographic priorities</p>
+<p><strong>Custom Context</strong>:</p>
+<pre><code>Title: &quot;Geographic Expansion Roadmap&quot;
+
+Note: &quot;Currently serving Texas only. Expansion plan: Add Oklahoma
+and Louisiana in Q1 2026, then Arkansas and New Mexico in Q2 2026.
+Do not recommend geographic expansion before Q1 2026 - client
+needs to hire regional sales reps first. When Q1 2026 approaches,
+proactively suggest Oklahoma and Louisiana campaign setup. Client
+is NOT interested in Midwest or East Coast expansion.&quot;
+</code></pre>
+<p><strong>AI will</strong>:</p>
+<ul>
+<li>Not suggest random geographic expansion</li>
+<li>Proactively suggest OK/LA campaigns in Q1 2026</li>
+<li>Respect expansion timeline and regional focus</li>
+</ul>
+<hr>
+<h3>Use Case 6: Seasonal Business Patterns</h3>
+<p><strong>Scenario</strong>: Business has strong seasonality</p>
+<p><strong>Custom Context</strong>:</p>
+<pre><code>Title: &quot;Tax Season Demand Pattern&quot;
+
+Note: &quot;Client is tax preparation service with extreme seasonality.
+Jan-April: 85% of annual revenue, high demand, budget is $12K/mo.
+May-Dec: Low demand, budget drops to $2K/mo for brand maintenance.
+During off-season, recommendations should focus on brand awareness
+and efficiency, not growth or expansion. Ramp-up planning should
+begin in October for upcoming tax season.&quot;
+</code></pre>
+<p><strong>AI will</strong>:</p>
+<ul>
+<li>Understand Jan-April vs May-Dec dynamics</li>
+<li>Adjust recommendations by season</li>
+<li>Not suggest expansion in May (low season)</li>
+<li>Suggest tax season prep in October</li>
+</ul>
+<hr>
+<h3>Use Case 7: Client Communication Style</h3>
+<p><strong>Scenario</strong>: Client has specific preferences for reports/communication</p>
+<p><strong>Custom Context</strong>:</p>
+<pre><code>Title: &quot;Client Communication Preferences&quot;
+
+Note: &quot;Client is non-technical small business owner who gets
+overwhelmed by jargon. Keep all explanations simple and focused
+on business impact (revenue, costs, customers) rather than metrics
+(CTR, Quality Score, impression share). Client checks account 2-3
+times per week and asks many questions, so responses should be
+concise and action-oriented. Prefers phone calls over email for
+anything urgent.&quot;
+</code></pre>
+<p><strong>AI will</strong>:</p>
+<ul>
+<li>Use simple language in responses</li>
+<li>Focus on business outcomes, not technical metrics</li>
+<li>Provide concise, action-oriented recommendations</li>
+<li>Consider client&#39;s hands-on approach</li>
+</ul>
+<hr>
+<h3>Use Case 8: Competitive Intelligence</h3>
+<p><strong>Scenario</strong>: Specific competitor information that affects strategy</p>
+<p><strong>Custom Context</strong>:</p>
+<pre><code>Title: &quot;Competitor Tracking&quot;
+
+Note: &quot;Main competitor (ABC Plumbing) launched aggressive Google
+Ads campaign in July 2025 with 2-3x our budget. They&#39;re bidding
+on our brand terms. Our strategy: Defend brand terms at top
+position (don&#39;t let budget limit brand impression share), but
+don&#39;t get into bidding war on generic terms where they outspend
+us 3:1. Focus our budget on long-tail service-specific keywords
+where we can compete effectively.&quot;
+</code></pre>
+<p><strong>AI will</strong>:</p>
+<ul>
+<li>Understand competitive dynamics</li>
+<li>Prioritize brand defense</li>
+<li>Focus on long-tail rather than head terms</li>
+<li>Explain strategic decisions in this context</li>
+</ul>
+<hr>
+<h2>Organizing Custom Context</h2>
+<h3>Best Practices</h3>
+<p><strong>One entry per topic</strong>:</p>
+<pre><code>✅ Good: 5 entries for 5 distinct topics
+❌ Bad: 1 entry covering 5 unrelated topics
+</code></pre>
+<p><strong>Clear, searchable titles</strong>:</p>
+<pre><code>✅ &quot;Q4 Holiday Budget Increase&quot;
+✅ &quot;Website Redesign Oct 2025&quot;
+❌ &quot;Important note about client&quot;
+❌ &quot;Remember this&quot;
+</code></pre>
+<p><strong>Keep entries current</strong>:</p>
+<pre><code>Old entry: &quot;Website redesign Oct 10-20&quot; (it&#39;s now November)
+Action: Delete outdated entry
+</code></pre>
+<p><strong>Date temporary entries</strong>:</p>
+<pre><code>✅ &quot;Website Redesign Oct 10-20, 2025&quot;
+(Clearly temporary, easy to identify for deletion)
+</code></pre>
+<hr>
+<h3>When to Delete Context</h3>
+<p><strong>Delete when</strong>:</p>
+<ul>
+<li>Situation resolved (website live, migration done)</li>
+<li>No longer relevant (past experiments from 2+ years ago)</li>
+<li>Information now in Business Profile (moved target CPA there)</li>
+<li>Strategy changed (no longer avoiding Display)</li>
+</ul>
+<p><strong>Review quarterly</strong>:</p>
+<ul>
+<li>Read all custom context entries</li>
+<li>Delete outdated ones</li>
+<li>Update entries that changed</li>
+<li>Add new entries for new situations</li>
+</ul>
+<hr>
+<h2>Custom Context vs Business Profile</h2>
+<h3>Use Business Profile for:</h3>
+<ul>
+<li>✅ Structured data (industry, business type, target CPA)</li>
+<li>✅ Permanent business characteristics</li>
+<li>✅ Core goals and targets</li>
+<li>✅ Quantified metrics</li>
+</ul>
+<h3>Use Custom Context for:</h3>
+<ul>
+<li>✅ Temporary situations</li>
+<li>✅ Strategic nuances</li>
+<li>✅ Past attempts/failures</li>
+<li>✅ Unique constraints</li>
+<li>✅ Anything that doesn&#39;t fit structured fields</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<p><strong>Business Profile</strong>:</p>
+<pre><code>Target CPA: $65
+Monthly Budget: $8,500
+Business Type: B2B Lead Generation
+</code></pre>
+<p><strong>Custom Context</strong>:</p>
+<pre><code>Title: &quot;Lead Quality Issues Q3 2025&quot;
+
+Note: &quot;Experienced lead quality drop in Q3 when CPA went below
+$55. Leads below $55 CPA tend to be tire-kickers without budget.
+Optimal CPA range is $60-70 for qualified leads. Don&#39;t push
+CPA below $55 even if technically possible.&quot;
+</code></pre>
+<p><strong>Together</strong>: AI knows target is $65 (from profile) and why pushing lower than $55 is bad (from custom context)</p>
+<hr>
+<h2>Advanced: Context for Team Collaboration</h2>
+<h3>Documenting Decisions</h3>
+<p><strong>Use custom context to preserve &quot;why&quot;</strong>:</p>
+<pre><code>Title: &quot;Why We Don&#39;t Use Broad Match&quot;
+
+Note: &quot;Tested broad match keywords extensively in Q2 2024 with
+$1,200 spend across 3 campaigns. Search term report showed
+85% irrelevant queries despite negative keyword list of 200+
+terms. Wasted ~$1,000 before reverting to phrase and exact.
+Broad match doesn&#39;t work for our niche B2B service. Stick with
+phrase and exact only.&quot;
+</code></pre>
+<p><strong>Benefit</strong>: New team members understand decisions without repeating experiments</p>
+<hr>
+<h3>Onboarding New Team Members</h3>
+<p><strong>Custom context serves as runbook</strong>:</p>
+<pre><code>1. Read Business Profile (what/who/goals)
+2. Read all Custom Context (why/constraints)
+3. Ask AI Chat for summary
+4. You&#39;re 80% onboarded
+</code></pre>
+<p><strong>Saves</strong>: Hours of knowledge transfer</p>
+<hr>
+<h2>Tips &amp; Best Practices</h2>
+<h3>Be Specific with Dates</h3>
+<p><strong>Vague</strong>: &quot;Recent experiment failed&quot;
+<strong>Specific</strong>: &quot;Tried Shopping campaigns Oct 2024 - ROAS 1.9 (vs target 4.5)&quot;</p>
+<p><strong>Why</strong>: Specific dates help decide when to revisit</p>
+<hr>
+<h3>Explain the &quot;Why&quot;</h3>
+<p><strong>What</strong>: &quot;Don&#39;t suggest Display&quot;
+<strong>Why</strong>: &quot;Display tested Q4 2024, best result 1.8 ROAS vs 4.2 on Search&quot;</p>
+<p><strong>Why it matters</strong>: AI understands reasoning, can adapt if circumstances change</p>
+<hr>
+<h3>Update When Situations Change</h3>
+<p><strong>Old entry</strong>:</p>
+<pre><code>&quot;Client can&#39;t afford &gt;$5K/month budget&quot;
+</code></pre>
+<p><strong>6 months later, client grows</strong>:</p>
+<pre><code>Update entry:
+&quot;Budget increased to $8K/month as of March 2026. Client open
+to further increases if ROAS maintains 4.5+.&quot;
+</code></pre>
+<hr>
+<h3>Use for Experiments</h3>
+<p><strong>Track current tests</strong>:</p>
+<pre><code>Title: &quot;Call-Only Ads Test (Oct 2025)&quot;
+
+Note: &quot;Testing call-only ads in separate campaign with $500/month
+budget. Test runs Oct 1-31. Success criteria: &lt;$60 CPA for phone
+calls, minimum 30 calls. If successful, expand to $1,500/mo in
+Nov. If unsuccessful, pause and reallocate to search.&quot;
+</code></pre>
+<p><strong>AI can</strong>:</p>
+<ul>
+<li>Reference experiment if you ask about performance</li>
+<li>Remind you of success criteria</li>
+<li>Suggest next steps based on results</li>
+</ul>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: How many custom context entries should I have?</strong>
+A: Typically 2-6 per client. If you have 15+, some are probably outdated.</p>
+<p><strong>Q: Can I edit context entries after creating them?</strong>
+A: Yes. Edit or delete anytime from Context tab.</p>
+<p><strong>Q: Does AI remember deleted context?</strong>
+A: No. Once deleted, AI no longer sees it.</p>
+<p><strong>Q: Should I document every optimization I make?</strong>
+A: No. AI tracks optimizations via alert accept/decline. Use custom context for unique situations only.</p>
+<p><strong>Q: Can I export custom context?</strong>
+A: Yes, as part of client data export.</p>
+<p><strong>Q: What if custom context conflicts with Business Profile?</strong>
+A: Custom context takes precedence (it&#39;s more specific). But ideally, keep them aligned.</p>
+<hr>
+<h2>Troubleshooting</h2>
+<h3>Problem: AI ignores custom context</h3>
+<p><strong>Diagnostics</strong>:</p>
+<ol>
+<li>Verify context entry was saved</li>
+<li>Check if AI can see it (ask &quot;What custom context do you have?&quot;)</li>
+<li>Ensure context is clear and specific</li>
+</ol>
+<p><strong>Common causes</strong>:</p>
+<ul>
+<li>Context too vague (&quot;Be careful with budget&quot;)</li>
+<li>Context contradicts structured data</li>
+<li>Context buried in long paragraph</li>
+</ul>
+<p><strong>Solution</strong>: Rewrite for clarity, put key points in first sentence</p>
+<hr>
+<h3>Problem: Too much context, AI overwhelmed</h3>
+<p><strong>Symptom</strong>: AI responses become generic or miss key points</p>
+<p><strong>Cause</strong>: 10+ context entries creating noise</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Delete outdated entries</li>
+<li>Consolidate related entries</li>
+<li>Keep only essential 3-5 entries</li>
+</ol>
+<hr>
+<h3>Problem: Context becoming outdated</h3>
+<p><strong>Symptom</strong>: Entries from 2+ years ago still listed</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Quarterly review of all context</li>
+<li>Delete anything &gt;6 months old unless still relevant</li>
+<li>Add dates to temporary entries</li>
+</ul>
+<hr>
+<h2>Real-World Examples</h2>
+<h3>Example 1: Agency Managing Multiple Clients</h3>
+<pre><code>Title: &quot;Reporting Schedule&quot;
+
+Note: &quot;This client receives detailed monthly reports by email
+(sent 3rd business day of month) plus brief weekly check-ins
+every Monday at 10 AM CT via phone. Client prefers proactive
+communication about issues - call immediately if CPA exceeds
+$80 or budget exhausts early. Do not wait for scheduled check-in
+to raise urgent issues.&quot;
+</code></pre>
+<hr>
+<h3>Example 2: Startup with Changing Strategy</h3>
+<pre><code>Title: &quot;Product Pivot Q4 2025&quot;
+
+Note: &quot;Client is pivoting from B2C direct sales to B2B SaaS model
+effective November 1, 2025. Current campaigns (Shopping, Display)
+will be paused Oct 31. New Search campaigns launching Nov 1
+targeting enterprise decision-makers. Do not suggest optimizations
+for current B2C campaigns after Oct 15 - focus is on new B2B
+strategy planning.&quot;
+</code></pre>
+<hr>
+<h3>Example 3: Client with Strong Opinions</h3>
+<pre><code>Title: &quot;Client Preferences and History&quot;
+
+Note: &quot;Client is very data-driven and questions all recommendations.
+Always provide specific numbers, comparisons, and expected outcomes.
+Client previously worked with another agency (2022-2024) that
+promised &#39;guaranteed ROI&#39; and underdelivered - now skeptical of
+overpromising. Underpromise and overdeliver. Client appreciates
+transparency about risks and limitations.&quot;
+</code></pre>
+<hr>
+<h2>Next Steps</h2>
+<p>Master AI context with these guides:</p>
+<ul>
+<li><strong><a href="/docs/ai-context-explained">AI Context Explained</a></strong> - How all context works together</li>
+<li><strong><a href="/docs/business-profile-setup">Business Profile Setup</a></strong> - Structured context fields</li>
+<li><strong><a href="/docs/ai-chat-getting-started">AI Chat Getting Started</a></strong> - Using AI with context</li>
+<li><strong><a href="/docs/smart-alerts-intro">Smart Alerts</a></strong> - Context improves alert relevance</li>
+</ul>
+<hr>
+<p><strong>Add your first custom context entry</strong> for any unique client situation</p>
+<p><strong>Review quarterly</strong> to keep context current and relevant</p>
+<p><strong>Use strategically</strong> - quality over quantity</p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>

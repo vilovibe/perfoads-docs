@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Reference: Security Implementation - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Technical Reference: Security Implementation</h1>
+<p><strong>Audience</strong>: Developers, security engineers, technical users, system administrators</p>
+<p>PerfoAds implements multiple layers of security including OAuth 2.0 authentication, JWT-based sessions, httpOnly cookies, SQL injection prevention, rate limiting, and data encryption. This technical guide documents the complete security architecture, implementation details, and best practices.</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ul>
+<li>Authentication architecture (OAuth + JWT)</li>
+<li>Authorization and access control</li>
+<li>API security (rate limiting, CORS, headers)</li>
+<li>Data protection (encryption, storage)</li>
+<li>SQL injection prevention</li>
+<li>Session management</li>
+<li>Security best practices</li>
+<li>Compliance considerations</li>
+<li>Threat mitigation strategies</li>
+<li>Security testing guidelines</li>
+</ul>
+<p><strong>Time needed</strong>: 18 minutes to read</p>
+<p><strong>Prerequisite Knowledge</strong>: Security fundamentals, OAuth 2.0, JWT, HTTPS</p>
+<hr>
+<h2>Security Architecture Overview</h2>
+<h3>Layered Security Model</h3>
+<pre><code>┌──────────────────────────────────────────────────┐
+│  Layer 1: Network Security                      │
+│  - HTTPS/TLS 1.3                                 │
+│  - Secure headers (Helmet.js)                    │
+│  - CORS restrictions                             │
+└──────────────────────────────────────────────────┘
+                      ↓
+┌──────────────────────────────────────────────────┐
+│  Layer 2: Authentication                         │
+│  - Google OAuth 2.0                              │
+│  - JWT tokens                                    │
+│  - httpOnly cookies                              │
+└──────────────────────────────────────────────────┘
+                      ↓
+┌──────────────────────────────────────────────────┐
+│  Layer 3: Authorization                          │
+│  - User ownership validation                     │
+│  - Resource-level permissions                    │
+│  - Admin role checks                             │
+└──────────────────────────────────────────────────┘
+                      ↓
+┌──────────────────────────────────────────────────┐
+│  Layer 4: Data Security                          │
+│  - Parameterized queries (SQL injection)         │
+│  - Input validation &amp; sanitization               │
+│  - Data encryption at rest (database)            │
+└──────────────────────────────────────────────────┘
+                      ↓
+┌──────────────────────────────────────────────────┐
+│  Layer 5: Application Security                   │
+│  - Rate limiting                                 │
+│  - Error handling (no data leakage)              │
+│  - Logging and monitoring                        │
+└──────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h2>Authentication System</h2>
+<h3>OAuth 2.0 Flow</h3>
+<p><strong>Provider</strong>: Google OAuth 2.0</p>
+<p><strong>Scopes Required</strong>:</p>
+<ul>
+<li><code>https://www.googleapis.com/auth/userinfo.email</code> - User email</li>
+<li><code>https://www.googleapis.com/auth/userinfo.profile</code> - User name, avatar</li>
+<li><code>https://www.googleapis.com/auth/adwords</code> - Google Ads API access</li>
+</ul>
+<p><strong>Flow Diagram</strong>:</p>
+<pre><code>1. User clicks &quot;Log in with Google&quot;
+   ↓
+2. Redirect to Google OAuth:
+   GET https://accounts.google.com/o/oauth2/v2/auth
+   ?client_id=[CLIENT_ID]
+   &amp;redirect_uri=https://api.aiperfoads.xyz/api/oauth/callback
+   &amp;response_type=code
+   &amp;scope=email profile adwords
+   ↓
+3. User grants permissions
+   ↓
+4. Google redirects to callback:
+   GET /api/oauth/callback?code=[AUTH_CODE]
+   ↓
+5. Backend exchanges code for tokens:
+   POST https://oauth2.googleapis.com/token
+   Body: {
+     code: [AUTH_CODE],
+     client_id: [CLIENT_ID],
+     client_secret: [CLIENT_SECRET],
+     redirect_uri: [REDIRECT_URI],
+     grant_type: &quot;authorization_code&quot;
+   }
+   ↓
+6. Google responds:
+   {
+     access_token: &quot;ya29.a0...&quot;,
+     refresh_token: &quot;1//...&quot;,
+     expires_in: 3600,
+     scope: &quot;email profile adwords&quot;,
+     token_type: &quot;Bearer&quot;
+   }
+   ↓
+7. Backend:
+   - Fetches user info from Google
+   - Creates/updates user in database
+   - Encrypts and stores OAuth tokens
+   - Generates JWT
+   - Sets httpOnly cookie
+   ↓
+8. Redirects to frontend dashboard
+</code></pre>
+<hr>
+<h3>JWT Implementation</h3>
+<p><strong>Library</strong>: <code>jsonwebtoken</code></p>
+<p><strong>Algorithm</strong>: HS256 (HMAC with SHA-256)</p>
+<p><strong>Secret</strong>: 256-bit random string (stored in environment variable <code>JWT_SECRET</code>)</p>
+<p><strong>Payload</strong>:</p>
+<pre><code class="language-javascript">{
+  userId: 123,
+  email: &quot;user@example.com&quot;,
+  role: &quot;user&quot;,  // or &quot;admin&quot;
+  iat: 1696435200,  // Issued at
+  exp: 1699027200   // Expires (30 days from issued)
+}
+</code></pre>
+<p><strong>Signing</strong>:</p>
+<pre><code class="language-javascript">import jwt from &#39;jsonwebtoken&#39;;
+
+const token = jwt.sign(
+  {
+    userId: user.id,
+    email: user.email,
+    role: user.role
+  },
+  process.env.JWT_SECRET,
+  { expiresIn: &#39;30d&#39; }
+);
+</code></pre>
+<p><strong>Verification</strong>:</p>
+<pre><code class="language-javascript">import jwt from &#39;jsonwebtoken&#39;;
+
+const decoded = jwt.verify(token, process.env.JWT_SECRET);
+// If valid: decoded contains payload
+// If invalid/expired: throws error
+</code></pre>
+<hr>
+<h3>Cookie-Based Session Management</h3>
+<p><strong>Why httpOnly Cookies</strong>:</p>
+<ul>
+<li>Not accessible via JavaScript (XSS protection)</li>
+<li>Automatically sent with requests (no manual headers)</li>
+<li>Secure flag ensures HTTPS-only transmission</li>
+<li>SameSite prevents CSRF attacks</li>
+</ul>
+<p><strong>Cookie Settings</strong>:</p>
+<pre><code class="language-javascript">res.cookie(&#39;auth_token&#39;, jwtToken, {
+  httpOnly: true,      // Not accessible via JavaScript
+  secure: true,        // HTTPS only
+  sameSite: &#39;lax&#39;,     // CSRF protection
+  maxAge: 30 * 24 * 60 * 60 * 1000,  // 30 days in milliseconds
+  domain: &#39;.aiperfoads.xyz&#39;      // Works for app and api subdomains
+});
+</code></pre>
+<p><strong>Session Lifetime</strong>: 30 days</p>
+<p><strong>Refresh Strategy</strong>: User must log in again after 30 days (no automatic refresh)</p>
+<hr>
+<h2>Authorization and Access Control</h2>
+<h3>Resource Ownership Validation</h3>
+<p><strong>Pattern</strong>: Every resource belongs to a user</p>
+<p><strong>Enforcement</strong>: Backend validates user owns resource before allowing access</p>
+<p><strong>Example</strong> (Get Client):</p>
+<pre><code class="language-javascript">app.get(&#39;/api/clients/:id&#39;, authenticateToken, async (req, res) =&gt; {
+  const clientId = req.params.id;
+  const userId = req.user.userId; // From JWT
+
+  // Fetch client with user_id check
+  const client = await db.query(
+    &#39;SELECT * FROM clients WHERE id = $1 AND user_id = $2&#39;,
+    [clientId, userId]
+  );
+
+  if (!client.rows.length) {
+    // Either doesn&#39;t exist OR belongs to different user
+    return res.status(404).json({ error: &#39;Client not found&#39; });
+  }
+
+  res.json(client.rows[0]);
+});
+</code></pre>
+<p><strong>Result</strong>: Users can only access their own clients, never other users&#39; data</p>
+<hr>
+<h3>Admin Role Check</h3>
+<p><strong>Admin-Only Endpoints</strong>: <code>/api/admin/*</code></p>
+<p><strong>Middleware</strong>:</p>
+<pre><code class="language-javascript">const requireAdmin = (req, res, next) =&gt; {
+  if (req.user.role !== &#39;admin&#39;) {
+    return res.status(403).json({ error: &#39;Admin access required&#39; });
+  }
+  next();
+};
+
+// Usage
+app.get(&#39;/api/admin/users&#39;, authenticateToken, requireAdmin, async (req, res) =&gt; {
+  // Only admins can access
+});
+</code></pre>
+<hr>
+<h3>Protected Fields</h3>
+<p><strong>User Cannot Modify</strong>:</p>
+<ul>
+<li><code>role</code> (admin vs user)</li>
+<li><code>isAdmin</code> flag</li>
+<li><code>user_id</code> (ownership)</li>
+<li><code>created_at</code> timestamps</li>
+</ul>
+<p><strong>Input Filtering</strong>:</p>
+<pre><code class="language-javascript">app.patch(&#39;/api/user/profile&#39;, authenticateToken, async (req, res) =&gt; {
+  // Whitelist allowed fields
+  const allowedFields = [&#39;name&#39;, &#39;company&#39;, &#39;timezone&#39;];
+  const updates = {};
+
+  for (const field of allowedFields) {
+    if (req.body[field] !== undefined) {
+      updates[field] = req.body[field];
+    }
+  }
+
+  // Ignore any attempt to update &#39;role&#39;, &#39;isAdmin&#39;, etc.
+  await db.query(
+    &#39;UPDATE users SET name = $1, company = $2, timezone = $3 WHERE id = $4&#39;,
+    [updates.name, updates.company, updates.timezone, req.user.userId]
+  );
+
+  res.json({ success: true });
+});
+</code></pre>
+<hr>
+<h2>API Security</h2>
+<h3>Rate Limiting</h3>
+<p><strong>Library</strong>: <code>express-rate-limit</code></p>
+<p><strong>Global Limit</strong>: 100 requests per 15 minutes per IP</p>
+<p><strong>Implementation</strong>:</p>
+<pre><code class="language-javascript">import rateLimit from &#39;express-rate-limit&#39;;
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Max 100 requests per window
+  message: &#39;Too many requests, please try again later&#39;,
+  standardHeaders: true, // Return rate limit info in headers
+  legacyHeaders: false
+});
+
+app.use(&#39;/api/&#39;, limiter);
+</code></pre>
+<p><strong>Sensitive Endpoints</strong> (stricter limits):</p>
+<pre><code class="language-javascript">const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 5, // Only 5 login attempts per 15 min
+  message: &#39;Too many login attempts, please try again later&#39;
+});
+
+app.use(&#39;/api/auth/google&#39;, authLimiter);
+</code></pre>
+<hr>
+<h3>CORS (Cross-Origin Resource Sharing)</h3>
+<p><strong>Purpose</strong>: Control which domains can make API requests</p>
+<p><strong>Configuration</strong>:</p>
+<pre><code class="language-javascript">import cors from &#39;cors&#39;;
+
+const corsOptions = {
+  origin: [
+    &#39;https://app.aiperfoads.xyz&#39;,  // Production frontend
+    &#39;http://localhost:3001&#39;             // Local dev frontend
+  ],
+  credentials: true, // Allow cookies
+  methods: [&#39;GET&#39;, &#39;POST&#39;, &#39;PATCH&#39;, &#39;DELETE&#39;],
+  allowedHeaders: [&#39;Content-Type&#39;, &#39;Authorization&#39;]
+};
+
+app.use(cors(corsOptions));
+</code></pre>
+<p><strong>Effect</strong>: Only requests from specified origins accepted</p>
+<hr>
+<h3>Security Headers (Helmet.js)</h3>
+<p><strong>Library</strong>: <code>helmet</code></p>
+<p><strong>Headers Set</strong>:</p>
+<pre><code class="language-javascript">import helmet from &#39;helmet&#39;;
+
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: [&quot;&#39;self&#39;&quot;],
+      styleSrc: [&quot;&#39;self&#39;&quot;, &quot;&#39;unsafe-inline&#39;&quot;],
+      scriptSrc: [&quot;&#39;self&#39;&quot;],
+      imgSrc: [&quot;&#39;self&#39;&quot;, &quot;data:&quot;, &quot;https:&quot;]
+    }
+  },
+  hsts: {
+    maxAge: 31536000, // 1 year
+    includeSubDomains: true,
+    preload: true
+  },
+  frameguard: { action: &#39;deny&#39; }, // Prevent clickjacking
+  noSniff: true,                    // Prevent MIME sniffing
+  xssFilter: true                   // Enable XSS filter
+}));
+</code></pre>
+<p><strong>Result</strong>:</p>
+<ul>
+<li>CSP prevents injection attacks</li>
+<li>HSTS enforces HTTPS</li>
+<li>Frameguard prevents clickjacking</li>
+<li>XSS filter adds browser-level protection</li>
+</ul>
+<hr>
+<h2>Data Protection</h2>
+<h3>SQL Injection Prevention</h3>
+<p><strong>Method</strong>: Parameterized queries (never string concatenation)</p>
+<p><strong>❌ VULNERABLE</strong>:</p>
+<pre><code class="language-javascript">// NEVER DO THIS
+const userId = req.params.id;
+const query = `SELECT * FROM users WHERE id = ${userId}`;
+const result = await db.query(query);
+</code></pre>
+<p><strong>Exploit</strong>:</p>
+<pre><code>Request: GET /api/users/1; DROP TABLE users; --
+Result: Entire users table deleted
+</code></pre>
+<hr>
+<p><strong>✅ SECURE</strong>:</p>
+<pre><code class="language-javascript">// ALWAYS DO THIS
+const userId = req.params.id;
+const query = &#39;SELECT * FROM users WHERE id = $1&#39;;
+const result = await db.query(query, [userId]);
+</code></pre>
+<p><strong>Why Safe</strong>: Database treats <code>userId</code> as data, not SQL code</p>
+<p><strong>All Queries Use Parameterization</strong>: Every database query in PerfoAds uses <code>$1</code>, <code>$2</code> placeholders</p>
+<hr>
+<h3>Input Validation and Sanitization</h3>
+<p><strong>Validation</strong>: Ensure input matches expected format</p>
+<p><strong>Sanitization</strong>: Remove or escape dangerous characters</p>
+<p><strong>Example</strong> (Creating Client):</p>
+<pre><code class="language-javascript">import validator from &#39;validator&#39;;
+
+app.post(&#39;/api/clients&#39;, authenticateToken, async (req, res) =&gt; {
+  const { name, customer_id, website } = req.body;
+
+  // Validation
+  if (!name || name.trim().length === 0) {
+    return res.status(400).json({ error: &#39;Client name required&#39; });
+  }
+
+  if (!customer_id || !/^\d{3}-\d{3}-\d{4}$/.test(customer_id)) {
+    return res.status(400).json({
+      error: &#39;Invalid customer ID format (XXX-XXX-XXXX)&#39;
+    });
+  }
+
+  if (website &amp;&amp; !validator.isURL(website)) {
+    return res.status(400).json({ error: &#39;Invalid website URL&#39; });
+  }
+
+  // Sanitization
+  const sanitizedName = validator.escape(name.trim());
+  const sanitizedCustomerId = customer_id.trim();
+
+  // Safe to insert
+  await db.query(
+    &#39;INSERT INTO clients (name, customer_id, website, user_id) VALUES ($1, $2, $3, $4)&#39;,
+    [sanitizedName, sanitizedCustomerId, website, req.user.userId]
+  );
+
+  res.json({ success: true });
+});
+</code></pre>
+<hr>
+<h3>Encryption</h3>
+<p><strong>Data at Rest</strong>:</p>
+<ul>
+<li>Database: Supabase provides encryption at rest (AES-256)</li>
+<li>OAuth Tokens: Encrypted before storing in database</li>
+<li>Passwords: Bcrypt hashed (if using password auth)</li>
+</ul>
+<p><strong>Encryption Example</strong> (OAuth Tokens):</p>
+<pre><code class="language-javascript">import crypto from &#39;crypto&#39;;
+
+const ENCRYPTION_KEY = Buffer.from(process.env.ENCRYPTION_KEY, &#39;hex&#39;);
+const IV_LENGTH = 16;
+
+function encrypt(text) {
+  const iv = crypto.randomBytes(IV_LENGTH);
+  const cipher = crypto.createCipheriv(&#39;aes-256-cbc&#39;, ENCRYPTION_KEY, iv);
+  let encrypted = cipher.update(text);
+  encrypted = Buffer.concat([encrypted, cipher.final()]);
+  return iv.toString(&#39;hex&#39;) + &#39;:&#39; + encrypted.toString(&#39;hex&#39;);
+}
+
+function decrypt(text) {
+  const parts = text.split(&#39;:&#39;);
+  const iv = Buffer.from(parts.shift(), &#39;hex&#39;);
+  const encryptedText = Buffer.from(parts.join(&#39;:&#39;), &#39;hex&#39;);
+  const decipher = crypto.createDecipheriv(&#39;aes-256-cbc&#39;, ENCRYPTION_KEY, iv);
+  let decrypted = decipher.update(encryptedText);
+  decrypted = Buffer.concat([decrypted, decipher.final()]);
+  return decrypted.toString();
+}
+
+// Usage
+const encryptedToken = encrypt(oauthRefreshToken);
+await db.query(&#39;UPDATE users SET oauth_refresh_token = $1 WHERE id = $2&#39;, [encryptedToken, userId]);
+</code></pre>
+<p><strong>Data in Transit</strong>:</p>
+<ul>
+<li>HTTPS/TLS 1.3 for all communication</li>
+<li>No plaintext transmission</li>
+</ul>
+<hr>
+<h2>Session Management</h2>
+<h3>Session Lifecycle</h3>
+<p><strong>Creation</strong>:</p>
+<ol>
+<li>User logs in via Google OAuth</li>
+<li>Backend generates JWT with 30-day expiration</li>
+<li>JWT stored in httpOnly cookie</li>
+<li>Cookie sent with every request</li>
+</ol>
+<p><strong>Validation</strong>:</p>
+<pre><code class="language-javascript">// Middleware on every protected route
+const authenticateToken = (req, res, next) =&gt; {
+  const token = req.cookies.auth_token;
+
+  if (!token) {
+    return res.status(401).json({ error: &#39;Not authenticated&#39; });
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded; // Attach user info to request
+    next();
+  } catch (error) {
+    return res.status(403).json({ error: &#39;Invalid or expired token&#39; });
+  }
+};
+</code></pre>
+<p><strong>Expiration</strong>:</p>
+<ul>
+<li>Automatic after 30 days</li>
+<li>Manual via logout (cookie deleted)</li>
+</ul>
+<p><strong>Logout</strong>:</p>
+<pre><code class="language-javascript">app.post(&#39;/api/auth/logout&#39;, (req, res) =&gt; {
+  res.clearCookie(&#39;auth_token&#39;, {
+    httpOnly: true,
+    secure: true,
+    sameSite: &#39;lax&#39;,
+    domain: &#39;.aiperfoads.xyz&#39;
+  });
+  res.json({ success: true });
+});
+</code></pre>
+<hr>
+<h3>Session Security</h3>
+<p><strong>CSRF Protection</strong>: SameSite cookie attribute (<code>lax</code>)</p>
+<p><strong>Session Fixation Prevention</strong>: New JWT generated on each login</p>
+<p><strong>Concurrent Sessions</strong>: Allowed (user can be logged in on multiple devices)</p>
+<hr>
+<h2>Error Handling and Information Disclosure</h2>
+<h3>Secure Error Responses</h3>
+<p><strong>❌ BAD</strong> (leaks implementation details):</p>
+<pre><code class="language-javascript">app.get(&#39;/api/clients/:id&#39;, async (req, res) =&gt; {
+  try {
+    const client = await db.query(&#39;SELECT * FROM clients WHERE id = $1&#39;, [req.params.id]);
+    res.json(client.rows[0]);
+  } catch (error) {
+    // Exposes database error to user
+    res.status(500).json({ error: error.message });
+  }
+});
+</code></pre>
+<p><strong>Error Exposed</strong>:</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;relation \&quot;clients\&quot; does not exist at character 15&quot;
+}
+</code></pre>
+<p><strong>Security Issue</strong>: Attacker learns database schema details</p>
+<hr>
+<p><strong>✅ GOOD</strong> (generic error message):</p>
+<pre><code class="language-javascript">app.get(&#39;/api/clients/:id&#39;, async (req, res) =&gt; {
+  try {
+    const client = await db.query(&#39;SELECT * FROM clients WHERE id = $1&#39;, [req.params.id]);
+    if (!client.rows.length) {
+      return res.status(404).json({ error: &#39;Client not found&#39; });
+    }
+    res.json(client.rows[0]);
+  } catch (error) {
+    // Log detailed error server-side
+    console.error(&#39;Database error:&#39;, error);
+
+    // Return generic error to client
+    res.status(500).json({ error: &#39;Internal server error&#39; });
+  }
+});
+</code></pre>
+<p><strong>Result</strong>: User sees generic message, detailed error logged server-side for debugging</p>
+<hr>
+<h2>Threat Mitigation</h2>
+<h3>XSS (Cross-Site Scripting)</h3>
+<p><strong>Attack</strong>: Injecting malicious scripts into app</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-javascript">// User inputs: &lt;script&gt;alert(&#39;XSS&#39;)&lt;/script&gt;
+// If rendered without escaping: Script executes
+</code></pre>
+<p><strong>Mitigation</strong>:</p>
+<ol>
+<li><strong>Input Sanitization</strong>: Escape user input before storing</li>
+<li><strong>Output Encoding</strong>: React auto-escapes output (safe by default)</li>
+<li><strong>CSP Headers</strong>: Content Security Policy blocks inline scripts</li>
+<li><strong>httpOnly Cookies</strong>: Prevents script access to session token</li>
+</ol>
+<hr>
+<h3>CSRF (Cross-Site Request Forgery)</h3>
+<p><strong>Attack</strong>: Malicious site makes authenticated request on behalf of user</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-html">&lt;!-- Malicious site --&gt;
+&lt;img src=&quot;https://api.aiperfoads.xyz/api/clients/1/delete&quot; /&gt;
+&lt;!-- If user is logged in, request succeeds --&gt;
+</code></pre>
+<p><strong>Mitigation</strong>:</p>
+<ol>
+<li><strong>SameSite Cookies</strong>: Cookie only sent for same-site requests</li>
+<li><strong>CORS</strong>: API only accepts requests from allowed origins</li>
+<li><strong>State-Changing Operations</strong>: Use POST/DELETE (not GET)</li>
+</ol>
+<hr>
+<h3>SQL Injection</h3>
+<p><strong>Attack</strong>: Injecting SQL commands via user input</p>
+<p><strong>Mitigation</strong>: 100% parameterized queries (covered earlier)</p>
+<hr>
+<h3>Brute Force Attacks</h3>
+<p><strong>Attack</strong>: Automated login attempts to guess passwords</p>
+<p><strong>Mitigation</strong>:</p>
+<ol>
+<li><strong>Rate Limiting</strong>: Max 5 login attempts per 15 minutes</li>
+<li><strong>OAuth Only</strong>: No passwords to brute force</li>
+<li><strong>Google&#39;s Protection</strong>: Google OAuth has built-in brute force protection</li>
+</ol>
+<hr>
+<h3>Man-in-the-Middle (MITM)</h3>
+<p><strong>Attack</strong>: Intercepting communication between client and server</p>
+<p><strong>Mitigation</strong>:</p>
+<ol>
+<li><strong>HTTPS/TLS 1.3</strong>: All communication encrypted</li>
+<li><strong>HSTS Header</strong>: Forces browser to use HTTPS</li>
+<li><strong>Certificate Pinning</strong>: (Not implemented, but option for future)</li>
+</ol>
+<hr>
+<h2>Compliance and Best Practices</h2>
+<h3>GDPR Compliance</h3>
+<p><strong>Data Collected</strong>:</p>
+<ul>
+<li>User email (from Google OAuth)</li>
+<li>User name (from Google OAuth)</li>
+<li>Google Ads data (synced from user&#39;s accounts)</li>
+</ul>
+<p><strong>User Rights</strong>:</p>
+<ul>
+<li><strong>Right to Access</strong>: Users can export their data</li>
+<li><strong>Right to Deletion</strong>: Users can delete account and all data</li>
+<li><strong>Right to Portability</strong>: Export available</li>
+</ul>
+<p><strong>Data Retention</strong>:</p>
+<ul>
+<li>Active users: Indefinite</li>
+<li>Deleted accounts: Immediate deletion (no grace period currently)</li>
+</ul>
+<hr>
+<h3>OWASP Top 10 Coverage</h3>
+<p><strong>1. Broken Access Control</strong>: ✅ Ownership validation on all resources</p>
+<p><strong>2. Cryptographic Failures</strong>: ✅ HTTPS, encrypted OAuth tokens, parameterized queries</p>
+<p><strong>3. Injection</strong>: ✅ Parameterized queries prevent SQL injection</p>
+<p><strong>4. Insecure Design</strong>: ✅ Security considered in architecture</p>
+<p><strong>5. Security Misconfiguration</strong>: ✅ Helmet.js, CORS, secure defaults</p>
+<p><strong>6. Vulnerable Components</strong>: ✅ Regular dependency updates</p>
+<p><strong>7. Identification and Authentication Failures</strong>: ✅ OAuth 2.0, JWT, httpOnly cookies</p>
+<p><strong>8. Software and Data Integrity Failures</strong>: ✅ Code review, testing</p>
+<p><strong>9. Security Logging and Monitoring</strong>: ⚠️ Basic logging (could improve)</p>
+<p><strong>10. Server-Side Request Forgery</strong>: ✅ No SSRF vectors (no user-provided URLs fetched server-side)</p>
+<hr>
+<h2>Security Testing</h2>
+<h3>Automated Testing</h3>
+<p><strong>Dependency Scanning</strong>: <code>npm audit</code></p>
+<p><strong>Run</strong>: <code>npm audit</code> before deployments</p>
+<p><strong>Fix</strong>: <code>npm audit fix</code> for automatic patches</p>
+<hr>
+<h3>Manual Security Checklist</h3>
+<p><strong>Pre-Deployment</strong>:</p>
+<ul>
+<li><input disabled="" type="checkbox"> All secrets in environment variables (not hardcoded)</li>
+<li><input disabled="" type="checkbox"> HTTPS enforced</li>
+<li><input disabled="" type="checkbox"> httpOnly cookies enabled</li>
+<li><input disabled="" type="checkbox"> CORS configured correctly</li>
+<li><input disabled="" type="checkbox"> Rate limiting active</li>
+<li><input disabled="" type="checkbox"> Input validation on all user inputs</li>
+<li><input disabled="" type="checkbox"> Parameterized queries for all SQL</li>
+<li><input disabled="" type="checkbox"> Error messages don&#39;t leak implementation details</li>
+<li><input disabled="" type="checkbox"> Admin endpoints protected with role check</li>
+<li><input disabled="" type="checkbox"> Resource ownership validated</li>
+</ul>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: Why JWT instead of server-side sessions?</strong>
+A: Stateless, scales horizontally without session store, works across frontend/backend domains.</p>
+<p><strong>Q: Why 30-day session expiration?</strong>
+A: Balance between security (shorter = better) and UX (longer = less re-login). 30 days is industry standard.</p>
+<p><strong>Q: Is OAuth refresh token stored securely?</strong>
+A: Yes, encrypted with AES-256 before database storage.</p>
+<p><strong>Q: Can users have multiple sessions?</strong>
+A: Yes, JWT allows concurrent sessions across devices.</p>
+<p><strong>Q: What if JWT secret is compromised?</strong>
+A: Rotate secret immediately, all existing JWTs invalidated, users must re-login.</p>
+<p><strong>Q: Is rate limiting per-user or per-IP?</strong>
+A: Per-IP currently. Future: Per-user for authenticated endpoints.</p>
+<hr>
+<h2>Next Steps</h2>
+<p>Complete security understanding with these guides:</p>
+<ul>
+<li><strong><a href="/docs/technical-architecture">Technical Architecture</a></strong> - System architecture overview</li>
+<li><strong><a href="/docs/technical-dual-api">Technical Dual API</a></strong> - API implementation details</li>
+<li><strong><a href="/docs/troubleshooting-oauth">Troubleshooting OAuth</a></strong> - OAuth security troubleshooting</li>
+<li><strong><a href="/docs/global-settings">Global Settings</a></strong> - OAuth and security settings</li>
+</ul>
+<hr>
+<p><strong>Security is ongoing</strong> - regular updates, audits, and improvements required</p>
+<p><strong>Defense in depth</strong> - multiple layers protect against single-point failures</p>
+<p><strong>Report security issues</strong> immediately to <a href="mailto:security@aiperfoads.xyz">security@aiperfoads.xyz</a></p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>

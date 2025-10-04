@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding the Dashboard - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Understanding the Dashboard</h1>
+<p>Your PerfoAds dashboard is mission control for all your Google Ads clients. This guide walks you through every element, metric, and action available - so you can manage accounts confidently and efficiently.</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ul>
+<li>How to read the summary cards (clients, syncs, spend, alerts)</li>
+<li>Understanding the client list table and what each column means</li>
+<li>Using filters and search to find specific clients</li>
+<li>Quick actions available from the dashboard</li>
+<li>Interpreting status indicators and alerts</li>
+</ul>
+<p><strong>Time needed</strong>: 10 minutes to read, 5 minutes to explore</p>
+<hr>
+<h2>Dashboard Layout Overview</h2>
+<p>When you log in, you see the client list dashboard with three main sections:</p>
+<ol>
+<li><strong>Top Bar</strong> - Navigation, search, and Add Client button</li>
+<li><strong>Summary Cards</strong> - High-level overview of all accounts</li>
+<li><strong>Client Table</strong> - Detailed list of all your clients with metrics</li>
+</ol>
+<p>[Screenshot: Full dashboard view showing all three sections]
+<em>Your dashboard gives you complete visibility into all managed accounts</em></p>
+<hr>
+<h2>Summary Cards</h2>
+<p>The four cards at the top give you an at-a-glance view of your entire operation.</p>
+<h3>Total Clients</h3>
+<p><strong>What it shows</strong>: How many Google Ads accounts you&#39;re managing</p>
+<p><strong>Example</strong>: <code>12 Clients</code></p>
+<p><strong>Why it matters</strong>: Tracks your client base size. Helps you see growth over time.</p>
+<p>[Screenshot: Total Clients card showing number]
+<em>Total active clients in your account</em></p>
+<h3>Active Syncs</h3>
+<p><strong>What it shows</strong>: How many clients are currently syncing data</p>
+<p><strong>Example</strong>: <code>2 Active</code></p>
+<p><strong>Why it matters</strong>:</p>
+<ul>
+<li>If you see 5+ syncing at once, some might be in queue</li>
+<li>Zero means all syncs are complete or none running</li>
+<li>Helps you know if data is refreshing</li>
+</ul>
+<p>[Screenshot: Active Syncs card showing count]
+<em>Real-time view of ongoing sync operations</em></p>
+<h3>Total Spend</h3>
+<p><strong>What it shows</strong>: Combined ad spend across all clients (last 30 days)</p>
+<p><strong>Example</strong>: <code>$45,230</code></p>
+<p><strong>Why it matters</strong>:</p>
+<ul>
+<li>Track total budget you&#39;re managing</li>
+<li>Spot unusual spending patterns</li>
+<li>Report to management on total ad investment</li>
+</ul>
+<p><strong>Note</strong>: Only includes clients with recent sync data</p>
+<p>[Screenshot: Total Spend card showing dollar amount]
+<em>Aggregate spending across your entire client portfolio</em></p>
+<h3>Active Alerts</h3>
+<p><strong>What it shows</strong>: Total AI-generated alerts needing attention</p>
+<p><strong>Example</strong>: <code>18 Alerts</code> with severity breakdown:</p>
+<ul>
+<li>3 Critical (red)</li>
+<li>7 High (orange)</li>
+<li>5 Medium (yellow)</li>
+<li>3 Low (blue)</li>
+</ul>
+<p><strong>Why it matters</strong>:</p>
+<ul>
+<li>Know how many optimization opportunities exist</li>
+<li>Prioritize which clients need attention</li>
+<li>Track alert resolution progress</li>
+</ul>
+<p>[Screenshot: Active Alerts card showing count and severity colors]
+<em>See all unresolved alerts at a glance</em></p>
+<hr>
+<h2>Client List Table</h2>
+<p>This is where you spend most of your time - viewing and managing clients.</p>
+<h3>Table Columns Explained</h3>
+<p>Each row represents one client. Here&#39;s what every column means:</p>
+<h4>Client Name</h4>
+<p><strong>What it shows</strong>: The friendly name you gave the client</p>
+<p><strong>Features</strong>:</p>
+<ul>
+<li>Click to open client detail page</li>
+<li>Pencil icon to edit name, website, or budget</li>
+</ul>
+<p><strong>Example</strong>: <code>ACME Corp</code>, <code>Bakery - Downtown</code></p>
+<p>[Screenshot: Client name column with edit icon]
+<em>Click the name to view details, click the pencil to edit</em></p>
+<h4>Customer ID</h4>
+<p><strong>What it shows</strong>: The Google Ads customer ID (10-digit number)</p>
+<p><strong>Example</strong>: <code>123-456-7890</code></p>
+<p><strong>Why it matters</strong>:</p>
+<ul>
+<li>Unique identifier from Google</li>
+<li>Useful when talking to Google Ads support</li>
+<li>Matches the ID in Google Ads interface</li>
+</ul>
+<p><strong>Format</strong>: Always <code>XXX-XXX-XXXX</code></p>
+<h4>Last Sync</h4>
+<p><strong>What it shows</strong>: When data was last refreshed</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li><code>Just now</code> - Synced in last minute</li>
+<li><code>5 minutes ago</code> - Recent sync</li>
+<li><code>2 hours ago</code> - Somewhat fresh</li>
+<li><code>Yesterday at 2:00 AM</code> - Older data</li>
+</ul>
+<p><strong>Freshness Indicators</strong>:</p>
+<ul>
+<li>🟢 Green - Synced today (fresh data)</li>
+<li>🟡 Yellow - 1-3 days old (slightly stale)</li>
+<li>🔴 Red - 4+ days old (very stale)</li>
+</ul>
+<p><strong>Why it matters</strong>: Know if you&#39;re looking at current data or outdated metrics</p>
+<p>[Screenshot: Last Sync column showing different time formats and color indicators]
+<em>Color-coded freshness helps you spot stale data quickly</em></p>
+<h4>Synced Days</h4>
+<p><strong>What it shows</strong>: How many days of data you have</p>
+<p><strong>Example</strong>: <code>90 days</code></p>
+<p><strong>Why it matters</strong>:</p>
+<ul>
+<li>More days = better trend analysis</li>
+<li>AI needs 30+ days for good insights</li>
+<li>First sync usually gets 90 days</li>
+</ul>
+<p><strong>Typical values</strong>:</p>
+<ul>
+<li>90 days - Full historical data</li>
+<li>30 days - Minimum for good AI analysis</li>
+<li>7 days - New account or partial sync</li>
+</ul>
+<h4>Status</h4>
+<p><strong>What it shows</strong>: Current state of the client account</p>
+<p><strong>Possible values</strong>:</p>
+<p><strong>✅ Active</strong></p>
+<ul>
+<li>Client is ready to use</li>
+<li>Data is synced</li>
+<li>Everything working normally</li>
+</ul>
+<p><strong>🔄 Syncing</strong></p>
+<ul>
+<li>Data refresh in progress</li>
+<li>Shows percentage complete</li>
+<li>Usually 2-15 minutes</li>
+</ul>
+<p><strong>❌ Failed</strong></p>
+<ul>
+<li>Last sync encountered an error</li>
+<li>Click for error details</li>
+<li>Needs attention (see Troubleshooting)</li>
+</ul>
+<p><strong>⏸️ Paused</strong></p>
+<ul>
+<li>Auto-sync disabled</li>
+<li>Manual sync still available</li>
+<li>Used for inactive clients</li>
+</ul>
+<p>[Screenshot: Status column showing all four status types]
+<em>Status helps you quickly identify which clients need attention</em></p>
+<h4>Alerts</h4>
+<p><strong>What it shows</strong>: Number of unresolved AI alerts for this client</p>
+<p><strong>Format</strong>: Badge with number and color</p>
+<p><strong>Color coding</strong>:</p>
+<ul>
+<li>🔴 Red - Critical issues (budget waste, broken tracking)</li>
+<li>🟡 Yellow - Important optimizations (performance drops)</li>
+<li>🟢 Green - Minor suggestions (small improvements)</li>
+</ul>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li><code>5</code> in red - 5 critical alerts</li>
+<li><code>2</code> in yellow - 2 medium-priority alerts</li>
+<li><code>-</code> (dash) - No alerts</li>
+</ul>
+<p><strong>Click the badge</strong>: Opens client detail page filtered to alerts</p>
+<p>[Screenshot: Alerts column showing different colored badges]
+<em>Color tells you severity at a glance</em></p>
+<h4>Actions</h4>
+<p><strong>What it shows</strong>: Dropdown menu with quick actions</p>
+<p><strong>Available actions</strong>:</p>
+<p><strong>Smart Sync</strong></p>
+<ul>
+<li>Pull latest data from Google Ads</li>
+<li>Only syncs new data since last sync</li>
+<li>Fastest option (2-4 minutes)</li>
+</ul>
+<p><strong>Full Sync</strong></p>
+<ul>
+<li>Re-sync all historical data</li>
+<li>Use when data seems wrong</li>
+<li>Takes longer (5-15 minutes)</li>
+</ul>
+<p><strong>View Details</strong></p>
+<ul>
+<li>Opens client detail page</li>
+<li>Same as clicking client name</li>
+</ul>
+<p><strong>Edit Client</strong></p>
+<ul>
+<li>Change name, website, budget</li>
+<li>Update business context</li>
+<li>Modify sync settings</li>
+</ul>
+<p><strong>Delete Client</strong></p>
+<ul>
+<li>Permanently removes client</li>
+<li>Deletes all synced data</li>
+<li>Cannot be undone - use carefully!</li>
+</ul>
+<p>[Screenshot: Actions dropdown menu open showing all options]
+<em>Quick access to common operations without leaving the dashboard</em></p>
+<hr>
+<h2>Using Filters and Search</h2>
+<h3>Search Box</h3>
+<p>Located in the top bar, lets you find clients quickly.</p>
+<p><strong>Searchable fields</strong>:</p>
+<ul>
+<li>Client name</li>
+<li>Customer ID</li>
+<li>Website URL</li>
+</ul>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>Type <code>ACME</code> to find ACME Corp</li>
+<li>Type <code>123-456</code> to find by customer ID</li>
+<li>Type <code>.com</code> to see all with websites</li>
+</ul>
+<p>[Screenshot: Search box with example search]
+<em>Search across name, ID, or URL to find clients fast</em></p>
+<h3>Filter by Status</h3>
+<p>Click the status filter dropdown to show only:</p>
+<ul>
+<li>Active clients</li>
+<li>Syncing clients</li>
+<li>Failed clients</li>
+<li>Paused clients</li>
+</ul>
+<p><strong>Use case</strong>: Filter to &quot;Failed&quot; to see which clients need troubleshooting.</p>
+<p>[Screenshot: Status filter dropdown]
+<em>Filter helps you focus on specific client groups</em></p>
+<h3>Sort Columns</h3>
+<p>Click any column header to sort:</p>
+<p><strong>Click once</strong> - Sort ascending (A to Z, oldest to newest)
+<strong>Click twice</strong> - Sort descending (Z to A, newest to oldest)
+<strong>Click third time</strong> - Remove sort</p>
+<p><strong>Useful sorts</strong>:</p>
+<ul>
+<li>Sort by Last Sync (oldest first) to find stale data</li>
+<li>Sort by Alerts (highest first) to prioritize work</li>
+<li>Sort by Client Name (A-Z) for alphabetical view</li>
+</ul>
+<p>[Screenshot: Column headers with sort arrows]
+<em>Click headers to reorder the table</em></p>
+<hr>
+<h2>Understanding Client Health at a Glance</h2>
+<p>You can quickly assess client health by looking at multiple indicators together:</p>
+<h3>Healthy Client</h3>
+<p>✅ <strong>Status</strong>: Active
+🟢 <strong>Last Sync</strong>: Just now (green)
+📊 <strong>Synced Days</strong>: 90 days
+🟢 <strong>Alerts</strong>: 0-2 (green or none)</p>
+<p><strong>What it means</strong>: Everything&#39;s running smoothly, no urgent action needed.</p>
+<h3>Needs Attention</h3>
+<p>🟡 <strong>Status</strong>: Active
+🟡 <strong>Last Sync</strong>: 2 days ago (yellow)
+📊 <strong>Synced Days</strong>: 90 days
+🟡 <strong>Alerts</strong>: 3-5 (yellow)</p>
+<p><strong>What it means</strong>: Data is getting stale, some optimization opportunities exist. Review alerts soon.</p>
+<h3>Critical Issues</h3>
+<p>🔴 <strong>Status</strong>: Failed or Active
+🔴 <strong>Last Sync</strong>: 5+ days ago (red)
+📊 <strong>Synced Days</strong>: 30 days
+🔴 <strong>Alerts</strong>: 5+ (red)</p>
+<p><strong>What it means</strong>: Sync is broken or critical problems exist. Fix immediately.</p>
+<p>[Screenshot: Three example rows showing healthy, attention-needed, and critical clients]
+<em>Compare these patterns to quickly triage your client list</em></p>
+<hr>
+<h2>Quick Actions from Dashboard</h2>
+<p>You can do most common tasks without leaving the dashboard:</p>
+<h3>Sync a Single Client</h3>
+<ol>
+<li>Find the client in the list</li>
+<li>Click Actions (⋮) next to their name</li>
+<li>Select Smart Sync</li>
+<li>Status changes to &quot;Syncing...&quot;</li>
+<li>Wait 2-4 minutes</li>
+</ol>
+<p><strong>When to use</strong>: Before client calls, after making Google Ads changes</p>
+<h3>Sync Multiple Clients</h3>
+<ol>
+<li>Check the boxes next to client names</li>
+<li>Bulk Actions menu appears at the top</li>
+<li>Click &quot;Sync Selected&quot;</li>
+<li>All selected clients sync in queue</li>
+</ol>
+<p><strong>When to use</strong>: Refreshing data for a group of related clients</p>
+<p>[Screenshot: Multiple clients selected with bulk actions menu]
+<em>Select clients and sync them all at once</em></p>
+<h3>Edit Client Info</h3>
+<ol>
+<li>Click Actions (⋮) → Edit Client</li>
+<li>Modal opens with editable fields</li>
+<li>Update name, website, budget, or goals</li>
+<li>Click Save</li>
+</ol>
+<p><strong>When to use</strong>: Client changes their business info, budget increases</p>
+<h3>View Client Details</h3>
+<p><strong>Method 1</strong>: Click client name
+<strong>Method 2</strong>: Click Actions → View Details
+<strong>Method 3</strong>: Click alert badge (opens to alerts)</p>
+<p><strong>What you see</strong>: Full client page with campaigns, metrics, AI chat, and alerts</p>
+<hr>
+<h2>Top Bar Features</h2>
+<h3>Main Navigation</h3>
+<p><strong>Clients</strong> - Where you are now (client list)
+<strong>Sync Logs</strong> - History of all sync operations
+<strong>AI Chat</strong> - Global AI assistant (not client-specific)
+<strong>Settings</strong> - Configure sync schedules, preferences, API keys</p>
+<p>[Screenshot: Top navigation bar]
+<em>Navigate between main sections of the platform</em></p>
+<h3>Add Client Button</h3>
+<p>Big blue button in top right - starts the client onboarding process.</p>
+<p><strong>Shortcut</strong>: Press <code>Ctrl+K</code> (Windows) or <code>Cmd+K</code> (Mac) to open quickly</p>
+<h3>User Menu</h3>
+<p>Click your profile icon (top right) for:</p>
+<ul>
+<li>Account settings</li>
+<li>Connected Google accounts</li>
+<li>Billing (if applicable)</li>
+<li>Logout</li>
+</ul>
+<hr>
+<h2>Dashboard Refresh Behavior</h2>
+<h3>Auto-Refresh</h3>
+<p><strong>Dashboard updates automatically</strong> when:</p>
+<ul>
+<li>A client sync completes</li>
+<li>New alerts are generated</li>
+<li>You make changes in another tab</li>
+</ul>
+<p><strong>Refresh frequency</strong>: Every 30 seconds while you&#39;re viewing the page</p>
+<h3>Manual Refresh</h3>
+<p><strong>Refresh button</strong> (top right, circular arrow icon):</p>
+<ul>
+<li>Click to force immediate refresh</li>
+<li>Useful if data seems outdated</li>
+<li>Shows loading indicator while refreshing</li>
+</ul>
+<p>[Screenshot: Refresh button location]
+<em>Force a refresh if you need the latest data immediately</em></p>
+<hr>
+<h2>Tips &amp; Best Practices</h2>
+<h3>Daily Workflow</h3>
+<p><strong>Morning routine</strong>:</p>
+<ol>
+<li>Check summary cards - any unusual numbers?</li>
+<li>Sort by Alerts (highest first) - which clients need attention?</li>
+<li>Filter to Failed - any broken syncs overnight?</li>
+<li>Review clients with red Last Sync - data stale?</li>
+</ol>
+<p><strong>Throughout the day</strong>:</p>
+<ul>
+<li>Use search to quickly find specific clients</li>
+<li>Sync before client calls for fresh data</li>
+<li>Check Active Syncs card if platform seems slow</li>
+</ul>
+<h3>Staying Organized</h3>
+<p><strong>Naming convention</strong>: Use consistent names so sorting works well</p>
+<ul>
+<li>Good: <code>ACME Corp</code>, <code>Bakery - Downtown</code>, <code>Law Firm - Smith</code></li>
+<li>Bad: <code>client1</code>, <code>test</code>, <code>asdf</code></li>
+</ul>
+<p><strong>Regular cleanup</strong>:</p>
+<ul>
+<li>Delete old test clients</li>
+<li>Pause inactive clients (not currently advertising)</li>
+<li>Update budgets when client spending changes</li>
+</ul>
+<h3>Performance Optimization</h3>
+<p><strong>Large client lists</strong> (20+ clients):</p>
+<ul>
+<li>Use search instead of scrolling</li>
+<li>Use filters to focus on relevant subsets</li>
+<li>Consider syncing in batches (not all at once)</li>
+</ul>
+<p><strong>Slow dashboard</strong>:</p>
+<ul>
+<li>Check Active Syncs - if 5+ are running, wait for some to finish</li>
+<li>Refresh browser if metrics seem frozen</li>
+<li>Close other tabs to free up memory</li>
+</ul>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: Why don&#39;t I see any clients?</strong>
+A: You haven&#39;t added any yet. Click &quot;Add Client&quot; in the top right to get started.</p>
+<p><strong>Q: Can I rearrange the columns?</strong>
+A: Not currently, but you can sort by any column to reorganize the list.</p>
+<p><strong>Q: What does the dash (-) mean in the Alerts column?</strong>
+A: No alerts for that client. Either the account is healthy or AI hasn&#39;t analyzed it yet.</p>
+<p><strong>Q: Why is Last Sync showing &quot;Never&quot; for a client I just added?</strong>
+A: You added the client but haven&#39;t run a sync yet. Click Actions → Smart Sync to pull data.</p>
+<p><strong>Q: Can I hide paused clients from the list?</strong>
+A: Yes, use the Status filter and uncheck &quot;Paused&quot; to hide them.</p>
+<p><strong>Q: What happens if I delete a client by accident?</strong>
+A: All data is permanently deleted and cannot be recovered. You can re-add the client, but you&#39;ll need to sync from scratch.</p>
+<p><strong>Q: How many clients can I manage from one dashboard?</strong>
+A: No hard limit, but we recommend 50 or fewer for best performance. Contact sales for enterprise pricing if you need more.</p>
+<hr>
+<h2>Troubleshooting</h2>
+<h3>Problem: Dashboard shows old data</h3>
+<p><strong>Symptom</strong>: Metrics don&#39;t match Google Ads, Last Sync times look wrong</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Click the refresh button (top right)</li>
+<li>Wait 5 seconds for data to reload</li>
+<li>Check if Last Sync updated</li>
+<li>If still wrong, try logging out and back in</li>
+</ol>
+<h3>Problem: Client stuck in &quot;Syncing&quot; status</h3>
+<p><strong>Symptom</strong>: Status shows &quot;Syncing&quot; for 20+ minutes</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Refresh the dashboard</li>
+<li>Check Sync Logs page for that client</li>
+<li>If truly stuck, contact support (provide client name and timestamp)</li>
+</ol>
+<h3>Problem: Summary cards show zeros</h3>
+<p><strong>Symptom</strong>: Total Clients shows 0, Total Spend shows $0</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Check if you have any clients added (table should have rows)</li>
+<li>Refresh the dashboard</li>
+<li>Check if clients have been synced (Last Sync should not be &quot;Never&quot;)</li>
+<li>If clients exist but cards show 0, contact support</li>
+</ol>
+<h3>Problem: Actions dropdown doesn&#39;t work</h3>
+<p><strong>Symptom</strong>: Clicking Actions (⋮) does nothing</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Refresh the page</li>
+<li>Try a different browser (Chrome, Firefox, Safari, Edge all supported)</li>
+<li>Clear browser cache</li>
+<li>Disable browser extensions that might interfere</li>
+</ol>
+<hr>
+<h2>Next Steps</h2>
+<p>Now that you understand the dashboard, explore these related topics:</p>
+<ul>
+<li><strong><a href="/docs/client-details-page">Client Details Page</a></strong> - Deep dive into a single client&#39;s data</li>
+<li><strong><a href="/docs/smart-sync-explained">Smart Sync Explained</a></strong> - How the sync system works</li>
+<li><strong><a href="/docs/sync-logs">Sync Logs</a></strong> - Troubleshoot sync issues and view history</li>
+<li><strong><a href="/docs/smart-alerts-intro">Smart Alerts Intro</a></strong> - Start acting on AI recommendations</li>
+</ul>
+<hr>
+<p><strong>Ready to explore a client?</strong> Click any client name in your dashboard to view their details.</p>
+<p><strong>Need to add more clients?</strong> Click <strong>Add Client</strong> in the top right.</p>
+<p><strong>Want to customize your dashboard?</strong> Go to Settings → Display Preferences (coming soon).</p>
+<p><strong>Need help?</strong> Contact support at <a href="mailto:support@aiperfoads.xyz">support@aiperfoads.xyz</a></p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Operations - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Bulk Operations</h1>
+<p>Managing 10, 20, or 50 Google Ads clients one-by-one is tedious. Bulk operations let you sync, delete, and onboard multiple clients at once - saving hours of repetitive work and keeping your entire portfolio in sync.</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ul>
+<li>Selecting multiple clients for bulk actions</li>
+<li>Bulk syncing strategies for different scenarios</li>
+<li>Safe bulk deletion procedures</li>
+<li>Bulk onboarding from account discovery</li>
+<li>Queue management for large operations</li>
+<li>Best practices for managing client portfolios</li>
+</ul>
+<p><strong>Time needed</strong>: 12 minutes to read</p>
+<hr>
+<h2>Why Use Bulk Operations</h2>
+<h3>Time Savings</h3>
+<p><strong>Without bulk operations</strong>:</p>
+<ul>
+<li>20 clients × 3 clicks each = 60 clicks</li>
+<li>Time: 10-15 minutes</li>
+</ul>
+<p><strong>With bulk operations</strong>:</p>
+<ul>
+<li>Select all → 1 click to sync</li>
+<li>Time: 2 minutes</li>
+</ul>
+<p><strong>Result</strong>: 80% time savings</p>
+<h3>Consistency</h3>
+<p><strong>Bulk operations ensure</strong>:</p>
+<ul>
+<li>All clients synced at same time</li>
+<li>Same date range for analysis</li>
+<li>Consistent data freshness</li>
+<li>Easier portfolio-wide reporting</li>
+</ul>
+<h3>Scale</h3>
+<p><strong>As you grow</strong>:</p>
+<ul>
+<li>5 clients → Manual works fine</li>
+<li>20 clients → Bulk saves time</li>
+<li>50+ clients → Bulk is essential</li>
+</ul>
+<p>[Screenshot: Time comparison chart showing manual vs bulk operations]
+<em>Bulk operations become critical as client count grows</em></p>
+<hr>
+<h2>Client Selection Methods</h2>
+<h3>Method 1: Individual Checkboxes</h3>
+<p><strong>How to use</strong>:</p>
+<ol>
+<li>Click checkbox next to client name</li>
+<li>Client row highlights in blue</li>
+<li>Repeat for each client you want</li>
+<li>Bulk actions toolbar appears</li>
+</ol>
+<p><strong>When to use</strong>:</p>
+<ul>
+<li>Selecting specific clients</li>
+<li>Non-sequential selections</li>
+<li>Custom groupings</li>
+</ul>
+<p><strong>Example</strong>: Select all e-commerce clients across the list</p>
+<p>[Screenshot: Individual clients selected with checkboxes]
+<em>Select specific clients regardless of position</em></p>
+<hr>
+<h3>Method 2: Select All</h3>
+<p><strong>How to use</strong>:</p>
+<ol>
+<li>Click checkbox in table header</li>
+<li>All clients on current page select</li>
+<li>Bulk actions toolbar appears</li>
+</ol>
+<p><strong>Important</strong>: Only selects visible clients on current page</p>
+<p><strong>If you have 50 clients with 25 per page</strong>:</p>
+<ul>
+<li>Select All selects 25 clients (page 1)</li>
+<li>Navigate to page 2, Select All again for next 25</li>
+<li>Total: Two separate operations</li>
+</ul>
+<p><strong>When to use</strong>:</p>
+<ul>
+<li>Syncing entire portfolio</li>
+<li>Morning refresh routine</li>
+<li>End-of-day cleanup</li>
+</ul>
+<p>[Screenshot: Select All checkbox in header]
+<em>Quick way to select everything visible</em></p>
+<hr>
+<h3>Method 3: Shift+Click Range Selection</h3>
+<p><strong>How to use</strong>:</p>
+<ol>
+<li>Click first client&#39;s checkbox</li>
+<li>Hold Shift key</li>
+<li>Click last client&#39;s checkbox</li>
+<li>All clients between them select</li>
+</ol>
+<p><strong>Example</strong>:</p>
+<ul>
+<li>Click client #3</li>
+<li>Shift+Click client #10</li>
+<li>Clients 3, 4, 5, 6, 7, 8, 9, 10 all select</li>
+</ul>
+<p><strong>When to use</strong>:</p>
+<ul>
+<li>Sequential selections</li>
+<li>Contiguous groups</li>
+<li>Faster than clicking individual boxes</li>
+</ul>
+<p>[Screenshot: Range selection demonstration]
+<em>Shift+Click selects entire range</em></p>
+<hr>
+<h3>Method 4: Filter Then Select All</h3>
+<p><strong>Most powerful method</strong>:</p>
+<ol>
+<li><strong>Apply filters</strong> to narrow list<ul>
+<li>Example: Filter to &quot;Status = Failed&quot;</li>
+</ul>
+</li>
+<li><strong>Select All</strong> (all failed syncs)</li>
+<li><strong>Bulk action</strong> (re-sync all failures)</li>
+</ol>
+<p><strong>Use cases</strong>:</p>
+<p><strong>Sync all stale data</strong>:</p>
+<ul>
+<li>Sort by Last Sync (oldest first)</li>
+<li>Select first 10-20</li>
+<li>Bulk sync</li>
+</ul>
+<p><strong>Delete all paused clients</strong>:</p>
+<ul>
+<li>Filter to Status = Paused</li>
+<li>Select All</li>
+<li>Bulk delete</li>
+</ul>
+<p><strong>Sync specific campaign types</strong> (if tracked):</p>
+<ul>
+<li>Filter by industry tag</li>
+<li>Select All</li>
+<li>Bulk sync</li>
+</ul>
+<p>[Screenshot: Filtered list with Select All]
+<em>Combine filters with Select All for targeted bulk actions</em></p>
+<hr>
+<h2>Bulk Sync Operations</h2>
+<h3>Standard Bulk Sync</h3>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Select clients (any method)</li>
+<li>Bulk actions toolbar appears</li>
+<li>Click &quot;Sync Selected&quot;</li>
+<li>Confirmation dialog shows count</li>
+<li>Confirm action</li>
+<li>Syncs queue up and process</li>
+</ol>
+<p><strong>What happens</strong>:</p>
+<ul>
+<li>First 5 clients: Start syncing immediately (concurrent limit)</li>
+<li>Remaining clients: Enter queue</li>
+<li>As each completes, next in queue starts</li>
+<li>All clients eventually process</li>
+</ul>
+<p><strong>Status indicators</strong>:</p>
+<ul>
+<li>Active syncs: &quot;Syncing... 45%&quot;</li>
+<li>Queued syncs: &quot;Queued (position 3)&quot;</li>
+<li>Completed: &quot;Last synced: Just now&quot;</li>
+</ul>
+<p>[Screenshot: Bulk sync in progress showing mix of statuses]
+<em>Watch progress across all selected clients</em></p>
+<hr>
+<h3>Morning Refresh Routine</h3>
+<p><strong>Goal</strong>: Get fresh data for all active clients</p>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Go to client list</li>
+<li>Filter: Status = Active (uncheck Paused)</li>
+<li>Select All</li>
+<li>Sync Selected</li>
+<li>Go make coffee ☕</li>
+<li>Return to fresh data</li>
+</ol>
+<p><strong>Time</strong>:</p>
+<ul>
+<li>Selection: 30 seconds</li>
+<li>Sync duration: 5-20 minutes (automatic)</li>
+<li>Your active time: 30 seconds</li>
+</ul>
+<p><strong>Frequency</strong>: Daily or every other day</p>
+<hr>
+<h3>Selective Sync Strategy</h3>
+<p><strong>For large portfolios (30+ clients)</strong>:</p>
+<p><strong>Don&#39;t sync everyone every day</strong>:</p>
+<ul>
+<li>High-priority clients: Daily</li>
+<li>Medium-priority: Every 2-3 days</li>
+<li>Low-priority: Weekly</li>
+</ul>
+<p><strong>Implementation</strong>:</p>
+<p><strong>High-priority (top 10 spending clients)</strong>:</p>
+<ul>
+<li>Monday: Select clients 1-10 → Sync</li>
+<li>Tuesday: Auto-sync handles them</li>
+<li>Wednesday: Manual check if needed</li>
+</ul>
+<p><strong>Medium-priority (next 20 clients)</strong>:</p>
+<ul>
+<li>Monday: Sync clients 11-20</li>
+<li>Wednesday: Sync clients 21-30</li>
+<li>Friday: Check for any failures</li>
+</ul>
+<p><strong>Low-priority (remaining clients)</strong>:</p>
+<ul>
+<li>Monday: Sync all remaining</li>
+<li>Or use auto-sync weekly schedule</li>
+</ul>
+<p><strong>Why this works</strong>:</p>
+<ul>
+<li>Focuses effort on revenue-driving accounts</li>
+<li>Reduces API quota usage</li>
+<li>Prevents queue bottlenecks</li>
+</ul>
+<p>[Screenshot: Client list with priority tags]
+<em>Use naming convention to identify priority tiers</em></p>
+<hr>
+<h3>Before Client Call Prep</h3>
+<p><strong>Scenario</strong>: You have 3 client calls tomorrow</p>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Search for first client</li>
+<li>Click checkbox</li>
+<li>Search for second client</li>
+<li>Click checkbox (adds to selection)</li>
+<li>Search for third client</li>
+<li>Click checkbox</li>
+<li>Sync Selected</li>
+</ol>
+<p><strong>Result</strong>: All 3 clients have fresh data before meetings</p>
+<p><strong>Time</strong>: 2 minutes vs. 6 minutes (syncing individually)</p>
+<hr>
+<h3>Emergency Bulk Re-sync</h3>
+<p><strong>When to use</strong>:</p>
+<ul>
+<li>Major Google Ads API update</li>
+<li>Data looks wrong across multiple clients</li>
+<li>After system maintenance</li>
+</ul>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Select affected clients</li>
+<li>Use Full Sync (not Smart Sync)</li>
+<li>Wait for completion</li>
+<li>Verify data accuracy</li>
+</ol>
+<p><strong>Warning</strong>: Full Sync uses 10-20x more API quota. Only use when necessary.</p>
+<hr>
+<h2>Bulk Delete Operations</h2>
+<h3>Safety Checks</h3>
+<p>Bulk delete is <strong>PERMANENT</strong> and <strong>CANNOT BE UNDONE</strong>.</p>
+<p><strong>Built-in safety features</strong>:</p>
+<ol>
+<li>Confirmation dialog lists all clients</li>
+<li>Requires typing &quot;DELETE&quot; to confirm</li>
+<li>Shows total count before deletion</li>
+<li>Cannot bulk delete more than 20 at once (prevents accidents)</li>
+</ol>
+<p>[Screenshot: Bulk delete confirmation requiring DELETE]
+<em>Safety mechanism prevents accidental mass deletion</em></p>
+<hr>
+<h3>When to Bulk Delete</h3>
+<p><strong>End-of-contract cleanup</strong>:</p>
+<ul>
+<li>Client contracts ended</li>
+<li>No longer managing these accounts</li>
+<li>Remove from system</li>
+</ul>
+<p><strong>Test account cleanup</strong>:</p>
+<ul>
+<li>Created test clients during setup</li>
+<li>No longer needed</li>
+<li>Cluttering the list</li>
+</ul>
+<p><strong>Duplicate removal</strong>:</p>
+<ul>
+<li>Accidentally added same account twice</li>
+<li>Clean up duplicates</li>
+</ul>
+<p><strong>Access revoked</strong>:</p>
+<ul>
+<li>Client removed your access</li>
+<li>Can&#39;t sync anymore</li>
+<li>Delete to prevent errors</li>
+</ul>
+<hr>
+<h3>Safe Bulk Delete Process</h3>
+<p><strong>Step 1: Identify clients to delete</strong></p>
+<p>Create a list first:</p>
+<pre><code>Clients to Delete:
+- Test Client 1
+- Test Client 2
+- Old Account - Ended Contract
+</code></pre>
+<p><strong>Step 2: Filter and verify</strong></p>
+<p>Don&#39;t rely on memory - use clear visual indicators:</p>
+<ol>
+<li>Add &quot;[DELETE]&quot; prefix to client names</li>
+<li>Filter or search for &quot;[DELETE]&quot;</li>
+<li>Verify the list matches your notes</li>
+<li>Double-check each one</li>
+</ol>
+<p><strong>Step 3: Select carefully</strong></p>
+<ul>
+<li>Use individual checkboxes (not Select All)</li>
+<li>Check each client name</li>
+<li>Count matches your list</li>
+<li>Verify one more time</li>
+</ul>
+<p><strong>Step 4: Execute deletion</strong></p>
+<ol>
+<li>Click &quot;Delete Selected&quot;</li>
+<li>Review list in confirmation dialog</li>
+<li>Type &quot;DELETE&quot; exactly</li>
+<li>Confirm</li>
+</ol>
+<p><strong>Step 5: Verify</strong></p>
+<ul>
+<li>Refresh page</li>
+<li>Confirm clients are gone</li>
+<li>Check Total Clients card (should decrease)</li>
+</ul>
+<p>[Screenshot: Safe deletion workflow diagram]
+<em>Follow this process to avoid accidental deletions</em></p>
+<hr>
+<h3>What NOT to Delete in Bulk</h3>
+<p><strong>❌ Don&#39;t bulk delete</strong>:</p>
+<ul>
+<li>Active clients with campaigns running</li>
+<li>Clients with recent data (synced in last 7 days)</li>
+<li>High-spend accounts</li>
+<li>Clients mixed with active ones</li>
+</ul>
+<p><strong>Instead</strong>:</p>
+<ul>
+<li>Pause auto-sync first</li>
+<li>Let them sit for 30 days</li>
+<li>Then delete individually or in small batches</li>
+</ul>
+<hr>
+<h2>Bulk Onboarding</h2>
+<p>Add multiple clients from Google Ads account discovery at once.</p>
+<h3>Account Discovery Process</h3>
+<p><strong>Step 1: Connect Google Account</strong></p>
+<ol>
+<li>Go to Settings → Google Ads Connections</li>
+<li>Click &quot;Refresh Discovery Cache&quot;</li>
+<li>System queries Google Ads API</li>
+<li>Retrieves all accounts you have access to</li>
+<li>Cache expires after 24 hours</li>
+</ol>
+<p><strong>What you&#39;ll see</strong>:</p>
+<ul>
+<li>List of all Google Ads accounts</li>
+<li>Account names and customer IDs</li>
+<li>Which accounts are already added (grayed out)</li>
+<li>Account status (active, suspended, etc.)</li>
+</ul>
+<p>[Screenshot: Account discovery showing list of available accounts]
+<em>Discover all accessible Google Ads accounts</em></p>
+<hr>
+<h3>Bulk Adding Clients</h3>
+<p><strong>Step 2: Select accounts to add</strong></p>
+<p><strong>Method 1: Individual selection</strong></p>
+<ul>
+<li>Click checkbox next to each account</li>
+<li>Select 5-10 at a time (recommended)</li>
+</ul>
+<p><strong>Method 2: Select All</strong></p>
+<ul>
+<li>Click &quot;Select All&quot;</li>
+<li>Only recommended for small portfolios (&lt;10 accounts)</li>
+</ul>
+<p><strong>Filtering available</strong>:</p>
+<ul>
+<li>Hide already-added accounts</li>
+<li>Filter by account status</li>
+<li>Search by name or ID</li>
+</ul>
+<p><strong>Step 3: Configure bulk settings</strong></p>
+<p><strong>Optional but recommended</strong>:</p>
+<ul>
+<li>Auto-sync: Enable/disable for all</li>
+<li>Sync time: Set default time</li>
+<li>Initial sync: Run immediately or schedule</li>
+</ul>
+<p><strong>Step 4: Add clients</strong></p>
+<ol>
+<li>Click &quot;Add Selected Clients&quot;</li>
+<li>System creates client entries</li>
+<li>Optionally triggers initial sync</li>
+<li>Progress indicator shows creation status</li>
+</ol>
+<p><strong>Step 5: Verify</strong></p>
+<ul>
+<li>Go to client list</li>
+<li>See new clients appear</li>
+<li>Check Total Clients card</li>
+<li>Verify sync status</li>
+</ul>
+<p>[Screenshot: Bulk add clients interface]
+<em>Add multiple clients in one operation</em></p>
+<hr>
+<h3>Post-Onboarding Workflow</h3>
+<p><strong>After bulk adding clients</strong>:</p>
+<p><strong>Immediate tasks</strong>:</p>
+<ol>
+<li>Run initial sync on all (if not auto-triggered)</li>
+<li>Let syncs complete (10-30 minutes)</li>
+<li>Review for any sync failures</li>
+</ol>
+<p><strong>Within 24 hours</strong>:</p>
+<ol>
+<li>Add business profiles for each</li>
+<li>Set monthly budgets</li>
+<li>Configure per-client sync schedules</li>
+<li>Check for initial AI alerts</li>
+</ol>
+<p><strong>Within first week</strong>:</p>
+<ol>
+<li>Review AI alerts for all new clients</li>
+<li>Accept/decline recommendations</li>
+<li>Set up priority tiers</li>
+<li>Establish routine workflows</li>
+</ol>
+<hr>
+<h2>Queue Management</h2>
+<h3>Understanding the Sync Queue</h3>
+<p><strong>Concurrent limit</strong>: 5 clients syncing at once</p>
+<p><strong>Why the limit</strong>:</p>
+<ul>
+<li>Google Ads API rate limits</li>
+<li>System resource management</li>
+<li>Ensures sync quality</li>
+</ul>
+<p><strong>Queue behavior</strong>:</p>
+<pre><code>Selected 15 clients to sync:
+
+Clients 1-5:   Syncing now
+Clients 6-10:  Queued (waiting)
+Clients 11-15: Queued (waiting)
+
+As #1 finishes → #6 starts
+As #2 finishes → #7 starts
+And so on...
+</code></pre>
+<p>[Screenshot: Queue status visualization]
+<em>Visual representation of queue processing</em></p>
+<hr>
+<h3>Queue Priority</h3>
+<p><strong>Processing order</strong>: First selected → First processed</p>
+<p><strong>Cannot change priority</strong> once queued</p>
+<p><strong>To prioritize specific clients</strong>:</p>
+<ol>
+<li>Don&#39;t select all at once</li>
+<li>Sync high-priority batch first</li>
+<li>Let that complete</li>
+<li>Then sync next batch</li>
+</ol>
+<p><strong>Example</strong>:</p>
+<pre><code>Batch 1 (high priority): Clients with meetings today
+  → Sync → Wait for completion
+
+Batch 2 (medium priority): Top 10 spenders
+  → Sync → Wait for completion
+
+Batch 3 (low priority): Remaining clients
+  → Sync → Let run overnight
+</code></pre>
+<hr>
+<h3>Canceling Queued Syncs</h3>
+<p><strong>How to cancel</strong>:</p>
+<ol>
+<li>Find client in queue (&quot;Queued (position 3)&quot;)</li>
+<li>Click Actions → Cancel Sync</li>
+<li>Removed from queue</li>
+</ol>
+<p><strong>Important</strong>: Cannot cancel active syncs (only queued ones)</p>
+<p><strong>When to cancel</strong>:</p>
+<ul>
+<li>Accidentally queued wrong clients</li>
+<li>Need to prioritize different clients</li>
+<li>System experiencing issues</li>
+</ul>
+<hr>
+<h3>Managing Large Queues</h3>
+<p><strong>Problem</strong>: Queued 50 clients, taking forever</p>
+<p><strong>Solutions</strong>:</p>
+<p><strong>Solution 1: Batch processing</strong></p>
+<ul>
+<li>Cancel remaining queued syncs</li>
+<li>Select 10 clients at a time</li>
+<li>Sync in batches throughout the day</li>
+</ul>
+<p><strong>Solution 2: Overnight processing</strong></p>
+<ul>
+<li>Let queue run overnight</li>
+<li>Check in morning for failures</li>
+<li>Re-sync failures</li>
+</ul>
+<p><strong>Solution 3: Increase concurrency</strong> (not currently available)</p>
+<ul>
+<li>Contact support for enterprise plan</li>
+<li>Higher concurrent limit (10-15)</li>
+<li>Faster bulk processing</li>
+</ul>
+<hr>
+<h2>Advanced Bulk Strategies</h2>
+<h3>Segment-Based Syncing</h3>
+<p><strong>Organize clients into segments</strong>:</p>
+<p><strong>By industry</strong>:</p>
+<ul>
+<li>E-commerce: Prefix &quot;EC -&quot;</li>
+<li>Legal: Prefix &quot;Legal -&quot;</li>
+<li>Healthcare: Prefix &quot;HC -&quot;</li>
+</ul>
+<p><strong>Sync by segment</strong>:</p>
+<ol>
+<li>Search &quot;EC -&quot;</li>
+<li>Select All results</li>
+<li>Sync</li>
+<li>Repeat for other segments</li>
+</ol>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>Targeted sync scheduling</li>
+<li>Industry-specific analysis</li>
+<li>Easier reporting</li>
+</ul>
+<hr>
+<h3>Time-Zone Based Syncing</h3>
+<p><strong>For multi-timezone portfolios</strong>:</p>
+<p><strong>East Coast clients</strong> (EST):</p>
+<ul>
+<li>Sync at 2:00 AM EST</li>
+<li>Fresh data by 9 AM EST</li>
+</ul>
+<p><strong>West Coast clients</strong> (PST):</p>
+<ul>
+<li>Sync at 2:00 AM PST (5 AM EST)</li>
+<li>Fresh data by 9 AM PST</li>
+</ul>
+<p><strong>International clients</strong>:</p>
+<ul>
+<li>Set per-client sync times</li>
+<li>Respect local business hours</li>
+</ul>
+<p><strong>Implementation</strong>:</p>
+<ol>
+<li>Tag clients by timezone</li>
+<li>Use per-client sync settings</li>
+<li>Or manually batch sync at different times</li>
+</ol>
+<hr>
+<h3>Budget-Tiered Syncing</h3>
+<p><strong>Sync frequency based on spend</strong>:</p>
+<p><strong>High spend</strong> ($10K+/month):</p>
+<ul>
+<li>Daily sync</li>
+<li>Priority queue position</li>
+<li>Immediate alerts</li>
+</ul>
+<p><strong>Medium spend</strong> ($1K-$10K/month):</p>
+<ul>
+<li>Sync every 2-3 days</li>
+<li>Standard queue</li>
+<li>Daily alert review</li>
+</ul>
+<p><strong>Low spend</strong> (&lt;$1K/month):</p>
+<ul>
+<li>Weekly sync</li>
+<li>Low priority</li>
+<li>Weekly alert review</li>
+</ul>
+<p><strong>Setup</strong>:</p>
+<ol>
+<li>Tag clients by spend tier</li>
+<li>Filter by tag</li>
+<li>Bulk sync on schedule</li>
+</ol>
+<hr>
+<h2>Tips &amp; Best Practices</h2>
+<h3>Naming Conventions</h3>
+<p><strong>Use prefixes for easy filtering</strong>:</p>
+<pre><code>[PRIORITY] ACME Corp
+[PAUSED] Old Client
+[TEST] Demo Account
+[DELETE] Ended Contract
+</code></pre>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>Search &quot;[PRIORITY]&quot; finds all priority clients</li>
+<li>Filter and bulk sync by tag</li>
+<li>Clear visual indicators</li>
+</ul>
+<hr>
+<h3>Regular Cleanup</h3>
+<p><strong>Monthly cleanup routine</strong>:</p>
+<p><strong>Week 1</strong>: Review all clients</p>
+<ul>
+<li>Identify inactive/ended clients</li>
+<li>Tag for deletion</li>
+</ul>
+<p><strong>Week 2</strong>: Disable auto-sync on tagged clients</p>
+<ul>
+<li>Prevents wasted API quota</li>
+<li>Keeps data for review</li>
+</ul>
+<p><strong>Week 3</strong>: Export any needed data</p>
+<ul>
+<li>Historical reports</li>
+<li>Client records</li>
+</ul>
+<p><strong>Week 4</strong>: Bulk delete tagged clients</p>
+<ul>
+<li>Clean slate for next month</li>
+</ul>
+<hr>
+<h3>Documentation</h3>
+<p><strong>Keep a client inventory</strong>:</p>
+<pre><code>Client Name | Customer ID | Priority | Sync Schedule | Notes
+ACME Corp   | 123-456-7890| High     | Daily 2 AM    | Main account
+Bakery Inc  | 234-567-8901| Medium   | Every 3 days  | Seasonal
+</code></pre>
+<p><strong>Why it helps</strong>:</p>
+<ul>
+<li>Know what&#39;s what before bulk actions</li>
+<li>Reference during selection</li>
+<li>Onboard new team members faster</li>
+</ul>
+<hr>
+<h3>Test Before Production</h3>
+<p><strong>When trying new bulk operations</strong>:</p>
+<ol>
+<li><strong>Create test clients</strong> (2-3)</li>
+<li><strong>Practice bulk operations</strong> on test set</li>
+<li><strong>Verify behavior</strong> matches expectations</li>
+<li><strong>Delete test clients</strong></li>
+<li><strong>Run on production</strong> with confidence</li>
+</ol>
+<p><strong>Especially important for</strong>:</p>
+<ul>
+<li>Bulk delete (irreversible)</li>
+<li>Bulk onboarding (affects client count)</li>
+<li>Complex filter combinations</li>
+</ul>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: What&#39;s the maximum number of clients I can sync at once?</strong>
+A: No hard limit, but practical limit is ~50 due to queue time. For larger batches, split into multiple operations.</p>
+<p><strong>Q: Can I bulk sync some clients with Smart Sync and others with Full Sync?</strong>
+A: No, bulk operations apply the same action to all selected clients. For mixed operations, sync in separate batches.</p>
+<p><strong>Q: What happens if I close the browser while bulk sync is running?</strong>
+A: Syncs continue on the server. When you reload, you&#39;ll see updated statuses. The queue keeps processing.</p>
+<p><strong>Q: Can I schedule bulk syncs to run automatically?</strong>
+A: Not currently. Use auto-sync per-client settings instead. Bulk sync is for manual operations.</p>
+<p><strong>Q: If a bulk sync fails for one client, do the others keep going?</strong>
+A: Yes, each client syncs independently. One failure doesn&#39;t affect others.</p>
+<p><strong>Q: Can I bulk update client business profiles?</strong>
+A: Not currently. Business profiles must be updated individually. This feature is on the roadmap.</p>
+<p><strong>Q: What happens to queued syncs if I log out?</strong>
+A: Queued syncs are user-specific and will be canceled. Active syncs complete, but queued ones drop.</p>
+<hr>
+<h2>Troubleshooting</h2>
+<h3>Problem: Bulk sync takes forever</h3>
+<p><strong>Symptom</strong>: Queue not moving, syncs stuck</p>
+<p><strong>Causes</strong>:</p>
+<ul>
+<li>Too many clients queued</li>
+<li>One sync is stuck/frozen</li>
+<li>API rate limit reached</li>
+</ul>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Check Sync Logs for stuck syncs</li>
+<li>Cancel queued syncs</li>
+<li>Restart in smaller batches (5-10 at a time)</li>
+<li>Contact support if persists</li>
+</ol>
+<hr>
+<h3>Problem: Accidentally selected wrong clients</h3>
+<p><strong>Symptom</strong>: Realized after clicking &quot;Sync Selected&quot;</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Immediately cancel queued syncs (if not started yet)</li>
+<li>Active syncs will complete (can&#39;t cancel)</li>
+<li>Let them finish (no harm in extra sync)</li>
+<li>Next time, double-check selection</li>
+</ol>
+<hr>
+<h3>Problem: Bulk delete removed wrong clients</h3>
+<p><strong>Symptom</strong>: Deleted clients you meant to keep</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li><strong>Bad news</strong>: Cannot recover deleted clients</li>
+<li><strong>Re-add process</strong>:<ol>
+<li>Go to account discovery</li>
+<li>Find deleted accounts</li>
+<li>Re-add them</li>
+<li>Run initial sync</li>
+<li>Re-configure business profiles</li>
+</ol>
+</li>
+</ul>
+<p><strong>Prevention</strong>: Always export client list before bulk delete</p>
+<hr>
+<h3>Problem: Select All only selects 25 clients (not all 50)</h3>
+<p><strong>Symptom</strong>: Expected to select entire portfolio but only got one page</p>
+<p><strong>Cause</strong>: Select All is page-scoped, not global</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Click Select All on page 1</li>
+<li>Navigate to page 2</li>
+<li>Click Select All again</li>
+<li>Repeat for all pages</li>
+<li>Or change &quot;Items per page&quot; to show all at once</li>
+</ol>
+<hr>
+<h2>Next Steps</h2>
+<p>Master bulk operations and explore related workflows:</p>
+<ul>
+<li><strong><a href="/docs/sync-system-guide">Sync System Guide</a></strong> - Deep dive into sync mechanics</li>
+<li><strong><a href="/docs/auto-sync-setup">Auto-Sync Setup</a></strong> - Configure automated syncing</li>
+<li><strong><a href="/docs/sync-logs">Sync Logs</a></strong> - Troubleshoot sync issues</li>
+<li><strong><a href="/docs/client-list-overview">Client List Overview</a></strong> - Advanced list management</li>
+</ul>
+<hr>
+<p><strong>Ready to try bulk operations?</strong> Go to your <a href="/clients">client list</a> and select multiple clients!</p>
+<p><strong>Managing a large portfolio?</strong> Contact sales for enterprise features at <a href="mailto:sales@aiperfoads.xyz">sales@aiperfoads.xyz</a></p>
+<p><strong>Need help?</strong> Contact support at <a href="mailto:support@aiperfoads.xyz">support@aiperfoads.xyz</a></p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>

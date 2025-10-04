@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Reference: Dual API Architecture - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Technical Reference: Dual API Architecture</h1>
+<p><strong>Audience</strong>: Developers, technical users, integrators</p>
+<p>PerfoAds uses two different Google Ads API implementations to handle direct-access accounts and MCC-managed accounts. This creates a dual API architecture where response formats differ (camelCase vs snake_case). This technical guide explains the architecture, why it exists, and how the system handles both formats.</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ul>
+<li>The two API implementations</li>
+<li>Why dual architecture exists</li>
+<li>camelCase vs snake_case field naming</li>
+<li>How sync handles both formats</li>
+<li>Code patterns for dual format handling</li>
+<li>API client selection logic</li>
+<li>Troubleshooting dual API issues</li>
+<li>Migration considerations</li>
+</ul>
+<p><strong>Time needed</strong>: 15 minutes to read</p>
+<p><strong>Prerequisite Knowledge</strong>: Basic understanding of APIs, JSON, and field naming conventions</p>
+<hr>
+<h2>The Two API Implementations</h2>
+<h3>Implementation 1: Direct Access (Opteo/google-ads-api)</h3>
+<p><strong>Library</strong>: <code>google-ads-api</code> npm package from Opteo organization</p>
+<p><strong>GitHub</strong>: <a href="https://github.com/Opteo/google-ads-api">https://github.com/Opteo/google-ads-api</a></p>
+<p><strong>Authentication</strong>: Direct OAuth to individual Google Ads accounts</p>
+<p><strong>Response Format</strong>: <strong>camelCase</strong> field names</p>
+<p><strong>Example Response</strong>:</p>
+<pre><code class="language-javascript">{
+  campaign: {
+    id: &quot;123456789&quot;,
+    name: &quot;Brand Campaign&quot;,
+    status: &quot;ENABLED&quot;
+  },
+  adGroup: {
+    id: &quot;987654321&quot;,
+    name: &quot;Brand Keywords&quot;
+  },
+  metrics: {
+    clicks: &quot;150&quot;,
+    impressions: &quot;5000&quot;,
+    costMicros: &quot;50000000&quot;
+  }
+}
+</code></pre>
+<p><strong>Used For</strong>: Accounts with direct OAuth access (user directly grants access)</p>
+<p><strong>Example Clients</strong>: Individual advertisers, small agencies with direct account access</p>
+<hr>
+<h3>Implementation 2: MCC-Managed (Custom GoogleAdsDirectAPI)</h3>
+<p><strong>Library</strong>: Custom <code>GoogleAdsDirectAPI</code> class (internal, makes direct HTTP calls)</p>
+<p><strong>Location</strong>: <code>src/services/GoogleAdsDirectAPI.ts</code></p>
+<p><strong>Authentication</strong>: Requires <code>login-customer-id</code> header for MCC authentication</p>
+<p><strong>Response Format</strong>: <strong>snake_case</strong> field names</p>
+<p><strong>Example Response</strong>:</p>
+<pre><code class="language-javascript">{
+  campaign: {
+    id: &quot;123456789&quot;,
+    name: &quot;Brand Campaign&quot;,
+    status: &quot;ENABLED&quot;
+  },
+  ad_group: {
+    id: &quot;987654321&quot;,
+    name: &quot;Brand Keywords&quot;
+  },
+  metrics: {
+    clicks: &quot;150&quot;,
+    impressions: &quot;5000&quot;,
+    cost_micros: &quot;50000000&quot;
+  }
+}
+</code></pre>
+<p><strong>Used For</strong>: Accounts managed through Manager Customer Center (MCC)</p>
+<p><strong>Example Clients</strong>: Enterprise accounts, agency clients managed under MCC account</p>
+<hr>
+<h2>Why Dual Architecture Exists</h2>
+<h3>Problem Statement</h3>
+<p><strong>Google Ads API Field Naming</strong>:</p>
+<ul>
+<li>Official Google Ads API: Returns <strong>snake_case</strong> fields</li>
+<li>Opteo library: Transforms to <strong>camelCase</strong> for JavaScript conventions</li>
+</ul>
+<p><strong>Account Access Patterns</strong>:</p>
+<ul>
+<li>Some accounts: Direct OAuth access (use Opteo library)</li>
+<li>Other accounts: MCC-managed (require login-customer-id, use direct API)</li>
+</ul>
+<p><strong>Architecture Decision</strong>: Support both to handle all account types without forcing users to restructure their Google Ads organization</p>
+<hr>
+<h3>Use Cases</h3>
+<p><strong>Direct Access Scenario</strong>:</p>
+<pre><code>User: Small business owner
+Google Ads: Single account, direct access
+OAuth: Grants access directly to their account
+API: Opteo library → camelCase responses
+</code></pre>
+<p><strong>MCC-Managed Scenario</strong>:</p>
+<pre><code>User: Digital agency
+Google Ads: MCC with 50 managed client accounts
+OAuth: Grants access to MCC
+API: Custom class with login-customer-id → snake_case responses
+</code></pre>
+<hr>
+<h2>Field Naming Differences</h2>
+<h3>Common Fields: camelCase vs snake_case</h3>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>camelCase (Direct)</th>
+<th>snake_case (MCC)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Campaign</td>
+<td><code>campaign</code></td>
+<td><code>campaign</code></td>
+</tr>
+<tr>
+<td>Ad Group</td>
+<td><code>adGroup</code></td>
+<td><code>ad_group</code></td>
+</tr>
+<tr>
+<td>Ad Group Ad</td>
+<td><code>adGroupAd</code></td>
+<td><code>ad_group_ad</code></td>
+</tr>
+<tr>
+<td>Responsive Search Ad</td>
+<td><code>responsiveSearchAd</code></td>
+<td><code>responsive_search_ad</code></td>
+</tr>
+<tr>
+<td>Metrics</td>
+<td><code>metrics</code></td>
+<td><code>metrics</code></td>
+</tr>
+<tr>
+<td>Cost Micros</td>
+<td><code>metrics.costMicros</code></td>
+<td><code>metrics.cost_micros</code></td>
+</tr>
+<tr>
+<td>Click Type</td>
+<td><code>clickType</code></td>
+<td><code>click_type</code></td>
+</tr>
+<tr>
+<td>Conversion Action</td>
+<td><code>conversionAction</code></td>
+<td><code>conversion_action</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h3>Real-World Example</h3>
+<p><strong>Same Data, Different Format</strong>:</p>
+<p><strong>Direct API (camelCase)</strong>:</p>
+<pre><code class="language-javascript">{
+  adGroup: {
+    id: &quot;12345&quot;,
+    name: &quot;Brand Keywords&quot;,
+    status: &quot;ENABLED&quot;
+  },
+  adGroupAd: {
+    id: &quot;67890&quot;,
+    status: &quot;ENABLED&quot;
+  },
+  responsiveSearchAd: {
+    headlines: [
+      { text: &quot;Best Product Ever&quot; },
+      { text: &quot;Shop Now&quot; }
+    ],
+    descriptions: [
+      { text: &quot;Free shipping on all orders&quot; }
+    ]
+  }
+}
+</code></pre>
+<p><strong>MCC API (snake_case)</strong>:</p>
+<pre><code class="language-javascript">{
+  ad_group: {
+    id: &quot;12345&quot;,
+    name: &quot;Brand Keywords&quot;,
+    status: &quot;ENABLED&quot;
+  },
+  ad_group_ad: {
+    id: &quot;67890&quot;,
+    status: &quot;ENABLED&quot;
+  },
+  responsive_search_ad: {
+    headlines: [
+      { text: &quot;Best Product Ever&quot; },
+      { text: &quot;Shop Now&quot; }
+    ],
+    descriptions: [
+      { text: &quot;Free shipping on all orders&quot; }
+    ]
+  }
+}
+</code></pre>
+<p><strong>Identical Data</strong>: Only field names differ</p>
+<hr>
+<h2>How Sync Handles Both Formats</h2>
+<h3>Defensive Field Access Pattern</h3>
+<p><strong>The Problem</strong>: Can&#39;t assume which format response will be in</p>
+<p><strong>The Solution</strong>: Check both formats, use whichever exists</p>
+<p><strong>Code Pattern</strong>:</p>
+<pre><code class="language-javascript">// ❌ WRONG - Breaks for one or the other
+const adGroupId = row.adGroup.id;  // Breaks for MCC
+const adGroupId = row.ad_group.id; // Breaks for Direct
+
+// ✅ CORRECT - Works for both
+const adGroup = row.adGroup || row.ad_group;
+const adGroupId = adGroup?.id;
+</code></pre>
+<hr>
+<h3>Real Code Examples</h3>
+<p><strong>Example 1: Accessing Ad Group</strong>:</p>
+<pre><code class="language-javascript">// Sync code handling both formats
+const processAdGroup = (row) =&gt; {
+  // Try camelCase first, fall back to snake_case
+  const adGroup = row.adGroup || row.ad_group;
+
+  if (!adGroup) {
+    console.error(&#39;No ad group found in response&#39;);
+    return null;
+  }
+
+  return {
+    id: adGroup.id,
+    name: adGroup.name,
+    status: adGroup.status
+  };
+};
+</code></pre>
+<p><strong>Example 2: Accessing Nested Fields</strong>:</p>
+<pre><code class="language-javascript">// Accessing responsive search ad headlines
+const getHeadlines = (ad) =&gt; {
+  // Check both possible locations
+  const rsa = ad?.responsiveSearchAd || ad?.responsive_search_ad;
+
+  if (!rsa || !rsa.headlines) {
+    return [];
+  }
+
+  return rsa.headlines.map(h =&gt; h.text);
+};
+</code></pre>
+<p><strong>Example 3: Metrics</strong>:</p>
+<pre><code class="language-javascript">// Accessing cost (micros to dollars conversion)
+const getCost = (metrics) =&gt; {
+  // Try both field names
+  const costMicros = metrics?.costMicros || metrics?.cost_micros;
+
+  if (!costMicros) return 0;
+
+  // Convert micros to dollars
+  return parseInt(costMicros) / 1000000;
+};
+</code></pre>
+<hr>
+<h2>API Client Selection Logic</h2>
+<h3>How System Chooses Which API to Use</h3>
+<p><strong>Decision Tree</strong>:</p>
+<pre><code>Client Added
+  ↓
+Does client have login_customer_id configured?
+  ↓
+  YES → Use MCC API (Custom GoogleAdsDirectAPI)
+    ↓
+    Response: snake_case fields
+
+  NO → Use Direct API (Opteo google-ads-api)
+    ↓
+    Response: camelCase fields
+</code></pre>
+<hr>
+<h3>Configuration</h3>
+<p><strong>Client Model</strong> (database):</p>
+<pre><code class="language-javascript">{
+  id: 123,
+  customer_id: &quot;123-456-7890&quot;,
+  login_customer_id: &quot;999-888-7777&quot; // If set: MCC mode
+}
+</code></pre>
+<p><strong>Sync Logic</strong>:</p>
+<pre><code class="language-javascript">const getApiClient = (client) =&gt; {
+  if (client.login_customer_id) {
+    // MCC-managed account
+    return new GoogleAdsDirectAPI({
+      customer_id: client.customer_id,
+      login_customer_id: client.login_customer_id
+    });
+  } else {
+    // Direct access account
+    return new GoogleAdsAPI({
+      customer_id: client.customer_id
+    });
+  }
+};
+</code></pre>
+<hr>
+<h2>Handling Both Formats in Code</h2>
+<h3>Pattern 1: Dual Field Check</h3>
+<p><strong>Use When</strong>: Accessing top-level fields</p>
+<pre><code class="language-javascript">// Access campaign
+const campaign = row.campaign || row.campaign; // Same name, no issue
+const adGroup = row.adGroup || row.ad_group;   // Different names
+const adGroupAd = row.adGroupAd || row.ad_group_ad;
+</code></pre>
+<hr>
+<h3>Pattern 2: Nested Field Check</h3>
+<p><strong>Use When</strong>: Accessing deeply nested fields</p>
+<pre><code class="language-javascript">// Access ad type-specific data
+const rsa = ad?.responsiveSearchAd || ad?.responsive_search_ad;
+const headlines = rsa?.headlines || [];
+
+// Access metrics
+const metrics = row.metrics || {};
+const clicks = metrics.clicks;  // Same name both formats
+const cost = metrics.costMicros || metrics.cost_micros;
+</code></pre>
+<hr>
+<h3>Pattern 3: Normalization Helper</h3>
+<p><strong>Use When</strong>: Processing many records</p>
+<pre><code class="language-javascript">// Normalize response to consistent format
+const normalizeAdGroup = (row) =&gt; {
+  const source = row.adGroup || row.ad_group;
+
+  return {
+    id: source.id,
+    name: source.name,
+    status: source.status,
+    campaign_id: (row.campaign || row.campaign).id
+  };
+};
+
+// Now work with normalized data
+const adGroups = rawData.map(normalizeAdGroup);
+</code></pre>
+<hr>
+<h2>Troubleshooting Dual API Issues</h2>
+<h3>Problem: Field Not Found Error</h3>
+<p><strong>Symptom</strong>:</p>
+<pre><code>TypeError: Cannot read property &#39;id&#39; of undefined
+Error accessing: row.adGroup.id
+</code></pre>
+<p><strong>Diagnosis</strong>: Code assumes one format, data is in other format</p>
+<p><strong>Fix</strong>:</p>
+<pre><code class="language-javascript">// Change from:
+const id = row.adGroup.id;
+
+// To:
+const adGroup = row.adGroup || row.ad_group;
+const id = adGroup?.id;
+</code></pre>
+<hr>
+<h3>Problem: Data Syncs for Some Clients, Fails for Others</h3>
+<p><strong>Symptom</strong>:</p>
+<pre><code>Client A (direct access): Sync works
+Client B (MCC-managed): Sync fails with field access errors
+</code></pre>
+<p><strong>Diagnosis</strong>: Code not handling both formats</p>
+<p><strong>Fix</strong>: Review sync code, add dual format handling to all field accesses</p>
+<hr>
+<h3>Problem: Metrics Missing for MCC Accounts</h3>
+<p><strong>Symptom</strong>:</p>
+<pre><code>Direct accounts: All metrics present
+MCC accounts: metrics.costMicros undefined
+</code></pre>
+<p><strong>Diagnosis</strong>: Using camelCase field name for MCC response</p>
+<p><strong>Fix</strong>:</p>
+<pre><code class="language-javascript">// Change from:
+const cost = metrics.costMicros;
+
+// To:
+const cost = metrics.costMicros || metrics.cost_micros;
+</code></pre>
+<hr>
+<h2>Best Practices</h2>
+<h3>1. Always Use Dual Field Check</h3>
+<p><strong>Rule</strong>: Never access <code>row.adGroup</code> directly. Always check both.</p>
+<p><strong>Pattern</strong>:</p>
+<pre><code class="language-javascript">// ✅ GOOD
+const adGroup = row.adGroup || row.ad_group;
+if (adGroup) {
+  // Use adGroup
+}
+
+// ❌ BAD
+if (row.adGroup) {  // Breaks for MCC
+  // Use row.adGroup
+}
+</code></pre>
+<hr>
+<h3>2. Use Optional Chaining</h3>
+<p><strong>Leverage <code>?.</code> operator</strong>:</p>
+<pre><code class="language-javascript">// ✅ SAFE
+const headlines = ad?.responsiveSearchAd?.headlines ||
+                  ad?.responsive_search_ad?.headlines ||
+                  [];
+
+// ❌ RISKY
+const headlines = ad.responsiveSearchAd.headlines; // Crashes if null
+</code></pre>
+<hr>
+<h3>3. Normalize Early</h3>
+<p><strong>Pattern</strong>: Convert to consistent format as soon as data arrives</p>
+<pre><code class="language-javascript">// In sync layer
+const normalizeResponse = (row) =&gt; {
+  return {
+    campaign: {
+      id: row.campaign?.id,
+      name: row.campaign?.name
+    },
+    adGroup: {
+      id: (row.adGroup || row.ad_group)?.id,
+      name: (row.adGroup || row.ad_group)?.name
+    },
+    metrics: {
+      clicks: row.metrics?.clicks,
+      cost: row.metrics?.costMicros || row.metrics?.cost_micros
+    }
+  };
+};
+</code></pre>
+<p><strong>Benefit</strong>: Rest of codebase works with consistent format</p>
+<hr>
+<h2>Testing Both Formats</h2>
+<h3>Unit Test Pattern</h3>
+<pre><code class="language-javascript">describe(&#39;Sync Dual API Handling&#39;, () =&gt; {
+  it(&#39;should handle camelCase (Direct API) format&#39;, () =&gt; {
+    const row = {
+      campaign: { id: &quot;123&quot;, name: &quot;Test&quot; },
+      adGroup: { id: &quot;456&quot;, name: &quot;Test Group&quot; },
+      metrics: { clicks: &quot;100&quot;, costMicros: &quot;5000000&quot; }
+    };
+
+    const result = processSyncRow(row);
+    expect(result.adGroupId).toBe(&quot;456&quot;);
+    expect(result.cost).toBe(5.00);
+  });
+
+  it(&#39;should handle snake_case (MCC API) format&#39;, () =&gt; {
+    const row = {
+      campaign: { id: &quot;123&quot;, name: &quot;Test&quot; },
+      ad_group: { id: &quot;456&quot;, name: &quot;Test Group&quot; },
+      metrics: { clicks: &quot;100&quot;, cost_micros: &quot;5000000&quot; }
+    };
+
+    const result = processSyncRow(row);
+    expect(result.adGroupId).toBe(&quot;456&quot;);
+    expect(result.cost).toBe(5.00);
+  });
+});
+</code></pre>
+<hr>
+<h2>Migration and Future Considerations</h2>
+<h3>Potential Future Normalization</h3>
+<p><strong>Option</strong>: Normalize all responses to single format (camelCase) at API layer</p>
+<p><strong>Benefit</strong>: Rest of codebase simpler, no dual checks</p>
+<p><strong>Cost</strong>: Additional processing layer, potential performance impact</p>
+<p><strong>Decision</strong>: Not implemented yet. Current dual-check approach works reliably.</p>
+<hr>
+<h3>If Google Ads API Changes</h3>
+<p><strong>Scenario</strong>: Google updates API, changes field naming</p>
+<p><strong>Impact</strong>: Would affect custom MCC implementation, not Opteo library</p>
+<p><strong>Mitigation</strong>: Version lock on Google Ads API, test before upgrading</p>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: Can I convert all MCC accounts to direct access to avoid this?</strong>
+A: Not always. MCC structure often required for agency setups, billing, and permissions.</p>
+<p><strong>Q: Does dual API affect performance?</strong>
+A: Minimal. Dual field check is fast. Main performance factor is network latency to Google Ads API.</p>
+<p><strong>Q: Will this architecture change in future?</strong>
+A: Possibly normalize at sync layer for simpler downstream code. But dual format support will remain.</p>
+<p><strong>Q: How do I know which API a client uses?</strong>
+A: Check <code>login_customer_id</code> field. If set: MCC API. If null: Direct API.</p>
+<p><strong>Q: Can I force a client to use one API or the other?</strong>
+A: Set or unset <code>login_customer_id</code> in client configuration. But must match actual Google Ads account setup.</p>
+<hr>
+<h2>Technical Deep Dive: MCC Authentication</h2>
+<h3>How MCC Authentication Differs</h3>
+<p><strong>Direct Access</strong>:</p>
+<pre><code>Request Headers:
+- Authorization: Bearer [oauth-token]
+- developer-token: [google-ads-dev-token]
+
+Request:
+GET /v21/customers/123-456-7890/campaigns
+</code></pre>
+<p><strong>MCC Access</strong>:</p>
+<pre><code>Request Headers:
+- Authorization: Bearer [oauth-token]
+- developer-token: [google-ads-dev-token]
+- login-customer-id: 999-888-7777  ← MCC ID
+
+Request:
+GET /v21/customers/123-456-7890/campaigns
+</code></pre>
+<p><strong>Key Difference</strong>: <code>login-customer-id</code> header authenticates as MCC, then accesses managed account</p>
+<hr>
+<h2>Next Steps</h2>
+<p>Understand the technical architecture with these guides:</p>
+<ul>
+<li><strong><a href="/docs/technical-architecture">Technical Architecture</a></strong> - Complete system architecture overview</li>
+<li><strong><a href="/docs/technical-security">Technical Security</a></strong> - Security implementation details</li>
+<li><strong><a href="/docs/troubleshooting-sync">Troubleshooting Sync</a></strong> - Debug sync issues related to API formats</li>
+<li><strong><a href="/docs/smart-sync-explained">Smart Sync Explained</a></strong> - How sync uses both APIs</li>
+</ul>
+<hr>
+<p><strong>Always use dual field checks</strong> when accessing API responses</p>
+<p><strong>Test with both formats</strong> to ensure compatibility</p>
+<p><strong>Normalize early</strong> to simplify downstream processing</p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>

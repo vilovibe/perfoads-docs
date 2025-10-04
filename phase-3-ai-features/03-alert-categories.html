@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert Categories Guide - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Alert Categories Guide</h1>
+<p>Every alert belongs to one of 8 categories that group similar issues together. Understanding categories helps you quickly identify problem types, apply familiar solutions, and filter alerts by your area of focus. This guide covers all 8 categories with real examples and fix strategies.</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ul>
+<li>All 8 alert categories explained</li>
+<li>What triggers each category</li>
+<li>Real examples for every category</li>
+<li>Common fixes and solutions</li>
+<li>How to filter by category</li>
+<li>Category-specific best practices</li>
+<li>Troubleshooting by category type</li>
+</ul>
+<p><strong>Time needed</strong>: 15 minutes to read</p>
+<hr>
+<h2>The 8 Alert Categories</h2>
+<h3>Quick Reference</h3>
+<ol>
+<li><strong>Budget Issues</strong> 💰 - Budget pacing, exhaustion, overspend, underspend</li>
+<li><strong>Performance Problems</strong> 📉 - CTR, CPC, conversion rate, ROAS declining</li>
+<li><strong>Technical Issues</strong> ⚠️ - Ads disapproved, tracking broken, system errors</li>
+<li><strong>Strategy Recommendations</strong> 🎯 - Optimization opportunities, best practices</li>
+<li><strong>Quality Score Problems</strong> ⭐ - Low QS, relevance issues, landing page problems</li>
+<li><strong>Conversion Tracking</strong> 🎯 - Tracking failures, attribution issues, conversion gaps</li>
+<li><strong>Geographic Performance</strong> 🌍 - Location insights, geo targeting optimization</li>
+<li><strong>Bidding Strategy</strong> 💡 - Bid strategy changes, automation opportunities</li>
+</ol>
+<p>[Screenshot: Alert categories filter menu]
+<em>Filter alerts by category to focus on specific areas</em></p>
+<hr>
+<h2>1. Budget Issues 💰</h2>
+<h3>What This Category Detects</h3>
+<p><strong>All budget-related problems</strong>:</p>
+<ul>
+<li>Daily budget exhausted too early</li>
+<li>Monthly budget pacing issues</li>
+<li>Overspending budgets</li>
+<li>Underspending budgets (wasted opportunity)</li>
+<li>Budget-limited impression share</li>
+<li>Uneven spending patterns</li>
+</ul>
+<p><strong>Why it matters</strong>: Budget issues either waste money or leave money on the table</p>
+<hr>
+<h3>Common Budget Issue Alerts</h3>
+<h4>Example 1: Early Budget Exhaustion</h4>
+<pre><code>Severity: 8/10
+Category: Budget Issues
+Title: Campaign budget depleted by 3 PM daily
+
+Your &quot;Brand Campaign&quot; spends its full $80 daily budget by
+2:45 PM EST on average over the last 5 days.
+
+Traffic analysis shows:
+- 6 AM-3 PM: 1,250 impressions, $80 spent
+- 3 PM-midnight: 0 impressions, $0 spent (budget exhausted)
+
+Historical data: 38% of your conversions happen 6-11 PM
+
+Recommended Action: Increase daily budget to $135 to cover
+evening traffic, or reduce bids by 25% to extend budget.
+
+Impact: Missing ~$320/week in evening conversions
+</code></pre>
+<p><strong>Fix</strong>:</p>
+<ol>
+<li>Increase budget if ROI is good</li>
+<li>OR reduce bids to make budget last longer</li>
+<li>OR use ad scheduling to concentrate spend on best hours</li>
+</ol>
+<hr>
+<h4>Example 2: Budget Underspend</h4>
+<pre><code>Severity: 6/10
+Category: Budget Issues
+Title: Spending only 45% of allocated monthly budget
+
+Your $5,000 monthly budget shows only $2,250 spent with
+12 days remaining (expect to spend ~$3,200 total).
+
+Cause: Daily budgets set too low at $80/day. Should be
+~$165/day to spend full monthly allocation.
+
+Recommended Action: Increase daily budgets across campaigns
+to utilize full monthly budget.
+
+Impact: Missing ~$1,800 in monthly ad spend that could
+generate estimated 45 additional conversions
+</code></pre>
+<p><strong>Fix</strong>:</p>
+<ol>
+<li>Increase daily budgets proportionally</li>
+<li>Expand keyword targeting to capture more traffic</li>
+<li>Increase bids to be more competitive</li>
+</ol>
+<hr>
+<h4>Example 3: Impression Share Lost to Budget</h4>
+<pre><code>Severity: 7/10
+Category: Budget Issues
+Title: Losing 42% impression share due to budget limits
+
+Your campaigns show &quot;Search IS Lost (budget)&quot; at 42%,
+meaning you could get 42% more impressions with higher
+budget.
+
+Current: Showing for 58% of eligible searches
+Potential: Could show for 100% of searches
+
+Estimated missed opportunity: ~180 conversions/month
+
+Recommended Action: Increase budgets by 70% to capture
+full impression share, or prioritize best-performing
+campaigns.
+
+Impact: Budget limiting reach and revenue
+</code></pre>
+<p><strong>Fix</strong>:</p>
+<ol>
+<li>Increase budgets on high-ROI campaigns</li>
+<li>Pause low-performing campaigns to free up budget</li>
+<li>Shift budget from Display to Search if Search is limited</li>
+</ol>
+<hr>
+<h3>Budget Issues Best Practices</h3>
+<p><strong>Daily monitoring</strong>:</p>
+<ul>
+<li>Check budget pacing each morning</li>
+<li>Adjust if spending too fast or slow</li>
+<li>Monitor impression share lost to budget</li>
+</ul>
+<p><strong>Monthly planning</strong>:</p>
+<ul>
+<li>Set daily budgets at 110% of target (allows for variance)</li>
+<li>Review mid-month pacing</li>
+<li>Adjust for seasonality</li>
+</ul>
+<p><strong>Budget allocation</strong>:</p>
+<ul>
+<li>Prioritize proven performers</li>
+<li>Don&#39;t spread budget too thin</li>
+<li>Minimum $20/day per campaign</li>
+</ul>
+<hr>
+<h2>2. Performance Problems 📉</h2>
+<h3>What This Category Detects</h3>
+<p><strong>All performance degradation</strong>:</p>
+<ul>
+<li>CTR declining</li>
+<li>CPC increasing</li>
+<li>Conversion rate dropping</li>
+<li>ROAS falling</li>
+<li>Impression share decreasing</li>
+<li>Engagement metrics declining</li>
+</ul>
+<p><strong>Why it matters</strong>: Performance problems directly reduce ROI</p>
+<hr>
+<h3>Common Performance Problem Alerts</h3>
+<h4>Example 1: Declining CTR</h4>
+<pre><code>Severity: 7/10
+Category: Performance Problems
+Title: CTR dropped 28% in past 2 weeks
+
+Your average click-through rate fell from 4.2% to 3.0%
+across all search campaigns.
+
+This reduces Quality Score, which increases CPCs, creating
+a negative spiral.
+
+Possible causes:
+- Ad fatigue (same ads running 8+ months)
+- New competitors with better ads
+- Seasonal shift in user behavior
+
+Recommended Action: Refresh ad copy. Create 3 new ad
+variations per ad group with updated messaging.
+
+Impact: Lower CTR = higher CPCs = 15-20% cost increase
+</code></pre>
+<p><strong>Fix</strong>:</p>
+<ol>
+<li>Write new ad copy with fresh angles</li>
+<li>Test different headlines and descriptions</li>
+<li>Update calls-to-action</li>
+<li>Add emotional hooks or urgency</li>
+</ol>
+<hr>
+<h4>Example 2: CPC Spike</h4>
+<pre><code>Severity: 8/10
+Category: Performance Problems
+Title: Average CPC increased 63% without performance gain
+
+Your CPC jumped from $3.80 to $6.20 over 10 days with no
+corresponding improvement in conversion rate.
+
+Affected: All campaigns
+Additional cost: ~$420/week vs previous average
+
+Likely causes:
+- Increased competition (new competitor launched)
+- Quality Score decline
+- Bid strategy became more aggressive
+
+Recommended Action: Review Search Term report for new
+competition. Consider lowering max CPC limits or pausing
+if ROI is negative.
+
+Impact: Budget exhausting faster, lower ROI
+</code></pre>
+<p><strong>Fix</strong>:</p>
+<ol>
+<li>Check competitor activity in Auction Insights</li>
+<li>Review and improve Quality Score</li>
+<li>Lower max CPC caps if ROI is suffering</li>
+<li>Switch to Target CPA if using manual bidding</li>
+</ol>
+<hr>
+<h4>Example 3: Conversion Rate Decline</h4>
+<pre><code>Severity: 7/10
+Category: Performance Problems
+Title: Conversion rate fell from 5.2% to 3.1% in 14 days
+
+Your conversion rate dropped 40% in two weeks despite
+stable traffic quality (CTR unchanged).
+
+This suggests landing page or offer problem, not traffic
+quality issue.
+
+Recent changes detected:
+- Landing page redesign deployed 16 days ago
+- New checkout flow implemented
+
+Recommended Action: A/B test current vs previous landing
+page. Review analytics for drop-off points in new checkout
+flow.
+
+Impact: 40% fewer conversions from same traffic = major
+revenue loss
+</code></pre>
+<p><strong>Fix</strong>:</p>
+<ol>
+<li>Rollback recent landing page changes</li>
+<li>Check page load speed (slow = fewer conversions)</li>
+<li>Test different offers/CTAs</li>
+<li>Review mobile experience specifically</li>
+</ol>
+<hr>
+<h3>Performance Problems Best Practices</h3>
+<p><strong>Weekly reviews</strong>:</p>
+<ul>
+<li>Compare week-over-week metrics</li>
+<li>Catch declining trends early</li>
+<li>Act before 20% change threshold</li>
+</ul>
+<p><strong>Root cause analysis</strong>:</p>
+<ul>
+<li>Don&#39;t just fix symptoms</li>
+<li>Find underlying cause</li>
+<li>Track correlation to changes you made</li>
+</ul>
+<p><strong>Benchmark comparison</strong>:</p>
+<ul>
+<li>Compare to your historical average</li>
+<li>Compare to industry benchmarks</li>
+<li>Track seasonality patterns</li>
+</ul>
+<hr>
+<h2>3. Technical Issues ⚠️</h2>
+<h3>What This Category Detects</h3>
+<p><strong>All technical failures</strong>:</p>
+<ul>
+<li>Ads disapproved</li>
+<li>Tracking pixel errors</li>
+<li>Conversion tag problems</li>
+<li>Extension errors</li>
+<li>Landing page technical issues</li>
+<li>Feed errors (Shopping)</li>
+<li>Account suspension warnings</li>
+</ul>
+<p><strong>Why it matters</strong>: Technical issues can completely stop campaigns</p>
+<hr>
+<h3>Common Technical Issue Alerts</h3>
+<h4>Example 1: Ad Disapprovals</h4>
+<pre><code>Severity: 9/10
+Category: Technical Issues
+Title: 9 of 12 ads disapproved for policy violation
+
+Google disapproved 9 ads across your account for
+&quot;Misleading content&quot; policy violation.
+
+Affected campaigns: Brand, Competitor, Non-Brand
+Active ads remaining: 3 (severely limits ad rotation)
+
+Disapproval reason: Claims like &quot;Best in Industry&quot; and
+&quot;#1 Rated&quot; require substantiation with third-party proof.
+
+Recommended Action:
+1. Remove unsupported claims from ad copy
+2. Add disclaimers or third-party ratings
+3. Create replacement ads with compliant messaging
+
+Impact: Limited ad pool restricts impression share to ~15%
+</code></pre>
+<p><strong>Fix</strong>:</p>
+<ol>
+<li>Review Google Ads policy center for specific violation</li>
+<li>Edit ads to be compliant (remove claims, add proof)</li>
+<li>Request re-review in Google Ads</li>
+<li>Create new compliant ads as backup</li>
+</ol>
+<hr>
+<h4>Example 2: Conversion Tracking Broken</h4>
+<pre><code>Severity: 9/10
+Category: Technical Issues
+Title: Zero conversions recorded in 6 days
+
+Your campaigns show 0 conversions in the past 6 days
+despite 1,850 clicks and normal traffic patterns.
+
+Historical baseline: ~95 conversions per 1,850 clicks
+
+This strongly suggests conversion tracking is broken,
+not that conversions actually stopped.
+
+Diagnostic steps:
+1. Check if Google Ads conversion tag is on site
+2. Verify tag is firing (use Google Tag Assistant)
+3. Check for recent website changes that removed tag
+
+Recommended Action: Contact developer to verify conversion
+tracking implementation immediately.
+
+Impact: Can&#39;t optimize without conversion data. Likely
+wasting spend on non-converting keywords.
+</code></pre>
+<p><strong>Fix</strong>:</p>
+<ol>
+<li>Use Google Tag Assistant to check tag status</li>
+<li>Verify tag placement on thank-you/confirmation page</li>
+<li>Test conversion with live purchase/form fill</li>
+<li>Check if recent site update broke tag</li>
+</ol>
+<hr>
+<h4>Example 3: Landing Page Issues</h4>
+<pre><code>Severity: 7/10
+Category: Technical Issues
+Title: Landing page returns 404 error for top ad group
+
+Your highest-volume ad group &quot;Best Seller Products&quot; is
+sending traffic to a landing page that returns 404 error.
+
+Affected:
+- 850 clicks in past 3 days = $1,700 wasted
+- 0 conversions (impossible to convert on 404 page)
+
+Cause: Product page moved or deleted without updating ads
+
+Recommended Action: Update all ads in this ad group with
+correct landing page URL immediately.
+
+Impact: 100% waste on this ad group traffic
+</code></pre>
+<p><strong>Fix</strong>:</p>
+<ol>
+<li>Verify correct landing page URL</li>
+<li>Update all ads with fixed URL</li>
+<li>Check other ad groups for similar issues</li>
+<li>Set up monitoring for 404 errors</li>
+</ol>
+<hr>
+<h3>Technical Issues Best Practices</h3>
+<p><strong>Daily checks</strong>:</p>
+<ul>
+<li>Review ad approval status</li>
+<li>Monitor conversion tracking daily</li>
+<li>Check for sudden conversion drops</li>
+</ul>
+<p><strong>Preventive measures</strong>:</p>
+<ul>
+<li>Test landing pages before launching</li>
+<li>Keep backup of ad copy before policy checks</li>
+<li>Monitor Google Ads policy updates</li>
+</ul>
+<p><strong>Quick response</strong>:</p>
+<ul>
+<li>Fix technical issues within hours</li>
+<li>Technical problems escalate quickly</li>
+<li>Every hour = more wasted spend</li>
+</ul>
+<hr>
+<h2>4. Strategy Recommendations 🎯</h2>
+<h3>What This Category Detects</h3>
+<p><strong>All optimization opportunities</strong>:</p>
+<ul>
+<li>Bid strategy improvements</li>
+<li>Ad schedule optimization</li>
+<li>Geographic targeting adjustments</li>
+<li>Keyword expansion opportunities</li>
+<li>Match type recommendations</li>
+<li>Extension additions</li>
+<li>Audience targeting suggestions</li>
+</ul>
+<p><strong>Why it matters</strong>: Strategic improvements unlock efficiency gains</p>
+<hr>
+<h3>Common Strategy Recommendation Alerts</h3>
+<h4>Example 1: Ad Schedule Opportunity</h4>
+<pre><code>Severity: 6/10
+Category: Strategy Recommendations
+Title: 78% of conversions occur Mon-Fri 9 AM-6 PM
+
+Analysis of 450 conversions over 30 days shows clear
+time-of-day patterns:
+
+High-performing hours (9 AM-6 PM Mon-Fri):
+- 78% of conversions
+- 6.2% conversion rate
+- $38 CPA
+
+Low-performing hours (evenings/weekends):
+- 22% of conversions
+- 1.8% conversion rate
+- $94 CPA
+
+Currently running ads 24/7 with no bid adjustments.
+
+Recommended Action: Implement ad schedule with +40% bid
+adjustment 9 AM-6 PM Mon-Fri, -50% other times.
+
+Impact: Estimated 18% CPA improvement by concentrating
+spend on best hours
+</code></pre>
+<p><strong>Fix</strong>:</p>
+<ol>
+<li>Create ad schedule in campaign settings</li>
+<li>Increase bids during peak hours</li>
+<li>Decrease bids during off-hours</li>
+<li>Monitor for 2 weeks and adjust</li>
+</ol>
+<hr>
+<h4>Example 2: Negative Keyword Opportunity</h4>
+<pre><code>Severity: 6/10
+Category: Strategy Recommendations
+Title: 18 search terms cost $1,200+ with zero conversions
+
+You&#39;re spending on non-converting search terms:
+- &quot;free google ads templates&quot; - $285, 0 conv
+- &quot;google ads tutorial youtube&quot; - $195, 0 conv
+- &quot;how to set up google ads&quot; - $165, 0 conv
+... (15 more similar terms)
+
+These are informational queries, not buyer intent.
+
+Recommended Action: Add these 18 terms as exact match
+negative keywords to prevent future waste.
+
+Impact: Saves ~$1,200/month going forward
+</code></pre>
+<p><strong>Fix</strong>:</p>
+<ol>
+<li>Export Search Terms report</li>
+<li>Identify zero-conversion terms with &gt;$50 spend</li>
+<li>Add as negative keywords at campaign level</li>
+<li>Review monthly for new waste</li>
+</ol>
+<hr>
+<h4>Example 3: Keyword Expansion</h4>
+<pre><code>Severity: 5/10
+Category: Strategy Recommendations
+Title: 8 high-performing search terms not added as keywords
+
+These search terms are converting well but aren&#39;t in your
+keyword list yet:
+
+- &quot;google ads consultant near me&quot; - 32 conv, $28 CPA
+- &quot;hire google ads expert&quot; - 28 conv, $31 CPA
+- &quot;google ads management pricing&quot; - 19 conv, $35 CPA
+
+Adding these as exact match keywords gives you better
+control, improves Quality Score, and lowers CPCs.
+
+Recommended Action: Create dedicated ad groups for these
+high-converters with exact match keywords.
+
+Impact: Better control over top traffic sources, likely
+15-20% CPA improvement on these terms
+</code></pre>
+<p><strong>Fix</strong>:</p>
+<ol>
+<li>Create new ad groups for each theme</li>
+<li>Add as exact match keywords</li>
+<li>Write highly relevant ads</li>
+<li>Use specific landing pages</li>
+</ol>
+<hr>
+<h3>Strategy Recommendations Best Practices</h3>
+<p><strong>Monthly optimization</strong>:</p>
+<ul>
+<li>Review strategy alerts monthly</li>
+<li>Test top 3 recommendations</li>
+<li>Track impact of changes</li>
+</ul>
+<p><strong>Prioritization</strong>:</p>
+<ul>
+<li>Focus on recommendations with &gt;10% impact</li>
+<li>Test one change at a time</li>
+<li>Measure results before next change</li>
+</ul>
+<p><strong>Long-term planning</strong>:</p>
+<ul>
+<li>Strategy alerts = roadmap</li>
+<li>Queue low-priority recommendations</li>
+<li>Revisit quarterly</li>
+</ul>
+<hr>
+<h2>5. Quality Score Problems ⭐</h2>
+<h3>What This Category Detects</h3>
+<p><strong>All Quality Score issues</strong>:</p>
+<ul>
+<li>Low Quality Score keywords (1-4)</li>
+<li>Expected CTR problems</li>
+<li>Ad relevance issues</li>
+<li>Landing page experience warnings</li>
+<li>Quality Score degradation trends</li>
+</ul>
+<p><strong>Why it matters</strong>: Low QS = 2-3x higher CPCs</p>
+<hr>
+<h3>Common Quality Score Problem Alerts</h3>
+<h4>Example 1: Low Quality Score Keywords</h4>
+<pre><code>Severity: 7/10
+Category: Quality Score Problems
+Title: 15 high-volume keywords have Quality Score 3-4
+
+Your top keywords by traffic volume have poor Quality
+Scores:
+
+Keywords with QS 3-4:
+- &quot;google ads service&quot; (QS 3) - 850 clicks/mo, $8.50 CPC
+- &quot;ppc management&quot; (QS 4) - 720 clicks/mo, $7.20 CPC
+... (13 more)
+
+Average CPC impact: Paying 2.2x more than QS 7-8 keywords
+
+If these were QS 7+: Average CPC would be ~$3.80
+Current: Average CPC is $8.20
+
+Recommended Action: Improve ad relevance by creating
+dedicated ad groups with highly relevant ads for each
+keyword theme.
+
+Impact: Potential savings of $2,900/month with QS improvement
+</code></pre>
+<p><strong>Fix</strong>:</p>
+<ol>
+<li>Create single-keyword ad groups (SKAGs)</li>
+<li>Write ads with keyword in headline</li>
+<li>Improve landing page relevance</li>
+<li>Match landing page headline to ad</li>
+</ol>
+<hr>
+<h4>Example 2: Landing Page Experience</h4>
+<pre><code>Severity: 6/10
+Category: Quality Score Problems
+Title: 22 keywords flagged for &quot;Below average&quot; landing page experience
+
+Google rates your landing page experience as &quot;Below average&quot;
+for 22 keywords, citing:
+
+Issues detected:
+- Mobile load time &gt;4 seconds
+- Pop-ups on mobile
+- Thin content
+- Navigation unclear
+
+This drags down Quality Score to 4-5 on affected keywords.
+
+Recommended Action:
+1. Improve mobile page speed (compress images, minimize CSS)
+2. Remove mobile pop-ups
+3. Add more content to landing page
+4. Simplify navigation
+
+Impact: Landing page experience is 1/3 of QS calculation
+</code></pre>
+<p><strong>Fix</strong>:</p>
+<ol>
+<li>Run Google PageSpeed Insights</li>
+<li>Fix technical issues (speed, mobile usability)</li>
+<li>Add content to meet user intent</li>
+<li>Remove aggressive pop-ups</li>
+<li>Test on mobile device</li>
+</ol>
+<hr>
+<h3>Quality Score Problems Best Practices</h3>
+<p><strong>QS monitoring</strong>:</p>
+<ul>
+<li>Check Quality Score weekly</li>
+<li>Track changes over time</li>
+<li>Act when QS drops below 5</li>
+</ul>
+<p><strong>Improvement focus</strong>:</p>
+<ul>
+<li>Expected CTR (30% of QS): Improve ad copy</li>
+<li>Ad Relevance (30% of QS): Match ad to keyword</li>
+<li>Landing Page (30% of QS): Fix page experience</li>
+</ul>
+<p><strong>Measurement</strong>:</p>
+<ul>
+<li>QS improvements take 2-4 weeks to reflect</li>
+<li>Track CPC changes as QS improves</li>
+<li>Document what fixes worked</li>
+</ul>
+<hr>
+<h2>6. Conversion Tracking 🎯</h2>
+<h3>What This Category Detects</h3>
+<p><strong>All conversion tracking issues</strong>:</p>
+<ul>
+<li>Zero conversions recorded</li>
+<li>Conversion tracking errors</li>
+<li>Unusual conversion patterns</li>
+<li>Attribution problems</li>
+<li>Conversion value discrepancies</li>
+</ul>
+<p><strong>Why it matters</strong>: Can&#39;t optimize what you can&#39;t measure</p>
+<hr>
+<h3>Common Conversion Tracking Alerts</h3>
+<h4>Example 1: Conversion Tracking Broken</h4>
+<pre><code>Severity: 9/10
+Category: Conversion Tracking
+Title: No conversions in 5 days despite normal traffic
+
+5 days of zero conversions with 1,450 clicks suggests
+tracking failure, not actual lack of conversions.
+
+Traffic quality unchanged:
+- CTR: 3.8% (normal)
+- Bounce rate: Normal per analytics
+- Time on site: Normal
+
+Historical baseline: ~72 conversions per 1,450 clicks
+
+Diagnostic: Conversion tag likely missing or broken
+
+Recommended Action: Verify Google Ads conversion tag is
+installed and firing correctly. Use Google Tag Assistant
+to test.
+
+Impact: Flying blind without conversion data
+</code></pre>
+<p><strong>Fix</strong>: (Same as Technical Issues example above)</p>
+<hr>
+<h3>Conversion Tracking Best Practices</h3>
+<p><strong>Daily verification</strong>:</p>
+<ul>
+<li>Check conversion count daily</li>
+<li>Sudden zero = investigate immediately</li>
+<li>Compare to website analytics</li>
+</ul>
+<p><strong>Multiple attribution</strong>:</p>
+<ul>
+<li>Set up multiple conversion actions</li>
+<li>Track micro-conversions (form views, etc.)</li>
+<li>Don&#39;t rely on single conversion point</li>
+</ul>
+<hr>
+<h2>7. Geographic Performance 🌍</h2>
+<h3>What This Category Detects</h3>
+<p><strong>All location insights</strong>:</p>
+<ul>
+<li>High-performing locations</li>
+<li>Underperforming regions</li>
+<li>Location bid adjustment opportunities</li>
+<li>Geographic expansion possibilities</li>
+<li>Local targeting refinements</li>
+</ul>
+<p><strong>Why it matters</strong>: Location targeting impacts efficiency</p>
+<hr>
+<h3>Common Geographic Performance Alerts</h3>
+<h4>Example 1: High-Performing State</h4>
+<pre><code>Severity: 6/10
+Category: Geographic Performance
+Title: Texas converts at 45% lower CPA than average
+
+Texas performance (230 conversions, 30-day sample):
+- Conversion rate: 7.2%
+- CPA: $32
+- Revenue: $15,680
+
+All other states average:
+- Conversion rate: 4.1%
+- CPA: $58
+- Revenue: $8,240 (per equivalent clicks)
+
+Currently: Texas gets 18% of budget
+Opportunity: Could allocate 35% to Texas
+
+Recommended Action: Increase Texas location bid adjustment
+to +60% or create Texas-specific campaigns.
+
+Impact: Shifting budget to Texas could reduce overall CPA
+by 22%
+</code></pre>
+<p><strong>Fix</strong>:</p>
+<ol>
+<li>Set location bid adjustment for Texas: +60%</li>
+<li>Monitor for 2 weeks</li>
+<li>Consider creating Texas-specific campaigns</li>
+<li>Research why Texas performs better</li>
+</ol>
+<hr>
+<h3>Geographic Performance Best Practices</h3>
+<p><strong>Monthly geo review</strong>:</p>
+<ul>
+<li>Check location reports</li>
+<li>Identify best/worst performers</li>
+<li>Adjust bids accordingly</li>
+</ul>
+<p><strong>Sample size</strong>:</p>
+<ul>
+<li>Need 30+ conversions to trust data</li>
+<li>Small sample = don&#39;t make big changes</li>
+<li>Wait for statistical significance</li>
+</ul>
+<hr>
+<h2>8. Bidding Strategy 💡</h2>
+<h3>What This Category Detects</h3>
+<p><strong>All bidding strategy insights</strong>:</p>
+<ul>
+<li>Manual vs automated bidding</li>
+<li>Bid strategy performance</li>
+<li>Target CPA/ROAS recommendations</li>
+<li>Bid adjustment opportunities</li>
+<li>Portfolio bid strategy suggestions</li>
+</ul>
+<p><strong>Why it matters</strong>: Right bid strategy saves time and improves performance</p>
+<hr>
+<h3>Common Bidding Strategy Alerts</h3>
+<h4>Example 1: Automation Opportunity</h4>
+<pre><code>Severity: 5/10
+Category: Bidding Strategy
+Title: High-volume campaign suitable for Target CPA
+
+Your &quot;Brand Campaign&quot; has ideal conditions for automated
+bidding:
+
+Qualifications met:
+- 150+ conversions in last 30 days ✓
+- Consistent conversion volume ✓
+- Stable CPA ($42-$48 range) ✓
+
+Currently using: Manual CPC
+Recommended: Target CPA bidding
+
+Benefits of switching:
+- Automated bid optimization
+- 24/7 bid adjustments
+- Reduced management time
+- Typical 10-15% CPA improvement
+
+Recommended Action: Switch to Target CPA with target of $45
+(your current average).
+
+Impact: Saves management time, likely improves efficiency
+</code></pre>
+<p><strong>Fix</strong>:</p>
+<ol>
+<li>Switch campaign to Target CPA</li>
+<li>Set target at current average CPA</li>
+<li>Allow 2-week learning period</li>
+<li>Monitor and adjust target based on results</li>
+</ol>
+<hr>
+<h3>Bidding Strategy Best Practices</h3>
+<p><strong>Strategy selection</strong>:</p>
+<ul>
+<li>Manual CPC: For new campaigns (&lt;30 conv/mo)</li>
+<li>Target CPA: For conversion-focused campaigns (30+ conv/mo)</li>
+<li>Target ROAS: For e-commerce with revenue tracking</li>
+<li>Maximize Conversions: For lead gen with flexible CPA</li>
+</ul>
+<p><strong>Monitoring</strong>:</p>
+<ul>
+<li>Let automated strategies learn (14-30 days)</li>
+<li>Don&#39;t change target CPA daily</li>
+<li>Review weekly, adjust monthly</li>
+</ul>
+<hr>
+<h2>Filtering Alerts by Category</h2>
+<h3>How to Use Category Filters</h3>
+<p><strong>Location</strong>: Client Details → AI Alerts Tab → Category Filter</p>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Click &quot;All Categories&quot; dropdown</li>
+<li>Select specific category</li>
+<li>Alerts filter to show only that category</li>
+<li>Clear filter to see all alerts again</li>
+</ol>
+<p><strong>Use cases</strong>:</p>
+<p><strong>Focus on budget</strong> (before month-end):</p>
+<pre><code>Filter: Budget Issues
+Review all budget alerts
+Fix pacing problems
+Ensure full spend
+</code></pre>
+<p><strong>Technical audit</strong> (weekly):</p>
+<pre><code>Filter: Technical Issues
+Check for disapprovals
+Verify tracking working
+Fix errors immediately
+</code></pre>
+<p><strong>Monthly optimization</strong> (strategy session):</p>
+<pre><code>Filter: Strategy Recommendations
+Queue all recommendations
+Prioritize by potential impact
+Implement top 3
+</code></pre>
+<p>[Screenshot: Category filter in use]
+<em>Filter by category to focus optimization efforts</em></p>
+<hr>
+<h2>Category Patterns and Trends</h2>
+<h3>Common Combinations</h3>
+<p><strong>Budget + Performance</strong>:</p>
+<pre><code>Budget exhausting early + CPC increasing = Competition spike
+Action: Increase budget OR lower bids
+</code></pre>
+<p><strong>Technical + Conversion Tracking</strong>:</p>
+<pre><code>Ads disapproved + Zero conversions = Multiple problems
+Action: Fix ads first, then verify tracking
+</code></pre>
+<p><strong>Quality Score + Performance</strong>:</p>
+<pre><code>Low QS + High CPC + Low CTR = Ad relevance problem
+Action: Rewrite ads, improve landing page
+</code></pre>
+<hr>
+<h3>Recurring Category Patterns</h3>
+<p><strong>If you see same category weekly</strong>:</p>
+<ul>
+<li>Budget Issues repeating = Under-funded campaigns</li>
+<li>Performance Problems repeating = Competitive market</li>
+<li>Quality Score repeating = Fundamental relevance issues</li>
+<li>Technical Issues repeating = Process problem (need QA)</li>
+</ul>
+<p><strong>Action</strong>: Fix root cause, not symptoms</p>
+<hr>
+<h2>Tips &amp; Best Practices</h2>
+<h3>Category-Specific Days</h3>
+<p><strong>Monday: Technical Issues</strong></p>
+<ul>
+<li>Check for weekend disapprovals</li>
+<li>Verify tracking after weekend</li>
+<li>Fix before week starts</li>
+</ul>
+<p><strong>Wednesday: Performance Problems</strong></p>
+<ul>
+<li>Mid-week performance review</li>
+<li>Catch declining trends</li>
+<li>Adjust for rest of week</li>
+</ul>
+<p><strong>Friday: Budget Issues</strong></p>
+<ul>
+<li>Check monthly pacing</li>
+<li>Adjust before weekend</li>
+<li>Prepare for next week</li>
+</ul>
+<p><strong>Monthly: Strategy Recommendations</strong></p>
+<ul>
+<li>Last Friday of month</li>
+<li>Review all strategic alerts</li>
+<li>Plan next month improvements</li>
+</ul>
+<hr>
+<h3>Don&#39;t Ignore Categories</h3>
+<p><strong>Every category matters</strong>:</p>
+<ul>
+<li>Technical = Foundation (fix first)</li>
+<li>Performance = Immediate impact (fix second)</li>
+<li>Budget = Efficiency (fix third)</li>
+<li>Strategy = Long-term (plan fourth)</li>
+</ul>
+<p><strong>Skip categories = miss opportunities</strong></p>
+<hr>
+<h3>Category Expertise</h3>
+<p><strong>Build expertise by category</strong>:</p>
+<ul>
+<li>Master Technical Issues (save campaigns)</li>
+<li>Master Budget Issues (optimize spend)</li>
+<li>Master Performance Problems (improve ROI)</li>
+<li>Master Strategy Recommendations (unlock growth)</li>
+</ul>
+<p><strong>Become the go-to expert</strong> for each category</p>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: Can one alert be in multiple categories?</strong>
+A: No, each alert has exactly one category assigned by AI.</p>
+<p><strong>Q: Which category is most important?</strong>
+A: Technical Issues (stops campaigns), then Performance Problems (costs money), then others.</p>
+<p><strong>Q: Can I customize which categories appear?</strong>
+A: Not currently. All 8 categories are standard. Custom categories planned for future.</p>
+<p><strong>Q: Why don&#39;t I see all 8 categories?</strong>
+A: You only see categories with active alerts. Well-optimized accounts may only show 3-4 categories.</p>
+<p><strong>Q: Which category should I check daily?</strong>
+A: Technical Issues and Conversion Tracking. Others can be weekly/monthly.</p>
+<p><strong>Q: Do categories affect severity?</strong>
+A: No. Severity is independent of category. Technical Issues can be severity 2 or 10.</p>
+<hr>
+<h2>Next Steps</h2>
+<p>Master alert categories with these guides:</p>
+<ul>
+<li><strong><a href="/docs/smart-alerts-intro">Smart Alerts Intro</a></strong> - How alerts work</li>
+<li><strong><a href="/docs/alert-severity-guide">Alert Severity</a></strong> - The 1-10 scale explained</li>
+<li><strong><a href="/docs/accept-decline-workflow">Accept/Decline Workflow</a></strong> - Acting on alerts</li>
+<li><strong><a href="/docs/ai-chat-getting-started">AI Chat</a></strong> - Ask AI about specific categories</li>
+</ul>
+<hr>
+<p><strong>Filter alerts by category</strong> to focus your optimization efforts</p>
+<p><strong>Track recurring categories</strong> to identify systemic issues</p>
+<p><strong>Master one category at a time</strong> to build comprehensive expertise</p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>

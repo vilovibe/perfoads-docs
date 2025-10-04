@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Context Explained - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>AI Context Explained</h1>
+<p>Context is the information AI uses to understand your business and provide relevant recommendations. The more context AI has - business goals, target audience, optimization history - the better its insights become. This guide explains what context is, what data AI accesses, and how to improve it.</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ul>
+<li>What context means for AI</li>
+<li>Complete list of data sources AI uses</li>
+<li>How context improves recommendations</li>
+<li>Business Profile importance</li>
+<li>Optimization history tracking</li>
+<li>How to improve AI context</li>
+<li>Context privacy and security</li>
+</ul>
+<p><strong>Time needed</strong>: 10 minutes to read</p>
+<hr>
+<h2>What Is Context?</h2>
+<p><strong>Definition</strong>: All information AI can access to understand your business, campaigns, and goals</p>
+<p><strong>Why it matters</strong>:</p>
+<ul>
+<li>Without context: Generic recommendations</li>
+<li>With context: Tailored to your specific business</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<p><strong>Without context</strong>:</p>
+<pre><code>AI: &quot;Your CPA is $50. That&#39;s higher than average.&quot;
+</code></pre>
+<p><strong>With context</strong> (AI knows your target CPA is $45):</p>
+<pre><code>AI: &quot;Your CPA is $50, which is 11% above your target of $45.
+This gap is costing approximately $280/month in efficiency
+losses. I recommend improving Quality Score on your top
+5 keywords to bring CPA back to target.&quot;
+</code></pre>
+<p>[Screenshot: Context data sources diagram]
+<em>AI synthesizes data from 12 different sources</em></p>
+<hr>
+<h2>The 12 Data Sources</h2>
+<h3>1. Campaign Performance Data</h3>
+<p><strong>What AI sees</strong>:</p>
+<ul>
+<li>Campaign names, types, status</li>
+<li>Daily/monthly spend</li>
+<li>Clicks, impressions, conversions</li>
+<li>CTR, CPC, conversion rate</li>
+<li>Impression share data</li>
+<li>Budget settings</li>
+<li>Bidding strategies</li>
+</ul>
+<p><strong>Data freshness</strong>: Last Smart Sync (shown in chat)</p>
+<p><strong>How AI uses it</strong>:</p>
+<ul>
+<li>Identify underperforming campaigns</li>
+<li>Compare campaign efficiency</li>
+<li>Recommend budget reallocation</li>
+<li>Detect trend anomalies</li>
+</ul>
+<hr>
+<h3>2. Ad Group &amp; Keyword Data</h3>
+<p><strong>What AI sees</strong>:</p>
+<ul>
+<li>All ad groups and structure</li>
+<li>All keywords and match types</li>
+<li>Quality Scores</li>
+<li>Keyword-level performance</li>
+<li>Search term data (matched queries)</li>
+<li>Negative keyword lists</li>
+</ul>
+<p><strong>How AI uses it</strong>:</p>
+<ul>
+<li>Find wasted keyword spend</li>
+<li>Recommend keyword expansion</li>
+<li>Identify negative keyword opportunities</li>
+<li>Analyze Quality Score issues</li>
+</ul>
+<hr>
+<h3>3. Ad Copy &amp; Creative</h3>
+<p><strong>What AI sees</strong>:</p>
+<ul>
+<li>All ad headlines and descriptions</li>
+<li>Ad status (approved, disapproved, pending)</li>
+<li>Ad performance by variant</li>
+<li>Extension usage</li>
+<li>Image ads (if Shopping/Display)</li>
+</ul>
+<p><strong>How AI uses it</strong>:</p>
+<ul>
+<li>Suggest ad copy improvements</li>
+<li>Identify policy violations</li>
+<li>Recommend A/B test variations</li>
+<li>Compare ad performance</li>
+</ul>
+<hr>
+<h3>4. Conversion Tracking</h3>
+<p><strong>What AI sees</strong>:</p>
+<ul>
+<li>Conversion actions defined</li>
+<li>Conversion counts and values</li>
+<li>Attribution windows</li>
+<li>Conversion rates by campaign/keyword</li>
+<li>Time to conversion data</li>
+</ul>
+<p><strong>How AI uses it</strong>:</p>
+<ul>
+<li>Calculate accurate ROI metrics</li>
+<li>Identify high-converting traffic sources</li>
+<li>Recommend conversion optimization</li>
+<li>Track optimization impact</li>
+</ul>
+<hr>
+<h3>5. Geographic Data</h3>
+<p><strong>What AI sees</strong>:</p>
+<ul>
+<li>Performance by state/city</li>
+<li>Location bid adjustments</li>
+<li>Geo targeting settings</li>
+<li>Regional conversion rates</li>
+</ul>
+<p><strong>How AI uses it</strong>:</p>
+<ul>
+<li>Find best-performing locations</li>
+<li>Recommend geo bid adjustments</li>
+<li>Identify expansion opportunities</li>
+<li>Detect regional inefficiencies</li>
+</ul>
+<hr>
+<h3>6. Device &amp; Time Data</h3>
+<p><strong>What AI sees</strong>:</p>
+<ul>
+<li>Performance by device (mobile, desktop, tablet)</li>
+<li>Performance by day of week</li>
+<li>Performance by hour of day</li>
+<li>Device bid adjustments</li>
+<li>Ad schedule settings</li>
+</ul>
+<p><strong>How AI uses it</strong>:</p>
+<ul>
+<li>Optimize ad scheduling</li>
+<li>Recommend device bid adjustments</li>
+<li>Identify best performance times</li>
+<li>Suggest budget pacing changes</li>
+</ul>
+<hr>
+<h3>7. Budget Tracking</h3>
+<p><strong>What AI sees</strong>:</p>
+<ul>
+<li>Monthly budget targets</li>
+<li>Daily spend patterns</li>
+<li>Budget utilization percentage</li>
+<li>Budget pacing trends</li>
+<li>Campaign-level budgets</li>
+</ul>
+<p><strong>How AI uses it</strong>:</p>
+<ul>
+<li>Alert on budget exhaustion</li>
+<li>Recommend budget increases</li>
+<li>Identify budget waste</li>
+<li>Optimize budget distribution</li>
+</ul>
+<hr>
+<h3>8. Active AI Alerts</h3>
+<p><strong>What AI sees</strong>:</p>
+<ul>
+<li>All current alerts</li>
+<li>Alert severity levels</li>
+<li>Alert categories</li>
+<li>Past accept/decline history</li>
+</ul>
+<p><strong>How AI uses it</strong>:</p>
+<ul>
+<li>Reference alerts in conversation</li>
+<li>Explain alert reasoning</li>
+<li>Prioritize recommendations</li>
+<li>Learn from your feedback</li>
+</ul>
+<hr>
+<h3>9. Business Profile ⭐</h3>
+<p><strong>What AI sees</strong> (if you fill it out):</p>
+<ul>
+<li>Industry vertical</li>
+<li>Business type (B2B, B2C, local, e-commerce)</li>
+<li>Company size</li>
+<li>Target audience description</li>
+<li>Business goals</li>
+<li>Target CPA/ROAS</li>
+<li>Monthly budget</li>
+<li>Website URL</li>
+<li>Main products/services</li>
+</ul>
+<p><strong>How AI uses it</strong>:</p>
+<ul>
+<li>Calibrate &quot;good&quot; vs &quot;bad&quot; performance</li>
+<li>Understand strategic constraints</li>
+<li>Provide industry-specific advice</li>
+<li>Set appropriate severity levels</li>
+</ul>
+<p><strong>Critical</strong>: This is the most important context source</p>
+<hr>
+<h3>10. Optimization History</h3>
+<p><strong>What AI sees</strong>:</p>
+<ul>
+<li>Changes you&#39;ve made</li>
+<li>When optimizations were implemented</li>
+<li>Performance before/after changes</li>
+<li>Alert accept/decline patterns</li>
+<li>Conversation summaries</li>
+</ul>
+<p><strong>How AI uses it</strong>:</p>
+<ul>
+<li>Don&#39;t repeat failed recommendations</li>
+<li>Build on successful optimizations</li>
+<li>Understand your preferences</li>
+<li>Track optimization impact</li>
+</ul>
+<hr>
+<h3>11. Custom Context Entries</h3>
+<p><strong>What AI sees</strong> (if you add custom notes):</p>
+<ul>
+<li>Client-specific instructions</li>
+<li>Strategic priorities</li>
+<li>Constraints and limitations</li>
+<li>Campaign goals</li>
+<li>Special considerations</li>
+</ul>
+<p><strong>Examples</strong>:</p>
+<pre><code>&quot;Client is rebranding next month - don&#39;t recommend
+major campaign restructures until after rebrand&quot;
+
+&quot;Target audience is enterprise, not SMB - filter
+recommendations accordingly&quot;
+
+&quot;Client prefers manual bidding - don&#39;t suggest
+automation&quot;
+</code></pre>
+<p><strong>How AI uses it</strong>:</p>
+<ul>
+<li>Tailor recommendations to your specific situation</li>
+<li>Avoid conflicting with known constraints</li>
+<li>Respect strategic priorities</li>
+</ul>
+<hr>
+<h3>12. Website Analysis (During Onboarding)</h3>
+<p><strong>What AI sees</strong> (one-time during client setup):</p>
+<ul>
+<li>Website content analysis</li>
+<li>Product/service offerings</li>
+<li>Value propositions</li>
+<li>Target audience indicators</li>
+<li>Competitor positioning</li>
+<li>Industry category</li>
+</ul>
+<p><strong>How AI uses it</strong>:</p>
+<ul>
+<li>Understand business model</li>
+<li>Suggest relevant keywords</li>
+<li>Recommend campaign structure</li>
+<li>Identify unique selling points</li>
+</ul>
+<hr>
+<h2>How Context Improves Recommendations</h2>
+<h3>Example 1: CPA Evaluation</h3>
+<p><strong>Without Business Profile</strong>:</p>
+<pre><code>Your question: &quot;Is my CPA of $42 good?&quot;
+
+AI: &quot;A CPA of $42 is moderate. Industry average varies
+by vertical. You should compare to your specific goals.&quot;
+
+(Generic answer - not helpful)
+</code></pre>
+<p><strong>With Business Profile</strong> (target CPA: $35):</p>
+<pre><code>Your question: &quot;Is my CPA of $42 good?&quot;
+
+AI: &quot;Your CPA of $42 is 20% above your target of $35.
+This represents approximately $420/month in lost efficiency.
+
+To bring CPA down to target, I recommend:
+1. Improve Quality Score (currently 5.2, should be 7+)
+2. Add 12 negative keywords I identified
+3. Pause 3 underperforming ad groups
+
+These changes should reduce CPA by ~18%, bringing you
+to $34.40.&quot;
+
+(Specific, actionable, quantified)
+</code></pre>
+<hr>
+<h3>Example 2: Budget Recommendations</h3>
+<p><strong>Without Monthly Budget Context</strong>:</p>
+<pre><code>AI: &quot;You could increase budget to capture more traffic.&quot;
+
+(Vague, may not be feasible)
+</code></pre>
+<p><strong>With Monthly Budget</strong> ($5,000/month specified):</p>
+<pre><code>AI: &quot;You&#39;re currently spending $3,800 of your $5,000
+monthly budget (76% utilization). This leaves $1,200
+on the table.
+
+I recommend reallocating this $1,200 to:
+- Brand Campaign: +$800 (budget-limited, high ROI)
+- Non-Brand Campaign: +$400 (room for expansion)
+
+Expected result: +35 conversions/month without exceeding
+your total budget.&quot;
+
+(Specific, respects constraints, quantified impact)
+</code></pre>
+<hr>
+<h3>Example 3: Strategic Alignment</h3>
+<p><strong>Without Industry Context</strong>:</p>
+<pre><code>AI: &quot;Consider expanding to Shopping campaigns.&quot;
+
+(May not apply to your business)
+</code></pre>
+<p><strong>With Industry</strong> (Professional Services / B2B):</p>
+<pre><code>AI: &quot;Given your professional services B2B business model,
+Shopping campaigns are not applicable (you don&#39;t sell
+physical products).
+
+Instead, I recommend:
+1. LinkedIn Ads for B2B targeting
+2. Remarketing to nurture leads through long sales cycle
+3. Thought leadership content campaigns
+
+These align better with B2B service sales.&quot;
+
+(Industry-appropriate, strategic)
+</code></pre>
+<hr>
+<h2>Business Profile: The Most Important Context</h2>
+<h3>Why It Matters</h3>
+<p><strong>Business Profile unlocks</strong>:</p>
+<ul>
+<li>Accurate performance benchmarks</li>
+<li>Industry-specific recommendations</li>
+<li>Goal-aligned optimization</li>
+<li>Appropriate severity ratings</li>
+</ul>
+<p><strong>ROI of 10 minutes to fill out</strong>:</p>
+<ul>
+<li>3-5x more relevant recommendations</li>
+<li>Fewer generic suggestions</li>
+<li>Better alert accuracy</li>
+<li>Faster decision-making</li>
+</ul>
+<hr>
+<h3>Key Business Profile Fields</h3>
+<p><strong>Target CPA</strong> (critical):</p>
+<pre><code>Without: AI can&#39;t judge if $50 CPA is good or bad
+With: AI knows if you&#39;re above/below target
+</code></pre>
+<p><strong>Monthly Budget</strong> (critical):</p>
+<pre><code>Without: AI might suggest $10K/month strategies
+With: AI respects your $2K/month reality
+</code></pre>
+<p><strong>Business Goals</strong> (important):</p>
+<pre><code>Without: AI optimizes for clicks
+With: AI optimizes for your actual goals (leads, sales, calls)
+</code></pre>
+<p><strong>Target Audience</strong> (important):</p>
+<pre><code>Without: AI suggests broad targeting
+With: AI recommends audience-aligned strategies
+</code></pre>
+<p><strong>Industry</strong> (helpful):</p>
+<pre><code>Without: AI gives generic advice
+With: AI provides industry best practices
+</code></pre>
+<hr>
+<h2>Optimization History: AI Learning</h2>
+<h3>How It Works</h3>
+<p><strong>Every change you make is tracked</strong>:</p>
+<pre><code>Oct 1: Increased Brand Campaign budget $100→$150
+Result: +22 conversions, CPA stayed same ($42→$41)
+AI learns: Budget increases work for this client
+
+Oct 8: Tried Display Campaign
+Result: 5 conversions, $95 CPA (vs $42 average)
+AI learns: Display doesn&#39;t work for this client
+
+Oct 15: Added 15 negative keywords
+Result: CTR +12%, wasted spend -$280/month
+AI learns: Negative keywords are high-impact here
+</code></pre>
+<p><strong>Future recommendations improve</strong>:</p>
+<pre><code>AI won&#39;t suggest: Display campaigns (learned it failed)
+AI will suggest: More negative keyword reviews (learned it works)
+AI will suggest: Budget increases (learned they&#39;re effective)
+</code></pre>
+<hr>
+<h3>Accept/Decline Feedback Loop</h3>
+<p><strong>When you accept alerts</strong>:</p>
+<ul>
+<li>AI notes what was valuable</li>
+<li>Similar alerts get higher priority</li>
+<li>Recommendation style reinforced</li>
+</ul>
+<p><strong>When you decline alerts</strong>:</p>
+<ul>
+<li>AI notes what wasn&#39;t useful</li>
+<li>Similar alerts get lower priority</li>
+<li>Recommendation style adjusted</li>
+</ul>
+<p><strong>Over time</strong>: AI becomes personalized to your preferences</p>
+<hr>
+<h2>Custom Context Entries</h2>
+<h3>What They Are</h3>
+<p><strong>Free-text notes</strong> you can add about client-specific considerations</p>
+<p><strong>Examples</strong>:</p>
+<p><strong>Strategic constraints</strong>:</p>
+<pre><code>&quot;Client is switching from products to services next quarter.
+Don&#39;t recommend Shopping campaigns.&quot;
+</code></pre>
+<p><strong>Special targeting</strong>:</p>
+<pre><code>&quot;Focus on enterprise buyers ($1M+ company size).
+Avoid small business targeting.&quot;
+</code></pre>
+<p><strong>Temporary situations</strong>:</p>
+<pre><code>&quot;Website is being redesigned Oct 15-25.
+Pause conversion tracking alerts during this period.&quot;
+</code></pre>
+<p><strong>Budget context</strong>:</p>
+<pre><code>&quot;Budget will 3x in Q4 for holiday season.
+Plan expansion strategies now.&quot;
+</code></pre>
+<p><strong>Preference notes</strong>:</p>
+<pre><code>&quot;Client prefers manual bidding for control.
+Don&#39;t suggest automated strategies.&quot;
+</code></pre>
+<hr>
+<h3>When to Use Custom Context</h3>
+<p><strong>Use when</strong>:</p>
+<ul>
+<li>AI doesn&#39;t have a structured field for your situation</li>
+<li>Temporary constraints exist</li>
+<li>Strategic priorities are unique</li>
+<li>Client has strong preferences</li>
+<li>Special circumstances apply</li>
+</ul>
+<p><strong>Don&#39;t use for</strong>:</p>
+<ul>
+<li>Information that belongs in Business Profile</li>
+<li>Data AI already has (campaign performance)</li>
+<li>Things that change frequently</li>
+</ul>
+<hr>
+<h2>Context Privacy &amp; Security</h2>
+<h3>What Is Private</h3>
+<p><strong>Your data stays in your account</strong>:</p>
+<ul>
+<li>Other users cannot see your client data</li>
+<li>Other users cannot see your conversations</li>
+<li>Other users cannot see your custom context</li>
+</ul>
+<p><strong>Your accept/decline feedback</strong>:</p>
+<ul>
+<li>Only affects your account&#39;s AI behavior</li>
+<li>Contributes to aggregate model improvement (anonymized)</li>
+<li>Never identifies you or your clients</li>
+</ul>
+<hr>
+<h3>What AI Cannot See</h3>
+<p><strong>Completely private</strong>:</p>
+<ul>
+<li>Google Ads login credentials</li>
+<li>Payment information</li>
+<li>User passwords</li>
+<li>Other clients (in per-client chat)</li>
+<li>Unrelated user data</li>
+</ul>
+<p><strong>External data</strong>:</p>
+<ul>
+<li>Google Analytics (not integrated)</li>
+<li>CRM data (not integrated)</li>
+<li>Email marketing data</li>
+<li>Social media data</li>
+</ul>
+<hr>
+<h2>Improving AI Context</h2>
+<h3>Fill Out Business Profile (10 minutes)</h3>
+<p><strong>Highest impact action</strong>:</p>
+<ol>
+<li>Go to Client Details → Settings</li>
+<li>Fill out business profile fields</li>
+<li>Save</li>
+</ol>
+<p><strong>Immediate benefit</strong>: Next AI conversation 3-5x better</p>
+<hr>
+<h3>Add Custom Context (5 minutes)</h3>
+<p><strong>For unique situations</strong>:</p>
+<ol>
+<li>Go to Client Details → Context tab</li>
+<li>Add custom context entry</li>
+<li>Describe special considerations</li>
+</ol>
+<p><strong>Example</strong>:</p>
+<pre><code>Title: &quot;Seasonal Budget Strategy&quot;
+Note: &quot;Client doubles budget Nov-Dec for holiday season.
+Any expansion recommendations should account for this.&quot;
+</code></pre>
+<hr>
+<h3>Keep Optimizations Documented</h3>
+<p><strong>Track what you do</strong>:</p>
+<ul>
+<li>Accept alerts when you implement recommendations</li>
+<li>Note major changes in custom context</li>
+<li>AI learns faster with clear feedback</li>
+</ul>
+<hr>
+<h3>Regular Data Syncs</h3>
+<p><strong>Fresh data = better context</strong>:</p>
+<ul>
+<li>Set up auto-sync (daily recommended)</li>
+<li>Manual sync before important decisions</li>
+<li>Context is only as good as data recency</li>
+</ul>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: Can AI see my other clients in per-client chat?</strong>
+A: No. Per-client chat is sandboxed to that client only. Global chat can discuss all clients.</p>
+<p><strong>Q: Does filling out Business Profile cost anything?</strong>
+A: No. It&#39;s included and highly recommended for better AI.</p>
+<p><strong>Q: Can I delete or edit custom context?</strong>
+A: Yes. Go to Context tab, edit or delete any entry anytime.</p>
+<p><strong>Q: How often should I update Business Profile?</strong>
+A: When goals change (new target CPA, budget increase, strategy shift).</p>
+<p><strong>Q: Does AI remember conversations forever?</strong>
+A: Conversations auto-summarize after 10 messages. Full history kept for 90 days.</p>
+<p><strong>Q: Can I export my context data?</strong>
+A: Business Profile and custom context can be exported as part of client data export.</p>
+<hr>
+<h2>Troubleshooting</h2>
+<h3>Problem: AI gives generic recommendations</h3>
+<p><strong>Cause</strong>: Missing Business Profile</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Fill out Business Profile (especially target CPA, budget, goals)</li>
+<li>Wait for next conversation</li>
+<li>AI will immediately use new context</li>
+</ol>
+<hr>
+<h3>Problem: AI suggests things that don&#39;t apply</h3>
+<p><strong>Cause</strong>: Missing industry or business type context</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Update Business Profile with industry</li>
+<li>Add custom context note explaining business model</li>
+<li>Example: &quot;B2B SaaS, not e-commerce - don&#39;t suggest Shopping&quot;</li>
+</ol>
+<hr>
+<h3>Problem: AI recommends things you already tried</h3>
+<p><strong>Cause</strong>: Optimization history not captured</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Accept alerts when you implement them</li>
+<li>Add custom context note about past attempts</li>
+<li>Example: &quot;Tried Display campaigns Q1 2025 - poor ROI, don&#39;t suggest again&quot;</li>
+</ul>
+<hr>
+<h2>Next Steps</h2>
+<p>Maximize AI effectiveness with these guides:</p>
+<ul>
+<li><strong><a href="/docs/business-profile-setup">Business Profile Setup</a></strong> - Complete Business Profile guide</li>
+<li><strong><a href="/docs/custom-context-entries">Custom Context Entries</a></strong> - Advanced context management</li>
+<li><strong><a href="/docs/ai-chat-getting-started">AI Chat Getting Started</a></strong> - Use AI Chat effectively</li>
+<li><strong><a href="/docs/smart-alerts-intro">Smart Alerts</a></strong> - How context improves alerts</li>
+</ul>
+<hr>
+<p><strong>Fill out Business Profile now</strong> for immediate improvement</p>
+<p><strong>Add custom context</strong> for unique situations</p>
+<p><strong>Keep context updated</strong> as business evolves</p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>

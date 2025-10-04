@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Reference: System Architecture - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Technical Reference: System Architecture</h1>
+<p><strong>Audience</strong>: Developers, technical users, system administrators, integrators</p>
+<p>PerfoAds is a full-stack application with Express.js backend API, Next.js 15 frontend, PostgreSQL database, and AI-powered features using Claude API. This technical guide documents the complete system architecture, technology choices, data flow, and infrastructure setup.</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ul>
+<li>High-level system architecture</li>
+<li>Technology stack breakdown</li>
+<li>Backend API structure</li>
+<li>Frontend architecture (Next.js 15)</li>
+<li>Database schema overview</li>
+<li>AI integration (Claude API)</li>
+<li>Sync system architecture</li>
+<li>Deployment and infrastructure</li>
+<li>Performance optimizations</li>
+<li>Scalability considerations</li>
+</ul>
+<p><strong>Time needed</strong>: 20 minutes to read</p>
+<p><strong>Prerequisite Knowledge</strong>: Web application development, APIs, databases</p>
+<hr>
+<h2>High-Level Architecture</h2>
+<h3>System Components</h3>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│                         USER BROWSER                        │
+└────────────────────────┬────────────────────────────────────┘
+                         │ HTTPS
+                         ↓
+┌─────────────────────────────────────────────────────────────┐
+│              FRONTEND (Next.js 15 on Render)                │
+│                  app.aiperfoads.xyz                     │
+│  - Server-Side Rendering (SSR)                              │
+│  - API Proxy Routes                                         │
+│  - React Components                                         │
+└────────────────────────┬────────────────────────────────────┘
+                         │ HTTPS API Calls
+                         ↓
+┌─────────────────────────────────────────────────────────────┐
+│            BACKEND API (Express.js on Render)               │
+│                 api.aiperfoads.xyz                      │
+│  - REST API (35+ endpoints)                                 │
+│  - Authentication (JWT + httpOnly cookies)                  │
+│  - Business Logic                                           │
+│  - Sync Queue Management                                    │
+└──────┬──────────────────┬─────────────────┬────────────────┘
+       │                  │                 │
+       ↓                  ↓                 ↓
+┌──────────────┐  ┌───────────────┐ ┌──────────────────┐
+│   SUPABASE   │  │  GOOGLE ADS   │ │   CLAUDE API     │
+│  PostgreSQL  │  │      API      │ │  (Anthropic)     │
+│   Database   │  │               │ │                  │
+└──────────────┘  └───────────────┘ └──────────────────┘
+</code></pre>
+<hr>
+<h2>Technology Stack</h2>
+<h3>Backend (API Server)</h3>
+<p><strong>Core</strong>:</p>
+<ul>
+<li><strong>Runtime</strong>: Node.js 20</li>
+<li><strong>Framework</strong>: Express.js 4.x</li>
+<li><strong>Language</strong>: TypeScript 5.x</li>
+<li><strong>Build Tool</strong>: tsx (TypeScript execution)</li>
+</ul>
+<p><strong>Key Libraries</strong>:</p>
+<ul>
+<li><code>google-ads-api</code> - Direct Google Ads API access (Opteo)</li>
+<li><code>@anthropic-ai/sdk</code> - Claude AI API client</li>
+<li><code>pg</code> - PostgreSQL client</li>
+<li><code>jsonwebtoken</code> - JWT authentication</li>
+<li><code>bcrypt</code> - Password hashing</li>
+<li><code>cookie-parser</code> - Cookie handling</li>
+<li><code>cors</code> - Cross-origin resource sharing</li>
+<li><code>helmet</code> - Security headers</li>
+</ul>
+<p><strong>Port</strong>: 3000 (backend API)</p>
+<hr>
+<h3>Frontend (Web App)</h3>
+<p><strong>Core</strong>:</p>
+<ul>
+<li><strong>Framework</strong>: Next.js 15</li>
+<li><strong>React</strong>: 19.x</li>
+<li><strong>Language</strong>: TypeScript 5.x</li>
+<li><strong>Styling</strong>: Tailwind CSS 3.x</li>
+<li><strong>UI Components</strong>: shadcn/ui</li>
+</ul>
+<p><strong>Key Libraries</strong>:</p>
+<ul>
+<li><code>next</code> - Next.js framework</li>
+<li><code>react</code> - UI library</li>
+<li><code>react-dom</code> - React DOM rendering</li>
+<li><code>recharts</code> - Performance charts</li>
+<li><code>date-fns</code> - Date formatting</li>
+<li><code>lucide-react</code> - Icons</li>
+</ul>
+<p><strong>Build Output</strong>: Static and SSR pages</p>
+<p><strong>Port</strong>: 3001 (local dev), 443 (production)</p>
+<hr>
+<h3>Database</h3>
+<p><strong>Provider</strong>: Supabase PostgreSQL</p>
+<p><strong>Version</strong>: PostgreSQL 15</p>
+<p><strong>Hosting</strong>: Supabase Cloud</p>
+<p><strong>Schema</strong>: 53 tables (clients, campaigns, keywords, metrics, alerts, conversations, etc.)</p>
+<p><strong>Size</strong>: ~500MB typical agency (100 clients)</p>
+<p><strong>Migrations</strong>: Custom SQL migration system</p>
+<hr>
+<h3>AI Services</h3>
+<p><strong>Provider</strong>: Anthropic Claude API</p>
+<p><strong>Model</strong>: Claude Sonnet 4 (<code>claude-sonnet-4-20250514</code>)</p>
+<p><strong>Use Cases</strong>:</p>
+<ul>
+<li>Smart Alerts generation</li>
+<li>AI Chat conversations</li>
+<li>Context analysis</li>
+<li>Alert severity calculation</li>
+</ul>
+<p><strong>Rate Limits</strong>: Managed by backend queue system</p>
+<hr>
+<h2>Backend API Architecture</h2>
+<h3>API Structure</h3>
+<p><strong>Base URL</strong>: <code>https://api.aiperfoads.xyz</code></p>
+<p><strong>Authentication</strong>: JWT in httpOnly cookies + Authorization header</p>
+<p><strong>Response Format</strong>: JSON</p>
+<p><strong>Error Format</strong>: <code>{ error: &quot;message&quot; }</code></p>
+<hr>
+<h3>Endpoint Groups</h3>
+<p><strong>Authentication</strong> (<code>/api/auth</code>):</p>
+<ul>
+<li><code>POST /api/auth/google</code> - Google Sign-In</li>
+<li><code>POST /api/auth/logout</code> - Logout</li>
+<li><code>GET /api/auth/me</code> - Current user</li>
+</ul>
+<p><strong>OAuth</strong> (<code>/api/oauth</code>):</p>
+<ul>
+<li><code>GET /api/oauth/url</code> - Get OAuth authorization URL</li>
+<li><code>POST /api/oauth/callback</code> - Handle OAuth callback</li>
+<li><code>POST /api/oauth/refresh</code> - Refresh OAuth token</li>
+<li><code>GET /api/oauth/status</code> - Check OAuth health</li>
+</ul>
+<p><strong>Clients</strong> (<code>/api/clients</code>):</p>
+<ul>
+<li><code>GET /api/clients</code> - List all clients</li>
+<li><code>POST /api/clients</code> - Create client</li>
+<li><code>GET /api/clients/:id</code> - Get client details</li>
+<li><code>PATCH /api/clients/:id</code> - Update client</li>
+<li><code>DELETE /api/clients/:id</code> - Delete client</li>
+<li><code>POST /api/clients/:id/sync</code> - Trigger sync</li>
+<li><code>POST /api/clients/bulk-sync</code> - Sync multiple clients</li>
+</ul>
+<p><strong>Campaigns</strong> (<code>/api/campaigns</code>):</p>
+<ul>
+<li><code>GET /api/campaigns/:clientId</code> - Get campaigns for client</li>
+<li><code>GET /api/campaigns/:clientId/:campaignId</code> - Get campaign details</li>
+</ul>
+<p><strong>AI</strong> (<code>/api/universal-ai</code>):</p>
+<ul>
+<li><code>POST /api/universal-ai/chat</code> - AI Chat (streaming)</li>
+<li><code>POST /api/universal-ai/quick-actions</code> - Quick Action templates</li>
+<li><code>GET /api/universal-ai/conversations</code> - List conversations</li>
+<li><code>DELETE /api/universal-ai/conversations/:id</code> - Delete conversation</li>
+</ul>
+<p><strong>Alerts</strong> (<code>/api/alerts</code>):</p>
+<ul>
+<li><code>GET /api/alerts/:clientId</code> - Get alerts for client</li>
+<li><code>POST /api/alerts/:id/accept</code> - Accept alert</li>
+<li><code>POST /api/alerts/:id/decline</code> - Decline alert</li>
+<li><code>POST /api/alerts/:clientId/generate</code> - Force alert generation</li>
+</ul>
+<p><strong>...and 20+ more endpoint groups</strong></p>
+<hr>
+<h3>API Authentication Flow</h3>
+<pre><code>1. User clicks &quot;Log in with Google&quot;
+   ↓
+2. Frontend redirects to Google OAuth
+   ↓
+3. User grants permissions
+   ↓
+4. Google redirects to /api/oauth/callback
+   ↓
+5. Backend:
+   - Validates OAuth code
+   - Gets user info from Google
+   - Creates/updates user in database
+   - Generates JWT
+   - Sets httpOnly cookie with JWT
+   ↓
+6. Redirects to frontend dashboard
+   ↓
+7. Frontend makes API calls with cookie
+   ↓
+8. Backend validates JWT from cookie
+   ↓
+9. Returns protected data
+</code></pre>
+<hr>
+<h2>Frontend Architecture</h2>
+<h3>Next.js 15 App Router</h3>
+<p><strong>Structure</strong>:</p>
+<pre><code>frontend/src/app/
+├── (auth)/
+│   └── login/
+│       └── page.tsx
+├── (dashboard)/
+│   ├── page.tsx (dashboard)
+│   ├── clients/
+│   │   ├── page.tsx (client list)
+│   │   └── [id]/
+│   │       └── page.tsx (client details)
+│   └── settings/
+│       └── page.tsx
+└── api/  (Next.js API routes - proxy to backend)
+    ├── auth/
+    ├── clients/
+    └── ...
+</code></pre>
+<p><strong>Key Next.js 15 Features Used</strong>:</p>
+<ul>
+<li>App Router (not Pages Router)</li>
+<li>Server Components</li>
+<li>Async request params (breaking change from Next.js 14)</li>
+<li>API Routes as backend proxy</li>
+<li>Middleware for auth checks</li>
+</ul>
+<hr>
+<h3>Frontend API Proxy Pattern</h3>
+<p><strong>Why Proxy</strong>:</p>
+<ul>
+<li>Hide backend API keys from browser</li>
+<li>Handle authentication securely (httpOnly cookies)</li>
+<li>CORS management</li>
+<li>Request/response transformation</li>
+</ul>
+<p><strong>Pattern</strong>:</p>
+<pre><code>Browser Request:
+  POST /api/clients (Next.js API route)
+    ↓
+Next.js API Route:
+  Validates session
+  Forwards to: POST api.aiperfoads.xyz/api/clients
+    ↓
+Backend API:
+  Processes request
+  Returns JSON
+    ↓
+Next.js API Route:
+  Returns response to browser
+</code></pre>
+<p><strong>Example</strong> (<code>frontend/src/app/api/clients/route.ts</code>):</p>
+<pre><code class="language-typescript">import { NextRequest, NextResponse } from &#39;next/server&#39;;
+import { proxyGetRequest } from &#39;@/lib/api-proxy&#39;;
+
+export async function GET(request: NextRequest) {
+  return proxyGetRequest(request, &#39;/api/clients&#39;);
+}
+</code></pre>
+<hr>
+<h3>State Management</h3>
+<p><strong>Approach</strong>: Server-side data fetching + React state for UI</p>
+<p><strong>No Global State Library</strong>: Next.js 15 server components reduce need</p>
+<p><strong>Data Flow</strong>:</p>
+<ol>
+<li>Server component fetches data (SSR)</li>
+<li>Passes to client component via props</li>
+<li>Client component manages local UI state</li>
+<li>User interactions → API calls → server refetch</li>
+</ol>
+<hr>
+<h2>Database Architecture</h2>
+<h3>Schema Overview</h3>
+<p><strong>Tables</strong> (53 total):</p>
+<p><strong>Core Entities</strong>:</p>
+<ul>
+<li><code>users</code> - User accounts</li>
+<li><code>clients</code> - Google Ads clients</li>
+<li><code>campaigns</code> - Campaign data</li>
+<li><code>ad_groups</code> - Ad group data</li>
+<li><code>keywords</code> - Keyword data</li>
+<li><code>ads</code> - Ad creative data</li>
+</ul>
+<p><strong>Metrics &amp; Performance</strong>:</p>
+<ul>
+<li><code>campaign_performance</code> - Campaign metrics by date</li>
+<li><code>keyword_performance</code> - Keyword metrics by date</li>
+<li><code>conversion_events</code> - Conversion tracking</li>
+</ul>
+<p><strong>AI Features</strong>:</p>
+<ul>
+<li><code>ai_alerts</code> - Generated alerts</li>
+<li><code>ai_conversations</code> - Chat conversations</li>
+<li><code>ai_messages</code> - Chat messages</li>
+<li><code>ai_business_context</code> - Business profiles</li>
+<li><code>ai_custom_context</code> - Custom context entries</li>
+</ul>
+<p><strong>Sync &amp; Logs</strong>:</p>
+<ul>
+<li><code>sync_logs</code> - Sync history</li>
+<li><code>sync_queue</code> - Pending syncs</li>
+<li><code>api_tracking</code> - API usage metrics</li>
+</ul>
+<p><strong>Settings</strong>:</p>
+<ul>
+<li><code>settings</code> - User settings</li>
+<li><code>column_preferences</code> - Column customization</li>
+</ul>
+<hr>
+<h3>Database Design Principles</h3>
+<p><strong>Normalization</strong>: 3NF (Third Normal Form)</p>
+<p><strong>Relationships</strong>:</p>
+<pre><code>users 1──────┤ clients
+clients 1────┤ campaigns
+campaigns 1──┤ ad_groups
+ad_groups 1──┤ keywords
+clients 1────┤ ai_alerts
+</code></pre>
+<p><strong>Indexes</strong>: On foreign keys, frequently queried fields (customer_id, user_id, date ranges)</p>
+<p><strong>Data Retention</strong>:</p>
+<ul>
+<li>Performance data: 2 years rolling</li>
+<li>Sync logs: 90 days</li>
+<li>AI conversations: Indefinite (user can delete)</li>
+</ul>
+<hr>
+<h2>Smart Sync Architecture</h2>
+<h3>Sync Types</h3>
+<p><strong>Smart Sync</strong> (default):</p>
+<ul>
+<li>Only pulls data changed since last sync</li>
+<li>30x faster than full sync</li>
+<li>Batched database operations</li>
+<li>10-batch structure for progress tracking</li>
+</ul>
+<p><strong>Full Sync</strong> (rarely used):</p>
+<ul>
+<li>Pulls all data regardless of last sync</li>
+<li>Used for troubleshooting or initial sync</li>
+<li>Slower but comprehensive</li>
+</ul>
+<hr>
+<h3>Sync Process Flow</h3>
+<pre><code>1. User triggers sync (manual or auto)
+   ↓
+2. Sync added to queue (sync_queue table)
+   ↓
+3. Background worker picks up sync job
+   ↓
+4. Determine API client (Direct or MCC)
+   ↓
+5. Fetch data from Google Ads API:
+   - Campaigns
+   - Ad Groups
+   - Keywords
+   - Ads
+   - Performance metrics (last 30 days)
+   - Conversion events
+   ↓
+6. Batch process:
+   Batch 1: Campaigns
+   Batch 2: Ad Groups
+   Batch 3: Keywords (chunk 1)
+   Batch 4: Keywords (chunk 2)
+   Batch 5: Ads
+   Batch 6-9: Performance data
+   Batch 10: Conversion events
+   ↓
+7. For each batch:
+   - Transform API response
+   - Handle dual API format (camelCase/snake_case)
+   - Batch insert/update to database
+   - Update progress
+   ↓
+8. Mark sync complete
+   ↓
+9. Trigger alert generation (async)
+</code></pre>
+<p><strong>Duration</strong>: 2-5 minutes typical, 5-15 minutes for large accounts</p>
+<hr>
+<h3>Concurrent Sync Queue</h3>
+<p><strong>Max Concurrent</strong>: 3 syncs simultaneously</p>
+<p><strong>Queue Management</strong>:</p>
+<ul>
+<li>Priority: Manual sync &gt; Auto-sync</li>
+<li>Deduplication: No duplicate syncs for same client</li>
+<li>Retry logic: 3 attempts with exponential backoff</li>
+</ul>
+<p><strong>Database Table</strong> (<code>sync_queue</code>):</p>
+<pre><code class="language-sql">CREATE TABLE sync_queue (
+  id SERIAL PRIMARY KEY,
+  client_id INTEGER REFERENCES clients(id),
+  status VARCHAR(20), -- pending, in_progress, completed, failed
+  priority INTEGER,   -- 1=high, 5=low
+  created_at TIMESTAMP,
+  started_at TIMESTAMP,
+  completed_at TIMESTAMP
+);
+</code></pre>
+<hr>
+<h2>AI Integration Architecture</h2>
+<h3>Alert Generation System</h3>
+<p><strong>Trigger</strong>: After successful sync</p>
+<p><strong>Process</strong>:</p>
+<pre><code>1. Sync completes
+   ↓
+2. Gather context for client:
+   - Campaign performance (last 30 days)
+   - Keywords with issues
+   - Budget data
+   - Business profile
+   - Custom context entries
+   ↓
+3. Build prompt for Claude AI:
+   - System prompt (role definition)
+   - Context data (JSON)
+   - Instructions (generate alerts, severity 1-10)
+   ↓
+4. Call Claude API (streaming):
+   - Model: claude-sonnet-4
+   - Max tokens: 4096
+   - Temperature: 0.3 (low creativity for consistency)
+   ↓
+5. Parse Claude response:
+   - Extract alerts
+   - Validate severity (1-10)
+   - Categorize (Budget, Performance, etc.)
+   ↓
+6. Save to database (ai_alerts table)
+   ↓
+7. Notify user (badge count updates)
+</code></pre>
+<hr>
+<h3>AI Chat System</h3>
+<p><strong>Architecture</strong>: Streaming chat with Claude Sonnet 4</p>
+<p><strong>Context Assembly</strong>:</p>
+<pre><code>User Message:
+  &quot;Why is my CPA increasing?&quot;
+    ↓
+Backend assembles context:
+  - Last 10 messages in conversation
+  - Client&#39;s current performance data
+  - Business profile
+  - Custom context
+  - Active alerts
+    ↓
+Claude API Request:
+  System Prompt: &quot;You are an expert Google Ads analyst...&quot;
+  Messages: [conversation history + new message]
+  Context: [JSON with client data]
+    ↓
+Claude Streams Response:
+  &quot;Your CPA increased from $45 to $58 (29% increase) over
+   the past 7 days. This is driven by three factors:
+   1. Quality Score dropped from 7.2 to 5.8...
+   2. Clicks decreased 18% but conversions down 35%...
+   3. ...&quot;
+    ↓
+Frontend displays streaming response in real-time
+</code></pre>
+<p><strong>Auto-Summarization</strong>: After 10 messages, summarizes conversation to save tokens (60-80% token reduction)</p>
+<hr>
+<h2>Infrastructure and Deployment</h2>
+<h3>Hosting</h3>
+<p><strong>Both Frontend and Backend</strong>: Render.com</p>
+<p><strong>Regions</strong>: US East (primary)</p>
+<p><strong>Deployment</strong>:</p>
+<ul>
+<li>Auto-deploy from GitHub main branch</li>
+<li>Docker containers</li>
+<li>Zero-downtime deployments</li>
+</ul>
+<hr>
+<h3>Frontend Deployment (Render)</h3>
+<p><strong>Service Type</strong>: Web Service</p>
+<p><strong>Domain</strong>: <a href="https://app.aiperfoads.xyz">https://app.aiperfoads.xyz</a></p>
+<p><strong>Build Command</strong>: <code>cd frontend &amp;&amp; npm install &amp;&amp; npm run build</code></p>
+<p><strong>Start Command</strong>: <code>cd frontend &amp;&amp; npm start</code></p>
+<p><strong>Environment Variables</strong>:</p>
+<ul>
+<li><code>NEXT_PUBLIC_API_URL</code> - Backend API URL</li>
+<li><code>NODE_ENV</code> - production</li>
+</ul>
+<p><strong>Resources</strong>: 512MB RAM, 0.5 CPU</p>
+<hr>
+<h3>Backend Deployment (Render)</h3>
+<p><strong>Service Type</strong>: Web Service</p>
+<p><strong>Domain</strong>: <a href="https://api.aiperfoads.xyz">https://api.aiperfoads.xyz</a></p>
+<p><strong>Build Command</strong>: <code>npm install &amp;&amp; npm run build</code></p>
+<p><strong>Start Command</strong>: <code>npm run start</code></p>
+<p><strong>Environment Variables</strong> (20+):</p>
+<ul>
+<li><code>DATABASE_URL</code> - Supabase PostgreSQL connection</li>
+<li><code>GOOGLE_CLIENT_ID</code> - Google OAuth</li>
+<li><code>GOOGLE_CLIENT_SECRET</code> - Google OAuth</li>
+<li><code>CLAUDE_API_KEY</code> - Anthropic API key</li>
+<li><code>JWT_SECRET</code> - JWT signing key</li>
+<li>...</li>
+</ul>
+<p><strong>Resources</strong>: 1GB RAM, 1 CPU</p>
+<p><strong>Auto-Scaling</strong>: Not enabled (single instance)</p>
+<hr>
+<h3>Database (Supabase)</h3>
+<p><strong>Plan</strong>: Pro Plan</p>
+<p><strong>Connection</strong>: PostgreSQL connection string</p>
+<p><strong>Backups</strong>: Daily automated backups (Supabase managed)</p>
+<p><strong>Access</strong>: Direct SQL via Supabase dashboard or MCP tools</p>
+<hr>
+<h2>Performance Optimizations</h2>
+<h3>Backend</h3>
+<p><strong>1. Smart Sync Batching</strong>:</p>
+<ul>
+<li>Batch database operations (not individual inserts)</li>
+<li>30x faster than old sync method</li>
+</ul>
+<p><strong>2. API Response Caching</strong>:</p>
+<ul>
+<li>Google Ads account discovery cached 24 hours</li>
+<li>Reduces redundant API calls</li>
+</ul>
+<p><strong>3. Concurrent Sync Queue</strong>:</p>
+<ul>
+<li>3 simultaneous syncs</li>
+<li>Utilizes server resources efficiently</li>
+</ul>
+<p><strong>4. Database Connection Pooling</strong>:</p>
+<ul>
+<li>Reuses connections</li>
+<li>Max 20 connections</li>
+</ul>
+<hr>
+<h3>Frontend</h3>
+<p><strong>1. Server-Side Rendering (SSR)</strong>:</p>
+<ul>
+<li>Initial page load shows data immediately</li>
+<li>No loading spinners for first view</li>
+</ul>
+<p><strong>2. Code Splitting</strong>:</p>
+<ul>
+<li>Next.js automatic code splitting</li>
+<li>Only load JavaScript for current page</li>
+</ul>
+<p><strong>3. Image Optimization</strong>:</p>
+<ul>
+<li>Next.js Image component</li>
+<li>Lazy loading, responsive images</li>
+</ul>
+<p><strong>4. Client-Side Caching</strong>:</p>
+<ul>
+<li>React Query (if used) caches API responses</li>
+<li>Reduces redundant fetches</li>
+</ul>
+<hr>
+<h2>Scalability Considerations</h2>
+<h3>Current Limits</h3>
+<p><strong>Clients per User</strong>: No hard limit (tested up to 500)</p>
+<p><strong>Concurrent Syncs</strong>: 3</p>
+<p><strong>API Rate Limits</strong>:</p>
+<ul>
+<li>Google Ads API: 15,000-50,000 operations/day (account-dependent)</li>
+<li>Claude API: 100,000 tokens/minute</li>
+</ul>
+<hr>
+<h3>Scaling Strategies</h3>
+<p><strong>Horizontal Scaling</strong>:</p>
+<ul>
+<li>Add more backend instances (Render supports this)</li>
+<li>Load balancer distributes traffic</li>
+</ul>
+<p><strong>Database Scaling</strong>:</p>
+<ul>
+<li>Supabase supports vertical scaling (more CPU/RAM)</li>
+<li>Read replicas for reporting queries</li>
+</ul>
+<p><strong>Sync Queue Scaling</strong>:</p>
+<ul>
+<li>Increase concurrent sync limit (adjust based on resources)</li>
+<li>Separate sync workers from API servers</li>
+</ul>
+<p><strong>Caching Layer</strong>:</p>
+<ul>
+<li>Add Redis for response caching</li>
+<li>Reduce database load</li>
+</ul>
+<hr>
+<h2>Security Architecture</h2>
+<p>See: <a href="/docs/technical-security">Technical Security Reference</a> for complete security documentation</p>
+<p><strong>Highlights</strong>:</p>
+<ul>
+<li>OAuth 2.0 for Google Ads access</li>
+<li>JWT authentication</li>
+<li>httpOnly cookies (no localStorage)</li>
+<li>HTTPS everywhere</li>
+<li>Input validation and sanitization</li>
+<li>SQL injection prevention (parameterized queries)</li>
+<li>Rate limiting on API endpoints</li>
+<li>CORS restrictions</li>
+</ul>
+<hr>
+<h2>Monitoring and Logging</h2>
+<h3>Application Logs</h3>
+<p><strong>Backend</strong>: Console logs (captured by Render)</p>
+<p><strong>Frontend</strong>: Browser console (local dev), Render logs (production)</p>
+<p><strong>Log Retention</strong>: 7 days (Render default)</p>
+<hr>
+<h3>Error Tracking</h3>
+<p><strong>Not Implemented Yet</strong>: Consider Sentry or similar for production</p>
+<p><strong>Current</strong>: Errors logged to console, manual monitoring</p>
+<hr>
+<h3>Performance Monitoring</h3>
+<p><strong>Sync Logs Table</strong>: Tracks sync duration, success/failure</p>
+<p><strong>API Tracking Table</strong>: Records API call counts and usage</p>
+<p><strong>Database Queries</strong>: Can monitor slow queries via Supabase</p>
+<hr>
+<h2>Development Workflow</h2>
+<h3>Local Development</h3>
+<p><strong>Backend</strong>:</p>
+<pre><code class="language-bash">npm run dev  # Runs backend on port 3000
+</code></pre>
+<p><strong>Frontend</strong>:</p>
+<pre><code class="language-bash">cd frontend &amp;&amp; npm run dev -- -p 3001  # Port 3001
+</code></pre>
+<p><strong>Database</strong>: Connect to Supabase cloud (no local DB needed)</p>
+<hr>
+<h3>Code Structure</h3>
+<p><strong>Backend</strong> (<code>src/</code>):</p>
+<pre><code>src/
+├── routes/        # Express route handlers
+├── services/      # Business logic
+├── utils/         # Helper functions
+├── middleware/    # Auth, error handling
+├── db.ts          # Database connection
+└── server.ts      # Express app entry point
+</code></pre>
+<p><strong>Frontend</strong> (<code>frontend/src/</code>):</p>
+<pre><code>frontend/src/
+├── app/           # Next.js 15 app router
+├── components/    # React components
+├── lib/           # Utilities
+└── styles/        # Tailwind CSS
+</code></pre>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: Why separate frontend and backend deployments?</strong>
+A: Allows independent scaling, clearer separation of concerns, easier debugging.</p>
+<p><strong>Q: Why Next.js 15 instead of 14?</strong>
+A: Latest stable, better performance, improved server components. But has breaking changes (async params).</p>
+<p><strong>Q: Why TypeScript?</strong>
+A: Type safety, better IDE support, catches errors at compile time.</p>
+<p><strong>Q: Why Supabase vs self-hosted PostgreSQL?</strong>
+A: Managed backups, automatic scaling, built-in auth (not used), easier setup.</p>
+<p><strong>Q: Why Express vs Nest.js or Fastify?</strong>
+A: Simpler, less opinionated, large community, easier onboarding for developers.</p>
+<p><strong>Q: Why not use Next.js API routes for everything (no separate backend)?</strong>
+A: Separate backend allows for background jobs (sync queue), more control over deployment, clearer architecture.</p>
+<hr>
+<h2>Next Steps</h2>
+<p>Deep dive into architecture components:</p>
+<ul>
+<li><strong><a href="/docs/technical-dual-api">Technical Dual API</a></strong> - Understand dual API format handling</li>
+<li><strong><a href="/docs/technical-security">Technical Security</a></strong> - Complete security documentation</li>
+<li><strong><a href="/docs/smart-sync-explained">Smart Sync Explained</a></strong> - Sync system details</li>
+<li><strong><a href="/docs/ai-context-explained">AI Context Explained</a></strong> - AI integration details</li>
+</ul>
+<hr>
+<p><strong>Architecture evolves</strong> based on performance needs and user feedback</p>
+<p><strong>Modular design</strong> allows swapping components without full rewrite</p>
+<p><strong>Cloud-native</strong> leverages managed services for reliability</p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>

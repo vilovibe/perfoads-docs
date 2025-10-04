@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Charts Guide - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Performance Charts Guide</h1>
+<p>Performance charts turn numbers into visuals, making trends and patterns obvious at a glance. This guide shows you how to customize charts, interpret what you see, and use visual data to make better optimization decisions.</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ul>
+<li>Understanding the dual Y-axis chart design</li>
+<li>Choosing which metrics to visualize</li>
+<li>Switching between daily and weekly aggregation</li>
+<li>Interpreting chart patterns and trends</li>
+<li>Comparing multiple metrics</li>
+<li>Exporting charts for presentations</li>
+<li>Advanced charting strategies</li>
+</ul>
+<p><strong>Time needed</strong>: 10 minutes to read</p>
+<hr>
+<h2>Accessing Performance Charts</h2>
+<p><strong>Location</strong>: Client Details → Overview Tab → Bottom of page</p>
+<p><strong>What you&#39;ll see</strong>:</p>
+<ul>
+<li>Line chart with dual Y-axes</li>
+<li>Metric selector dropdowns</li>
+<li>Aggregation toggle (Day/Week)</li>
+<li>Date range controls</li>
+<li>Export button</li>
+</ul>
+<p>[Screenshot: Performance chart showing default view]
+<em>Charts appear at the bottom of the Overview tab</em></p>
+<hr>
+<h2>Understanding the Dual Y-Axis Design</h2>
+<h3>Why Two Y-Axes?</h3>
+<p><strong>Problem</strong>: Metrics have different scales</p>
+<pre><code>Cost: $1,000-$5,000 (thousands)
+Clicks: 100-500 (hundreds)
+</code></pre>
+<p><strong>On single axis</strong>: Clicks would be invisible line at bottom</p>
+<p><strong>Solution</strong>: Two Y-axes</p>
+<p><strong>Left Y-axis</strong> (blue): Volume metrics</p>
+<ul>
+<li>Clicks</li>
+<li>Impressions</li>
+<li>Conversions</li>
+</ul>
+<p><strong>Right Y-axis</strong> (green): Cost metrics</p>
+<ul>
+<li>Cost</li>
+<li>CPC</li>
+<li>CPM</li>
+<li>Cost Per Conversion</li>
+</ul>
+<p>[Screenshot: Dual Y-axis chart with annotations]
+<em>Left axis for volume, right axis for cost</em></p>
+<hr>
+<h3>Reading the Chart</h3>
+<p><strong>Each line</strong>:</p>
+<ul>
+<li>Color-coded to match legend</li>
+<li>Data point for each day/week</li>
+<li>Connects points to show trend</li>
+</ul>
+<p><strong>Hover over any point</strong>:</p>
+<ul>
+<li>Shows exact value</li>
+<li>Shows date</li>
+<li>Shows all visible metrics</li>
+</ul>
+<p><strong>Zoom</strong>:</p>
+<ul>
+<li>Click and drag to zoom into specific date range</li>
+<li>Double-click to reset zoom</li>
+</ul>
+<p>[Screenshot: Hover tooltip showing values]
+<em>Hover reveals exact numbers for any point</em></p>
+<hr>
+<h2>Customizing Displayed Metrics</h2>
+<h3>Metric Selector</h3>
+<p><strong>Default view</strong>:</p>
+<ul>
+<li>Metric 1: Cost (right axis)</li>
+<li>Metric 2: Clicks (left axis)</li>
+</ul>
+<p><strong>To change metrics</strong>:</p>
+<ol>
+<li>Click metric dropdown</li>
+<li>Select new metric from list</li>
+<li>Chart updates instantly</li>
+</ol>
+<p><strong>Available in dropdowns</strong>:</p>
+<ul>
+<li>All metrics available in your account</li>
+<li>Organized by category</li>
+<li>Color-coded by axis assignment</li>
+</ul>
+<p>[Screenshot: Metric dropdown menu]
+<em>Choose from 40+ available metrics</em></p>
+<hr>
+<h3>Optimal Metric Combinations</h3>
+<p><strong>Cost analysis</strong>:</p>
+<pre><code>Metric 1: Cost (right axis)
+Metric 2: Clicks (left axis)
+Metric 3: Impressions (left axis)
+
+Shows: If spend increased, did traffic increase proportionally?
+</code></pre>
+<p><strong>Conversion tracking</strong>:</p>
+<pre><code>Metric 1: Conversions (left axis)
+Metric 2: Cost (right axis)
+Metric 3: Conversion Rate (right axis)
+
+Shows: Cost vs conversion trends
+</code></pre>
+<p><strong>Quality monitoring</strong>:</p>
+<pre><code>Metric 1: CTR (right axis)
+Metric 2: Quality Score (left axis)
+Metric 3: CPC (right axis)
+
+Shows: Quality impact on cost
+</code></pre>
+<p><strong>ROI analysis</strong>:</p>
+<pre><code>Metric 1: Conversion Value (right axis)
+Metric 2: Cost (right axis)
+Metric 3: Conversions (left axis)
+
+Shows: Revenue vs spend trends
+</code></pre>
+<hr>
+<h3>Maximum 3 Metrics</h3>
+<p><strong>Why the limit</strong>: More than 3 lines = cluttered, hard to read</p>
+<p><strong>Best practice</strong>:</p>
+<ul>
+<li>Start with 2 metrics</li>
+<li>Add 3rd only if needed</li>
+<li>Remove one to add another</li>
+</ul>
+<p><strong>Legend</strong>:</p>
+<ul>
+<li>Shows all displayed metrics</li>
+<li>Click to hide/show specific line</li>
+<li>Useful for comparing subsets</li>
+</ul>
+<p>[Screenshot: Chart with 3 metrics and legend]
+<em>Maximum 3 metrics keeps chart readable</em></p>
+<hr>
+<h2>Daily vs Weekly Aggregation</h2>
+<h3>Daily Aggregation (Default)</h3>
+<p><strong>What it shows</strong>: Each day as separate data point</p>
+<p><strong>Use when</strong>:</p>
+<ul>
+<li>Analyzing recent changes (last 7-14 days)</li>
+<li>Identifying specific events</li>
+<li>Day-to-day fluctuations matter</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code>Oct 1: 100 clicks
+Oct 2: 120 clicks
+Oct 3: 95 clicks
+Oct 4: 110 clicks
+</code></pre>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>Detailed view</li>
+<li>See daily patterns</li>
+<li>Identify exact dates of changes</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>Noisy for long ranges</li>
+<li>Harder to see big-picture trends</li>
+</ul>
+<p>[Screenshot: Daily aggregation chart]
+<em>Daily view shows every single day</em></p>
+<hr>
+<h3>Weekly Aggregation</h3>
+<p><strong>What it shows</strong>: Weeks aggregated into single data point</p>
+<p><strong>Use when</strong>:</p>
+<ul>
+<li>Long date ranges (30-90 days)</li>
+<li>Smoothing out daily noise</li>
+<li>Big-picture trend analysis</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code>Week of Sep 25: 700 clicks (avg 100/day)
+Week of Oct 2: 840 clicks (avg 120/day)
+Week of Oct 9: 665 clicks (avg 95/day)
+</code></pre>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>Cleaner view</li>
+<li>Easier to spot trends</li>
+<li>Reduces noise</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>Less detailed</li>
+<li>Can&#39;t see specific days</li>
+</ul>
+<p><strong>How weeks are defined</strong>: Sunday-Saturday</p>
+<p>[Screenshot: Weekly aggregation chart]
+<em>Weekly view smooths out daily fluctuations</em></p>
+<hr>
+<h3>When to Use Each</h3>
+<p><strong>Daily aggregation</strong>:</p>
+<pre><code>Date range: Last 7 days → Daily
+Date range: Last 14 days → Daily
+Date range: Last 30 days → Daily or Weekly
+Date range: Last 90 days → Weekly
+</code></pre>
+<p><strong>Rule of thumb</strong>:</p>
+<ul>
+<li>&lt;14 days: Daily</li>
+<li>14-30 days: Either works</li>
+<li><blockquote>
+<p>30 days: Weekly</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2>Interpreting Chart Patterns</h2>
+<h3>Upward Trend</h3>
+<p><strong>What it looks like</strong>: Line sloping upward left to right</p>
+<p><strong>For cost metrics</strong>: Spending increasing</p>
+<ul>
+<li>✓ Good if conversions also increasing</li>
+<li>✗ Bad if conversions flat</li>
+</ul>
+<p><strong>For volume metrics</strong>: Traffic/conversions increasing</p>
+<ul>
+<li>✓ Good - growth</li>
+<li>? Check if cost increased proportionally</li>
+</ul>
+<p>[Screenshot: Upward trend example]
+<em>Upward slope indicates growth</em></p>
+<p><strong>Action</strong>: If cost up but conversions flat → investigate efficiency drop</p>
+<hr>
+<h3>Downward Trend</h3>
+<p><strong>What it looks like</strong>: Line sloping downward left to right</p>
+<p><strong>For cost metrics</strong>: Spending decreasing</p>
+<ul>
+<li>✓ Good if conversions stable (better efficiency)</li>
+<li>✗ Bad if conversions also decreasing</li>
+</ul>
+<p><strong>For volume metrics</strong>: Traffic/conversions decreasing</p>
+<ul>
+<li>✗ Bad - declining performance</li>
+<li>? Check if this was intentional (budget cut)</li>
+</ul>
+<p>[Screenshot: Downward trend example]
+<em>Downward slope indicates decline</em></p>
+<p><strong>Action</strong>: If unintentional decline → check for disapproved ads, budget limits, bid changes</p>
+<hr>
+<h3>Spike</h3>
+<p><strong>What it looks like</strong>: Sudden sharp increase on one day/week</p>
+<p><strong>Causes</strong>:</p>
+<ul>
+<li>Seasonal event (Black Friday)</li>
+<li>Competitor stopped advertising</li>
+<li>Bid increase</li>
+<li>New campaign launched</li>
+<li>Budget increase</li>
+</ul>
+<p>[Screenshot: Spike pattern]
+<em>Sharp spike indicates sudden change</em></p>
+<p><strong>Action</strong>:</p>
+<ol>
+<li>Identify the date</li>
+<li>Check what changed that day</li>
+<li>If positive spike → replicate</li>
+<li>If negative spike → investigate</li>
+</ol>
+<hr>
+<h3>Drop</h3>
+<p><strong>What it looks like</strong>: Sudden sharp decrease on one day/week</p>
+<p><strong>Causes</strong>:</p>
+<ul>
+<li>Budget exhausted early</li>
+<li>Ads disapproved</li>
+<li>Competitor increased bids</li>
+<li>Seasonal drop</li>
+<li>Technical issue</li>
+</ul>
+<p>[Screenshot: Drop pattern]
+<em>Sharp drop requires immediate investigation</em></p>
+<p><strong>Action</strong>:</p>
+<ol>
+<li>Urgent: Check if ads are running</li>
+<li>Check budget status</li>
+<li>Review recent changes</li>
+<li>Check Google Ads for errors</li>
+</ol>
+<hr>
+<h3>Flat Line</h3>
+<p><strong>What it looks like</strong>: Horizontal line with minimal variation</p>
+<p><strong>For cost metrics</strong>: Consistent spending</p>
+<ul>
+<li>✓ Good - predictable</li>
+<li>? Could indicate budget cap</li>
+</ul>
+<p><strong>For volume metrics</strong>: Stable performance</p>
+<ul>
+<li>✓ Good - consistency</li>
+<li>? Could indicate missed opportunities</li>
+</ul>
+<p>[Screenshot: Flat line pattern]
+<em>Flat line shows stability</em></p>
+<p><strong>Action</strong>: If flat at low level → room for improvement</p>
+<hr>
+<h3>Seasonality Pattern</h3>
+<p><strong>What it looks like</strong>: Repeating pattern (weekly peaks and valleys)</p>
+<p><strong>Common patterns</strong>:</p>
+<pre><code>Weekly:
+- Monday-Friday: High
+- Saturday-Sunday: Low
+
+Or opposite:
+- Monday-Friday: Low
+- Saturday-Sunday: High (retail)
+</code></pre>
+<p>[Screenshot: Seasonality pattern]
+<em>Repeating patterns indicate day-of-week effects</em></p>
+<p><strong>Action</strong>: Use ad scheduling to match patterns</p>
+<hr>
+<h2>Comparing Metrics</h2>
+<h3>Correlation Analysis</h3>
+<p><strong>Strong positive correlation</strong>:</p>
+<pre><code>Cost up → Conversions up
+Both lines move together
+</code></pre>
+<p><strong>Interpretation</strong>: Spending more = more results (good)</p>
+<p><strong>Negative correlation</strong>:</p>
+<pre><code>Cost up → Conversions down
+Lines move opposite
+</code></pre>
+<p><strong>Interpretation</strong>: Efficiency declining (bad)</p>
+<p><strong>No correlation</strong>:</p>
+<pre><code>Cost up → Conversions flat
+Lines don&#39;t match
+</code></pre>
+<p><strong>Interpretation</strong>: Diminishing returns</p>
+<p>[Screenshot: Correlated vs uncorrelated metrics]
+<em>Compare line movements to spot relationships</em></p>
+<hr>
+<h3>Lag Effects</h3>
+<p><strong>Delayed response</strong>:</p>
+<pre><code>Oct 1: Cost spike
+Oct 3: Conversion spike (2 days later)
+</code></pre>
+<p><strong>Why this happens</strong>:</p>
+<ul>
+<li>Users research before buying</li>
+<li>B2B sales cycles</li>
+<li>Remarketing effects</li>
+<li>Conversion tracking delay</li>
+</ul>
+<p><strong>Action</strong>: Don&#39;t judge campaigns on day 1 - wait 3-7 days</p>
+<hr>
+<h2>Date Range Impact</h2>
+<h3>Short Range (7 days)</h3>
+<p><strong>What you see</strong>: Daily fluctuations</p>
+<p><strong>Use for</strong>:</p>
+<ul>
+<li>Recent campaign changes</li>
+<li>Quick performance checks</li>
+<li>Tactical adjustments</li>
+</ul>
+<p><strong>Limitations</strong>: Can&#39;t see long-term trends</p>
+<hr>
+<h3>Medium Range (30 days)</h3>
+<p><strong>What you see</strong>: Short-term trends</p>
+<p><strong>Use for</strong>:</p>
+<ul>
+<li>Monthly performance reviews</li>
+<li>Month-over-month comparisons</li>
+<li>Standard reporting</li>
+</ul>
+<p><strong>Best for</strong>: Most analysis</p>
+<hr>
+<h3>Long Range (90 days)</h3>
+<p><strong>What you see</strong>: Big-picture trends</p>
+<p><strong>Use for</strong>:</p>
+<ul>
+<li>Quarterly reviews</li>
+<li>Seasonal pattern identification</li>
+<li>Long-term optimization</li>
+</ul>
+<p><strong>Recommendation</strong>: Use weekly aggregation</p>
+<hr>
+<h2>Exporting Charts</h2>
+<h3>Export Options</h3>
+<p><strong>Formats</strong>:</p>
+<ul>
+<li>PNG (image file)</li>
+<li>PDF (presentation-ready)</li>
+</ul>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Configure chart (metrics, date range, aggregation)</li>
+<li>Click Export button</li>
+<li>Choose format</li>
+<li>File downloads</li>
+</ol>
+<p><strong>What&#39;s included</strong>:</p>
+<ul>
+<li>Chart visualization</li>
+<li>Legend</li>
+<li>Date range</li>
+<li>Client name</li>
+<li>Export timestamp</li>
+</ul>
+<p>[Screenshot: Exported chart sample]
+<em>Export for client reports or presentations</em></p>
+<hr>
+<h3>Use Cases</h3>
+<p><strong>Client presentations</strong>:</p>
+<ol>
+<li>Show cost vs conversions trend</li>
+<li>Export as PDF</li>
+<li>Include in monthly report</li>
+</ol>
+<p><strong>Internal reviews</strong>:</p>
+<ol>
+<li>Show performance trends</li>
+<li>Export as PNG</li>
+<li>Add to team dashboards</li>
+</ol>
+<p><strong>Before/after analysis</strong>:</p>
+<ol>
+<li>Export &quot;before&quot; chart</li>
+<li>Make optimizations</li>
+<li>Export &quot;after&quot; chart</li>
+<li>Compare side-by-side</li>
+</ol>
+<hr>
+<h2>Advanced Charting Strategies</h2>
+<h3>Benchmark Comparison</h3>
+<p><strong>Method</strong>: Export baseline, compare to current</p>
+<p><strong>Example</strong>:</p>
+<pre><code>Baseline (Sep): Avg CPC $5.00
+Current (Oct): Avg CPC $4.20
+
+Chart shows:
+- September trend line (gray)
+- October trend line (blue)
+- Visual proof of 16% CPC reduction
+</code></pre>
+<p><strong>Action</strong>: Track improvement over time</p>
+<hr>
+<h3>Multi-Client Comparison</h3>
+<p><strong>Method</strong>: Export chart for each client, compare</p>
+<p><strong>Example</strong>:</p>
+<pre><code>Client A chart: CTR trending up
+Client B chart: CTR trending down
+Client C chart: CTR flat
+</code></pre>
+<p><strong>Action</strong>: Identify best performers to study, worst to fix</p>
+<hr>
+<h3>Event Annotation</h3>
+<p><strong>Method</strong>: Note important dates on charts</p>
+<p><strong>Example</strong>:</p>
+<pre><code>Oct 1: New campaign launched (spike)
+Oct 15: Competitor sale (drop)
+Oct 20: Budget increased (recovery)
+</code></pre>
+<p><strong>Action</strong>: Correlate performance to events</p>
+<hr>
+<h2>Tips &amp; Best Practices</h2>
+<h3>Start Simple</h3>
+<p><strong>First visit</strong>:</p>
+<ol>
+<li>View Cost + Clicks only</li>
+<li>Use daily aggregation</li>
+<li>Last 30 days</li>
+</ol>
+<p><strong>Get familiar</strong> before adding complexity</p>
+<hr>
+<h3>Use Chart for Questions</h3>
+<p><strong>Not sure why cost increased?</strong>
+→ Chart Cost + Impressions + Clicks
+→ See which drove the increase</p>
+<p><strong>Not sure why conversions dropped?</strong>
+→ Chart Conversions + Clicks + CTR
+→ Identify the funnel step that broke</p>
+<p><strong>Chart answers &quot;why&quot; questions visually</strong></p>
+<hr>
+<h3>Review Weekly</h3>
+<p><strong>Every Monday</strong>:</p>
+<ol>
+<li>Open chart</li>
+<li>Set date range: Last 7 days vs previous 7 days</li>
+<li>Look for changes</li>
+<li>Investigate anomalies</li>
+</ol>
+<p><strong>Time</strong>: 2 minutes per client</p>
+<hr>
+<h3>Combine with Metrics Cards</h3>
+<p><strong>Workflow</strong>:</p>
+<ol>
+<li>Metrics cards → spot the change</li>
+<li>Chart → understand when it happened</li>
+<li>Drill into data → fix the issue</li>
+</ol>
+<p><strong>Example</strong>:</p>
+<pre><code>Metric card: CTR dropped 20%
+Chart: Shows drop started Oct 10
+Investigation: Ad disapproved on Oct 10
+</code></pre>
+<hr>
+<h3>Document Insights</h3>
+<p><strong>When you see important patterns</strong>:</p>
+<ol>
+<li>Export chart</li>
+<li>Add notes about what you learned</li>
+<li>Save in client folder</li>
+<li>Reference in next review</li>
+</ol>
+<p><strong>Builds institutional knowledge</strong></p>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: Can I compare two date ranges side-by-side?</strong>
+A: Not directly in the chart. Export both and compare externally, or use metrics cards&#39; comparison feature.</p>
+<p><strong>Q: Why does my chart look different from Google Ads?</strong>
+A: Check that date ranges match exactly. Also verify timezone settings.</p>
+<p><strong>Q: Can I add a fourth metric?</strong>
+A: No, maximum is 3 to keep chart readable. Remove one to add another.</p>
+<p><strong>Q: Why is my chart empty?</strong>
+A: No data for selected date range and metrics. Check if client has been synced for this period.</p>
+<p><strong>Q: Can I see hourly data?</strong>
+A: No, finest granularity is daily. Google Ads has hourly data but we aggregate to daily.</p>
+<p><strong>Q: How do I print charts?</strong>
+A: Export as PDF, then print the PDF file.</p>
+<p><strong>Q: Can I customize chart colors?</strong>
+A: Not currently. Colors are assigned automatically based on metric type.</p>
+<hr>
+<h2>Troubleshooting</h2>
+<h3>Problem: Chart shows no data</h3>
+<p><strong>Diagnostics</strong>:</p>
+<ol>
+<li>Check date range - does client have data for this period?</li>
+<li>Check last sync date - is data synced?</li>
+<li>Check selected metrics - are they available for this campaign type?</li>
+</ol>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Sync client first</li>
+<li>Adjust date range to known data period</li>
+<li>Choose different metrics</li>
+</ul>
+<hr>
+<h3>Problem: Lines look flat/identical</h3>
+<p><strong>Cause</strong>: Metrics on same scale showing similar values</p>
+<p><strong>Example</strong>:</p>
+<pre><code>Clicks: 100-110 (range of 10)
+Impressions: 10,000-10,100 (range of 100)
+
+Both on left axis, impressions appear flat
+</code></pre>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Use dual axes (put one metric on right axis)</li>
+<li>Choose metrics with different scales</li>
+</ul>
+<hr>
+<h3>Problem: Too noisy to see trends</h3>
+<p><strong>Cause</strong>: Daily aggregation on long date range</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Switch to weekly aggregation</li>
+<li>Or reduce date range to 14-30 days</li>
+</ol>
+<hr>
+<h2>Next Steps</h2>
+<p>Master data visualization with these guides:</p>
+<ul>
+<li><strong><a href="/docs/client-details-page">Client Details Page</a></strong> - All Overview tab features</li>
+<li><strong><a href="/docs/metrics-glossary">Metrics Glossary</a></strong> - Understand every metric</li>
+<li><strong><a href="/docs/understanding-dashboard">Understanding Dashboard</a></strong> - Dashboard-level charts</li>
+</ul>
+<hr>
+<p><strong>Ready to visualize your data?</strong> Go to Client Details → Overview tab</p>
+<p><strong>Want to compare multiple clients?</strong> Export charts for each, analyze side-by-side</p>
+<p><strong>Need help interpreting patterns?</strong> Contact support at <a href="mailto:support@aiperfoads.xyz">support@aiperfoads.xyz</a></p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>

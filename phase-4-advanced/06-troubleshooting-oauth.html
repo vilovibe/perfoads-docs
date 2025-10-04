@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting OAuth - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Troubleshooting OAuth</h1>
+<p>OAuth connects PerfoAds to your Google Ads accounts securely. When OAuth breaks, syncs fail and data stops updating. This guide helps you diagnose and fix OAuth issues including expired tokens, permission errors, missing accounts, and connection failures. Follow step-by-step solutions to restore Google Ads access.</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ul>
+<li>Understanding OAuth status indicators</li>
+<li>Diagnosing OAuth problems quickly</li>
+<li>Fixing expired or invalid tokens</li>
+<li>Resolving permission errors</li>
+<li>Troubleshooting missing accounts</li>
+<li>Reconnecting OAuth correctly</li>
+<li>Preventing future OAuth issues</li>
+<li>When OAuth auto-heals vs requires intervention</li>
+</ul>
+<p><strong>Time needed</strong>: 10 minutes to read</p>
+<hr>
+<h2>OAuth Quick Health Check</h2>
+<p><strong>Check OAuth Status First</strong>:</p>
+<ol>
+<li>Go to Settings → Google Ads Connections</li>
+<li>Look for status indicator:</li>
+</ol>
+<p><strong>✅ Healthy</strong>:</p>
+<pre><code>Status: Connected
+Token Valid: 45 days remaining
+Last Refresh: 2 hours ago
+</code></pre>
+<p><strong>⚠️ Warning</strong>:</p>
+<pre><code>Status: Connected
+Token Valid: 3 days remaining (expiring soon)
+Last Refresh: 15 days ago
+</code></pre>
+<p><strong>❌ Critical</strong>:</p>
+<pre><code>Status: Disconnected
+Token Valid: Expired
+Last Refresh: Failed
+</code></pre>
+<p>[Screenshot: OAuth status showing healthy, warning, and critical states]
+<em>Green = healthy, Yellow = needs attention soon, Red = broken now</em></p>
+<hr>
+<h2>What Is OAuth?</h2>
+<p><strong>Simple Explanation</strong>: OAuth is how PerfoAds gets permission to read your Google Ads data without needing your password.</p>
+<p><strong>How It Works</strong>:</p>
+<ol>
+<li>You click &quot;Connect Google Ads&quot;</li>
+<li>Google asks: &quot;Allow PerfoAds to access your Google Ads accounts?&quot;</li>
+<li>You click &quot;Allow&quot;</li>
+<li>Google gives PerfoAds a special access token</li>
+<li>Token is valid for 60 days (Google auto-refreshes it)</li>
+</ol>
+<p><strong>Self-Healing</strong>: System automatically refreshes tokens before expiration. You usually don&#39;t need to do anything.</p>
+<p><strong>When It Breaks</strong>: Google account password changed, permissions revoked, or token expires unexpectedly.</p>
+<hr>
+<h2>Problem 1: OAuth Shows &quot;Disconnected&quot;</h2>
+<h3>Symptoms</h3>
+<ul>
+<li>OAuth status: ❌ Disconnected</li>
+<li>All syncs failing with &quot;Invalid credentials&quot; or &quot;OAuth error&quot;</li>
+<li>Red X icon next to Google Ads Connections</li>
+</ul>
+<hr>
+<h3>Cause 1: Token Expired</h3>
+<p><strong>Diagnostic</strong>:</p>
+<pre><code>OAuth Status: Disconnected
+Token Valid: Expired
+Error: &quot;Refresh token expired or revoked&quot;
+</code></pre>
+<p><strong>Why It Happens</strong>:</p>
+<ul>
+<li>Token reached 60-day limit without refresh</li>
+<li>Auto-refresh failed due to Google account change</li>
+<li>User revoked app permissions manually</li>
+</ul>
+<p><strong>Solution</strong>:</p>
+<p><strong>Step 1: Reconnect OAuth</strong></p>
+<ol>
+<li>Go to Settings → Google Ads Connections</li>
+<li>Click <strong>Reconnect OAuth</strong> button</li>
+<li>You&#39;ll redirect to Google sign-in</li>
+</ol>
+<p><strong>Step 2: Choose Correct Google Account</strong></p>
+<ul>
+<li>Use the Google account that has access to your Google Ads accounts</li>
+<li>If you manage multiple Google accounts, choose the right one</li>
+<li>Not sure? Check Google Ads → Settings → Account Access</li>
+</ul>
+<p><strong>Step 3: Grant Permissions</strong></p>
+<ul>
+<li>Google shows: &quot;PerfoAds wants to access your Google Ads&quot;</li>
+<li>Review permissions (read-only access to campaigns, keywords, metrics)</li>
+<li>Click <strong>Allow</strong></li>
+</ul>
+<p><strong>Step 4: Verify Connection</strong></p>
+<ol>
+<li>Redirects back to PerfoAds</li>
+<li>OAuth Status should now show: ✅ Connected</li>
+<li>Click <strong>Refresh Discovery</strong> to find accounts</li>
+</ol>
+<p><strong>Step 5: Test</strong></p>
+<ol>
+<li>Go to Client List</li>
+<li>Pick a client</li>
+<li>Actions → Sync Now</li>
+<li>Sync should complete successfully</li>
+</ol>
+<p><strong>Expected Timeline</strong>: 2-3 minutes total</p>
+<hr>
+<h3>Cause 2: Google Account Password Changed</h3>
+<p><strong>Diagnostic</strong>:</p>
+<pre><code>OAuth Status: Disconnected
+Recent Event: Changed Google password last week
+</code></pre>
+<p><strong>Why It Happens</strong>: Google security policy revokes OAuth tokens when password changes</p>
+<p><strong>Solution</strong>: Same as Cause 1 (Reconnect OAuth)</p>
+<p><strong>Prevention</strong>: After changing Google password, immediately reconnect OAuth in PerfoAds</p>
+<hr>
+<h3>Cause 3: App Permissions Revoked</h3>
+<p><strong>Diagnostic</strong>:</p>
+<pre><code>OAuth Status: Disconnected
+User manually removed PerfoAds from Google account permissions
+</code></pre>
+<p><strong>Where This Happens</strong>: Google Account → Security → Third-party apps → PerfoAds → Remove Access</p>
+<p><strong>Solution</strong>: Reconnect OAuth (same steps as Cause 1)</p>
+<p><strong>Prevention</strong>: Don&#39;t revoke app access in Google unless you no longer use PerfoAds</p>
+<hr>
+<h2>Problem 2: OAuth Connected But Accounts Missing</h2>
+<h3>Symptoms</h3>
+<ul>
+<li>OAuth status: ✅ Connected</li>
+<li>Syncs work for some clients</li>
+<li>Other Google Ads accounts not showing in dropdown when adding client</li>
+</ul>
+<hr>
+<h3>Cause 1: Stale Discovery Cache</h3>
+<p><strong>Explanation</strong>: Discovery cache lists available accounts. Cached for 24 hours.</p>
+<p><strong>Scenario</strong>:</p>
+<pre><code>Yesterday: Had access to 5 Google Ads accounts
+Today: Gained access to 6th account
+Dropdown: Still only shows 5 accounts
+</code></pre>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Go to Settings → Google Ads Connections</li>
+<li>Click <strong>Refresh Discovery</strong> button</li>
+<li>Wait 5-10 seconds</li>
+<li>Discovery runs and finds all accounts you have access to</li>
+<li>Go to Add Client dropdown</li>
+<li>New account should now appear</li>
+</ol>
+<p><strong>When to Refresh Discovery</strong>:</p>
+<ul>
+<li>After gaining access to new Google Ads account</li>
+<li>After OAuth reconnection</li>
+<li>If account list looks outdated</li>
+</ul>
+<hr>
+<h3>Cause 2: Missing Account Access</h3>
+<p><strong>Diagnostic</strong>:</p>
+<pre><code>Account expected but not showing after Discovery refresh
+</code></pre>
+<p><strong>Check Google Ads Access</strong>:</p>
+<ol>
+<li>Log into Google Ads: <a href="https://ads.google.com">https://ads.google.com</a></li>
+<li>Click account switcher (top left)</li>
+<li>Can you see the missing account?</li>
+</ol>
+<p><strong>If Yes (you see it)</strong>:</p>
+<ul>
+<li>Refresh Discovery in PerfoAds</li>
+<li>Should appear now</li>
+</ul>
+<p><strong>If No (you don&#39;t see it)</strong>:</p>
+<ul>
+<li>You don&#39;t have access</li>
+<li>Contact account owner to grant access</li>
+<li>Account owner: Google Ads → Settings → Account Access → Add User</li>
+</ul>
+<p><strong>Access Level Required</strong>: Standard or Admin (read-only insufficient for sync)</p>
+<hr>
+<h3>Cause 3: Wrong Google Account Used for OAuth</h3>
+<p><strong>Scenario</strong>:</p>
+<pre><code>Google Ads Account A: Managed by google-user-1@company.com
+Google Ads Account B: Managed by google-user-2@company.com
+
+OAuth Connected With: google-user-1@company.com
+
+Result:
+- Account A visible ✅
+- Account B missing ❌
+</code></pre>
+<p><strong>Solution</strong>:</p>
+<p><strong>Option 1: Reconnect OAuth with Correct Account</strong></p>
+<ol>
+<li>Disconnect OAuth</li>
+<li>Reconnect</li>
+<li>Choose <a href="mailto:google-user-2@company.com">google-user-2@company.com</a></li>
+<li>Now Account B visible</li>
+</ol>
+<p><strong>Option 2: Grant Access to Other Google Account</strong> (recommended)</p>
+<ol>
+<li>Log into Google Ads Account B</li>
+<li>Settings → Account Access</li>
+<li>Add <a href="mailto:google-user-1@company.com">google-user-1@company.com</a> as Standard or Admin</li>
+<li>Now both accounts visible with one OAuth connection</li>
+</ol>
+<hr>
+<h2>Problem 3: Permission Denied Errors</h2>
+<h3>Symptoms</h3>
+<ul>
+<li>OAuth: ✅ Connected</li>
+<li>Sync fails with &quot;Permission denied&quot; or &quot;Insufficient permissions&quot;</li>
+<li>Account appears in dropdown but sync doesn&#39;t work</li>
+</ul>
+<hr>
+<h3>Cause: Read-Only Access</h3>
+<p><strong>Google Ads Access Levels</strong>:</p>
+<ul>
+<li><strong>Admin</strong>: Full access</li>
+<li><strong>Standard</strong>: Can view and edit (what PerfoAds needs)</li>
+<li><strong>Read-only</strong>: Can only view (insufficient)</li>
+</ul>
+<p><strong>Diagnostic</strong>:</p>
+<pre><code>Sync Error: &quot;Permission denied for customer XXX-XXX-XXXX&quot;
+Access Level: Read-only
+</code></pre>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Contact Google Ads account owner</li>
+<li>Request upgrade from Read-only to Standard access</li>
+<li>Account owner:<ul>
+<li>Google Ads → Settings → Account Access</li>
+<li>Find your email</li>
+<li>Change access level to Standard</li>
+<li>Save</li>
+</ul>
+</li>
+<li>In PerfoAds:<ul>
+<li>Wait 5 minutes for Google to propagate change</li>
+<li>Retry sync</li>
+<li>Should work now</li>
+</ul>
+</li>
+</ol>
+<p><strong>Why Standard Required</strong>: PerfoAds needs Standard to access full performance data and metrics</p>
+<hr>
+<h2>Problem 4: Token Expiring Soon Warning</h2>
+<h3>Symptoms</h3>
+<ul>
+<li>OAuth status: ⚠️ Connected (warning)</li>
+<li>Message: &quot;Token expires in X days&quot;</li>
+<li>X &lt; 7 days</li>
+</ul>
+<hr>
+<h3>This is Normal (Self-Healing)</h3>
+<p><strong>What It Means</strong>: System will auto-refresh token before expiration</p>
+<p><strong>Your Action Required</strong>: None (usually)</p>
+<p><strong>How Self-Healing Works</strong>:</p>
+<pre><code>Day 0: Token valid for 60 days
+Day 53: System detects 7 days remaining
+Day 54: System auto-refreshes token
+Day 54: New token valid for 60 more days
+</code></pre>
+<hr>
+<h3>When to Act</h3>
+<p><strong>If Warning Persists &gt;3 Days</strong>:</p>
+<pre><code>Day 1: Warning &quot;7 days remaining&quot;
+Day 4: Still shows &quot;4 days remaining&quot; (auto-refresh hasn&#39;t happened)
+</code></pre>
+<p><strong>Manual Refresh</strong>:</p>
+<ol>
+<li>Settings → Google Ads Connections</li>
+<li>Click <strong>Reconnect OAuth</strong> (pre-emptive refresh)</li>
+<li>Complete OAuth flow</li>
+<li>Token renewed for 60 days</li>
+</ol>
+<p><strong>Why Manual</strong>: Auto-refresh occasionally fails. Better safe than sorry.</p>
+<hr>
+<h2>Problem 5: OAuth Works But Sync Still Fails</h2>
+<h3>Symptoms</h3>
+<ul>
+<li>OAuth: ✅ Connected</li>
+<li>Token: Valid</li>
+<li>Discovery: Accounts found</li>
+<li>Sync: Still failing with errors</li>
+</ul>
+<hr>
+<h3>Possible Causes</h3>
+<p><strong>Not an OAuth Issue</strong>:</p>
+<ol>
+<li>Customer ID incorrect → Fix: Update Customer ID in Client Settings</li>
+<li>Google Ads account suspended → Fix: Resolve suspension with Google</li>
+<li>Rate limiting → Fix: Wait and retry</li>
+<li>Network issues → Fix: Check internet connection</li>
+</ol>
+<p><strong>See</strong>: <a href="/docs/troubleshooting-sync">Troubleshooting Sync Issues</a> for non-OAuth sync problems</p>
+<hr>
+<h2>Reconnecting OAuth: Best Practices</h2>
+<h3>Step-by-Step Guide</h3>
+<p><strong>Step 1: Prepare</strong></p>
+<ul>
+<li>Know which Google account has access to your Google Ads accounts</li>
+<li>Have that Google account&#39;s password ready</li>
+<li>Close other Google account sessions (avoid wrong account selection)</li>
+</ul>
+<p><strong>Step 2: Disconnect Old OAuth</strong> (optional but recommended)</p>
+<ol>
+<li>Settings → Google Ads Connections</li>
+<li>Click <strong>Disconnect</strong> button</li>
+<li>Confirm disconnection</li>
+</ol>
+<p><strong>Step 3: Reconnect OAuth</strong></p>
+<ol>
+<li>Click <strong>Connect Google Ads</strong> button</li>
+<li>Select Google account (choose carefully!)</li>
+<li>Google asks for permissions</li>
+<li>Review permissions (should be read-only access)</li>
+<li>Click <strong>Allow</strong></li>
+</ol>
+<p><strong>Step 4: Verify</strong></p>
+<ol>
+<li>Redirects to PerfoAds</li>
+<li>Check OAuth status: ✅ Connected</li>
+<li>Check token valid: &quot;60 days&quot; or similar</li>
+</ol>
+<p><strong>Step 5: Refresh Discovery</strong></p>
+<ol>
+<li>Click <strong>Refresh Discovery</strong></li>
+<li>Wait for completion</li>
+<li>Accounts list populates</li>
+</ol>
+<p><strong>Step 6: Test Sync</strong></p>
+<ol>
+<li>Go to Client List</li>
+<li>Select a client</li>
+<li>Actions → Sync Now</li>
+<li>Verify sync completes successfully</li>
+</ol>
+<p><strong>Total Time</strong>: 3-5 minutes</p>
+<p>[Screenshot: OAuth reconnection flow from start to finish]
+<em>Follow these steps for successful OAuth reconnection</em></p>
+<hr>
+<h2>Understanding OAuth Scopes</h2>
+<h3>What Permissions Does PerfoAds Need?</h3>
+<p><strong>Required Scopes</strong> (Google&#39;s terminology):</p>
+<ol>
+<li><strong><code>https://www.googleapis.com/auth/adwords</code></strong><ul>
+<li>Read access to Google Ads data</li>
+<li>Required for syncing campaigns, keywords, performance</li>
+</ul>
+</li>
+</ol>
+<p><strong>What PerfoAds Does NOT Have</strong>:</p>
+<ul>
+<li>Cannot modify campaigns</li>
+<li>Cannot change bids</li>
+<li>Cannot pause/enable ads</li>
+<li>Cannot create campaigns</li>
+<li>Cannot access billing info</li>
+<li>Cannot access other Google services (Gmail, Drive, etc.)</li>
+</ul>
+<p><strong>Read-Only Access</strong>: PerfoAds can only read data, never modify your Google Ads account</p>
+<hr>
+<h2>Preventing OAuth Issues</h2>
+<h3>Best Practices</h3>
+<p><strong>1. Don&#39;t Change Google Password Without Updating OAuth</strong></p>
+<pre><code>Bad: Change Google password → Forget to reconnect OAuth → OAuth breaks 3 days later
+Good: Change Google password → Immediately reconnect OAuth in PerfoAds
+</code></pre>
+<p><strong>2. Monitor OAuth Health Monthly</strong></p>
+<pre><code>Monthly Checklist:
+- Settings → Google Ads Connections
+- Check OAuth status: Should be ✅ Connected
+- Check token expiration: Should show 30+ days
+- If &lt;30 days: System should auto-refresh soon, monitor
+</code></pre>
+<p><strong>3. Don&#39;t Revoke App Access in Google</strong></p>
+<pre><code>Google Account → Security → Third-party apps → PerfoAds
+Do Not Click: &quot;Remove Access&quot; (unless you&#39;re done using PerfoAds)
+</code></pre>
+<p><strong>4. Use Dedicated Google Account for Automation</strong></p>
+<pre><code>Personal Account: john.personal@gmail.com
+Business Account: john@agency.com (use this for OAuth)
+
+Why: Business account less likely to change, more stable
+</code></pre>
+<hr>
+<h2>When OAuth Auto-Heals</h2>
+<h3>Self-Healing Scenarios</h3>
+<p><strong>Auto-Fixed</strong> (no action required):</p>
+<ul>
+<li>Token approaching expiration (refreshes at 7 days remaining)</li>
+<li>Temporary Google API issues (retries automatically)</li>
+<li>Network blips during token refresh (retries)</li>
+</ul>
+<p><strong>Your Intervention Required</strong>:</p>
+<ul>
+<li>Token already expired (must reconnect)</li>
+<li>Google password changed (must reconnect)</li>
+<li>App permissions revoked (must reconnect)</li>
+<li>Wrong Google account used (must reconnect with correct account)</li>
+</ul>
+<p><strong>How to Tell</strong>: If OAuth status shows ❌ Disconnected, you must act. If ⚠️ Warning, system likely handling it.</p>
+<hr>
+<h2>Error Messages Decoded</h2>
+<h3>&quot;Invalid grant&quot;</h3>
+<p><strong>Meaning</strong>: Refresh token no longer valid</p>
+<p><strong>Fix</strong>: Reconnect OAuth</p>
+<p><strong>Common Cause</strong>: Google password changed or token expired</p>
+<hr>
+<h3>&quot;Access denied&quot;</h3>
+<p><strong>Meaning</strong>: User declined OAuth permissions or insufficient access level</p>
+<p><strong>Fix</strong>:</p>
+<ul>
+<li>Reconnect OAuth and click &quot;Allow&quot; this time</li>
+<li>OR request Standard access level for account</li>
+</ul>
+<hr>
+<h3>&quot;Redirect URI mismatch&quot;</h3>
+<p><strong>Meaning</strong>: OAuth callback URL doesn&#39;t match registered URL (rare)</p>
+<p><strong>Fix</strong>: Contact support (this is a configuration issue on PerfoAds&#39;s side)</p>
+<hr>
+<h3>&quot;Invalid client&quot;</h3>
+<p><strong>Meaning</strong>: PerfoAds&#39;s Google OAuth credentials invalid (extremely rare)</p>
+<p><strong>Fix</strong>: Contact support immediately (system-wide OAuth issue)</p>
+<hr>
+<h2>Advanced Troubleshooting</h2>
+<h3>Check Google Account Permissions</h3>
+<p><strong>View Apps with Access</strong>:</p>
+<ol>
+<li>Go to: <a href="https://myaccount.google.com/permissions">https://myaccount.google.com/permissions</a></li>
+<li>Find &quot;PerfoAds&quot; in list</li>
+<li>Check:<ul>
+<li>Access granted? (should be)</li>
+<li>Permissions: &quot;See your Google Ads data&quot;</li>
+<li>Last accessed: Should be recent</li>
+</ul>
+</li>
+</ol>
+<p><strong>If Not Listed</strong>: OAuth not connected, reconnect</p>
+<p><strong>If Listed But Sync Failing</strong>: Remove access, then reconnect OAuth fresh</p>
+<hr>
+<h3>Browser Console Errors</h3>
+<p><strong>For Advanced Users</strong>:</p>
+<ol>
+<li>Open browser console: F12</li>
+<li>Go to Console tab</li>
+<li>Click &quot;Connect Google Ads&quot;</li>
+<li>Watch for errors during OAuth flow</li>
+<li>Common errors:<ul>
+<li>Popup blocked: Allow popups for this site</li>
+<li>Cookies disabled: Enable cookies</li>
+<li>CORS error: Contact support</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: How often do I need to reconnect OAuth?</strong>
+A: Almost never. System auto-refreshes tokens. Only reconnect if status shows ❌ Disconnected.</p>
+<p><strong>Q: Can I use multiple Google accounts for OAuth?</strong>
+A: Only one OAuth connection at a time. Choose account with access to most Google Ads accounts.</p>
+<p><strong>Q: What if I don&#39;t see &quot;Allow&quot; button during OAuth?</strong>
+A: Google may show &quot;Cancel&quot; only if app already has access. Check Settings → Google Ads Connections for status.</p>
+<p><strong>Q: Does reconnecting OAuth affect existing clients?</strong>
+A: No. Clients remain, data preserved. Only connection refreshes.</p>
+<p><strong>Q: Can I revoke OAuth access temporarily?</strong>
+A: Yes, but all syncs will fail until reconnected. Not recommended unless you&#39;re stopping use of PerfoAds.</p>
+<p><strong>Q: What data does PerfoAds store?</strong>
+A: Only the OAuth token (securely encrypted) and your Google Ads data after sync. PerfoAds never stores your Google password.</p>
+<hr>
+<h2>When to Contact Support</h2>
+<p><strong>Contact Support If</strong>:</p>
+<ol>
+<li><strong>Reconnected OAuth 3+ times</strong> but still shows Disconnected</li>
+<li><strong>&quot;Invalid client&quot; error</strong> (system-wide OAuth issue)</li>
+<li><strong>Accounts not appearing</strong> after multiple Discovery refreshes and verified access</li>
+<li><strong>OAuth flow broken</strong> (redirects fail, errors during authorization)</li>
+<li><strong>Token won&#39;t refresh</strong> despite being &lt;7 days from expiration</li>
+</ol>
+<p><strong>Provide to Support</strong>:</p>
+<ul>
+<li>Screenshot of OAuth status</li>
+<li>Error message (exact text)</li>
+<li>Steps you&#39;ve tried</li>
+<li>Google account email (used for OAuth)</li>
+</ul>
+<hr>
+<h2>Next Steps</h2>
+<p>Fix Google Ads connection issues with these guides:</p>
+<ul>
+<li><strong><a href="/docs/troubleshooting-sync">Troubleshooting Sync Issues</a></strong> - Fix sync problems after OAuth working</li>
+<li><strong><a href="/docs/smart-sync-explained">Smart Sync Explained</a></strong> - How sync works with OAuth</li>
+<li><strong><a href="/docs/global-settings">Global Settings</a></strong> - Configure OAuth and connections</li>
+<li><strong><a href="/docs/adding-first-client">Adding First Client</a></strong> - OAuth setup during client onboarding</li>
+</ul>
+<hr>
+<p><strong>Monitor OAuth monthly</strong> to catch issues before they break</p>
+<p><strong>Reconnect immediately</strong> after changing Google password</p>
+<p><strong>Use stable Google account</strong> for business automation</p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>

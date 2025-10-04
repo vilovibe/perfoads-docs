@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accept/Decline Workflow - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Accept/Decline Workflow</h1>
+<p>Every alert requires a decision: accept the recommendation, decline it, or mark as acknowledged. Your choices train the AI to generate better alerts over time and create a history of optimizations made. This guide shows you how to evaluate alerts and choose the right action.</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ul>
+<li>The 3 alert actions (Accept, Decline, Acknowledge)</li>
+<li>When to use each action</li>
+<li>How feedback trains AI</li>
+<li>What happens after you accept/decline</li>
+<li>Tracking alert outcomes</li>
+<li>Best practices for alert decisions</li>
+<li>Common decision scenarios</li>
+</ul>
+<p><strong>Time needed</strong>: 8 minutes to read</p>
+<hr>
+<h2>The 3 Alert Actions</h2>
+<h3>Quick Reference</h3>
+<p><strong>Accept</strong> ✅</p>
+<ul>
+<li>&quot;I agree with this recommendation&quot;</li>
+<li>&quot;I will/did implement this fix&quot;</li>
+<li>Marks alert as resolved</li>
+<li>Trains AI this was valuable</li>
+</ul>
+<p><strong>Decline</strong> ❌</p>
+<ul>
+<li>&quot;This recommendation doesn&#39;t apply&quot;</li>
+<li>&quot;I disagree with severity/analysis&quot;</li>
+<li>Dismisses alert</li>
+<li>Trains AI this wasn&#39;t valuable</li>
+</ul>
+<p><strong>Acknowledge</strong> 👁️</p>
+<ul>
+<li>&quot;I&#39;ve read this, no action needed yet&quot;</li>
+<li>Keeps alert active</li>
+<li>No AI feedback</li>
+<li>For tracking only</li>
+</ul>
+<p>[Screenshot: Alert action buttons]
+<em>Three buttons for every alert decision</em></p>
+<hr>
+<h2>Accept Action ✅</h2>
+<h3>When to Accept</h3>
+<p><strong>Accept an alert when</strong>:</p>
+<ul>
+<li>You agree with the recommendation</li>
+<li>You plan to implement the suggested fix</li>
+<li>You already implemented the fix</li>
+<li>The analysis is accurate</li>
+<li>Severity rating is appropriate</li>
+</ul>
+<p><strong>Examples of when to accept</strong>:</p>
+<pre><code>Alert: &quot;Daily budget exhausted by 2 PM&quot;
+Your thought: &quot;Yes, I&#39;ll increase budget to $150&quot;
+Action: Accept ✅
+</code></pre>
+<pre><code>Alert: &quot;15 ads disapproved for policy violation&quot;
+Your thought: &quot;True, I just fixed them in Google Ads&quot;
+Action: Accept ✅
+</code></pre>
+<pre><code>Alert: &quot;CTR declined 22% in past 14 days&quot;
+Your thought: &quot;Accurate, I&#39;ll refresh ad copy&quot;
+Action: Accept ✅
+</code></pre>
+<hr>
+<h3>What Happens When You Accept</h3>
+<p><strong>Immediate effects</strong>:</p>
+<ol>
+<li>Alert marked as &quot;Resolved&quot;</li>
+<li>Removed from active alerts list</li>
+<li>Added to Alert History</li>
+<li>Timestamp recorded</li>
+<li>Your user ID associated with resolution</li>
+</ol>
+<p><strong>AI learning</strong>:</p>
+<ul>
+<li>AI notes this alert type was valuable to you</li>
+<li>Similar alerts get slightly higher priority in future</li>
+<li>Alert category becomes more prominent</li>
+<li>Severity calibration improves</li>
+</ul>
+<p><strong>Tracking</strong>:</p>
+<ul>
+<li>Alert outcome recorded</li>
+<li>Implementation date logged</li>
+<li>Can reference in client reports</li>
+<li>Builds optimization history</li>
+</ul>
+<p>[Screenshot: Accept confirmation message]
+<em>Confirmation shows alert was resolved</em></p>
+<hr>
+<h3>Good Reasons to Accept</h3>
+<p><strong>1. You&#39;ll implement the fix</strong></p>
+<pre><code>Alert: &quot;Add these 8 search terms as negative keywords&quot;
+You: Planning to add them today
+Action: Accept ✅
+</code></pre>
+<p><strong>2. You already fixed it</strong></p>
+<pre><code>Alert: &quot;3 ads disapproved&quot;
+You: Already created replacement ads in Google Ads
+Action: Accept ✅
+</code></pre>
+<p><strong>3. The insight is valuable</strong></p>
+<pre><code>Alert: &quot;Texas converts 45% better than other states&quot;
+You: Great insight, will increase Texas bids
+Action: Accept ✅
+</code></pre>
+<p><strong>4. Severity is appropriate</strong></p>
+<pre><code>Alert: Severity 8 - &quot;Budget exhausted by 2 PM daily&quot;
+You: Agree this is high priority
+Action: Accept ✅
+</code></pre>
+<p><strong>5. Recommendation aligns with strategy</strong></p>
+<pre><code>Alert: &quot;Switch to Target CPA bidding&quot;
+You: Was already considering this
+Action: Accept ✅
+</code></pre>
+<hr>
+<h2>Decline Action ❌</h2>
+<h3>When to Decline</h3>
+<p><strong>Decline an alert when</strong>:</p>
+<ul>
+<li>Recommendation doesn&#39;t fit your strategy</li>
+<li>Alert analysis is inaccurate</li>
+<li>Severity is wrong (too high or too low)</li>
+<li>Recommendation is not actionable</li>
+<li>Context is missing that changes meaning</li>
+</ul>
+<p><strong>Examples of when to decline</strong>:</p>
+<pre><code>Alert: &quot;Campaign spending only 40% of budget&quot;
+Your thought: &quot;Intentional - testing phase&quot;
+Action: Decline ❌
+</code></pre>
+<pre><code>Alert: Severity 8 - &quot;CPC increased 15%&quot;
+Your thought: &quot;15% isn&#39;t severity 8, more like 5&quot;
+Action: Decline ❌
+</code></pre>
+<pre><code>Alert: &quot;Switch to automated bidding&quot;
+Your thought: &quot;Client prefers manual control&quot;
+Action: Decline ❌
+</code></pre>
+<hr>
+<h3>What Happens When You Decline</h3>
+<p><strong>Immediate effects</strong>:</p>
+<ol>
+<li>Alert dismissed</li>
+<li>Removed from active alerts</li>
+<li>Added to Alert History as &quot;Declined&quot;</li>
+<li>Timestamp and reason recorded</li>
+</ol>
+<p><strong>AI learning</strong>:</p>
+<ul>
+<li>AI notes this alert type wasn&#39;t valuable</li>
+<li>Similar alerts get lower priority in future</li>
+<li>Severity calibration adjusts downward</li>
+<li>Alert category becomes less prominent</li>
+<li>Recommendation style may change</li>
+</ul>
+<p><strong>Important</strong>: Declining helps AI learn your preferences</p>
+<p>[Screenshot: Decline confirmation with optional feedback]
+<em>Optional feedback helps AI learn faster</em></p>
+<hr>
+<h3>Good Reasons to Decline</h3>
+<p><strong>1. Doesn&#39;t match strategy</strong></p>
+<pre><code>Alert: &quot;Increase budget from $500 to $800&quot;
+You: Client capped budget at $500 max
+Action: Decline ❌
+</code></pre>
+<p><strong>2. Missing context</strong></p>
+<pre><code>Alert: &quot;Zero conversions in past 5 days&quot;
+You: We intentionally paused campaigns for rebrand
+Action: Decline ❌
+</code></pre>
+<p><strong>3. Severity incorrect</strong></p>
+<pre><code>Alert: Severity 9 - &quot;5 keywords have QS of 6&quot;
+You: QS of 6 is fine, not severity 9
+Action: Decline ❌
+Feedback: &quot;Severity too high for this issue&quot;
+</code></pre>
+<p><strong>4. Already addressed</strong></p>
+<pre><code>Alert: &quot;Add sitelink extensions&quot;
+You: Sitelinks were added last week, AI hasn&#39;t synced yet
+Action: Decline ❌
+Feedback: &quot;Already implemented&quot;
+</code></pre>
+<p><strong>5. Recommendation not actionable</strong></p>
+<pre><code>Alert: &quot;Consider testing video ads&quot;
+You: Client has no video assets
+Action: Decline ❌
+Feedback: &quot;Not feasible for this client&quot;
+</code></pre>
+<hr>
+<h3>Providing Feedback on Decline</h3>
+<p><strong>Optional but recommended</strong>:</p>
+<p>When you decline, you can add a note explaining why:</p>
+<p><strong>Feedback options</strong>:</p>
+<ul>
+<li>&quot;Already implemented&quot;</li>
+<li>&quot;Doesn&#39;t match strategy&quot;</li>
+<li>&quot;Severity too high&quot;</li>
+<li>&quot;Severity too low&quot;</li>
+<li>&quot;Inaccurate analysis&quot;</li>
+<li>&quot;Not actionable&quot;</li>
+<li>&quot;Missing context&quot;</li>
+<li>Custom note (free text)</li>
+</ul>
+<p><strong>Why feedback matters</strong>:</p>
+<ul>
+<li>AI learns faster with specific reasons</li>
+<li>Helps calibrate future alerts</li>
+<li>Improves relevance for your use case</li>
+</ul>
+<p>[Screenshot: Decline feedback form]
+<em>Help AI learn by explaining why you declined</em></p>
+<hr>
+<h2>Acknowledge Action 👁️</h2>
+<h3>When to Acknowledge</h3>
+<p><strong>Acknowledge an alert when</strong>:</p>
+<ul>
+<li>You&#39;ve read it but need time to decide</li>
+<li>Want to track it but not act yet</li>
+<li>Need to discuss with client first</li>
+<li>Gathering more info before deciding</li>
+<li>Will address later this week</li>
+</ul>
+<p><strong>Examples</strong>:</p>
+<pre><code>Alert: &quot;Consider expanding to shopping campaigns&quot;
+Your thought: &quot;Interesting, need to research first&quot;
+Action: Acknowledge 👁️
+</code></pre>
+<pre><code>Alert: &quot;California has 2x better conversion rate&quot;
+Your thought: &quot;Want to verify with client before budget shift&quot;
+Action: Acknowledge 👁️
+</code></pre>
+<hr>
+<h3>What Happens When You Acknowledge</h3>
+<p><strong>Immediate effects</strong>:</p>
+<ol>
+<li>Alert stays active</li>
+<li>Marked as &quot;Acknowledged&quot; with badge</li>
+<li>Remains in your active alerts list</li>
+<li>No AI feedback sent</li>
+</ol>
+<p><strong>Use case</strong>: Temporary action while you gather info or wait</p>
+<p><strong>Tip</strong>: Come back and Accept or Decline within a few days</p>
+<p>[Screenshot: Acknowledged alert with badge]
+<em>Acknowledged alerts stay visible until final decision</em></p>
+<hr>
+<h2>Decision Process</h2>
+<h3>Step-by-Step Workflow</h3>
+<p><strong>For every alert</strong>:</p>
+<p><strong>Step 1: Read Full Alert</strong></p>
+<ul>
+<li>Don&#39;t judge on title alone</li>
+<li>Read detailed explanation</li>
+<li>Review recommended action</li>
+<li>Check affected campaigns/keywords</li>
+</ul>
+<p><strong>Step 2: Verify Analysis</strong></p>
+<pre><code>Questions to ask:
+- Is the data accurate?
+- Does the trend make sense?
+- Is severity appropriate?
+- Am I missing context?
+</code></pre>
+<p><strong>Step 3: Check Actionability</strong></p>
+<pre><code>Can I actually implement this?
+- Do I have authority?
+- Do I have resources?
+- Does it fit strategy?
+- Is timing right?
+</code></pre>
+<p><strong>Step 4: Make Decision</strong></p>
+<pre><code>Will implement: Accept ✅
+Won&#39;t implement: Decline ❌
+Need more time: Acknowledge 👁️
+</code></pre>
+<p><strong>Step 5: Take Action (if Accept)</strong></p>
+<pre><code>- Go to Google Ads
+- Implement recommendation
+- Document what you did
+- Monitor results
+</code></pre>
+<p>[Screenshot: Decision flowchart]
+<em>Follow this flow for every alert</em></p>
+<hr>
+<h2>Common Decision Scenarios</h2>
+<h3>Scenario 1: Budget Exhaustion Alert</h3>
+<p><strong>Alert</strong>:</p>
+<pre><code>Severity: 8/10
+Category: Budget Issues
+Title: Daily budget exhausted by 1 PM
+
+Recommended Action: Increase budget from $80 to $120
+</code></pre>
+<p><strong>Decision tree</strong>:</p>
+<pre><code>Can you increase budget?
+├─ Yes, and ROI is good → Accept ✅, implement
+├─ No, budget locked → Decline ❌ &quot;Budget limit from client&quot;
+└─ Maybe, need client approval → Acknowledge 👁️, ask client
+</code></pre>
+<hr>
+<h3>Scenario 2: Quality Score Alert</h3>
+<p><strong>Alert</strong>:</p>
+<pre><code>Severity: 7/10
+Category: Quality Score Problems
+Title: 12 keywords have QS of 3-4
+
+Recommended Action: Create dedicated ad groups with
+keyword-specific ads
+</code></pre>
+<p><strong>Decision tree</strong>:</p>
+<pre><code>Do you have time to restructure?
+├─ Yes, worth the effort → Accept ✅, schedule work
+├─ No, not high enough priority → Decline ❌ &quot;Lower priority&quot;
+└─ Maybe, need to see full list → Acknowledge 👁️, review keywords
+</code></pre>
+<hr>
+<h3>Scenario 3: Ad Copy Refresh</h3>
+<p><strong>Alert</strong>:</p>
+<pre><code>Severity: 6/10
+Category: Performance Problems
+Title: CTR declined 18% - ad fatigue likely
+
+Recommended Action: Refresh ad copy with new headlines
+</code></pre>
+<p><strong>Decision tree</strong>:</p>
+<pre><code>Is CTR decline real?
+├─ Yes, and significant → Accept ✅, write new ads
+├─ No, seasonal expected → Decline ❌ &quot;Seasonal variation&quot;
+└─ Not sure, check Google Ads → Acknowledge 👁️, verify data
+</code></pre>
+<hr>
+<h3>Scenario 4: Strategic Recommendation</h3>
+<p><strong>Alert</strong>:</p>
+<pre><code>Severity: 5/10
+Category: Strategy Recommendations
+Title: High-performing search terms not in keyword list
+
+Recommended Action: Add these 6 terms as exact match keywords
+</code></pre>
+<p><strong>Decision tree</strong>:</p>
+<pre><code>Are these terms truly valuable?
+├─ Yes, great finds → Accept ✅, add to keyword list
+├─ No, low volume / irrelevant → Decline ❌ &quot;Not valuable&quot;
+└─ Some yes, some no → Acknowledge 👁️, review each individually
+</code></pre>
+<hr>
+<h2>Tracking Alert Outcomes</h2>
+<h3>Alert History</h3>
+<p><strong>Location</strong>: Client Details → AI Alerts Tab → Alert History</p>
+<p><strong>What it shows</strong>:</p>
+<ul>
+<li>All past alerts (90 days)</li>
+<li>Your accept/decline decisions</li>
+<li>Date of each decision</li>
+<li>Current status of issue</li>
+<li>Performance impact (if measurable)</li>
+</ul>
+<p><strong>Use cases</strong>:</p>
+<ul>
+<li>Show client improvements made</li>
+<li>Track optimization progress</li>
+<li>Review past recommendations</li>
+<li>Identify recurring issues</li>
+<li>Build case studies</li>
+</ul>
+<p>[Screenshot: Alert History view with outcomes]
+<em>Complete record of all alerts and decisions</em></p>
+<hr>
+<h3>Performance Tracking</h3>
+<p><strong>For accepted alerts</strong>, track:</p>
+<p><strong>Before implementation</strong>:</p>
+<ul>
+<li>Baseline metrics (CTR, CPC, conv rate, etc.)</li>
+<li>Date issue identified</li>
+<li>Severity rating</li>
+</ul>
+<p><strong>After implementation</strong>:</p>
+<ul>
+<li>New metrics after fix</li>
+<li>Date implemented</li>
+<li>Measurable improvement</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code>Alert: &quot;Increase Texas bid adjustment to +60%&quot;
+Accepted: Oct 15, 2025
+
+Before (Oct 1-14):
+- Texas conversions: 45
+- Texas CPA: $32
+- Texas spend: $1,440
+
+After (Oct 16-29):
+- Texas conversions: 68 (+51%)
+- Texas CPA: $29 (-9%)
+- Texas spend: $1,972 (+37%)
+
+Result: Alert recommendation improved performance ✅
+</code></pre>
+<hr>
+<h2>AI Learning from Your Feedback</h2>
+<h3>How Feedback Improves Alerts</h3>
+<p><strong>Short-term learning</strong> (your account):</p>
+<ul>
+<li>Accepted categories get more weight</li>
+<li>Declined categories get less weight</li>
+<li>Severity calibrates to your preferences</li>
+<li>Recommendation style adjusts</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code>You Accept: 8 budget alerts
+You Decline: 1 budget alert
+
+AI learns: Budget alerts are valuable to you
+Future: More budget alerts, higher severity
+</code></pre>
+<p><strong>Long-term learning</strong> (all users):</p>
+<ul>
+<li>Patterns across all users improve model</li>
+<li>Common declines reduce that alert type</li>
+<li>Common accepts strengthen that pattern</li>
+<li>Alert quality improves system-wide</li>
+</ul>
+<p><strong>Important</strong>: Your feedback is valuable data</p>
+<hr>
+<h3>Feedback Privacy</h3>
+<p><strong>Your decisions are private</strong>:</p>
+<ul>
+<li>Only affect your account&#39;s AI</li>
+<li>Not shared with other users</li>
+<li>Not used to identify you</li>
+<li>Helps your AI get smarter</li>
+</ul>
+<p><strong>Aggregate learning</strong>:</p>
+<ul>
+<li>Your feedback contributes to overall model</li>
+<li>But always anonymized</li>
+<li>Improves platform for everyone</li>
+</ul>
+<hr>
+<h2>Best Practices</h2>
+<h3>Be Honest with Feedback</h3>
+<p><strong>Don&#39;t accept just to clear alerts</strong>:</p>
+<ul>
+<li>AI needs honest feedback</li>
+<li>False accepts = worse future alerts</li>
+<li>Hurt long-term alert quality</li>
+</ul>
+<p><strong>Don&#39;t decline everything</strong>:</p>
+<ul>
+<li>If you decline 90% of alerts, signal is lost</li>
+<li>AI can&#39;t learn what you actually want</li>
+<li>Alerts become less useful</li>
+</ul>
+<p><strong>Ideal acceptance rate</strong>: 40-60%</p>
+<hr>
+<h3>Provide Reasons When Declining</h3>
+<p><strong>Helps AI learn faster</strong>:</p>
+<pre><code>Decline with &quot;Doesn&#39;t match strategy&quot; →
+AI learns to consider business model
+
+Decline with &quot;Severity too high&quot; →
+AI calibrates severity downward
+
+Decline with &quot;Already implemented&quot; →
+AI syncs tracking better
+</code></pre>
+<p><strong>1-2 sentences is enough</strong> - no essay needed</p>
+<hr>
+<h3>Act on Accepted Alerts</h3>
+<p><strong>Don&#39;t accept without implementing</strong>:</p>
+<ul>
+<li>Accept = commitment to action</li>
+<li>If you won&#39;t do it, decline it</li>
+<li>Builds trust in your decisions</li>
+</ul>
+<p><strong>Track implementation</strong>:</p>
+<ul>
+<li>Note what you changed</li>
+<li>Monitor impact</li>
+<li>Report to client</li>
+</ul>
+<hr>
+<h3>Review Weekly</h3>
+<p><strong>Every Monday</strong>:</p>
+<ol>
+<li>Check new alerts (5 min)</li>
+<li>Accept/Decline high severity (10 min)</li>
+<li>Acknowledge medium severity (2 min)</li>
+<li>Revisit acknowledged alerts (3 min)</li>
+</ol>
+<p><strong>Total time</strong>: 20 minutes per client per week</p>
+<hr>
+<h3>Batch Similar Alerts</h3>
+<p><strong>Don&#39;t decide one by one if similar</strong>:</p>
+<p><strong>Example</strong>:</p>
+<pre><code>You have 5 alerts about low QS keywords
+
+Approach:
+1. Read all 5 alerts
+2. Decide on QS improvement strategy
+3. Accept all 5 at once
+4. Batch-fix QS issues together
+</code></pre>
+<p><strong>Efficiency</strong>: Faster decisions, consistent action</p>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: What if I accept but don&#39;t implement?</strong>
+A: Alert is resolved in system but your account doesn&#39;t improve. Better to decline honestly.</p>
+<p><strong>Q: Can I undo an accept/decline decision?</strong>
+A: Not currently. Be thoughtful before clicking. Future versions may allow undo.</p>
+<p><strong>Q: How long do I have to decide?</strong>
+A: No time limit. Alerts stay active until you accept/decline. Acknowledged alerts persist indefinitely.</p>
+<p><strong>Q: Does declining an alert hurt my account?</strong>
+A: No. Declining teaches AI what&#39;s not relevant to you. It improves future alerts.</p>
+<p><strong>Q: Should I decline alerts I can&#39;t afford to implement?</strong>
+A: Yes. Decline with feedback &quot;Budget constraints&quot; or &quot;Not feasible&quot;. AI learns about your limitations.</p>
+<p><strong>Q: What if alert is partly right?</strong>
+A: Accept if you&#39;ll implement the core recommendation, even if you disagree with minor points.</p>
+<p><strong>Q: Can I accept an alert without taking action immediately?</strong>
+A: Yes, but not recommended. Better to Acknowledge if you need time, then Accept when you implement.</p>
+<hr>
+<h2>Troubleshooting</h2>
+<h3>Problem: Too many low-priority alerts</h3>
+<p><strong>Cause</strong>: AI hasn&#39;t learned your preferences yet</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Decline low-priority alerts consistently</li>
+<li>Add feedback: &quot;Too low priority&quot;</li>
+<li>Accept only high-impact alerts</li>
+<li>AI will adjust within 2-4 weeks</li>
+</ol>
+<hr>
+<h3>Problem: Missing alerts on important issues</h3>
+<p><strong>Cause</strong>: You declined similar alerts previously</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Accept more alerts in that category</li>
+<li>Provide feedback when declining</li>
+<li>Force Full Analysis to refresh</li>
+<li>AI will increase category priority</li>
+</ol>
+<hr>
+<h3>Problem: Severity ratings seem off</h3>
+<p><strong>Cause</strong>: AI doesn&#39;t know your business goals</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Fill out Business Profile (target CPA, budget, goals)</li>
+<li>Decline alerts with &quot;Severity too high/low&quot; feedback</li>
+<li>Accept alerts with appropriate severity</li>
+<li>AI calibrates to your targets</li>
+</ol>
+<hr>
+<h2>Next Steps</h2>
+<p>Optimize alert usage with these guides:</p>
+<ul>
+<li><strong><a href="/docs/smart-alerts-intro">Smart Alerts Intro</a></strong> - How alerts work overall</li>
+<li><strong><a href="/docs/alert-severity-guide">Alert Severity</a></strong> - Understanding the 1-10 scale</li>
+<li><strong><a href="/docs/alert-categories">Alert Categories</a></strong> - All 8 categories explained</li>
+<li><strong><a href="/docs/ai-chat-getting-started">AI Chat</a></strong> - Ask AI about specific alerts</li>
+</ul>
+<hr>
+<p><strong>Review your active alerts</strong> and make accept/decline decisions</p>
+<p><strong>Check Alert History</strong> to see your optimization track record</p>
+<p><strong>Provide feedback when declining</strong> to train AI faster</p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>

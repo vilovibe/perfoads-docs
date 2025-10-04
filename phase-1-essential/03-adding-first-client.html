@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding Your First Client - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Adding Your First Client</h1>
+<p>This guide walks you through every step of adding a client to PerfoAds. You&#39;ll connect your Google Ads account, choose which accounts to manage, set up client details, and run your first sync. By the end, you&#39;ll have a complete client profile with live data.</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ul>
+<li>How to connect Google Ads accounts (direct or via MCC)</li>
+<li>Choosing the right account type for your setup</li>
+<li>Filling in client business profile for better AI insights</li>
+<li>Running your first data sync</li>
+<li>Understanding what happens during sync</li>
+</ul>
+<p><strong>Time needed</strong>: 10-15 minutes per client</p>
+<hr>
+<h2>Before You Start</h2>
+<h3>Access Requirements</h3>
+<p>You need one of these:</p>
+<p><strong>Option 1: Direct Account Access</strong></p>
+<ul>
+<li>Google account with admin or standard access to the Google Ads account</li>
+<li>The account should be active with running campaigns</li>
+</ul>
+<p><strong>Option 2: MCC (Manager) Account Access</strong></p>
+<ul>
+<li>Access to a Google Ads Manager account (MCC)</li>
+<li>The client account linked to your MCC</li>
+<li>Manager account credentials</li>
+</ul>
+<h3>What to Have Ready</h3>
+<ul>
+<li><strong>Client business name</strong> - How you&#39;ll identify them in the system</li>
+<li><strong>Website URL</strong> - Their business website (optional but helpful)</li>
+<li><strong>Monthly budget</strong> - Approximate ad spend per month</li>
+<li><strong>Business goals</strong> - What they&#39;re trying to achieve (optional but improves AI insights)</li>
+</ul>
+<p>[Screenshot: Checklist of items to prepare before adding client]
+<em>Having this info ready makes setup faster and more complete</em></p>
+<hr>
+<h2>Understanding Account Types</h2>
+<p>Before you start, it helps to know which type of access you have:</p>
+<h3>Direct Access Accounts</h3>
+<p><strong>What it is</strong>: You log in directly to a single Google Ads account.</p>
+<p><strong>How it works</strong>:</p>
+<ul>
+<li>One Google account = one Ads account</li>
+<li>You see one account in the account selector</li>
+<li>Best for: Freelancers or small agencies managing 1-5 accounts</li>
+</ul>
+<p><strong>Example</strong>: You manage ads for a local bakery. You log in with the bakery&#39;s Google account to access their ads.</p>
+<h3>MCC (Manager Customer Center) Access</h3>
+<p><strong>What it is</strong>: You manage multiple Google Ads accounts through one master account.</p>
+<p><strong>How it works</strong>:</p>
+<ul>
+<li>One Google account = access to many client accounts</li>
+<li>You see all linked accounts in the account selector</li>
+<li>Best for: Agencies managing 5+ client accounts</li>
+</ul>
+<p><strong>Example</strong>: Your agency has 20 clients. You log into your agency MCC account and see all 20 client accounts.</p>
+<p>[Screenshot: Account selector showing MCC with multiple client accounts]
+<em>MCC users see all linked client accounts in one list</em></p>
+<p><strong>Not sure which you have?</strong> Log into Google Ads. If you see multiple accounts in a dropdown, you have MCC access.</p>
+<hr>
+<h2>Step 1: Start the Add Client Process</h2>
+<p>From your PerfoAds dashboard:</p>
+<ol>
+<li>Click <strong>Add Client</strong> in the top right corner</li>
+<li>The account selector screen appears</li>
+</ol>
+<p>[Screenshot: Empty client dashboard with &quot;Add Client&quot; button highlighted]
+<em>Starting point - click Add Client to begin</em></p>
+<hr>
+<h2>Step 2: Connect Your Google Account (First Time Only)</h2>
+<p>If this is your first time, you&#39;ll need to authorize PerfoAds:</p>
+<ol>
+<li>Click <strong>Connect with Google</strong></li>
+<li>Select your Google account from the list</li>
+<li>Review the permissions requested:<ul>
+<li>Read Google Ads data</li>
+<li>View basic profile info (name, email)</li>
+</ul>
+</li>
+<li>Click <strong>Allow</strong></li>
+</ol>
+<p>[Screenshot: Google OAuth permission screen showing requested permissions]
+<em>Google asks you to approve access - this is secure and normal</em></p>
+<p><strong>What permissions does PerfoAds get?</strong></p>
+<ul>
+<li><strong>Read-only access</strong> to your Google Ads data</li>
+<li><strong>Cannot make changes</strong> to campaigns, bids, or budgets</li>
+<li><strong>Cannot spend money</strong> on your behalf</li>
+<li><strong>Basic profile info</strong> (name, email) for your account</li>
+</ul>
+<p><strong>Security note</strong>: PerfoAds uses OAuth, Google&#39;s secure authentication. We never see your Google password.</p>
+<p><strong>Already connected?</strong> You&#39;ll skip this step and go straight to account selection.</p>
+<hr>
+<h2>Step 3: Select the Google Ads Account</h2>
+<p>Now you&#39;ll see a list of all Google Ads accounts you have access to.</p>
+<h3>For Direct Access Users</h3>
+<p>You&#39;ll see:</p>
+<ul>
+<li>One or a few accounts</li>
+<li>Account name and customer ID</li>
+<li>Current status (active, suspended, etc.)</li>
+</ul>
+<p>[Screenshot: Account selector showing 1-3 direct access accounts]
+<em>Choose the account you want to manage</em></p>
+<h3>For MCC Users</h3>
+<p>You&#39;ll see:</p>
+<ul>
+<li>All client accounts linked to your MCC</li>
+<li>Account names and customer IDs</li>
+<li>Which accounts are already added to PerfoAds (grayed out)</li>
+<li>Status for each account</li>
+</ul>
+<p>[Screenshot: Account selector showing MCC with 15+ client accounts, some already added]
+<em>MCC users see their full client list - already-added accounts are grayed out</em></p>
+<h3>Selecting Your Account</h3>
+<ol>
+<li>Scroll through the list if you have many accounts</li>
+<li>Use the search box to filter by name or customer ID</li>
+<li>Click the account you want to add</li>
+<li>The account highlights and you move to the next step</li>
+</ol>
+<p><strong>Pro Tip</strong>: The customer ID (10-digit number like 123-456-7890) uniquely identifies each account.</p>
+<hr>
+<h2>Step 4: Fill in Client Details</h2>
+<p>Now you&#39;ll set up the client profile. This information helps the AI give better insights.</p>
+<h3>Required Fields</h3>
+<p><strong>Client Name</strong></p>
+<ul>
+<li>A friendly name to identify the client</li>
+<li>Shows up in your client list</li>
+<li>Example: &quot;ACME Corp&quot; or &quot;Bakery - Main St&quot;</li>
+</ul>
+<p><strong>Google Ads Customer ID</strong></p>
+<ul>
+<li>Auto-filled from your selection</li>
+<li>Don&#39;t change this unless you know what you&#39;re doing</li>
+</ul>
+<p>[Screenshot: Add Client form with required fields highlighted]
+<em>Only client name is required - everything else is optional but helpful</em></p>
+<h3>Optional But Recommended Fields</h3>
+<p><strong>Website URL</strong></p>
+<ul>
+<li>The client&#39;s business website</li>
+<li>Example: <code>https://www.acmecorp.com</code></li>
+<li><strong>Why it helps</strong>: AI can reference their business when analyzing campaigns</li>
+</ul>
+<p><strong>Monthly Budget</strong></p>
+<ul>
+<li>Approximate monthly ad spend</li>
+<li>Enter as a number (e.g., 5000 for $5,000/month)</li>
+<li><strong>Why it helps</strong>: AI alerts you if spending looks too high or low</li>
+</ul>
+<p><strong>Industry</strong></p>
+<ul>
+<li>What type of business (e.g., &quot;E-commerce&quot;, &quot;Legal Services&quot;, &quot;Restaurant&quot;)</li>
+<li><strong>Why it helps</strong>: AI understands industry benchmarks and norms</li>
+</ul>
+<p><strong>Business Goals</strong></p>
+<ul>
+<li>What the client wants to achieve</li>
+<li>Examples:<ul>
+<li>&quot;Increase online sales by 20%&quot;</li>
+<li>&quot;Generate more qualified leads&quot;</li>
+<li>&quot;Build brand awareness in local market&quot;</li>
+</ul>
+</li>
+<li><strong>Why it helps</strong>: AI recommendations align with these goals</li>
+</ul>
+<p>[Screenshot: Add Client form with all optional fields filled in]
+<em>More details = better AI insights and recommendations</em></p>
+<h3>Advanced Settings (Expandable)</h3>
+<p>Click <strong>Advanced Settings</strong> to see:</p>
+<p><strong>Auto-Sync Schedule</strong></p>
+<ul>
+<li>Enable/disable automatic daily syncing</li>
+<li>Set preferred sync time (default: 2:00 AM)</li>
+<li><strong>Recommendation</strong>: Leave enabled for fresh data</li>
+</ul>
+<p><strong>Alert Preferences</strong></p>
+<ul>
+<li>Which types of AI alerts to receive</li>
+<li>Severity threshold (only show high/critical vs. all)</li>
+<li><strong>Recommendation</strong>: Start with all alerts, adjust later</li>
+</ul>
+<p><strong>Data Retention</strong></p>
+<ul>
+<li>How many days of data to keep (default: 90 days)</li>
+<li><strong>Recommendation</strong>: Keep 90 days for trend analysis</li>
+</ul>
+<p>[Screenshot: Advanced settings section expanded]
+<em>Advanced settings are optional - defaults work well for most users</em></p>
+<hr>
+<h2>Step 5: Create the Client</h2>
+<ol>
+<li>Review all the information you entered</li>
+<li>Click <strong>Create Client</strong></li>
+<li>You&#39;ll see a success message</li>
+<li>The client appears in your client list</li>
+</ol>
+<p>[Screenshot: Success message after creating client]
+<em>Client created successfully - now ready for first sync</em></p>
+<p><strong>What happens next?</strong></p>
+<ul>
+<li>Client appears in your list with &quot;Never synced&quot; status</li>
+<li>Auto-sync schedule is set (if enabled)</li>
+<li>System is ready to pull data</li>
+</ul>
+<hr>
+<h2>Step 6: Run Your First Sync</h2>
+<p>Now let&#39;s get some data.</p>
+<h3>Starting the Sync</h3>
+<ol>
+<li>Find your new client in the list</li>
+<li>Click the three-dot menu (⋮) next to their name</li>
+<li>Select <strong>Smart Sync</strong></li>
+</ol>
+<p>[Screenshot: Client list with Actions menu open, Smart Sync option highlighted]
+<em>Smart Sync pulls all data for the first time</em></p>
+<h3>What Gets Synced</h3>
+<p>During the first sync, the system pulls:</p>
+<p><strong>Campaign Data</strong></p>
+<ul>
+<li>All campaigns (active, paused, removed)</li>
+<li>Campaign settings and budgets</li>
+<li>Campaign-level performance metrics</li>
+</ul>
+<p><strong>Ad Group Data</strong></p>
+<ul>
+<li>All ad groups within campaigns</li>
+<li>Targeting settings</li>
+<li>Ad group performance</li>
+</ul>
+<p><strong>Keyword Data</strong></p>
+<ul>
+<li>All keywords and match types</li>
+<li>Bids and quality scores</li>
+<li>Keyword performance metrics</li>
+</ul>
+<p><strong>Ad Creative Data</strong></p>
+<ul>
+<li>All ads (responsive search, expanded text, etc.)</li>
+<li>Ad copy and descriptions</li>
+<li>Ad performance</li>
+</ul>
+<p><strong>Conversion Data</strong></p>
+<ul>
+<li>Conversion actions configured in Google Ads</li>
+<li>Conversion metrics and values</li>
+<li>Conversion tracking status</li>
+</ul>
+<p><strong>Performance Metrics</strong></p>
+<ul>
+<li>Last 90 days of data</li>
+<li>Impressions, clicks, conversions</li>
+<li>Cost and ROI metrics</li>
+</ul>
+<p>[Screenshot: Sync progress showing different data types being pulled]
+<em>First sync pulls everything - you&#39;ll see progress for each data type</em></p>
+<h3>How Long It Takes</h3>
+<p><strong>Small accounts</strong> (1-10 campaigns):</p>
+<ul>
+<li>2-4 minutes</li>
+</ul>
+<p><strong>Medium accounts</strong> (10-50 campaigns):</p>
+<ul>
+<li>4-8 minutes</li>
+</ul>
+<p><strong>Large accounts</strong> (50-200 campaigns):</p>
+<ul>
+<li>8-15 minutes</li>
+</ul>
+<p><strong>Very large accounts</strong> (200+ campaigns):</p>
+<ul>
+<li>15-30 minutes</li>
+</ul>
+<p><strong>Why the variation?</strong> More campaigns, ad groups, and keywords = more data to pull.</p>
+<h3>During the Sync</h3>
+<p>You&#39;ll see:</p>
+<ul>
+<li>Progress bar showing percentage complete</li>
+<li>Current data type being synced</li>
+<li>Estimated time remaining</li>
+</ul>
+<p><strong>Can you navigate away?</strong> Yes! The sync runs in the background. Come back anytime to check progress.</p>
+<p>[Screenshot: Sync in progress at 60%, showing &quot;Syncing keywords...&quot;]
+<em>Sync keeps running even if you leave the page</em></p>
+<hr>
+<h2>Step 7: Verify the Sync Completed</h2>
+<p>When sync finishes:</p>
+<ol>
+<li>You&#39;ll see a green checkmark next to the client</li>
+<li>Status changes to &quot;Last synced: Just now&quot;</li>
+<li>Client detail page now shows data</li>
+</ol>
+<h3>Checking the Data</h3>
+<p>Click on the client name to open their detail page.</p>
+<p><strong>What you should see</strong>:</p>
+<ul>
+<li>Overview metrics (spend, clicks, conversions)</li>
+<li>Campaign list with performance</li>
+<li>Performance charts with 90 days of data</li>
+<li>AI alerts (if any issues found)</li>
+</ul>
+<p>[Screenshot: Client detail page after first sync, showing populated data]
+<em>After sync, you see all campaigns, metrics, and AI insights</em></p>
+<h3>If Sync Failed</h3>
+<p><strong>Symptom</strong>: Red X icon, status says &quot;Sync failed&quot;</p>
+<p><strong>Common causes</strong>:</p>
+<ol>
+<li><strong>Permission issue</strong> - Account access was revoked</li>
+<li><strong>Google Ads suspended</strong> - Account is paused or suspended</li>
+<li><strong>API limit reached</strong> - Too many syncs in one day (rare)</li>
+</ol>
+<p><strong>How to fix</strong>:</p>
+<ol>
+<li>Check Sync Logs page for error details</li>
+<li>Verify you still have access to the Google Ads account</li>
+<li>Try syncing again</li>
+<li>If it keeps failing, contact support</li>
+</ol>
+<p>[Screenshot: Failed sync showing error message]
+<em>Sync errors show detailed messages - check Sync Logs for more info</em></p>
+<hr>
+<h2>Step 8: Set Up Business Context (Optional but Powerful)</h2>
+<p>Want better AI recommendations? Add business context.</p>
+<h3>Why Context Matters</h3>
+<p>The AI analyzes your data, but it doesn&#39;t know:</p>
+<ul>
+<li>What makes a &quot;good&quot; conversion for this business</li>
+<li>Industry-specific challenges</li>
+<li>Client&#39;s budget constraints</li>
+<li>Seasonal patterns</li>
+</ul>
+<p><strong>Example without context</strong>:
+AI suggests: &quot;Increase bids on keyword X&quot;</p>
+<p><strong>Example with context</strong>:
+AI suggests: &quot;Increase bids on keyword X, but stay within your $5K monthly budget. This aligns with your goal to generate more qualified leads in the legal services industry.&quot;</p>
+<h3>Adding Context</h3>
+<ol>
+<li>Go to client detail page</li>
+<li>Click <strong>Business Profile</strong> tab</li>
+<li>Fill in:<ul>
+<li><strong>Industry details</strong> (what they sell, target audience)</li>
+<li><strong>Geographic focus</strong> (local, national, international)</li>
+<li><strong>Conversion value</strong> (what&#39;s a lead/sale worth?)</li>
+<li><strong>Budget constraints</strong> (hard limits, seasonal changes)</li>
+<li><strong>Competitive landscape</strong> (main competitors, market position)</li>
+</ul>
+</li>
+</ol>
+<p>[Screenshot: Business Profile form with example entries]
+<em>The more context you provide, the smarter the AI recommendations become</em></p>
+<p><strong>Pro Tip</strong>: Come back and update this as you learn more about the client&#39;s business.</p>
+<hr>
+<h2>What Happens After Setup</h2>
+<h3>Automatic Daily Syncs</h3>
+<p>If you enabled auto-sync (default):</p>
+<ul>
+<li>System syncs once per day at your chosen time</li>
+<li>Only pulls new data since last sync (Smart Sync is fast)</li>
+<li>Takes 2-4 minutes for most accounts</li>
+<li>Happens automatically - no action needed</li>
+</ul>
+<p><strong>Change sync schedule</strong>: Go to Settings → Sync Schedule</p>
+<h3>AI Analysis Begins</h3>
+<p>After first sync, the AI starts working:</p>
+<ol>
+<li><p><strong>Scans for optimization opportunities</strong></p>
+<ul>
+<li>Budget waste on low performers</li>
+<li>Missing conversion tracking</li>
+<li>Poor quality scores</li>
+<li>Better bidding strategies</li>
+</ul>
+</li>
+<li><p><strong>Creates Smart Alerts</strong></p>
+<ul>
+<li>Ranked by severity (low, medium, high, critical)</li>
+<li>Grouped by category (budget, performance, technical)</li>
+<li>Actionable recommendations</li>
+</ul>
+</li>
+<li><p><strong>Enables AI Chat</strong></p>
+<ul>
+<li>Ask questions about the account</li>
+<li>Get insights based on real data</li>
+<li>Explore trends and patterns</li>
+</ul>
+</li>
+</ol>
+<p>[Screenshot: Smart Alerts dashboard showing 5 new alerts for newly added client]
+<em>AI finds optimization opportunities right after first sync</em></p>
+<h3>You Can Now</h3>
+<ul>
+<li><strong>View performance trends</strong> - See charts for spend, clicks, conversions</li>
+<li><strong>Explore campaigns</strong> - Drill down into ad groups and keywords</li>
+<li><strong>Get AI insights</strong> - Chat with AI about the account</li>
+<li><strong>Accept/decline alerts</strong> - Review AI recommendations</li>
+<li><strong>Export reports</strong> - Generate client-ready reports</li>
+</ul>
+<hr>
+<h2>Tips &amp; Best Practices</h2>
+<h3>When Adding Multiple Clients</h3>
+<p><strong>Batch your setup</strong>: Add all clients in one session. It&#39;s faster than doing them one at a time.</p>
+<p><strong>Stagger sync times</strong>: Don&#39;t sync all clients at once. Space out auto-sync times to avoid hitting API limits.</p>
+<p><strong>Example schedule</strong>:</p>
+<ul>
+<li>Client A: 2:00 AM</li>
+<li>Client B: 2:30 AM</li>
+<li>Client C: 3:00 AM</li>
+</ul>
+<h3>Client Naming Conventions</h3>
+<p>Use consistent naming to stay organized:</p>
+<p><strong>Good examples</strong>:</p>
+<ul>
+<li>&quot;ACME Corp - Main Account&quot;</li>
+<li>&quot;Bakery - Downtown Location&quot;</li>
+<li>&quot;Law Firm - Smith &amp; Associates&quot;</li>
+</ul>
+<p><strong>Avoid</strong>:</p>
+<ul>
+<li>&quot;Client 1&quot;, &quot;Client 2&quot; (not descriptive)</li>
+<li>&quot;Test&quot;, &quot;Demo&quot; (confusing)</li>
+<li>Long names (harder to scan)</li>
+</ul>
+<h3>Filling Out Business Profile</h3>
+<p><strong>Do it right away</strong>: Fresh context helps AI from day one.</p>
+<p><strong>Be specific</strong>: &quot;Generate qualified leads&quot; is better than &quot;Get more business&quot;.</p>
+<p><strong>Include numbers</strong>: &quot;Increase sales by 20%&quot; is better than &quot;Increase sales&quot;.</p>
+<p><strong>Update regularly</strong>: Business goals change - keep the profile current.</p>
+<h3>Managing MCC Accounts</h3>
+<p><strong>Add clients gradually</strong>: Don&#39;t add 50 clients at once. Start with 5-10, learn the system, then add more.</p>
+<p><strong>Prioritize high-spend accounts</strong>: Add your biggest clients first - they benefit most from AI optimization.</p>
+<p><strong>Use folders</strong> (coming soon): Organize clients by industry, team, or region.</p>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: Can I add the same Google Ads account twice?</strong>
+A: No. Each Google Ads customer ID can only be added once. If you try, you&#39;ll see a message saying the account already exists.</p>
+<p><strong>Q: What if I manage accounts for a client through their Google login?</strong>
+A: You have two options:</p>
+<ol>
+<li>Log into PerfoAds with their Google account</li>
+<li>Ask them to add you as a user in their Google Ads account, then log in with your own account</li>
+</ol>
+<p><strong>Q: Can I change the client name later?</strong>
+A: Yes! Click the client, then click Edit to update name, website, budget, or any other field.</p>
+<p><strong>Q: Do I need to add business context right away?</strong>
+A: No, but it&#39;s recommended. You can always add it later. The AI works without it, but gives better recommendations with it.</p>
+<p><strong>Q: What happens if I lose access to the Google Ads account?</strong>
+A: Syncing will fail. You&#39;ll see an error message. You can remove the client or reconnect with a different Google account that has access.</p>
+<p><strong>Q: Can I sync on-demand, or is it only automatic?</strong>
+A: Both! Auto-sync runs daily, but you can manually sync anytime from the client list or detail page.</p>
+<p><strong>Q: How often should I manually sync?</strong>
+A: Only when you need fresh data before a client call or after making changes in Google Ads. Daily auto-sync is usually enough.</p>
+<hr>
+<h2>Troubleshooting</h2>
+<h3>Problem: &quot;Account already exists&quot; error</h3>
+<p><strong>Symptom</strong>: After selecting an account, you see &quot;This account is already added&quot;</p>
+<p><strong>Cause</strong>: The Google Ads customer ID is already in your client list</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Go to your client list</li>
+<li>Search for the customer ID or account name</li>
+<li>If you want to re-add it, delete the existing entry first</li>
+<li>Then add it again</li>
+</ol>
+<h3>Problem: &quot;No accounts found&quot; when selecting</h3>
+<p><strong>Symptom</strong>: After connecting Google, the account list is empty</p>
+<p><strong>Cause</strong>: Your Google account doesn&#39;t have access to any Google Ads accounts</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Verify you logged in with the correct Google account</li>
+<li>Check that account has Google Ads access (direct or MCC)</li>
+<li>Try logging out and back in</li>
+<li>Contact support if issue persists</li>
+</ol>
+<h3>Problem: Sync fails immediately</h3>
+<p><strong>Symptom</strong>: Sync starts but fails within seconds with &quot;Permission denied&quot;</p>
+<p><strong>Cause</strong>: Account permissions changed after you selected it</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Go to Settings → Connected Accounts</li>
+<li>Click <strong>Reconnect Google Ads</strong></li>
+<li>Grant all requested permissions</li>
+<li>Try syncing the client again</li>
+</ol>
+<h3>Problem: Sync takes forever</h3>
+<p><strong>Symptom</strong>: Sync stuck at same percentage for 10+ minutes</p>
+<p><strong>Cause</strong>: Very large account or API slowness</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Check your internet connection</li>
+<li>Wait 15-20 minutes (large accounts can take this long)</li>
+<li>If still stuck after 30 minutes, cancel and retry</li>
+<li>Contact support if consistently slow</li>
+</ol>
+<h3>Problem: Wrong account was added</h3>
+<p><strong>Symptom</strong>: You selected the wrong Google Ads account</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Go to client detail page</li>
+<li>Click three-dot menu → Delete Client</li>
+<li>Confirm deletion</li>
+<li>Add the correct account again</li>
+</ol>
+<hr>
+<h2>Next Steps</h2>
+<p>Now that your first client is set up, here&#39;s what to explore:</p>
+<ul>
+<li><strong><a href="/docs/understanding-dashboard">Understanding the Dashboard</a></strong> - Learn what every metric and chart means</li>
+<li><strong><a href="/docs/smart-sync-explained">Smart Sync Explained</a></strong> - How the sync system works behind the scenes</li>
+<li><strong><a href="/docs/smart-alerts-intro">Smart Alerts Intro</a></strong> - Start acting on AI recommendations</li>
+<li><strong><a href="/docs/client-details-page">Client Details Page</a></strong> - Explore everything on the client page</li>
+</ul>
+<hr>
+<p><strong>Ready to add more clients?</strong> Click <strong>Add Client</strong> and repeat the process!</p>
+<p><strong>Want to customize sync settings?</strong> Go to Settings → Sync Schedule</p>
+<p><strong>Need help?</strong> Contact support at <a href="mailto:support@aiperfoads.xyz">support@aiperfoads.xyz</a></p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start Guide - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Quick Start Guide</h1>
+<p>This guide gets you from zero to managing your first client in about 5 minutes. You&#39;ll connect your Google account, add a client, and run your first data sync. No complicated setup - just the essentials to get started.</p>
+<hr>
+<h2>What You&#39;ll Accomplish</h2>
+<p>By the end of this guide, you&#39;ll have:</p>
+<ul>
+<li>Connected your Google Ads account to PerfoAds</li>
+<li>Added your first client</li>
+<li>Synced their Google Ads data</li>
+<li>Viewed their campaigns and performance metrics</li>
+</ul>
+<p><strong>Time needed</strong>: 5 minutes</p>
+<hr>
+<h2>Before You Start</h2>
+<p>Make sure you have:</p>
+<ul>
+<li><strong>Google Ads account access</strong> - You need at least view permission for the accounts you want to manage</li>
+<li><strong>Active campaigns</strong> - The account should have some campaign history (ideally 30+ days of data)</li>
+<li><strong>Google account login</strong> - You&#39;ll use OAuth to connect securely</li>
+</ul>
+<p>[Screenshot: Login screen showing &quot;Connect with Google&quot; button]
+<em>You&#39;ll start by logging in with your Google account</em></p>
+<hr>
+<h2>Step 1: Log In with Google</h2>
+<p>The first time you access PerfoAds, you&#39;ll see the login screen.</p>
+<ol>
+<li>Click <strong>Connect with Google</strong></li>
+<li>Choose your Google account (the one with Google Ads access)</li>
+<li>Click <strong>Allow</strong> when Google asks for permissions</li>
+</ol>
+<p><strong>What permissions are needed?</strong></p>
+<ul>
+<li>Read access to your Google Ads data</li>
+<li>Basic profile info (email, name)</li>
+</ul>
+<p><strong>Important</strong>: PerfoAds only <em>reads</em> your data. It never makes changes to campaigns, bids, or budgets.</p>
+<p>[Screenshot: Google OAuth permission screen]
+<em>Google will ask you to approve access - this is normal and secure</em></p>
+<p><strong>Result</strong>: You&#39;re logged in and see the empty client dashboard.</p>
+<hr>
+<h2>Step 2: Add Your First Client</h2>
+<p>Now let&#39;s add a client account to manage.</p>
+<ol>
+<li><p>Click <strong>Add Client</strong> in the top right corner</p>
+</li>
+<li><p>You&#39;ll see a list of all Google Ads accounts you have access to</p>
+</li>
+<li><p>Select the account you want to manage</p>
+</li>
+<li><p>Fill in the client details:</p>
+<ul>
+<li><strong>Client Name</strong>: A friendly name (e.g., &quot;ACME Corp&quot;)</li>
+<li><strong>Website URL</strong>: Their website (optional but helpful)</li>
+<li><strong>Monthly Budget</strong>: Approximate monthly ad spend</li>
+<li><strong>Business Goals</strong>: What they&#39;re trying to achieve (optional)</li>
+</ul>
+</li>
+<li><p>Click <strong>Create Client</strong></p>
+</li>
+</ol>
+<p>[Screenshot: Add Client form with fields filled in]
+<em>Fill in basic info about the client - you can always edit this later</em></p>
+<p><strong>Pro Tip</strong>: If you manage accounts through an MCC (Manager account), all your client accounts will show up in the list automatically.</p>
+<p><strong>Result</strong>: Your new client appears in the client list with a &quot;Never synced&quot; status.</p>
+<hr>
+<h2>Step 3: Run Your First Sync</h2>
+<p>Now let&#39;s pull in the client&#39;s Google Ads data.</p>
+<ol>
+<li>Find your client in the list</li>
+<li>Click the three-dot menu (⋮) next to their name</li>
+<li>Select <strong>Smart Sync</strong></li>
+<li>Wait 2-4 minutes while data syncs</li>
+</ol>
+<p>[Screenshot: Client list with Actions menu open, Smart Sync highlighted]
+<em>Smart Sync is the fastest way to get fresh data</em></p>
+<p><strong>What&#39;s happening during sync?</strong>
+The system is pulling:</p>
+<ul>
+<li>All campaigns and their settings</li>
+<li>Ad groups and keywords</li>
+<li>Performance data (clicks, impressions, conversions)</li>
+<li>Spend and budget information</li>
+<li>Last 90 days of metrics</li>
+</ul>
+<p><strong>Progress indicator</strong>: You&#39;ll see a progress bar showing sync status. Feel free to navigate away - it runs in the background.</p>
+<p>[Screenshot: Sync progress bar showing &quot;Syncing: 45% complete&quot;]
+<em>The sync runs automatically - you don&#39;t need to stay on the page</em></p>
+<p><strong>Result</strong>: When sync completes, you&#39;ll see a green checkmark and &quot;Last synced: Just now&quot; next to the client.</p>
+<hr>
+<h2>Step 4: Explore Your Client&#39;s Data</h2>
+<p>Click on the client name to open their detail page.</p>
+<p>Here&#39;s what you&#39;ll see:</p>
+<h3>Overview Section</h3>
+<ul>
+<li>Total spend, impressions, clicks, conversions</li>
+<li>Budget usage for the month</li>
+<li>Performance trends (up or down)</li>
+</ul>
+<p>[Screenshot: Client dashboard overview with key metrics]
+<em>The dashboard gives you a quick snapshot of account health</em></p>
+<h3>Campaigns Tab</h3>
+<p>View all active campaigns with:</p>
+<ul>
+<li>Spend and performance</li>
+<li>Click-through rates (CTR)</li>
+<li>Conversion metrics</li>
+<li>Status (active, paused, ended)</li>
+</ul>
+<h3>Performance Charts</h3>
+<p>Visual graphs showing:</p>
+<ul>
+<li>Spend over time</li>
+<li>Clicks and impressions trends</li>
+<li>Conversion patterns</li>
+</ul>
+<p>[Screenshot: Performance charts showing 30-day trends]
+<em>Charts help you spot trends and issues quickly</em></p>
+<p><strong>Pro Tip</strong>: Click any campaign to drill down into ad groups and keywords.</p>
+<hr>
+<h2>What Happens Next?</h2>
+<p>Now that your first client is set up, the system starts working automatically:</p>
+<h3>Daily Auto-Sync</h3>
+<ul>
+<li>Runs once per day (you choose the time in Settings)</li>
+<li>Pulls only new data since last sync</li>
+<li>Takes 2-4 minutes per client</li>
+<li>Happens in the background</li>
+</ul>
+<h3>AI Analysis</h3>
+<ul>
+<li>Scans for optimization opportunities</li>
+<li>Creates Smart Alerts when issues are found</li>
+<li>Updates continuously as new data comes in</li>
+</ul>
+<h3>Fresh Insights</h3>
+<ul>
+<li>Performance metrics update after each sync</li>
+<li>Charts reflect latest trends</li>
+<li>AI Chat has access to current data</li>
+</ul>
+<hr>
+<h2>Tips for Success</h2>
+<p><strong>Sync Regularly</strong>: Set up auto-sync to run daily (morning works well). This keeps your data fresh and AI insights accurate.</p>
+<p><strong>Add All Clients</strong>: Don&#39;t stop at one! Add all your Google Ads accounts now while you&#39;re in setup mode. Bulk sync saves time.</p>
+<p><strong>Check Alerts</strong>: After your first sync completes, visit the AI Alerts page. You might already have optimization opportunities waiting.</p>
+<p><strong>Explore AI Chat</strong>: Try asking &quot;What campaigns need attention?&quot; or &quot;Why did my CTR drop?&quot; to see AI insights in action.</p>
+<p><strong>Set Business Context</strong>: Go to Settings → Business Profile and add details about your client&#39;s industry, goals, and constraints. This helps the AI give better recommendations.</p>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: How often should I sync?</strong>
+A: Once per day is perfect for most agencies. You can also run manual syncs anytime you need fresh data (like before client calls).</p>
+<p><strong>Q: Can I sync multiple clients at once?</strong>
+A: Yes! Select multiple clients from the list, then use the Bulk Actions menu to sync them all together.</p>
+<p><strong>Q: What if sync fails?</strong>
+A: First, check that you&#39;re still logged into Google. Then try syncing again. If it keeps failing, check the Sync Logs page for error details.</p>
+<p><strong>Q: Does syncing use my Google Ads API quota?</strong>
+A: Yes, but Smart Sync is designed to stay well within Google&#39;s limits. It only pulls new data since the last sync, which is much faster and uses fewer API calls.</p>
+<p><strong>Q: Can I change client details later?</strong>
+A: Absolutely. Click the client, then click the Edit button to update name, website, budget, or goals anytime.</p>
+<p><strong>Q: Will this affect my live campaigns?</strong>
+A: No. PerfoAds only reads data - it never makes changes to your campaigns, bids, keywords, or budgets. You stay in full control.</p>
+<hr>
+<h2>Troubleshooting</h2>
+<h3>Problem: &quot;No Google Ads accounts found&quot;</h3>
+<p><strong>Symptom</strong>: After logging in, the Add Client screen shows no accounts</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Make sure you&#39;re logged into the correct Google account</li>
+<li>Verify that account has access to Google Ads accounts (direct or via MCC)</li>
+<li>Try logging out and back in</li>
+<li>Contact support if the issue persists</li>
+</ol>
+<h3>Problem: Sync takes longer than 5 minutes</h3>
+<p><strong>Symptom</strong>: Sync progress stays at same percentage for a long time</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Large accounts (100+ campaigns) can take 5-10 minutes - this is normal</li>
+<li>Check your internet connection</li>
+<li>Don&#39;t close the browser tab (it won&#39;t cancel sync, but you won&#39;t see updates)</li>
+<li>If stuck for 15+ minutes, contact support</li>
+</ol>
+<h3>Problem: &quot;Permission denied&quot; error</h3>
+<p><strong>Symptom</strong>: Sync fails with permission error</p>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Go to Settings → Connected Accounts</li>
+<li>Click <strong>Reconnect Google Ads</strong></li>
+<li>Make sure you grant all requested permissions</li>
+<li>Try syncing again</li>
+</ol>
+<hr>
+<h2>Next Steps</h2>
+<p>You&#39;re all set! Here&#39;s what to explore next:</p>
+<ul>
+<li><strong><a href="/docs/adding-first-client">Adding Your First Client</a></strong> - Detailed walkthrough with advanced options</li>
+<li><strong><a href="/docs/understanding-dashboard">Understanding the Dashboard</a></strong> - Learn what every metric means</li>
+<li><strong><a href="/docs/smart-sync-explained">Smart Sync Explained</a></strong> - How the sync system works under the hood</li>
+<li><strong><a href="/docs/smart-alerts-intro">Smart Alerts Intro</a></strong> - Start getting AI-powered optimization suggestions</li>
+</ul>
+<hr>
+<p><strong>Ready to add more clients?</strong> Click <strong>Add Client</strong> and repeat Step 2-3 for each account.</p>
+<p><strong>Want to set up auto-sync?</strong> Go to Settings → Sync Schedule to configure daily automatic syncing.</p>
+<p><strong>Need help?</strong> Contact support at <a href="mailto:support@aiperfoads.xyz">support@aiperfoads.xyz</a></p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>

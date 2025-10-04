@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .doc-list {
+            list-style: none;
+        }
+
+        .doc-list li {
+            margin-bottom: 12px;
+        }
+
+        .doc-list a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.2s;
+        }
+
+        .doc-list a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📚 PerfoAds Documentation</h1>
+        <p class="subtitle">AI-Powered Google Ads Management Platform</p>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>📚 Getting Started</h2>
+            <ul class="doc-list">
+                <li><a href="phase-1-essential/01-what-is-ads-optimizer.html">What is PerfoAds?</a></li>
+                <li><a href="phase-1-essential/02-quick-start-guide.html">Quick Start Guide</a></li>
+                <li><a href="phase-1-essential/03-adding-first-client.html">Adding Your First Client</a></li>
+                <li><a href="phase-1-essential/04-understanding-dashboard.html">Understanding the Dashboard</a></li>
+                <li><a href="phase-1-essential/05-smart-sync-explained.html">Smart Sync Explained</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🔧 Core Features</h2>
+            <ul class="doc-list">
+                <li><a href="phase-2-core-features/01-client-list-overview.html">Client List Overview</a></li>
+                <li><a href="phase-2-core-features/02-client-details-page.html">Client Details Page</a></li>
+                <li><a href="phase-2-core-features/03-bulk-operations.html">Bulk Operations</a></li>
+                <li><a href="phase-2-core-features/04-sync-system-guide.html">Sync System Guide</a></li>
+                <li><a href="phase-2-core-features/05-auto-sync-setup.html">Auto-Sync Setup</a></li>
+                <li><a href="phase-2-core-features/06-sync-logs.html">Sync Logs</a></li>
+                <li><a href="phase-2-core-features/07-metrics-glossary.html">Metrics Glossary</a></li>
+                <li><a href="phase-2-core-features/08-performance-charts.html">Performance Charts Guide</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🤖 AI Features</h2>
+            <ul class="doc-list">
+                <li><a href="phase-3-ai-features/01-smart-alerts-intro.html">Smart Alerts Introduction</a></li>
+                <li><a href="phase-3-ai-features/02-alert-severity-guide.html">Alert Severity Guide</a></li>
+                <li><a href="phase-3-ai-features/03-alert-categories.html">Alert Categories Guide</a></li>
+                <li><a href="phase-3-ai-features/04-accept-decline-workflow.html">Accept/Decline Workflow</a></li>
+                <li><a href="phase-3-ai-features/05-ai-chat-getting-started.html">AI Chat - Getting Started</a></li>
+                <li><a href="phase-3-ai-features/06-ai-chat-templates.html">AI Chat Templates</a></li>
+                <li><a href="phase-3-ai-features/07-ai-context-explained.html">AI Context Explained</a></li>
+                <li><a href="phase-3-ai-features/08-business-profile-setup.html">Business Profile Setup</a></li>
+                <li><a href="phase-3-ai-features/09-custom-context-entries.html">Custom Context Entries</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>⚙️ Advanced</h2>
+            <ul class="doc-list">
+                <li><a href="phase-4-advanced/01-global-settings.html">Global Settings</a></li>
+                <li><a href="phase-4-advanced/02-per-client-settings.html">Per-Client Settings</a></li>
+                <li><a href="phase-4-advanced/03-column-customization.html">Column Customization</a></li>
+                <li><a href="phase-4-advanced/04-export-reports.html">Export Reports</a></li>
+                <li><a href="phase-4-advanced/05-troubleshooting-sync.html">Troubleshooting: Sync Issues</a></li>
+                <li><a href="phase-4-advanced/06-troubleshooting-oauth.html">Troubleshooting: OAuth Issues</a></li>
+                <li><a href="phase-4-advanced/07-troubleshooting-general.html">Troubleshooting: General</a></li>
+                <li><a href="phase-4-advanced/08-technical-dual-api.html">Technical: Dual API Architecture</a></li>
+                <li><a href="phase-4-advanced/09-technical-architecture.html">Technical: System Architecture</a></li>
+                <li><a href="phase-4-advanced/10-technical-security.html">Technical: Security</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Need help?</strong> Contact support or visit <a href="https://www.perfoads.com">perfoads.com</a></p>
+    </footer>
+</body>
+</html>

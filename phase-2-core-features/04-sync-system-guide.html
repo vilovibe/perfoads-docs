@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sync System Guide - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Sync System Guide</h1>
+<p>Understanding how the sync system works helps you troubleshoot issues, optimize performance, and make smart decisions about when and how to sync your clients. This guide goes deep into the technical architecture.</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ul>
+<li>How Smart Sync differs from Full Sync under the hood</li>
+<li>Concurrent sync queue architecture</li>
+<li>API rate limit protection mechanisms</li>
+<li>Error handling and retry logic</li>
+<li>Performance optimization techniques</li>
+<li>Advanced sync strategies for large portfolios</li>
+</ul>
+<p><strong>Time needed</strong>: 18 minutes to read</p>
+<p><strong>Audience</strong>: Power users, technical users, agency managers</p>
+<hr>
+<h2>Sync System Architecture</h2>
+<h3>Three-Layer Design</h3>
+<p>The sync system has three layers working together:</p>
+<p><strong>1. Request Layer</strong> (what you see):</p>
+<ul>
+<li>Sync button clicks</li>
+<li>Bulk operations</li>
+<li>Auto-sync scheduler</li>
+</ul>
+<p><strong>2. Queue Layer</strong> (traffic control):</p>
+<ul>
+<li>Manages concurrent operations</li>
+<li>Enforces API limits</li>
+<li>Handles prioritization</li>
+</ul>
+<p><strong>3. Execution Layer</strong> (does the work):</p>
+<ul>
+<li>Connects to Google Ads API</li>
+<li>Pulls and transforms data</li>
+<li>Stores in database</li>
+<li>Triggers AI analysis</li>
+</ul>
+<p>[Screenshot: Architecture diagram showing three layers]
+<em>Layered design keeps syncs fast and reliable</em></p>
+<hr>
+<h2>Smart Sync vs Full Sync (Technical)</h2>
+<h3>Smart Sync Internals</h3>
+<p><strong>How it calculates date range</strong>:</p>
+<pre><code class="language-javascript">if (lastSyncDate exists) {
+  startDate = lastSyncDate - 1 day (buffer)
+  endDate = today
+
+  if (startDate &gt; 90 days ago) {
+    startDate = 90 days ago
+  }
+} else {
+  // First sync
+  startDate = 90 days ago
+  endDate = today
+}
+</code></pre>
+<p><strong>The 1-day buffer explained</strong>:</p>
+<ul>
+<li>Google Ads data can change retroactively</li>
+<li>Conversions lag (click today, convert tomorrow)</li>
+<li>Attribution models look back</li>
+<li>Buffer catches these updates</li>
+</ul>
+<p><strong>Example scenarios</strong>:</p>
+<p><strong>Last synced yesterday</strong>:</p>
+<pre><code>Last sync: Oct 1, 2:00 AM
+Today: Oct 2, 2:00 AM
+Date range: Sep 30 - Oct 2 (3 days)
+Reason: Oct 1 + buffer day (Sep 30) + today (Oct 2)
+</code></pre>
+<p><strong>Last synced 7 days ago</strong>:</p>
+<pre><code>Last sync: Sep 25
+Today: Oct 2
+Date range: Sep 24 - Oct 2 (9 days)
+Reason: Sep 25 + buffer (Sep 24) through today
+</code></pre>
+<p><strong>First time ever</strong>:</p>
+<pre><code>Last sync: Never
+Today: Oct 2
+Date range: Jul 4 - Oct 2 (90 days)
+Reason: Maximum historical data allowed
+</code></pre>
+<p>[Screenshot: Date range calculation visualization]
+<em>Smart Sync adapts to last sync date automatically</em></p>
+<hr>
+<h3>Full Sync Internals</h3>
+<p><strong>Fixed date range</strong>:</p>
+<pre><code class="language-javascript">startDate = 30 days ago
+endDate = today
+</code></pre>
+<p><strong>Why only 30 days (not 90)?</strong></p>
+<ul>
+<li>Balance between thoroughness and speed</li>
+<li>Most data issues appear in recent 30 days</li>
+<li>Reduces API quota usage</li>
+<li>Faster completion</li>
+</ul>
+<p><strong>Performance comparison</strong>:</p>
+<pre><code>Smart Sync (daily):    2-4 minutes,  200-500 API operations
+Full Sync (30 days):  10-15 minutes, 2000-5000 API operations
+Full Sync (90 days):  25-40 minutes, 6000-15000 API operations (not available)
+</code></pre>
+<p><strong>When system forces Full Sync</strong>:</p>
+<ul>
+<li>Never synced before (automatic)</li>
+<li>Last sync &gt;90 days ago (automatic)</li>
+<li>Data integrity check fails (automatic)</li>
+<li>User explicitly requests it (manual)</li>
+</ul>
+<hr>
+<h2>Concurrent Sync Queue</h2>
+<h3>Queue Architecture</h3>
+<p><strong>Capacity limits</strong>:</p>
+<pre><code>Maximum concurrent syncs:  5 clients
+Maximum queue size:        Unlimited
+Processing order:          FIFO (First In, First Out)
+Priority system:           Not currently implemented
+</code></pre>
+<p><strong>Why limit to 5 concurrent syncs?</strong></p>
+<p><strong>1. API Rate Limits</strong>:</p>
+<ul>
+<li>Google Ads API: ~15,000 operations/day per account</li>
+<li>Each sync: 200-5000 operations</li>
+<li>5 concurrent × 500 avg = 2,500 operations/hour</li>
+<li>Stays well within limits</li>
+</ul>
+<p><strong>2. System Resources</strong>:</p>
+<ul>
+<li>Database connections (max pool size)</li>
+<li>Memory usage per sync</li>
+<li>CPU for data transformation</li>
+<li>Network bandwidth</li>
+</ul>
+<p><strong>3. Error Rate</strong>:</p>
+<ul>
+<li>More concurrent = higher error probability</li>
+<li>5 concurrent maintains &lt;1% error rate</li>
+<li>10+ concurrent pushes error rate &gt;5%</li>
+</ul>
+<p>[Screenshot: Resource usage graph showing optimal concurrency]
+<em>5 concurrent strikes the right balance</em></p>
+<hr>
+<h3>Queue States</h3>
+<p><strong>1. Pending</strong>:</p>
+<ul>
+<li>Client selected for sync</li>
+<li>Not yet queued</li>
+<li>Pre-validation stage</li>
+</ul>
+<p><strong>2. Queued</strong>:</p>
+<ul>
+<li>Waiting for available slot</li>
+<li>Position number assigned</li>
+<li>ETA calculated</li>
+</ul>
+<p><strong>3. Active</strong>:</p>
+<ul>
+<li>One of 5 concurrent syncs</li>
+<li>Actually pulling data</li>
+<li>Progress tracked</li>
+</ul>
+<p><strong>4. Completed</strong>:</p>
+<ul>
+<li>Sync finished successfully</li>
+<li>Data stored</li>
+<li>AI analysis triggered</li>
+</ul>
+<p><strong>5. Failed</strong>:</p>
+<ul>
+<li>Encountered error</li>
+<li>Not retried automatically</li>
+<li>Logged for investigation</li>
+</ul>
+<p><strong>State transitions</strong>:</p>
+<pre><code>Pending → Queued → Active → Completed
+                         ↘ Failed
+</code></pre>
+<p>[Screenshot: Queue state diagram]
+<em>Syncs move through these states automatically</em></p>
+<hr>
+<h3>Queue Management Algorithm</h3>
+<p><strong>Simplified pseudocode</strong>:</p>
+<pre><code class="language-javascript">// Check capacity every 30 seconds
+while (true) {
+  activeSyncs = getActiveSyncs()
+
+  if (activeSyncs.length &lt; 5) {
+    // Capacity available
+    availableSlots = 5 - activeSyncs.length
+    queuedSyncs = getQueuedSyncs()
+
+    // Start next syncs
+    for (i = 0; i &lt; availableSlots; i++) {
+      if (queuedSyncs[i]) {
+        startSync(queuedSyncs[i])
+      }
+    }
+  }
+
+  wait(30 seconds)
+}
+</code></pre>
+<p><strong>Key behaviors</strong>:</p>
+<ul>
+<li>Checks every 30 seconds</li>
+<li>Fills available slots immediately</li>
+<li>No priority (FIFO only)</li>
+<li>Never exceeds 5 concurrent</li>
+</ul>
+<hr>
+<h3>ETA Calculation</h3>
+<p><strong>Formula</strong>:</p>
+<pre><code>Position in queue: N
+Average sync time: 4 minutes
+Concurrent limit: 5
+
+Batch number = ceil(N / 5)
+ETA = Batch number × 4 minutes
+
+Examples:
+Position 3: Batch 1, ETA ~4 minutes
+Position 7: Batch 2, ETA ~8 minutes
+Position 13: Batch 3, ETA ~12 minutes
+</code></pre>
+<p><strong>Why ETAs are estimates</strong>:</p>
+<ul>
+<li>Actual sync time varies (2-15 minutes)</li>
+<li>Account size affects duration</li>
+<li>API performance fluctuates</li>
+<li>Other syncs may fail (frees slots early)</li>
+</ul>
+<p>[Screenshot: Queue with ETA calculations]
+<em>ETA gives you rough idea of wait time</em></p>
+<hr>
+<h2>API Rate Limit Protection</h2>
+<h3>Google Ads API Limits</h3>
+<p><strong>Official limits</strong> (as of 2025):</p>
+<pre><code>Operations per day:     15,000 (basic access)
+                        1,000,000 (standard access)
+                        Unlimited (premium access)
+
+Operations per minute:  100 (burst protection)
+</code></pre>
+<p><strong>What counts as an operation</strong>:</p>
+<ul>
+<li>API query for campaigns</li>
+<li>API query for keywords</li>
+<li>API query for performance data</li>
+<li>Each data type = separate operation</li>
+</ul>
+<p><strong>Smart Sync operation count</strong>:</p>
+<pre><code>Small account (10 campaigns):
+  - 12 data types × ~10-20 operations = ~200 ops
+
+Large account (200 campaigns):
+  - 12 data types × ~200-400 operations = ~5000 ops
+</code></pre>
+<hr>
+<h3>Protection Mechanisms</h3>
+<p><strong>1. Operation Tracking</strong>:</p>
+<ul>
+<li>System counts every API call</li>
+<li>Tracks daily, hourly, minute totals</li>
+<li>Visible in API Tracking page</li>
+<li>Updates in real-time</li>
+</ul>
+<p><strong>2. Throttling</strong>:</p>
+<pre><code class="language-javascript">if (operationsThisMinute &gt; 80) {
+  // Approaching limit
+  sleep(10 seconds)
+  retry()
+}
+
+if (operationsThisHour &gt; 5000) {
+  // Nearing daily limit
+  pauseNewSyncs()
+  allowOnlyActiveToComplete()
+}
+</code></pre>
+<p><strong>3. Backoff Strategy</strong>:</p>
+<pre><code class="language-javascript">retries = 0
+
+while (retries &lt; 3) {
+  try {
+    apiCall()
+    break  // Success
+  } catch (RateLimitError) {
+    wait(2^retries minutes)  // Exponential backoff
+    retries++
+  }
+}
+
+Wait times:
+Retry 1: 2^0 = 1 minute
+Retry 2: 2^1 = 2 minutes
+Retry 3: 2^2 = 4 minutes
+</code></pre>
+<p>[Screenshot: API usage dashboard showing throttling in action]
+<em>System automatically slows down when approaching limits</em></p>
+<hr>
+<h3>Quota Allocation Strategy</h3>
+<p><strong>For agencies with many clients</strong>:</p>
+<p><strong>Problem</strong>: 50 clients × 500 operations = 25,000 operations/day</p>
+<p><strong>Solution 1: Spread syncs across 24 hours</strong></p>
+<pre><code>2 AM:  Clients 1-10  (5,000 ops)
+6 AM:  Clients 11-20 (5,000 ops)
+10 AM: Clients 21-30 (5,000 ops)
+2 PM:  Clients 31-40 (5,000 ops)
+6 PM:  Clients 41-50 (5,000 ops)
+
+Total: 25,000 ops across full day
+</code></pre>
+<p><strong>Solution 2: Sync less frequently</strong></p>
+<pre><code>Daily:  Top 20 clients (10,000 ops)
+Every 2 days: Next 20 clients (5,000 ops/day avg)
+Weekly: Remaining 10 clients (1,000 ops/day avg)
+
+Total: ~16,000 ops/day average
+</code></pre>
+<p><strong>Solution 3: Upgrade to Standard Access</strong></p>
+<ul>
+<li>Contact Google Ads API support</li>
+<li>Request standard access (1M ops/day)</li>
+<li>Requires business justification</li>
+<li>Usually approved for agencies</li>
+</ul>
+<hr>
+<h2>Error Handling</h2>
+<h3>Error Types</h3>
+<p><strong>1. Temporary Errors</strong> (auto-retry):</p>
+<pre><code>- Network timeout
+- API temporary unavailability
+- Rate limit (429 error)
+- Server error (500, 502, 503)
+</code></pre>
+<p><strong>Retry logic</strong>: 3 attempts with exponential backoff</p>
+<p><strong>2. Permanent Errors</strong> (no retry):</p>
+<pre><code>- Invalid customer ID
+- OAuth token revoked
+- Permission denied
+- Account suspended
+</code></pre>
+<p><strong>Action</strong>: Mark sync as failed, log error, notify user</p>
+<p><strong>3. Data Errors</strong> (partial retry):</p>
+<pre><code>- Campaign not found (skip campaign, continue)
+- Metric not available (skip metric, continue)
+- Date range too far back (reduce range, retry)
+</code></pre>
+<p><strong>Action</strong>: Complete sync with warnings</p>
+<p>[Screenshot: Error log showing different error types]
+<em>System handles different errors differently</em></p>
+<hr>
+<h3>Retry Strategy</h3>
+<p><strong>Full retry</strong> (entire sync):</p>
+<pre><code class="language-javascript">try {
+  smartSync(client)
+} catch (TemporaryError) {
+  wait(1 minute)
+  smartSync(client)  // Full retry
+}
+</code></pre>
+<p><strong>Partial retry</strong> (failed data types only):</p>
+<pre><code class="language-javascript">dataTypes = [campaigns, keywords, ads, ...]
+failed = []
+
+for (type in dataTypes) {
+  try {
+    syncDataType(type)
+  } catch (Error) {
+    failed.push(type)
+  }
+}
+
+// Retry only failed types
+for (type in failed) {
+  retrySyncDataType(type)
+}
+</code></pre>
+<p><strong>Circuit breaker</strong> (stop trying):</p>
+<pre><code class="language-javascript">consecutiveFailures = 0
+
+if (syncFails) {
+  consecutiveFailures++
+}
+
+if (consecutiveFailures &gt;= 5) {
+  // Something is seriously wrong
+  pauseAutoSync()
+  sendAdminAlert()
+  requireManualInvestigation()
+}
+</code></pre>
+<hr>
+<h3>Failure Recovery</h3>
+<p><strong>Self-healing OAuth</strong>:</p>
+<pre><code class="language-javascript">try {
+  syncWithToken(token)
+} catch (TokenExpired) {
+  newToken = refreshToken()
+  syncWithToken(newToken)
+}
+
+catch (TokenRevoked) {
+  // Can&#39;t auto-heal this
+  markClientAsNeedsReauth()
+  notifyUser()
+}
+</code></pre>
+<p><strong>Database transaction safety</strong>:</p>
+<pre><code class="language-javascript">beginTransaction()
+
+try {
+  deleteOldData()
+  insertNewData()
+  commit()
+} catch (Error) {
+  rollback()  // Restore to previous state
+  logError()
+}
+</code></pre>
+<p><strong>Result</strong>: Never left with partial/corrupt data</p>
+<hr>
+<h2>Performance Optimization</h2>
+<h3>Batch Operations</h3>
+<p><strong>Instead of this</strong> (slow):</p>
+<pre><code class="language-javascript">for (campaign in campaigns) {
+  database.insert(campaign)  // 100 separate calls
+}
+</code></pre>
+<p><strong>Do this</strong> (fast):</p>
+<pre><code class="language-javascript">database.batchInsert(campaigns)  // 1 call with 100 items
+</code></pre>
+<p><strong>Performance gain</strong>: 30-50x faster</p>
+<p><strong>Where it&#39;s used</strong>:</p>
+<ul>
+<li>All data type inserts</li>
+<li>Bulk updates</li>
+<li>Delete operations</li>
+</ul>
+<hr>
+<h3>Data Transformation Pipeline</h3>
+<p><strong>Three-stage processing</strong>:</p>
+<p><strong>Stage 1: Fetch</strong> (from Google Ads API)</p>
+<ul>
+<li>Batched queries</li>
+<li>Parallel requests where possible</li>
+<li>Compressed responses</li>
+</ul>
+<p><strong>Stage 2: Transform</strong> (convert format)</p>
+<ul>
+<li>Google&#39;s format → Internal format</li>
+<li>Normalize field names</li>
+<li>Calculate derived metrics</li>
+<li>Handle dual API (camelCase + snake_case)</li>
+</ul>
+<p><strong>Stage 3: Load</strong> (into database)</p>
+<ul>
+<li>Batch inserts</li>
+<li>Transaction-safe</li>
+<li>Index optimization</li>
+</ul>
+<p><strong>Total time</strong>:</p>
+<pre><code>Fetch:     40% of sync time
+Transform: 20% of sync time
+Load:      40% of sync time
+</code></pre>
+<p>[Screenshot: Pipeline visualization showing three stages]
+<em>Pipelined processing maximizes throughput</em></p>
+<hr>
+<h3>Caching Strategy</h3>
+<p><strong>What&#39;s cached</strong>:</p>
+<pre><code>Account structure:     24 hours
+Campaign settings:     6 hours
+Performance metrics:   Never (always fresh)
+Conversion actions:    24 hours
+</code></pre>
+<p><strong>Cache benefits</strong>:</p>
+<ul>
+<li>Reduce API calls</li>
+<li>Faster repeated syncs</li>
+<li>Less network traffic</li>
+</ul>
+<p><strong>Cache invalidation</strong>:</p>
+<ul>
+<li>Time-based (expiry)</li>
+<li>Manual sync forces refresh</li>
+<li>Data change detected</li>
+</ul>
+<hr>
+<h2>Advanced Sync Strategies</h2>
+<h3>Differential Sync</h3>
+<p><strong>Problem</strong>: Re-syncing unchanged data wastes API quota</p>
+<p><strong>Solution</strong>: Track what changed</p>
+<pre><code class="language-javascript">previousCampaigns = getStoredCampaigns()
+currentCampaigns = fetchFromGoogleAds()
+
+added = currentCampaigns - previousCampaigns
+removed = previousCampaigns - currentCampaigns
+unchanged = intersection(previous, current)
+
+// Only process added and removed
+updateDatabase(added, removed)
+// Skip unchanged campaigns
+</code></pre>
+<p><strong>Not currently implemented</strong> but planned for future</p>
+<hr>
+<h3>Selective Data Type Sync</h3>
+<p><strong>Scenario</strong>: Only need to update performance metrics, not structure</p>
+<p><strong>Concept</strong>:</p>
+<pre><code class="language-javascript">syncOptions = {
+  campaigns: false,     // Skip structure
+  keywords: false,      // Skip structure
+  performance: true,    // Only this
+  conversions: true     // And this
+}
+
+smartSync(client, syncOptions)
+</code></pre>
+<p><strong>Use case</strong>:</p>
+<ul>
+<li>Quick refresh before calls</li>
+<li>Performance-only dashboards</li>
+<li>Reduces sync time by 60%</li>
+</ul>
+<p><strong>Status</strong>: Not available in UI yet (roadmap item)</p>
+<hr>
+<h3>Predictive Pre-fetching</h3>
+<p><strong>Concept</strong>: Sync likely-to-be-viewed clients proactively</p>
+<p><strong>Algorithm</strong>:</p>
+<pre><code class="language-javascript">// User views Client A
+onClientView(clientA) {
+  relatedClients = getSameIndustry(clientA)
+
+  // Pre-fetch in background
+  for (client in relatedClients) {
+    if (lastSync &gt; 6 hours) {
+      backgroundSync(client)
+    }
+  }
+}
+</code></pre>
+<p><strong>Result</strong>: Data appears instantly when you click</p>
+<p><strong>Status</strong>: Experimental, not enabled by default</p>
+<hr>
+<h2>Monitoring and Diagnostics</h2>
+<h3>Sync Health Metrics</h3>
+<p><strong>What the system tracks</strong>:</p>
+<pre><code>Success rate:       % of syncs completed
+Average duration:   Mean sync time
+API quota usage:    % of daily limit used
+Error rate:         % of syncs that fail
+Queue depth:        Max queued clients
+</code></pre>
+<p><strong>Healthy thresholds</strong>:</p>
+<pre><code>Success rate:  &gt;95%
+Avg duration:  &lt;5 minutes
+Quota usage:   &lt;60%
+Error rate:    &lt;5%
+Queue depth:   &lt;20 clients
+</code></pre>
+<p><strong>Alerts trigger when</strong>:</p>
+<pre><code>Success rate:  &lt;90%
+Avg duration:  &gt;10 minutes
+Quota usage:   &gt;80%
+Error rate:    &gt;10%
+Queue depth:   &gt;50 clients
+</code></pre>
+<p>[Screenshot: Health dashboard showing all metrics]
+<em>Monitor system health in real-time</em></p>
+<hr>
+<h3>Performance Profiling</h3>
+<p><strong>Where time goes</strong> (average 4-minute sync):</p>
+<pre><code>OAuth authentication:     10 sec  (4%)
+Date range calculation:   5 sec   (2%)
+Fetch campaigns:          45 sec  (19%)
+Fetch ad groups:          40 sec  (17%)
+Fetch keywords:           60 sec  (25%)
+Fetch ads:                35 sec  (15%)
+Fetch performance:        50 sec  (21%)
+Data transformation:      20 sec  (8%)
+Database insert:          30 sec  (13%)
+AI analysis trigger:      5 sec   (2%)
+</code></pre>
+<p><strong>Optimization targets</strong>:</p>
+<ul>
+<li>Keyword fetch (slowest)</li>
+<li>Performance metrics (second slowest)</li>
+<li>Database insert (third slowest)</li>
+</ul>
+<hr>
+<h2>Tips &amp; Best Practices</h2>
+<h3>For Agency Managers</h3>
+<p><strong>Monitor API quota</strong>:</p>
+<ul>
+<li>Check API Tracking page weekly</li>
+<li>If usage &gt;70%, spread syncs more</li>
+<li>Consider requesting higher quota</li>
+</ul>
+<p><strong>Set realistic sync schedules</strong>:</p>
+<ul>
+<li>Don&#39;t sync 50 clients at 2 AM</li>
+<li>Stagger by 30-minute intervals</li>
+<li>Balance across 24-hour period</li>
+</ul>
+<p><strong>Plan for growth</strong>:</p>
+<ul>
+<li>20 clients → daily sync works</li>
+<li>50 clients → need staggering</li>
+<li>100+ clients → need enterprise plan</li>
+</ul>
+<hr>
+<h3>For Power Users</h3>
+<p><strong>Understand trade-offs</strong>:</p>
+<pre><code>More frequent syncs:
+  + Fresher data
+  - Higher API usage
+  - More queue congestion
+
+Less frequent syncs:
+  + Lower API usage
+  + Faster when you do sync
+  - Stale data between syncs
+</code></pre>
+<p><strong>Optimize for your needs</strong>:</p>
+<ul>
+<li>High-value clients: Sync daily</li>
+<li>Low-value clients: Sync weekly</li>
+<li>Test/inactive: Disable auto-sync</li>
+</ul>
+<hr>
+<h3>For Developers</h3>
+<p><strong>API response handling</strong>:</p>
+<pre><code class="language-javascript">// Handle both camelCase and snake_case
+const campaign = row.campaign || row.campaign_data
+const adGroup = row.adGroup || row.ad_group
+
+// Never assume format
+if (campaign?.id) {
+  // Safe to access
+}
+</code></pre>
+<p><strong>Retry logic best practices</strong>:</p>
+<pre><code class="language-javascript">const retryWithBackoff = async (fn, retries = 3) =&gt; {
+  for (let i = 0; i &lt; retries; i++) {
+    try {
+      return await fn()
+    } catch (error) {
+      if (i === retries - 1) throw error
+      await wait(2 ** i * 1000)  // Exponential backoff
+    }
+  }
+}
+</code></pre>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: Can I increase concurrent sync limit above 5?</strong>
+A: Not currently in the standard plan. Enterprise plan allows 10-15 concurrent syncs. Contact sales.</p>
+<p><strong>Q: Why does Smart Sync sometimes take longer than Full Sync?</strong>
+A: It shouldn&#39;t. If this happens, it&#39;s likely a large account where &quot;since last sync&quot; is actually more data than 30 days. Check the date range in Sync Logs.</p>
+<p><strong>Q: What happens if I hit the Google Ads API limit?</strong>
+A: System automatically stops queuing new syncs. Active syncs complete. Resume after quota resets (usually midnight PST).</p>
+<p><strong>Q: Can I see which specific API calls are being made?</strong>
+A: Yes, in Sync Logs → Details. Shows every API operation with timestamps and response sizes.</p>
+<p><strong>Q: Does pausing auto-sync affect manual syncs?</strong>
+A: No, you can always manually sync even if auto-sync is disabled.</p>
+<p><strong>Q: What&#39;s the maximum account size the system can handle?</strong>
+A: Successfully tested with accounts having 1000+ campaigns, 10000+ keywords. Sync takes 20-30 minutes but completes.</p>
+<hr>
+<h2>Troubleshooting</h2>
+<h3>Problem: Syncs taking much longer than usual</h3>
+<p><strong>Diagnostics</strong>:</p>
+<ol>
+<li>Check account size (campaigns, keywords)</li>
+<li>Check date range (is it pulling 90 days?)</li>
+<li>Check Google Ads API status</li>
+<li>Check network latency</li>
+</ol>
+<p><strong>Solutions</strong>:</p>
+<ul>
+<li>Large account: Expected, no fix needed</li>
+<li>Wrong date range: Clear cache, re-sync</li>
+<li>API issues: Wait for Google to resolve</li>
+<li>Network: Check internet connection</li>
+</ul>
+<hr>
+<h3>Problem: High failure rate</h3>
+<p><strong>Diagnostics</strong>:</p>
+<ol>
+<li>Check Sync Logs for error patterns</li>
+<li>Check OAuth health</li>
+<li>Check API quota usage</li>
+</ol>
+<p><strong>Common causes</strong>:</p>
+<ul>
+<li>Token expired (re-auth needed)</li>
+<li>Permission revoked (re-grant needed)</li>
+<li>Quota exceeded (wait or upgrade)</li>
+</ul>
+<hr>
+<h3>Problem: Queue not moving</h3>
+<p><strong>Symptom</strong>: Position stays the same for 30+ minutes</p>
+<p><strong>Diagnostics</strong>:</p>
+<ol>
+<li>Check if any syncs are active</li>
+<li>Check Sync Logs for stuck syncs</li>
+<li>Check system status page</li>
+</ol>
+<p><strong>Solutions</strong>:</p>
+<ul>
+<li>Cancel stuck syncs manually</li>
+<li>Contact support with timestamps</li>
+<li>System will auto-recover in 1 hour (timeout)</li>
+</ul>
+<hr>
+<h2>Next Steps</h2>
+<p>Deep dive into specific sync topics:</p>
+<ul>
+<li><strong><a href="/docs/auto-sync-setup">Auto-Sync Setup</a></strong> - Configure automatic schedules</li>
+<li><strong><a href="/docs/sync-logs">Sync Logs</a></strong> - Read and interpret sync history</li>
+<li><strong><a href="/docs/smart-sync-explained">Smart Sync Explained</a></strong> - User-friendly overview</li>
+<li><strong><a href="/docs/api-tracking">API Tracking</a></strong> - Monitor quota usage</li>
+</ul>
+<hr>
+<p><strong>Need enterprise sync capacity?</strong> Contact sales at <a href="mailto:sales@aiperfoads.xyz">sales@aiperfoads.xyz</a></p>
+<p><strong>Found a sync bug?</strong> Report at <a href="mailto:support@aiperfoads.xyz">support@aiperfoads.xyz</a> with Sync Log details</p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>

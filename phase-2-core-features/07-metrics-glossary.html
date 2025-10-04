@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metrics Glossary - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Metrics Glossary</h1>
+<p>Your complete reference for understanding every Google Ads metric in PerfoAds. Each entry includes definition, calculation formula, what it means, and how to interpret it.</p>
+<hr>
+<h2>How to Use This Glossary</h2>
+<p><strong>Alphabetical listing</strong>: Metrics organized A-Z for easy reference</p>
+<p><strong>Each entry includes</strong>:</p>
+<ul>
+<li>Definition (what it measures)</li>
+<li>Formula (how it&#39;s calculated)</li>
+<li>Why it matters</li>
+<li>Good/bad benchmarks</li>
+<li>Where to find it in PerfoAds</li>
+</ul>
+<p><strong>Quick find</strong>: Use Ctrl+F (Windows) or Cmd+F (Mac) to search</p>
+<hr>
+<h2>A</h2>
+<h3>Average Cost</h3>
+<p><strong>Definition</strong>: Average amount spent per interaction (click, view, engagement)</p>
+<p><strong>Formula</strong>: <code>Total Cost ÷ Total Interactions</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code>Cost: $1,000
+Clicks: 200
+Average Cost: $1,000 ÷ 200 = $5.00
+</code></pre>
+<p><strong>Why it matters</strong>: Shows efficiency of spend across all interactions</p>
+<p><strong>Benchmark</strong>: Varies by industry, compare to historical average</p>
+<p><strong>Where</strong>: Campaign tab, Ad Group tab</p>
+<hr>
+<h3>Average CPC (Cost Per Click)</h3>
+<p><strong>Definition</strong>: Average amount you pay each time someone clicks your ad</p>
+<p><strong>Formula</strong>: <code>Total Cost ÷ Total Clicks</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code>Cost: $500
+Clicks: 100
+Average CPC: $500 ÷ 100 = $5.00
+</code></pre>
+<p><strong>Why it matters</strong>:</p>
+<ul>
+<li>Core efficiency metric</li>
+<li>Lower CPC = more clicks for same budget</li>
+<li>Affected by Quality Score and competition</li>
+</ul>
+<p><strong>Good benchmark</strong>:</p>
+<ul>
+<li>Search ads: $1-$2 (low competition)</li>
+<li>Search ads: $5-$50 (high competition industries like legal, insurance)</li>
+<li>Display ads: $0.50-$2</li>
+</ul>
+<p><strong>Where</strong>: Overview tab, Campaign tab, Keyword tab</p>
+<hr>
+<h3>Average CPM (Cost Per Thousand Impressions)</h3>
+<p><strong>Definition</strong>: Average cost to show your ad 1,000 times</p>
+<p><strong>Formula</strong>: <code>(Total Cost ÷ Impressions) × 1,000</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code>Cost: $100
+Impressions: 50,000
+CPM: ($100 ÷ 50,000) × 1,000 = $2.00
+</code></pre>
+<p><strong>Why it matters</strong>:</p>
+<ul>
+<li>Primary metric for Display and Video campaigns</li>
+<li>Measures cost of brand awareness</li>
+</ul>
+<p><strong>Good benchmark</strong>:</p>
+<ul>
+<li>Display Network: $1-$5</li>
+<li>YouTube: $3-$10</li>
+<li>Premium placements: $10-$30</li>
+</ul>
+<p><strong>Where</strong>: Campaign tab (Display/Video campaigns only)</p>
+<hr>
+<h3>Average CPV (Cost Per View)</h3>
+<p><strong>Definition</strong>: Average cost each time someone views your video ad</p>
+<p><strong>Formula</strong>: <code>Total Cost ÷ Total Views</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code>Cost: $200
+Views: 1,000
+CPV: $200 ÷ 1,000 = $0.20
+</code></pre>
+<p><strong>Why it matters</strong>: Measures efficiency of video advertising</p>
+<p><strong>Good benchmark</strong>:</p>
+<ul>
+<li>YouTube TrueView: $0.10-$0.30</li>
+<li>YouTube bumper ads: $3-$10 (CPM)</li>
+</ul>
+<p><strong>Where</strong>: Campaign tab (Video campaigns only)</p>
+<hr>
+<h2>B</h2>
+<h3>Budget</h3>
+<p><strong>Definition</strong>: Daily or campaign-level spending limit</p>
+<p><strong>Types</strong>:</p>
+<ul>
+<li><strong>Daily budget</strong>: Maximum to spend per day</li>
+<li><strong>Campaign total budget</strong>: Maximum for entire campaign</li>
+</ul>
+<p><strong>Why it matters</strong>: Controls spend and prevents overages</p>
+<p><strong>Where</strong>: Campaign tab, Budget tracking widget</p>
+<hr>
+<h2>C</h2>
+<h3>Clicks</h3>
+<p><strong>Definition</strong>: Number of times users clicked your ad</p>
+<p><strong>Formula</strong>: Direct count from Google Ads</p>
+<p><strong>Why it matters</strong>:</p>
+<ul>
+<li>Measures ad engagement</li>
+<li>Generates website traffic</li>
+<li>Used in CTR and CPC calculations</li>
+</ul>
+<p><strong>What&#39;s counted</strong>:</p>
+<ul>
+<li>Text ad clicks</li>
+<li>Image ad clicks</li>
+<li>Extension clicks (sitelinks, call buttons)</li>
+</ul>
+<p><strong>Where</strong>: Overview tab (protected metric), all data tables</p>
+<hr>
+<h3>Conversions</h3>
+<p><strong>Definition</strong>: Actions users take that you&#39;ve defined as valuable (purchases, sign-ups, calls)</p>
+<p><strong>Formula</strong>: Count of completed conversion actions</p>
+<p><strong>Types</strong>:</p>
+<ul>
+<li>Purchases</li>
+<li>Form submissions</li>
+<li>Phone calls</li>
+<li>App installs</li>
+<li>Newsletter sign-ups</li>
+</ul>
+<p><strong>Why it matters</strong>: Measures business outcomes, not just traffic</p>
+<p><strong>Conversion window</strong>: Default is 30 days (user can convert up to 30 days after click)</p>
+<p><strong>Where</strong>: Overview tab (protected metric), Conversion breakdown table</p>
+<hr>
+<h3>Conversion Rate</h3>
+<p><strong>Definition</strong>: Percentage of clicks that result in conversions</p>
+<p><strong>Formula</strong>: <code>(Conversions ÷ Clicks) × 100%</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code>Conversions: 50
+Clicks: 1,000
+Conversion Rate: (50 ÷ 1,000) × 100% = 5%
+</code></pre>
+<p><strong>Why it matters</strong>:</p>
+<ul>
+<li>Key performance indicator</li>
+<li>Shows landing page effectiveness</li>
+<li>Affects ROI calculations</li>
+</ul>
+<p><strong>Good benchmark</strong>:</p>
+<ul>
+<li>E-commerce: 2-3%</li>
+<li>B2B/Lead gen: 5-10%</li>
+<li>High-ticket services: 1-2%</li>
+</ul>
+<p><strong>Where</strong>: Overview tab, Campaign tab, Keyword tab</p>
+<hr>
+<h3>Conversion Value</h3>
+<p><strong>Definition</strong>: Total monetary value of all conversions</p>
+<p><strong>Formula</strong>: Sum of all conversion values</p>
+<p><strong>Example</strong>:</p>
+<pre><code>Sale 1: $100
+Sale 2: $50
+Sale 3: $200
+Conversion Value: $350
+</code></pre>
+<p><strong>Why it matters</strong>: Shows revenue generated from ads</p>
+<p><strong>Where</strong>: Conversion breakdown table</p>
+<hr>
+<h3>Cost</h3>
+<p><strong>Definition</strong>: Total amount spent on ads</p>
+<p><strong>Formula</strong>: Sum of all costs in date range</p>
+<p><strong>Why it matters</strong>:</p>
+<ul>
+<li>Budget tracking</li>
+<li>ROI calculations</li>
+<li>Efficiency analysis</li>
+</ul>
+<p><strong>Where</strong>: Overview tab (protected metric), Budget tracking, all tables</p>
+<hr>
+<h3>Cost Per Conversion</h3>
+<p><strong>Definition</strong>: Average cost to generate one conversion</p>
+<p><strong>Formula</strong>: <code>Total Cost ÷ Conversions</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code>Cost: $1,000
+Conversions: 20
+Cost Per Conversion: $1,000 ÷ 20 = $50
+</code></pre>
+<p><strong>Why it matters</strong>:</p>
+<ul>
+<li>Profitability metric</li>
+<li>Compare to customer lifetime value</li>
+<li>Lower is better (usually)</li>
+</ul>
+<p><strong>Good benchmark</strong>: Should be &lt;30% of customer lifetime value</p>
+<p><strong>Where</strong>: Overview tab, Campaign tab, Keyword tab</p>
+<hr>
+<h3>CTR (Click-Through Rate)</h3>
+<p><strong>Definition</strong>: Percentage of impressions that resulted in clicks</p>
+<p><strong>Formula</strong>: <code>(Clicks ÷ Impressions) × 100%</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code>Clicks: 100
+Impressions: 10,000
+CTR: (100 ÷ 10,000) × 100% = 1%
+</code></pre>
+<p><strong>Why it matters</strong>:</p>
+<ul>
+<li>Measures ad relevance and appeal</li>
+<li>Higher CTR = better Quality Score</li>
+<li>Affects ad position</li>
+</ul>
+<p><strong>Good benchmark</strong>:</p>
+<ul>
+<li>Search ads: 2-5% (good), 5-10% (excellent)</li>
+<li>Display ads: 0.5-1%</li>
+<li>Shopping ads: 0.5-1.5%</li>
+</ul>
+<p><strong>Where</strong>: Overview tab, all data tables</p>
+<hr>
+<h2>E</h2>
+<h3>Engagement Rate</h3>
+<p><strong>Definition</strong>: Percentage of impressions that resulted in engagement (clicks, likes, shares, comments)</p>
+<p><strong>Formula</strong>: <code>(Engagements ÷ Impressions) × 100%</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code>Engagements: 500
+Impressions: 50,000
+Engagement Rate: (500 ÷ 50,000) × 100% = 1%
+</code></pre>
+<p><strong>Why it matters</strong>: Measures user interaction beyond clicks</p>
+<p><strong>Where</strong>: Campaign tab (Display/Video campaigns)</p>
+<hr>
+<h3>Engagements</h3>
+<p><strong>Definition</strong>: Total user interactions with your ad</p>
+<p><strong>Includes</strong>:</p>
+<ul>
+<li>Clicks</li>
+<li>Video views</li>
+<li>Social interactions (likes, shares)</li>
+<li>App engagement (installs, in-app actions)</li>
+</ul>
+<p><strong>Where</strong>: Campaign tab (Video/App campaigns)</p>
+<hr>
+<h2>I</h2>
+<h3>Impressions</h3>
+<p><strong>Definition</strong>: Number of times your ad was shown</p>
+<p><strong>Formula</strong>: Direct count from Google Ads</p>
+<p><strong>Why it matters</strong>:</p>
+<ul>
+<li>Measures reach</li>
+<li>Used in CTR, CPM calculations</li>
+<li>Brand awareness indicator</li>
+</ul>
+<p><strong>What&#39;s counted</strong>:</p>
+<ul>
+<li>Ad appears on search results</li>
+<li>Ad appears on website (Display)</li>
+<li>Video ad impression (usually 2+ seconds)</li>
+</ul>
+<p><strong>Where</strong>: Overview tab (protected metric), all data tables</p>
+<hr>
+<h3>Impression Share (IS)</h3>
+<p><strong>Definition</strong>: Percentage of times your ad showed vs. total eligible opportunities</p>
+<p><strong>Formula</strong>: <code>(Impressions ÷ Total Eligible Impressions) × 100%</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code>Your Impressions: 10,000
+Total Eligible: 50,000
+Impression Share: (10,000 ÷ 50,000) × 100% = 20%
+</code></pre>
+<p><strong>Why it matters</strong>:</p>
+<ul>
+<li>Shows lost opportunity</li>
+<li>100% = you&#39;re showing for every search</li>
+<li>&lt;50% = missing many opportunities</li>
+</ul>
+<p><strong>Types</strong>:</p>
+<ul>
+<li><strong>Search IS</strong>: Search Network impression share</li>
+<li><strong>Display IS</strong>: Display Network impression share</li>
+<li><strong>Shopping IS</strong>: Shopping ads impression share</li>
+</ul>
+<p><strong>Where</strong>: Campaign tab</p>
+<hr>
+<h3>Impression Share Lost (Budget)</h3>
+<p><strong>Definition</strong>: Percentage of impressions lost due to budget constraints</p>
+<p><strong>Formula</strong>: Calculated by Google Ads based on budget pacing</p>
+<p><strong>Example</strong>: <code>15%</code> means you&#39;d get 15% more impressions with higher budget</p>
+<p><strong>Why it matters</strong>: Identifies if budget is limiting reach</p>
+<p><strong>Action</strong>: Increase budget if this is high (&gt;20%)</p>
+<p><strong>Where</strong>: Campaign tab</p>
+<hr>
+<h3>Impression Share Lost (Rank)</h3>
+<p><strong>Definition</strong>: Percentage of impressions lost due to low ad rank</p>
+<p><strong>Formula</strong>: Calculated by Google Ads based on Quality Score and bids</p>
+<p><strong>Example</strong>: <code>25%</code> means you&#39;d get 25% more impressions with better rank</p>
+<p><strong>Why it matters</strong>: Identifies if bids/quality need improvement</p>
+<p><strong>Action</strong>:</p>
+<ul>
+<li>Improve Quality Score</li>
+<li>Increase bids</li>
+<li>Optimize ads and landing pages</li>
+</ul>
+<p><strong>Where</strong>: Campaign tab</p>
+<hr>
+<h3>Interactions</h3>
+<p><strong>Definition</strong>: Main action counted by your bidding strategy</p>
+<p><strong>Varies by campaign type</strong>:</p>
+<ul>
+<li>Search: Clicks</li>
+<li>Video: Views</li>
+<li>Shopping: Clicks</li>
+<li>App: Installs</li>
+</ul>
+<p><strong>Why it matters</strong>: Universal metric across campaign types</p>
+<p><strong>Where</strong>: Campaign tab</p>
+<hr>
+<h3>Interaction Rate</h3>
+<p><strong>Definition</strong>: Percentage of impressions that resulted in interaction</p>
+<p><strong>Formula</strong>: <code>(Interactions ÷ Impressions) × 100%</code></p>
+<p><strong>Why it matters</strong>: Similar to CTR but works across all campaign types</p>
+<p><strong>Where</strong>: Campaign tab</p>
+<hr>
+<h2>Q</h2>
+<h3>Quality Score</h3>
+<p><strong>Definition</strong>: Google&#39;s rating (1-10) of your keyword&#39;s quality and relevance</p>
+<p><strong>Components</strong>:</p>
+<ul>
+<li><strong>Expected CTR</strong>: Likelihood users click your ad</li>
+<li><strong>Ad Relevance</strong>: How well ad matches search intent</li>
+<li><strong>Landing Page Experience</strong>: Quality and relevance of landing page</li>
+</ul>
+<p><strong>Scale</strong>:</p>
+<ul>
+<li>1-3: Poor (needs immediate improvement)</li>
+<li>4-6: Average</li>
+<li>7-8: Good</li>
+<li>9-10: Excellent</li>
+</ul>
+<p><strong>Why it matters</strong>:</p>
+<ul>
+<li>Affects Ad Rank</li>
+<li>Affects CPC (higher QS = lower CPC)</li>
+<li>Affects impression share</li>
+</ul>
+<p><strong>Example impact</strong>:</p>
+<pre><code>Keyword A: QS 10, CPC $2.00
+Keyword B: QS 5, CPC $4.00 (same bid, worse QS = 2x higher CPC)
+</code></pre>
+<p><strong>Where</strong>: Keyword tab</p>
+<hr>
+<h2>R</h2>
+<h3>ROAS (Return on Ad Spend)</h3>
+<p><strong>Definition</strong>: Revenue generated for every dollar spent on ads</p>
+<p><strong>Formula</strong>: <code>Conversion Value ÷ Cost</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code>Conversion Value: $5,000
+Cost: $1,000
+ROAS: $5,000 ÷ $1,000 = 5.0 (or 500%)
+</code></pre>
+<p><strong>Interpretation</strong>:</p>
+<ul>
+<li>ROAS of 5.0 = $5 revenue for every $1 spent</li>
+<li>ROAS &gt; 1 = profitable</li>
+<li>ROAS &lt; 1 = losing money</li>
+</ul>
+<p><strong>Good benchmark</strong>:</p>
+<ul>
+<li>E-commerce: 4-6</li>
+<li>Lead gen: 3-5</li>
+<li>SaaS: 3-5</li>
+</ul>
+<p><strong>Where</strong>: Calculated from Conversion Value and Cost</p>
+<hr>
+<h2>S</h2>
+<h3>Search Impression Share</h3>
+<p><strong>Definition</strong>: Percentage of impressions on Search Network vs. eligible opportunities</p>
+<p><strong>Formula</strong>: <code>(Search Impressions ÷ Total Eligible Search Impressions) × 100%</code></p>
+<p><strong>Why it matters</strong>: Shows if you&#39;re dominating search results</p>
+<p><strong>Goal</strong>: 80%+ for branded terms, 50%+ for competitive terms</p>
+<p><strong>Where</strong>: Campaign tab (Search campaigns only)</p>
+<hr>
+<h2>T</h2>
+<h3>Top Impression Share</h3>
+<p><strong>Definition</strong>: Percentage of impressions where ad appeared in top positions (above organic results)</p>
+<p><strong>Formula</strong>: <code>(Top Impressions ÷ Total Impressions) × 100%</code></p>
+<p><strong>Why it matters</strong>: Top positions get most clicks</p>
+<p><strong>Good benchmark</strong>: 70%+ for important keywords</p>
+<p><strong>Where</strong>: Campaign tab</p>
+<hr>
+<h2>V</h2>
+<h3>Value Per Click</h3>
+<p><strong>Definition</strong>: Average conversion value generated per click</p>
+<p><strong>Formula</strong>: <code>Conversion Value ÷ Clicks</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code>Conversion Value: $5,000
+Clicks: 1,000
+Value Per Click: $5,000 ÷ 1,000 = $5.00
+</code></pre>
+<p><strong>Why it matters</strong>: Shows profitability per click</p>
+<p><strong>Where</strong>: Calculated from Conversion Value and Clicks</p>
+<hr>
+<h3>Value Per Conversion</h3>
+<p><strong>Definition</strong>: Average value of each conversion</p>
+<p><strong>Formula</strong>: <code>Conversion Value ÷ Conversions</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code>Conversion Value: $5,000
+Conversions: 100
+Value Per Conversion: $5,000 ÷ 100 = $50
+</code></pre>
+<p><strong>Why it matters</strong>: Average order value or lead value</p>
+<p><strong>Where</strong>: Conversion breakdown table</p>
+<hr>
+<h3>Video View Rate</h3>
+<p><strong>Definition</strong>: Percentage of video ad impressions that resulted in views</p>
+<p><strong>Formula</strong>: <code>(Video Views ÷ Video Impressions) × 100%</code></p>
+<p><strong>Example</strong>:</p>
+<pre><code>Views: 1,000
+Impressions: 10,000
+View Rate: (1,000 ÷ 10,000) × 100% = 10%
+</code></pre>
+<p><strong>Good benchmark</strong>: 15-30% is healthy</p>
+<p><strong>Where</strong>: Campaign tab (Video campaigns only)</p>
+<hr>
+<h3>Views</h3>
+<p><strong>Definition</strong>: Number of times your video ad was viewed</p>
+<p><strong>What counts as a view</strong>:</p>
+<ul>
+<li>TrueView: 30 seconds or full video (if shorter)</li>
+<li>Bumper ads: Full 6-second view</li>
+</ul>
+<p><strong>Where</strong>: Campaign tab (Video campaigns only)</p>
+<hr>
+<h2>Protected Metrics</h2>
+<p>These four metrics cannot be removed from the Overview tab:</p>
+<p><strong>1. Clicks</strong>: Core traffic metric
+<strong>2. Cost</strong>: Essential for budget tracking
+<strong>3. Impressions</strong>: Reach measurement
+<strong>4. Conversions</strong>: Business outcome</p>
+<p><strong>Why protected</strong>: Foundation metrics for all analysis</p>
+<hr>
+<h2>Metric Categories</h2>
+<h3>Volume Metrics</h3>
+<p>Track amounts and counts:</p>
+<ul>
+<li>Clicks</li>
+<li>Impressions</li>
+<li>Conversions</li>
+<li>Views</li>
+</ul>
+<h3>Rate Metrics</h3>
+<p>Show percentages and efficiency:</p>
+<ul>
+<li>CTR</li>
+<li>Conversion Rate</li>
+<li>Engagement Rate</li>
+<li>View Rate</li>
+</ul>
+<h3>Cost Metrics</h3>
+<p>Measure spend and efficiency:</p>
+<ul>
+<li>Cost</li>
+<li>CPC</li>
+<li>CPM</li>
+<li>CPV</li>
+<li>Cost Per Conversion</li>
+</ul>
+<h3>Value Metrics</h3>
+<p>Show revenue and return:</p>
+<ul>
+<li>Conversion Value</li>
+<li>ROAS</li>
+<li>Value Per Click</li>
+<li>Value Per Conversion</li>
+</ul>
+<h3>Quality Metrics</h3>
+<p>Assess ad quality:</p>
+<ul>
+<li>Quality Score</li>
+<li>Impression Share</li>
+<li>Top Impression Share</li>
+</ul>
+<hr>
+<h2>How Metrics Are Calculated</h2>
+<h3>Aggregation Methods</h3>
+<p><strong>Sum</strong> (add all values):</p>
+<ul>
+<li>Clicks</li>
+<li>Impressions</li>
+<li>Cost</li>
+<li>Conversions</li>
+</ul>
+<p><strong>Average</strong> (weighted by impressions):</p>
+<ul>
+<li>CTR</li>
+<li>CPC</li>
+<li>Conversion Rate</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code>Campaign A: 100 clicks, 10,000 impressions, CTR 1%
+Campaign B: 50 clicks, 5,000 impressions, CTR 1%
+
+Combined CTR:
+(150 clicks ÷ 15,000 impressions) × 100% = 1%
+
+NOT (1% + 1%) ÷ 2 = 1% (this would be wrong for different impression counts)
+</code></pre>
+<hr>
+<h2>Date Range Impact</h2>
+<p><strong>Important</strong>: Metrics change based on selected date range</p>
+<p><strong>Example</strong>:</p>
+<pre><code>Last 7 days:
+- Clicks: 100
+- CTR: 2%
+
+Last 30 days:
+- Clicks: 500
+- CTR: 2.5%
+</code></pre>
+<p><strong>Why different</strong>: Performance fluctuates over time</p>
+<p><strong>Best practice</strong>: Compare same time periods (week-over-week, month-over-month)</p>
+<hr>
+<h2>Currency Handling</h2>
+<p><strong>All cost metrics in account currency</strong>:</p>
+<ul>
+<li>Set in Google Ads account settings</li>
+<li>Cannot be changed in PerfoAds</li>
+<li>Common: USD, EUR, GBP, CAD, AUD</li>
+</ul>
+<p><strong>Conversion</strong>:</p>
+<ul>
+<li>If you need different currency, convert externally</li>
+<li>Use consistent exchange rate for period</li>
+<li>Document exchange rate used</li>
+</ul>
+<hr>
+<h2>Missing or N/A Metrics</h2>
+<p><strong>Why metrics show &quot;N/A&quot;</strong>:</p>
+<p><strong>Quality Score</strong>: Not available for:</p>
+<ul>
+<li>New keywords (&lt;1,000 impressions)</li>
+<li>Paused keywords</li>
+<li>Display campaigns</li>
+</ul>
+<p><strong>Impression Share</strong>: Not available for:</p>
+<ul>
+<li>Very low volume campaigns</li>
+<li>Brand new campaigns</li>
+<li>Some campaign types</li>
+</ul>
+<p><strong>Video metrics</strong>: Only for Video campaigns</p>
+<p><strong>This is normal</strong> - Google Ads doesn&#39;t provide all metrics for all scenarios</p>
+<hr>
+<h2>Tips for Using Metrics</h2>
+<h3>Focus on What Matters</h3>
+<p><strong>For e-commerce</strong>:</p>
+<ul>
+<li>ROAS (primary)</li>
+<li>Conversion Rate</li>
+<li>Cost Per Conversion</li>
+<li>CTR</li>
+</ul>
+<p><strong>For lead generation</strong>:</p>
+<ul>
+<li>Cost Per Conversion</li>
+<li>Conversion Rate</li>
+<li>Quality Score</li>
+<li>CTR</li>
+</ul>
+<p><strong>For brand awareness</strong>:</p>
+<ul>
+<li>Impressions</li>
+<li>Impression Share</li>
+<li>CPM</li>
+<li>Engagement Rate</li>
+</ul>
+<hr>
+<h3>Compare Metrics Together</h3>
+<p><strong>Example analysis</strong>:</p>
+<pre><code>High CTR + Low Conversion Rate =
+  → Ad is attractive but landing page is weak
+  → Fix: Improve landing page
+
+Low CTR + High Cost =
+  → Ad not relevant, paying too much
+  → Fix: Improve ad copy, lower bids
+
+High Impression Share Lost (Budget) + Good ROAS =
+  → Profitable but budget-limited
+  → Fix: Increase budget
+</code></pre>
+<hr>
+<h3>Set Up Conversion Tracking</h3>
+<p><strong>Without conversions</strong>:</p>
+<ul>
+<li>Can only optimize for clicks</li>
+<li>Don&#39;t know if ads drive business results</li>
+<li>Missing most important metrics</li>
+</ul>
+<p><strong>With conversions</strong>:</p>
+<ul>
+<li>Optimize for revenue</li>
+<li>Calculate ROAS</li>
+<li>Make data-driven decisions</li>
+</ul>
+<p><strong>Action</strong>: Set up conversion tracking ASAP</p>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: Why is my CTR higher in PerfoAds than Google Ads?</strong>
+A: Check the date range - they should match. If ranges match and still different, wait 24 hours for data to sync.</p>
+<p><strong>Q: Can I create custom metrics?</strong>
+A: Not currently. You can export data and calculate custom metrics in Excel.</p>
+<p><strong>Q: Why is my Cost Per Conversion $0?</strong>
+A: You have conversions but haven&#39;t assigned values to them in Google Ads. This is normal for lead generation.</p>
+<p><strong>Q: What&#39;s the difference between Conversions and Conversion Value?</strong>
+A: Conversions is the count. Conversion Value is the total monetary value. If you sell products, this is revenue.</p>
+<p><strong>Q: Why don&#39;t I see video metrics?</strong>
+A: You need Video campaigns. Video metrics don&#39;t apply to Search or Shopping campaigns.</p>
+<p><strong>Q: Can I see metrics by device (mobile, desktop, tablet)?</strong>
+A: Not directly in PerfoAds UI yet. Export campaign data and analyze in Google Ads.</p>
+<hr>
+<h2>Next Steps</h2>
+<p>Use metrics effectively with these guides:</p>
+<ul>
+<li><strong><a href="/docs/client-details-page">Client Details Page</a></strong> - Customize which metrics you see</li>
+<li><strong><a href="/docs/performance-charts">Performance Charts</a></strong> - Visualize metric trends</li>
+<li><strong><a href="/docs/understanding-dashboard">Understanding Dashboard</a></strong> - Metric cards and overview</li>
+</ul>
+<hr>
+<p><strong>Want to customize displayed metrics?</strong> Go to Client Details → Overview → Customize Metrics</p>
+<p><strong>Need to understand a specific metric?</strong> Use Ctrl+F to search this glossary</p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Settings - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Global Settings</h1>
+<p>Global Settings is your control panel for account-wide configuration. Here you&#39;ll set up your Business Profile, configure sync schedules, manage Google Ads connections, and control user preferences that apply across all clients. This guide shows you every global setting and how to use it.</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ul>
+<li>Accessing Global Settings</li>
+<li>Business Profile configuration</li>
+<li>Sync Settings management</li>
+<li>Google Ads Connections overview</li>
+<li>Email Notification preferences (coming soon)</li>
+<li>When to use global vs per-client settings</li>
+<li>Best practices for each setting</li>
+</ul>
+<p><strong>Time needed</strong>: 12 minutes to read</p>
+<hr>
+<h2>What Are Global Settings?</h2>
+<p><strong>Definition</strong>: Account-wide configurations that apply to all clients unless overridden by per-client settings</p>
+<p><strong>Location</strong>: Navigate to <code>/settings</code> from the main navigation menu</p>
+<p><strong>Purpose</strong>:</p>
+<ul>
+<li>Set default sync behavior for all clients</li>
+<li>Configure business information for AI context</li>
+<li>Manage Google Ads OAuth connections</li>
+<li>Control notification preferences</li>
+</ul>
+<p>[Screenshot: Global Settings page overview showing all sections]
+<em>The Settings page organizes options into clear sections</em></p>
+<hr>
+<h2>Accessing Global Settings</h2>
+<p><strong>How to Navigate</strong>:</p>
+<ol>
+<li>Click <strong>Settings</strong> in the main navigation (top right)</li>
+<li>You&#39;ll land on the Global Settings page</li>
+<li>Settings are organized into collapsible sections</li>
+</ol>
+<p><strong>Sections</strong>:</p>
+<ul>
+<li>Business Profile</li>
+<li>Sync Settings</li>
+<li>Google Ads Connections</li>
+<li>Email Notifications (coming soon)</li>
+</ul>
+<hr>
+<h2>Section 1: Business Profile</h2>
+<h3>What Is It?</h3>
+<p><strong>Purpose</strong>: Company information and business context that AI uses to provide better recommendations</p>
+<p><strong>Why It Matters</strong>: AI Alert severity and AI Chat recommendations are calibrated based on your business profile. The more complete your profile, the better AI performs (3-5x improvement).</p>
+<hr>
+<h3>Business Profile Fields</h3>
+<h4>Company Name</h4>
+<p><strong>What</strong>: Your agency or company name</p>
+<p><strong>Used For</strong>:</p>
+<ul>
+<li>Display in interface</li>
+<li>Client-facing reports</li>
+<li>Email communications</li>
+</ul>
+<p><strong>Example</strong>: <code>Digital Marketing Pros</code>, <code>Smith Agency</code></p>
+<hr>
+<h4>Company Logo</h4>
+<p><strong>What</strong>: Your company logo (PNG, JPG, SVG)</p>
+<p><strong>Used For</strong>:</p>
+<ul>
+<li>Branding in interface</li>
+<li>Client reports</li>
+<li>Exported documents</li>
+</ul>
+<p><strong>Specs</strong>:</p>
+<ul>
+<li>Max file size: 2MB</li>
+<li>Recommended: 200x200 pixels minimum</li>
+<li>Supports: PNG, JPG, SVG</li>
+</ul>
+<p><strong>How to Upload</strong>:</p>
+<ol>
+<li>Click <strong>Upload Logo</strong> button</li>
+<li>Select image file from your computer</li>
+<li>Logo appears immediately after upload</li>
+</ol>
+<hr>
+<h4>Industry</h4>
+<p><strong>What</strong>: Your primary business vertical</p>
+<p><strong>Options</strong>:</p>
+<ul>
+<li>Marketing Agency</li>
+<li>In-House Marketing Team</li>
+<li>E-commerce Business</li>
+<li>Lead Generation</li>
+<li>SaaS Company</li>
+<li>Local Services</li>
+<li>Other</li>
+</ul>
+<p><strong>Why It Matters</strong>: AI uses industry context to provide relevant benchmarks and recommendations</p>
+<hr>
+<h4>Business Goals</h4>
+<p><strong>What</strong>: Your primary objectives for using PerfoAds</p>
+<p><strong>Purpose</strong>: AI prioritizes recommendations aligned with your goals</p>
+<p><strong>Examples</strong>:</p>
+<pre><code>&quot;Maximize ROAS for e-commerce clients&quot;
+&quot;Generate qualified B2B leads under $80 CPA&quot;
+&quot;Scale monthly ad spend from $50K to $150K&quot;
+&quot;Improve Quality Scores across all accounts&quot;
+</code></pre>
+<p><strong>Best Practice</strong>: Be specific. Vague goals like &quot;improve performance&quot; are less useful than &quot;reduce CPA by 15% while maintaining lead volume.&quot;</p>
+<hr>
+<h4>Target Audience</h4>
+<p><strong>What</strong>: Description of your typical clients or customer base</p>
+<p><strong>Purpose</strong>: AI recommendations consider your audience type</p>
+<p><strong>Examples</strong>:</p>
+<pre><code>&quot;SMB local service businesses ($2K-$10K/month budgets)&quot;
+&quot;Enterprise B2B SaaS companies&quot;
+&quot;E-commerce brands selling consumer goods&quot;
+&quot;Professional services (lawyers, accountants, consultants)&quot;
+</code></pre>
+<hr>
+<h4>Company Size</h4>
+<p><strong>What</strong>: Number of employees in your organization</p>
+<p><strong>Options</strong>:</p>
+<ul>
+<li>Solo (1 person)</li>
+<li>Small (2-10 people)</li>
+<li>Medium (11-50 people)</li>
+<li>Large (51-200 people)</li>
+<li>Enterprise (201+ people)</li>
+</ul>
+<p><strong>Why It Matters</strong>: Affects recommendations for workflow automation and team collaboration features</p>
+<hr>
+<h3>Editing Business Profile</h3>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Navigate to Settings → Business Profile</li>
+<li>Click <strong>Edit Profile</strong> button</li>
+<li>Update fields you want to change</li>
+<li>Click <strong>Save Changes</strong></li>
+</ol>
+<p><strong>Changes Take Effect</strong>: Immediately for all AI interactions</p>
+<p>[Screenshot: Business Profile edit form with all fields]
+<em>Complete your Business Profile for better AI performance</em></p>
+<hr>
+<h2>Section 2: Sync Settings</h2>
+<h3>What Are Sync Settings?</h3>
+<p><strong>Purpose</strong>: Control when and how often Google Ads data syncs for all clients</p>
+<p><strong>Applies To</strong>: All clients by default (unless overridden per-client)</p>
+<p><strong>Key Settings</strong>:</p>
+<ul>
+<li>Auto-Sync enable/disable</li>
+<li>Sync time selection</li>
+<li>Timezone configuration</li>
+</ul>
+<hr>
+<h3>Auto-Sync Toggle</h3>
+<p><strong>What</strong>: Automatically sync all clients once per day</p>
+<p><strong>Options</strong>:</p>
+<ul>
+<li><strong>Enabled</strong> (default): All clients sync daily at selected time</li>
+<li><strong>Disabled</strong>: Only manual sync available</li>
+</ul>
+<p><strong>When to Disable</strong>:</p>
+<ul>
+<li>Testing new clients before adding to auto-sync</li>
+<li>Managing sync manually for specific workflows</li>
+<li>Temporarily pausing all automated syncs</li>
+</ul>
+<p><strong>How to Toggle</strong>:</p>
+<ol>
+<li>Go to Settings → Sync Settings</li>
+<li>Toggle <strong>Enable Auto-Sync</strong> switch</li>
+<li>Save (changes apply next sync cycle)</li>
+</ol>
+<hr>
+<h3>Sync Time Selection</h3>
+<p><strong>What</strong>: Choose what time of day auto-sync runs</p>
+<p><strong>Default</strong>: 2:00 AM (local timezone)</p>
+<p><strong>Options</strong>: Any hour from 12:00 AM to 11:00 PM</p>
+<p><strong>How to Choose Best Time</strong>:</p>
+<p><strong>Good Times</strong>:</p>
+<ul>
+<li><strong>2:00 AM - 6:00 AM</strong>: Off-peak hours, no user activity</li>
+<li><strong>During business downtime</strong>: When you won&#39;t be viewing reports</li>
+</ul>
+<p><strong>Bad Times</strong>:</p>
+<ul>
+<li><strong>9:00 AM - 5:00 PM</strong>: Business hours when users view dashboards</li>
+<li><strong>During active campaign management</strong>: Sync may cause delays</li>
+</ul>
+<p><strong>Best Practice</strong>: Choose a time 1-2 hours before your first check-in of the day. If you review accounts at 8 AM, set sync for 6 AM.</p>
+<hr>
+<h3>Timezone Configuration</h3>
+<p><strong>What</strong>: Timezone used for sync scheduling and timestamp display</p>
+<p><strong>Detection</strong>: Automatically detected from browser</p>
+<p><strong>Override</strong>: Can manually select different timezone</p>
+<p><strong>Common Scenarios</strong>:</p>
+<pre><code>Browser timezone: PST (California)
+Sync time: 2:00 AM PST
+All clients sync at 2:00 AM Pacific time
+</code></pre>
+<p><strong>International Agencies</strong>: If managing clients across timezones, choose your primary office location timezone for consistency.</p>
+<hr>
+<h3>Sync Settings Examples</h3>
+<p><strong>Example 1: Standard Agency Setup</strong></p>
+<pre><code>Auto-Sync: Enabled
+Sync Time: 3:00 AM
+Timezone: EST (New York)
+
+Result: All clients sync at 3 AM Eastern daily
+</code></pre>
+<p><strong>Example 2: Manual Management</strong></p>
+<pre><code>Auto-Sync: Disabled
+Sync Time: N/A
+Timezone: CST
+
+Result: No automated syncs, manual sync only
+</code></pre>
+<p><strong>Example 3: International Agency</strong></p>
+<pre><code>Auto-Sync: Enabled
+Sync Time: 1:00 AM
+Timezone: GMT (London)
+
+Result: All clients sync at 1 AM GMT daily
+</code></pre>
+<hr>
+<h2>Section 3: Google Ads Connections</h2>
+<h3>What Is This Section?</h3>
+<p><strong>Purpose</strong>: View and manage Google Ads account OAuth connections</p>
+<p><strong>Shows</strong>:</p>
+<ul>
+<li>OAuth connection status</li>
+<li>Connected Google Ads accounts</li>
+<li>Account discovery status</li>
+<li>Token health</li>
+</ul>
+<hr>
+<h3>OAuth Status</h3>
+<p><strong>What You See</strong>:</p>
+<ul>
+<li>✅ <strong>Connected</strong>: OAuth working, token valid</li>
+<li>⚠️ <strong>Expiring Soon</strong>: Token refresh needed within 7 days</li>
+<li>❌ <strong>Disconnected</strong>: OAuth failed or revoked</li>
+</ul>
+<p><strong>Actions Available</strong>:</p>
+<ul>
+<li><strong>Reconnect OAuth</strong>: Re-authorize Google Ads access</li>
+<li><strong>Refresh Discovery</strong>: Rediscover available accounts</li>
+</ul>
+<hr>
+<h3>Account Discovery</h3>
+<p><strong>What</strong>: Process that finds all Google Ads accounts you have access to</p>
+<p><strong>When It Runs</strong>:</p>
+<ul>
+<li>After OAuth connection</li>
+<li>When you click <strong>Refresh Discovery</strong></li>
+<li>Automatically every 7 days</li>
+</ul>
+<p><strong>Discovery Cache</strong>: Results are cached for 24 hours to avoid hitting Google&#39;s API limits</p>
+<p><strong>How to Refresh</strong>:</p>
+<ol>
+<li>Go to Settings → Google Ads Connections</li>
+<li>Click <strong>Refresh Discovery</strong></li>
+<li>Wait 5-10 seconds for completion</li>
+<li>New accounts appear in dropdown when adding clients</li>
+</ol>
+<hr>
+<h3>Connection Health</h3>
+<p><strong>Health Indicators</strong>:</p>
+<p><strong>Healthy</strong> ✅:</p>
+<ul>
+<li>OAuth connected</li>
+<li>Token valid for 30+ days</li>
+<li>Recent successful API calls</li>
+</ul>
+<p><strong>Needs Attention</strong> ⚠️:</p>
+<ul>
+<li>Token expiring within 7 days</li>
+<li>Some API calls failing</li>
+<li>Discovery cache stale</li>
+</ul>
+<p><strong>Unhealthy</strong> ❌:</p>
+<ul>
+<li>OAuth disconnected</li>
+<li>Token expired or revoked</li>
+<li>All API calls failing</li>
+</ul>
+<p><strong>How to Fix Issues</strong>: See <a href="/docs/troubleshooting-oauth">Troubleshooting OAuth</a> guide</p>
+<p>[Screenshot: Google Ads Connections section showing healthy connection]
+<em>Green checkmark indicates healthy OAuth connection</em></p>
+<hr>
+<h2>Section 4: Email Notifications</h2>
+<p><strong>Status</strong>: Coming Soon</p>
+<p><strong>Planned Features</strong>:</p>
+<ul>
+<li>Daily digest emails (summary of alerts)</li>
+<li>Critical alert notifications</li>
+<li>Sync failure notifications</li>
+<li>Weekly performance summaries</li>
+</ul>
+<p><strong>When Available</strong>: Q1 2026 (tentative)</p>
+<hr>
+<h2>Global vs Per-Client Settings</h2>
+<h3>When to Use Global Settings</h3>
+<p><strong>Use for</strong>:</p>
+<ul>
+<li>Defaults that apply to most/all clients</li>
+<li>Business-wide information (company name, logo)</li>
+<li>Standard sync time for most accounts</li>
+<li>General industry and audience</li>
+</ul>
+<p><strong>Example</strong>: Agency managing 50 clients with similar needs</p>
+<hr>
+<h3>When to Use Per-Client Settings</h3>
+<p><strong>Use for</strong>:</p>
+<ul>
+<li>Clients with unique sync requirements</li>
+<li>Different sync times (e.g., e-commerce client needs morning sync)</li>
+<li>Custom notification preferences</li>
+<li>Special handling exceptions</li>
+</ul>
+<p><strong>Example</strong>: One client requires 6 AM sync instead of default 2 AM</p>
+<p><strong>Priority</strong>: Per-client settings always override global settings</p>
+<p><strong>Learn More</strong>: See <a href="/docs/per-client-settings">Per-Client Settings</a> guide</p>
+<hr>
+<h2>Best Practices</h2>
+<h3>Complete Your Business Profile</h3>
+<p><strong>Why</strong>: AI performance improves 3-5x with complete profile</p>
+<p><strong>Priority Fields</strong>:</p>
+<ol>
+<li>Business Goals (required for AI calibration)</li>
+<li>Target Audience (required for relevant recommendations)</li>
+<li>Industry (required for benchmarks)</li>
+<li>Company Size (optional but helpful)</li>
+</ol>
+<p><strong>Time Investment</strong>: 10 minutes upfront, months of better AI insights</p>
+<hr>
+<h3>Choose Sync Time Strategically</h3>
+<p><strong>Consider</strong>:</p>
+<ul>
+<li>When do you first check accounts? (sync 1-2 hours before)</li>
+<li>When is system least busy? (off-peak hours best)</li>
+<li>Client timezone differences? (choose your primary timezone)</li>
+</ul>
+<p><strong>Avoid</strong>:</p>
+<ul>
+<li>Peak business hours (9 AM - 5 PM)</li>
+<li>Right before important client calls</li>
+<li>Times when you&#39;re actively managing campaigns</li>
+</ul>
+<hr>
+<h3>Review Settings Quarterly</h3>
+<p><strong>What to Check</strong>:</p>
+<ul>
+<li>Business Goals still accurate?</li>
+<li>Company Size changed?</li>
+<li>Sync time still optimal?</li>
+<li>OAuth connections healthy?</li>
+</ul>
+<p><strong>When</strong>: Every 3 months or when business changes significantly</p>
+<hr>
+<h3>Keep OAuth Healthy</h3>
+<p><strong>Monitor</strong>:</p>
+<ul>
+<li>Check connection status monthly</li>
+<li>Watch for &quot;expiring soon&quot; warnings</li>
+<li>Refresh discovery if new accounts added</li>
+</ul>
+<p><strong>Proactive Maintenance</strong>:</p>
+<ul>
+<li>Reconnect OAuth before token expires</li>
+<li>Run discovery refresh after granting new account access</li>
+<li>Document OAuth reconnection process for team</li>
+</ul>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: What happens if I change sync time?</strong>
+A: New time takes effect next sync cycle. If you change from 2 AM to 6 AM today, tonight&#39;s sync will still run at 2 AM. Tomorrow it runs at 6 AM.</p>
+<p><strong>Q: Can I set different sync times for different clients?</strong>
+A: Yes, via per-client settings. Global setting is the default; per-client settings override.</p>
+<p><strong>Q: How often should I update Business Profile?</strong>
+A: Update when business goals change, company grows, or you shift target audience. Typically quarterly.</p>
+<p><strong>Q: Does changing Business Profile affect existing AI alerts?</strong>
+A: No. Only future AI analysis uses updated profile. Existing alerts remain unchanged.</p>
+<p><strong>Q: What if my OAuth expires?</strong>
+A: System automatically attempts to refresh. If refresh fails, you&#39;ll see a warning. Click &quot;Reconnect OAuth&quot; to re-authorize.</p>
+<p><strong>Q: Can multiple team members access Global Settings?</strong>
+A: Yes, all users can view. Only admin users can modify (role-based permissions).</p>
+<hr>
+<h2>Troubleshooting</h2>
+<h3>Problem: OAuth shows &quot;Disconnected&quot;</h3>
+<p><strong>Symptoms</strong>:</p>
+<ul>
+<li>Red X next to OAuth status</li>
+<li>&quot;Reconnect OAuth&quot; button visible</li>
+<li>Sync operations failing</li>
+</ul>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Click <strong>Reconnect OAuth</strong> button</li>
+<li>Complete Google authorization flow</li>
+<li>Verify connection shows ✅ Connected</li>
+<li>Run discovery refresh</li>
+</ol>
+<p><strong>If Still Failing</strong>: See <a href="/docs/troubleshooting-oauth">Troubleshooting OAuth</a></p>
+<hr>
+<h3>Problem: Sync time not changing</h3>
+<p><strong>Symptoms</strong>:</p>
+<ul>
+<li>Changed sync time in settings</li>
+<li>Sync still running at old time</li>
+</ul>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Changes take effect <strong>next sync cycle</strong>, not immediately</li>
+<li>Check you saved after changing time</li>
+<li>Verify timezone is correct (wrong timezone = wrong time)</li>
+</ul>
+<hr>
+<h3>Problem: Business Profile not saving</h3>
+<p><strong>Symptoms</strong>:</p>
+<ul>
+<li>Click Save, but form resets</li>
+<li>Changes don&#39;t persist</li>
+</ul>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Check browser console for errors (F12)</li>
+<li>Verify you&#39;re connected to internet</li>
+<li>Try refreshing page and editing again</li>
+<li>Clear browser cache if persists</li>
+</ol>
+<hr>
+<h3>Problem: Discovery shows old accounts</h3>
+<p><strong>Symptoms</strong>:</p>
+<ul>
+<li>Added new Google Ads accounts</li>
+<li>Not appearing in client dropdown</li>
+</ul>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Go to Settings → Google Ads Connections</li>
+<li>Click <strong>Refresh Discovery</strong></li>
+<li>Wait 10 seconds</li>
+<li>Check dropdown again (new accounts should appear)</li>
+</ol>
+<p><strong>Cache Note</strong>: Discovery is cached 24 hours. Refresh manually to see new accounts immediately.</p>
+<hr>
+<h2>Next Steps</h2>
+<p>Configure account-wide settings with these guides:</p>
+<ul>
+<li><strong><a href="/docs/per-client-settings">Per-Client Settings</a></strong> - Override global defaults for specific clients</li>
+<li><strong><a href="/docs/auto-sync-setup">Auto-Sync Setup</a></strong> - Detailed sync scheduling guide</li>
+<li><strong><a href="/docs/business-profile-setup">Business Profile Setup</a></strong> - Complete your profile for better AI</li>
+<li><strong><a href="/docs/troubleshooting-oauth">Troubleshooting OAuth</a></strong> - Fix Google Ads connection issues</li>
+</ul>
+<hr>
+<p><strong>Configure Global Settings now</strong> for consistent account-wide defaults</p>
+<p><strong>Complete Business Profile</strong> for 3-5x better AI performance</p>
+<p><strong>Set optimal sync time</strong> to keep data fresh without disruption</p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>

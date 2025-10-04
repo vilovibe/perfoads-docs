@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Sync Explained - PerfoAds Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="back-link">← Back to Documentation Home</a>
+            <span>PerfoAds Documentation</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Smart Sync Explained</h1>
+<p>Smart Sync is the engine that keeps your Google Ads data fresh. Instead of pulling all historical data every time (slow and wasteful), it figures out what&#39;s new since your last sync and only grabs that. This makes syncing 30x faster while staying within Google&#39;s API limits.</p>
+<p>This guide explains how it works, what data it pulls, and when to use it.</p>
+<hr>
+<h2>What You&#39;ll Learn</h2>
+<ul>
+<li>What Smart Sync is and how it&#39;s different from Full Sync</li>
+<li>How Smart Sync calculates what data to pull</li>
+<li>What 12 types of data are synced</li>
+<li>When to use Smart Sync vs Full Sync</li>
+<li>How long syncs take and why</li>
+<li>Troubleshooting sync issues</li>
+</ul>
+<p><strong>Time needed</strong>: 8 minutes to read</p>
+<hr>
+<h2>What is Smart Sync?</h2>
+<p><strong>Simple explanation</strong>: Smart Sync looks at when you last synced, then only pulls new data from that date forward.</p>
+<p><strong>Example</strong>:</p>
+<ul>
+<li>Last sync: 3 days ago</li>
+<li>Smart Sync pulls: Only the last 3 days of data</li>
+<li>Time saved: 90% faster than re-syncing all 90 days</li>
+</ul>
+<p>[Screenshot: Smart Sync progress showing &quot;Syncing last 3 days...&quot;]
+<em>Smart Sync only pulls what&#39;s new - much faster than full sync</em></p>
+<hr>
+<h2>Smart Sync vs Full Sync</h2>
+<h3>Smart Sync (Default - Use This)</h3>
+<p><strong>What it does</strong>:</p>
+<ul>
+<li>Calculates optimal date range automatically</li>
+<li>Pulls only new data since last sync</li>
+<li>Usually 2-4 minutes</li>
+</ul>
+<p><strong>When to use</strong>:</p>
+<ul>
+<li>Daily automatic syncs</li>
+<li>Quick refresh before client calls</li>
+<li>Updating recent performance data</li>
+<li>After making small changes in Google Ads</li>
+</ul>
+<p><strong>How often</strong>: Once per day is perfect</p>
+<h3>Full Sync (Use Sparingly)</h3>
+<p><strong>What it does</strong>:</p>
+<ul>
+<li>Re-syncs all historical data (typically 90 days)</li>
+<li>Ignores last sync date</li>
+<li>Usually 10-30 minutes</li>
+</ul>
+<p><strong>When to use</strong>:</p>
+<ul>
+<li>First time adding a client</li>
+<li>Data looks wrong or incomplete</li>
+<li>Major changes in Google Ads (campaign restructures)</li>
+<li>Restoring from backup</li>
+</ul>
+<p><strong>How often</strong>: Rarely - only when needed</p>
+<p>[Screenshot: Actions menu showing both Smart Sync and Full Sync options]
+<em>Smart Sync is the default - Full Sync is for special cases</em></p>
+<hr>
+<h2>How Smart Sync Calculates Date Range</h2>
+<p>Smart Sync uses smart logic to determine what data to pull:</p>
+<h3>The Calculation</h3>
+<pre><code>If never synced before:
+  Pull last 90 days (full history)
+
+If last sync was recent:
+  Start date = last sync date - 1 day buffer
+  End date = today
+  Pull everything in between
+</code></pre>
+<h3>Why the 1-Day Buffer?</h3>
+<p>Google Ads data can change retroactively:</p>
+<ul>
+<li>Conversions sometimes take hours to track</li>
+<li>Google processes clicks in batches</li>
+<li>Attribution models look back at previous days</li>
+</ul>
+<p><strong>The buffer ensures we don&#39;t miss updates to recent data.</strong></p>
+<h3>Example Scenarios</h3>
+<p><strong>Scenario 1: Daily sync</strong></p>
+<ul>
+<li>Last sync: Yesterday</li>
+<li>Smart Sync pulls: Last 2 days (yesterday + buffer)</li>
+<li>Time: ~2 minutes</li>
+</ul>
+<p><strong>Scenario 2: Missed a few days</strong></p>
+<ul>
+<li>Last sync: 5 days ago</li>
+<li>Smart Sync pulls: Last 6 days (5 days + buffer)</li>
+<li>Time: ~4 minutes</li>
+</ul>
+<p><strong>Scenario 3: First time sync</strong></p>
+<ul>
+<li>Last sync: Never</li>
+<li>Smart Sync pulls: Last 90 days (full history)</li>
+<li>Time: ~10-15 minutes</li>
+</ul>
+<p>[Screenshot: Sync logs showing calculated date range]
+<em>System logs show exactly what date range was synced</em></p>
+<hr>
+<h2>What Data Gets Synced</h2>
+<p>Smart Sync pulls 12 types of data from Google Ads:</p>
+<h3>1. Campaign Data</h3>
+<p><strong>What it includes</strong>:</p>
+<ul>
+<li>Campaign names and IDs</li>
+<li>Campaign types (Search, Display, Video, etc.)</li>
+<li>Status (active, paused, removed, ended)</li>
+<li>Budgets and bid strategies</li>
+<li>Targeting settings</li>
+<li>Campaign-level performance metrics</li>
+</ul>
+<p><strong>Why it matters</strong>: Foundation for all other data</p>
+<h3>2. Ad Group Data</h3>
+<p><strong>What it includes</strong>:</p>
+<ul>
+<li>Ad group names and IDs</li>
+<li>Parent campaign associations</li>
+<li>Status and targeting</li>
+<li>Ad group-level performance</li>
+</ul>
+<p><strong>Why it matters</strong>: Organizes keywords and ads into logical groups</p>
+<h3>3. Keyword Data</h3>
+<p><strong>What it includes</strong>:</p>
+<ul>
+<li>Keyword text and match types</li>
+<li>Bids and quality scores</li>
+<li>Status and approval</li>
+<li>Keyword performance metrics</li>
+</ul>
+<p><strong>Why it matters</strong>: Core of search advertising - where budget is spent</p>
+<h3>4. Ad Creative Data</h3>
+<p><strong>What it includes</strong>:</p>
+<ul>
+<li>Responsive search ads (headlines, descriptions)</li>
+<li>Expanded text ads (legacy)</li>
+<li>Ad copy and final URLs</li>
+<li>Ad performance metrics</li>
+</ul>
+<p><strong>Why it matters</strong>: What users actually see in search results</p>
+<h3>5. Search Term Data</h3>
+<p><strong>What it includes</strong>:</p>
+<ul>
+<li>Actual queries users typed</li>
+<li>Which keyword triggered the ad</li>
+<li>Match type that was used</li>
+<li>Query performance</li>
+</ul>
+<p><strong>Why it matters</strong>: Shows if your keywords match user intent</p>
+<h3>6. Geographic Performance</h3>
+<p><strong>What it includes</strong>:</p>
+<ul>
+<li>Performance by country, state, city</li>
+<li>Spend and conversions by location</li>
+<li>Geographic targeting effectiveness</li>
+</ul>
+<p><strong>Why it matters</strong>: Identify high-performing and low-performing regions</p>
+<h3>7. Conversion Data</h3>
+<p><strong>What it includes</strong>:</p>
+<ul>
+<li>Conversion actions configured</li>
+<li>Conversion counts and values</li>
+<li>Attribution model used</li>
+<li>Conversion by source</li>
+</ul>
+<p><strong>Why it matters</strong>: Tracks ROI and business outcomes</p>
+<h3>8. Budget Tracking</h3>
+<p><strong>What it includes</strong>:</p>
+<ul>
+<li>Daily budget limits</li>
+<li>Actual spend vs budget</li>
+<li>Budget pacing</li>
+<li>Overspend warnings</li>
+</ul>
+<p><strong>Why it matters</strong>: Prevents budget overruns</p>
+<h3>9. Quality Score Data</h3>
+<p><strong>What it includes</strong>:</p>
+<ul>
+<li>Quality score (1-10)</li>
+<li>Expected CTR rating</li>
+<li>Ad relevance rating</li>
+<li>Landing page experience rating</li>
+</ul>
+<p><strong>Why it matters</strong>: Affects ad rank and cost-per-click</p>
+<h3>10. Extensions</h3>
+<p><strong>What it includes</strong>:</p>
+<ul>
+<li>Sitelink extensions</li>
+<li>Callout extensions</li>
+<li>Call extensions</li>
+<li>Structured snippet extensions</li>
+</ul>
+<p><strong>Why it matters</strong>: Makes ads more prominent and clickable</p>
+<h3>11. Audience Data</h3>
+<p><strong>What it includes</strong>:</p>
+<ul>
+<li>Audience lists and associations</li>
+<li>Performance by audience</li>
+<li>Audience bid adjustments</li>
+</ul>
+<p><strong>Why it matters</strong>: Shows which audiences convert best</p>
+<h3>12. Campaign Settings</h3>
+<p><strong>What it includes</strong>:</p>
+<ul>
+<li>Bid strategies (manual, automated)</li>
+<li>Ad rotation settings</li>
+<li>Device targeting</li>
+<li>Ad scheduling</li>
+</ul>
+<p><strong>Why it matters</strong>: Affects how campaigns run</p>
+<p>[Screenshot: Sync progress showing all 12 data types]
+<em>You can see each data type being synced in real-time</em></p>
+<hr>
+<h2>How Long Syncs Take</h2>
+<h3>Factors Affecting Speed</h3>
+<p><strong>Account size</strong>:</p>
+<ul>
+<li>Small (1-10 campaigns): 2-4 minutes</li>
+<li>Medium (10-50 campaigns): 4-8 minutes</li>
+<li>Large (50-200 campaigns): 8-15 minutes</li>
+<li>Very large (200+ campaigns): 15-30 minutes</li>
+</ul>
+<p><strong>Date range</strong>:</p>
+<ul>
+<li>1-3 days: Very fast (1-2 minutes)</li>
+<li>7 days: Fast (2-4 minutes)</li>
+<li>30 days: Medium (5-10 minutes)</li>
+<li>90 days: Slow (10-30 minutes)</li>
+</ul>
+<p><strong>Data complexity</strong>:</p>
+<ul>
+<li>More keywords = longer sync</li>
+<li>More ad groups = longer sync</li>
+<li>More conversions = longer sync</li>
+</ul>
+<h3>Why Smart Sync is Fast</h3>
+<p><strong>Batched operations</strong>: Pulls data in batches, not one-by-one
+<strong>Parallel processing</strong>: Multiple data types synced simultaneously
+<strong>Optimized queries</strong>: Only requests needed fields
+<strong>Smart caching</strong>: Re-uses data that hasn&#39;t changed</p>
+<p><strong>Result</strong>: 30x faster than naive sync approaches</p>
+<p>[Screenshot: Comparison showing Smart Sync vs traditional sync times]
+<em>Smart Sync completes in minutes what used to take hours</em></p>
+<hr>
+<h2>When Sync Runs</h2>
+<h3>Automatic Daily Sync</h3>
+<p><strong>Default schedule</strong>: 2:00 AM your local time</p>
+<p><strong>How it works</strong>:</p>
+<ul>
+<li>System wakes up at scheduled time</li>
+<li>Runs Smart Sync on all enabled clients</li>
+<li>Processes up to 5 clients simultaneously</li>
+<li>Queues the rest until capacity available</li>
+<li>Sends email if any syncs fail</li>
+</ul>
+<p><strong>Customization</strong>: Go to Settings → Sync Schedule to change time</p>
+<h3>Manual Sync</h3>
+<p><strong>From client list</strong>:</p>
+<ol>
+<li>Click Actions (⋮) → Smart Sync</li>
+<li>Sync starts immediately</li>
+<li>Progress shows in Status column</li>
+</ol>
+<p><strong>Bulk sync</strong>:</p>
+<ol>
+<li>Select multiple clients (checkboxes)</li>
+<li>Click Bulk Actions → Sync Selected</li>
+<li>All clients queue up and sync in order</li>
+</ol>
+<p><strong>When to use</strong>: Before client calls, after Google Ads changes</p>
+<p>[Screenshot: Sync schedule settings showing time picker]
+<em>Customize when automatic syncs run</em></p>
+<hr>
+<h2>Sync Queue and Concurrency</h2>
+<h3>How the Queue Works</h3>
+<p><strong>Concurrent limit</strong>: 5 clients syncing at once</p>
+<p><strong>Why the limit</strong>:</p>
+<ul>
+<li>Google Ads API has rate limits</li>
+<li>Prevents hitting quota too fast</li>
+<li>Ensures each sync completes successfully</li>
+</ul>
+<p><strong>Queue behavior</strong>:</p>
+<ul>
+<li>Client 1-5: Start immediately</li>
+<li>Client 6+: Wait in queue</li>
+<li>As each finishes, next in queue starts</li>
+</ul>
+<h3>Checking Queue Position</h3>
+<p><strong>From client list</strong>:</p>
+<ul>
+<li>Status shows &quot;Queued (position 3)&quot; if waiting</li>
+<li>Once syncing: &quot;Syncing... 45%&quot;</li>
+<li>When done: &quot;Last synced: Just now&quot;</li>
+</ul>
+<p><strong>From sync logs</strong>:</p>
+<ul>
+<li>See all queued, active, and completed syncs</li>
+<li>Estimated wait time for queued syncs</li>
+</ul>
+<p>[Screenshot: Client list showing mix of syncing, queued, and completed statuses]
+<em>Queue ensures syncs complete successfully without hitting rate limits</em></p>
+<hr>
+<h2>Understanding Sync Progress</h2>
+<h3>Progress Indicators</h3>
+<p><strong>Percentage complete</strong>: <code>0%</code> → <code>100%</code></p>
+<ul>
+<li>Based on number of data types completed</li>
+<li>Each of 12 data types = ~8.3% progress</li>
+</ul>
+<p><strong>Current operation</strong>: <code>Syncing campaigns...</code></p>
+<ul>
+<li>Shows which data type is being pulled</li>
+<li>Updates every few seconds</li>
+</ul>
+<p><strong>Estimated time remaining</strong>: <code>~2 minutes left</code></p>
+<ul>
+<li>Based on account size and current speed</li>
+<li>Adjusts dynamically</li>
+</ul>
+<p>[Screenshot: Sync progress bar showing 67% complete, &quot;Syncing keywords...&quot;]
+<em>Real-time progress keeps you informed</em></p>
+<h3>What Happens During Sync</h3>
+<p><strong>Behind the scenes</strong>:</p>
+<ol>
+<li><strong>Authenticate</strong> - Verify Google Ads access</li>
+<li><strong>Calculate date range</strong> - Determine what to pull</li>
+<li><strong>Fetch data</strong> - Pull 12 data types from Google</li>
+<li><strong>Transform</strong> - Convert to internal format</li>
+<li><strong>Validate</strong> - Check data quality</li>
+<li><strong>Store</strong> - Save to database</li>
+<li><strong>Analyze</strong> - Trigger AI analysis</li>
+<li><strong>Complete</strong> - Update last sync time</li>
+</ol>
+<p><strong>You see</strong>: Progress bar and status updates</p>
+<hr>
+<h2>Tips &amp; Best Practices</h2>
+<h3>Daily Routine</h3>
+<p><strong>Let auto-sync handle it</strong>: Set it once, forget about it</p>
+<ul>
+<li>Sync runs overnight</li>
+<li>Data fresh when you start work</li>
+<li>No manual intervention needed</li>
+</ul>
+<p><strong>Morning check</strong>: Look for failed syncs</p>
+<ul>
+<li>Filter by Status = Failed</li>
+<li>Check Sync Logs for errors</li>
+<li>Re-sync manually if needed</li>
+</ul>
+<h3>Before Client Calls</h3>
+<p><strong>Quick refresh</strong>:</p>
+<ol>
+<li>Find client in list</li>
+<li>Smart Sync (2-4 minutes)</li>
+<li>Open client detail page</li>
+<li>You have fresh data for the call</li>
+</ol>
+<p><strong>Don&#39;t over-sync</strong>: Syncing every hour wastes API quota and provides minimal benefit</p>
+<h3>For Large Accounts</h3>
+<p><strong>Stagger sync times</strong>: Don&#39;t sync 50 clients at 2 AM</p>
+<ul>
+<li>Spread them out: 2:00 AM, 2:30 AM, 3:00 AM, etc.</li>
+<li>Reduces queue congestion</li>
+<li>Faster completion overall</li>
+</ul>
+<p><strong>Consider less frequent syncs</strong>: Some clients don&#39;t need daily updates</p>
+<ul>
+<li>Low-budget clients: Sync 2-3x per week</li>
+<li>Paused campaigns: Sync weekly or disable</li>
+<li>Test accounts: Sync manually only</li>
+</ul>
+<h3>API Quota Management</h3>
+<p><strong>Google&#39;s limits</strong>:</p>
+<ul>
+<li>15,000 operations per day (varies by account)</li>
+<li>Smart Sync uses ~200-500 operations per client</li>
+<li>You can sync 30-75 clients per day comfortably</li>
+</ul>
+<p><strong>If you hit limits</strong>:</p>
+<ul>
+<li>Reduce sync frequency</li>
+<li>Disable sync for inactive clients</li>
+<li>Spread syncs across 24 hours</li>
+<li>Contact Google to request higher quota</li>
+</ul>
+<hr>
+<h2>Common Questions</h2>
+<p><strong>Q: What&#39;s the difference between Smart Sync and Full Sync?</strong>
+A: Smart Sync only pulls new data since last sync (fast). Full Sync re-syncs all historical data (slow). Use Smart Sync 99% of the time.</p>
+<p><strong>Q: How often should I sync?</strong>
+A: Once per day is perfect for most accounts. More frequent syncing provides minimal benefit and wastes API quota.</p>
+<p><strong>Q: Can I sync while I&#39;m viewing a client&#39;s data?</strong>
+A: Yes! Sync runs in the background. The page will update automatically when new data arrives.</p>
+<p><strong>Q: What if I make changes in Google Ads - do I need to sync right away?</strong>
+A: You can, but it&#39;s not required. Changes will appear in your next scheduled sync (usually within 24 hours). If you need to see them immediately, run a manual Smart Sync.</p>
+<p><strong>Q: Does syncing use my Google Ads API quota?</strong>
+A: Yes, but Smart Sync is designed to stay well within limits. You&#39;d need to sync hundreds of clients daily to approach quota.</p>
+<p><strong>Q: What happens if sync fails?</strong>
+A: The system logs the error and you&#39;ll see &quot;Failed&quot; status. Check Sync Logs for details. Usually it&#39;s a temporary issue - try syncing again.</p>
+<p><strong>Q: Can I pause automatic syncing for a client?</strong>
+A: Yes. Go to client detail page → Settings tab → Disable &quot;Auto-sync&quot;. You can still manually sync anytime.</p>
+<hr>
+<h2>Troubleshooting Sync Issues</h2>
+<h3>Problem: Sync stuck at 0%</h3>
+<p><strong>Symptom</strong>: Progress shows 0% for 5+ minutes</p>
+<p><strong>Possible causes</strong>:</p>
+<ul>
+<li>Google Ads API is slow</li>
+<li>Large account taking time to authenticate</li>
+<li>Network connectivity issue</li>
+</ul>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Wait 10 minutes (some accounts are just slow to start)</li>
+<li>Check your internet connection</li>
+<li>If still stuck after 15 minutes, cancel and retry</li>
+<li>Check Sync Logs for error details</li>
+</ol>
+<h3>Problem: Sync fails with &quot;Permission denied&quot;</h3>
+<p><strong>Symptom</strong>: Sync starts but immediately fails with auth error</p>
+<p><strong>Possible causes</strong>:</p>
+<ul>
+<li>Google account access was revoked</li>
+<li>OAuth token expired</li>
+<li>Account permissions changed</li>
+</ul>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Go to Settings → Connected Accounts</li>
+<li>Click &quot;Reconnect Google Ads&quot;</li>
+<li>Approve all permissions</li>
+<li>Try syncing again</li>
+</ol>
+<h3>Problem: Sync completes but data looks wrong</h3>
+<p><strong>Symptom</strong>: Numbers don&#39;t match Google Ads interface</p>
+<p><strong>Possible causes</strong>:</p>
+<ul>
+<li>Google Ads shows different time zone</li>
+<li>Attribution model differences</li>
+<li>Conversion tracking lag</li>
+<li>Data not refreshed in browser</li>
+</ul>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Refresh the page (Ctrl+R or Cmd+R)</li>
+<li>Check date range - make sure it matches</li>
+<li>Compare time zones (PerfoAds uses account time zone)</li>
+<li>If still wrong, run a Full Sync to re-pull all data</li>
+</ol>
+<h3>Problem: Sync takes forever</h3>
+<p><strong>Symptom</strong>: Sync runs for 30+ minutes</p>
+<p><strong>Possible causes</strong>:</p>
+<ul>
+<li>Very large account (500+ campaigns)</li>
+<li>Running Full Sync instead of Smart Sync</li>
+<li>Google API performance issues</li>
+</ul>
+<p><strong>Solution</strong>:</p>
+<ol>
+<li>Check if you accidentally started Full Sync</li>
+<li>For huge accounts, this is normal</li>
+<li>Consider breaking into multiple client entries if manageable</li>
+<li>Contact support if syncs consistently take 45+ minutes</li>
+</ol>
+<hr>
+<h2>Next Steps</h2>
+<p>Now that you understand how Smart Sync works, explore related topics:</p>
+<ul>
+<li><strong><a href="/docs/sync-logs">Sync Logs</a></strong> - View detailed sync history and debug issues</li>
+<li><strong><a href="/docs/auto-sync-setup">Auto-Sync Setup</a></strong> - Configure automatic sync schedules</li>
+<li><strong><a href="/docs/client-details-page">Client Details Page</a></strong> - Explore the data that syncs pull</li>
+<li><strong><a href="/docs/api-tracking">API Tracking</a></strong> - Monitor your Google Ads API usage</li>
+</ul>
+<hr>
+<p><strong>Want to change your sync schedule?</strong> Go to Settings → Sync Schedule</p>
+<p><strong>Need to troubleshoot a failed sync?</strong> Check the <a href="/sync-logs">Sync Logs page</a></p>
+<p><strong>Have a huge account?</strong> Contact <a href="mailto:support@aiperfoads.xyz">support@aiperfoads.xyz</a> for optimization tips</p>
+<p><strong>Last Updated</strong>: October 4, 2025</p>
+
+        </div>
+    </div>
+</body>
+</html>
