@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What is PerfoAds? - PerfoAds Documentation</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,34 +15,113 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-blue: #126DFB;
+            --dark-text: #000000;
+            --light-gray: #6B7280;
+            --border-gray: #E5E7EB;
+            --bg-white: #FFFFFF;
+            --bg-gray: #F9FAFB;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
+            color: var(--dark-text);
+            background: var(--bg-white);
         }
 
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            position: sticky;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Geist', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
             top: 0;
+            bottom: 0;
+            width: 280px;
+            background: var(--bg-white);
+            border-right: 1px solid var(--border-gray);
+            overflow-y: auto;
             z-index: 100;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .logo {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--dark-text);
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo span {
+            font-family: 'Geist', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .nav-section {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .nav-section-title {
+            padding: 0 24px 12px;
+            font-family: 'Geist', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--light-gray);
+        }
+
+        .nav-link {
+            display: block;
+            padding: 8px 24px;
+            color: var(--dark-text);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background: var(--bg-gray);
+            color: var(--primary-blue);
+        }
+
+        .nav-link.active {
+            color: var(--primary-blue);
+            background: var(--bg-gray);
+            border-left: 3px solid var(--primary-blue);
+            padding-left: 21px;
+        }
+
+        .sidebar-footer {
+            padding: 24px;
+            margin-top: auto;
         }
 
         .back-link {
-            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-blue);
             text-decoration: none;
+            font-size: 14px;
             font-weight: 500;
         }
 
@@ -46,131 +129,167 @@
             text-decoration: underline;
         }
 
-        .container {
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 48px 64px;
             max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
         }
 
-        .content {
-            background: white;
+        .hero {
+            margin-bottom: 48px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--light-gray);
+        }
+
+        .doc-section {
+            margin-bottom: 48px;
+        }
+
+        .doc-section h2 {
+            font-size: 28px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .doc-card {
+            padding: 20px;
+            border: 1px solid var(--border-gray);
             border-radius: 8px;
-            padding: 40px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: var(--dark-text);
+            transition: all 0.2s;
         }
 
-        h1 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 2.5em;
+        .doc-card:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(18, 109, 251, 0.1);
         }
 
-        h2 {
-            color: #667eea;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
-
-        h3 {
-            color: #764ba2;
-            margin-top: 25px;
-            margin-bottom: 12px;
-            font-size: 1.4em;
-        }
-
-        p {
-            margin-bottom: 15px;
-        }
-
-        ul, ol {
-            margin-bottom: 15px;
-            margin-left: 30px;
-        }
-
-        li {
+        .doc-card h3 {
+            font-size: 16px;
+            font-weight: 600;
             margin-bottom: 8px;
         }
 
-        code {
-            background: #f5f5f5;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: 0.9em;
+        .doc-card p {
+            font-size: 14px;
+            color: var(--light-gray);
         }
 
-        pre {
-            background: #2d2d2d;
-            color: #f8f8f2;
-            padding: 20px;
-            border-radius: 5px;
-            overflow-x: auto;
-            margin-bottom: 20px;
-        }
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+            }
 
-        pre code {
-            background: none;
-            color: inherit;
-            padding: 0;
-        }
+            .sidebar.open {
+                transform: translateX(0);
+            }
 
-        blockquote {
-            border-left: 4px solid #667eea;
-            padding-left: 20px;
-            margin: 20px 0;
-            color: #666;
-            font-style: italic;
-        }
+            .main-content {
+                margin-left: 0;
+                padding: 24px;
+            }
 
-        a {
-            color: #667eea;
-            text-decoration: none;
-        }
+            .hero h1 {
+                font-size: 32px;
+            }
 
-        a:hover {
-            text-decoration: underline;
-        }
-
-        hr {
-            border: none;
-            border-top: 2px solid #e0e0e0;
-            margin: 30px 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background: #667eea;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background: #f9f9f9;
+            .doc-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
+
 </head>
 <body>
-    <div class="header">
-        <div class="header-content">
-            <a href="/" class="back-link">← Back to Documentation Home</a>
-            <span>PerfoAds Documentation</span>
-        </div>
-    </div>
 
-    <div class="container">
-        <div class="content">
-            <h1>What is PerfoAds?</h1>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://www.perfoads.com" class="logo">
+                <img src="/logo.png" alt="PerfoAds">
+                <span>PerfoAds</span>
+            </a>
+        </div>
+
+        <nav>
+            <div class="nav-section">
+                <div class="nav-section-title">Getting Started</div>
+                <a href="/phase-1-essential/01-what-is-perfoads.html" class="nav-link">What is PerfoAds?</a>
+                <a href="/phase-1-essential/02-quick-start-guide.html" class="nav-link">Quick Start Guide</a>
+                <a href="/phase-1-essential/03-adding-first-client.html" class="nav-link">Adding Your First Client</a>
+                <a href="/phase-1-essential/04-understanding-dashboard.html" class="nav-link">Understanding the Dashboard</a>
+                <a href="/phase-1-essential/05-smart-sync-explained.html" class="nav-link">Smart Sync Explained</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Core Features</div>
+                <a href="/phase-2-core-features/01-client-list-overview.html" class="nav-link">Client List Overview</a>
+                <a href="/phase-2-core-features/02-client-details-page.html" class="nav-link">Client Details Page</a>
+                <a href="/phase-2-core-features/03-bulk-operations.html" class="nav-link">Bulk Operations</a>
+                <a href="/phase-2-core-features/04-sync-system-guide.html" class="nav-link">Sync System Guide</a>
+                <a href="/phase-2-core-features/05-auto-sync-setup.html" class="nav-link">Auto-Sync Setup</a>
+                <a href="/phase-2-core-features/06-sync-logs.html" class="nav-link">Sync Logs</a>
+                <a href="/phase-2-core-features/07-metrics-glossary.html" class="nav-link">Metrics Glossary</a>
+                <a href="/phase-2-core-features/08-performance-charts.html" class="nav-link">Performance Charts Guide</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">AI Features</div>
+                <a href="/phase-3-ai-features/01-smart-alerts-intro.html" class="nav-link">Smart Alerts Introduction</a>
+                <a href="/phase-3-ai-features/02-alert-severity-guide.html" class="nav-link">Alert Severity Guide</a>
+                <a href="/phase-3-ai-features/03-alert-categories.html" class="nav-link">Alert Categories Guide</a>
+                <a href="/phase-3-ai-features/04-accept-decline-workflow.html" class="nav-link">Accept/Decline Workflow</a>
+                <a href="/phase-3-ai-features/05-ai-chat-getting-started.html" class="nav-link">AI Chat - Getting Started</a>
+                <a href="/phase-3-ai-features/06-ai-chat-templates.html" class="nav-link">AI Chat Templates</a>
+                <a href="/phase-3-ai-features/07-ai-context-explained.html" class="nav-link">AI Context Explained</a>
+                <a href="/phase-3-ai-features/08-business-profile-setup.html" class="nav-link">Business Profile Setup</a>
+                <a href="/phase-3-ai-features/09-custom-context-entries.html" class="nav-link">Custom Context Entries</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Advanced</div>
+                <a href="/phase-4-advanced/01-global-settings.html" class="nav-link">Global Settings</a>
+                <a href="/phase-4-advanced/02-per-client-settings.html" class="nav-link">Per-Client Settings</a>
+                <a href="/phase-4-advanced/03-column-customization.html" class="nav-link">Column Customization</a>
+                <a href="/phase-4-advanced/04-export-reports.html" class="nav-link">Export Reports</a>
+                <a href="/phase-4-advanced/05-troubleshooting-sync.html" class="nav-link">Troubleshooting: Sync Issues</a>
+                <a href="/phase-4-advanced/06-troubleshooting-oauth.html" class="nav-link">Troubleshooting: OAuth Issues</a>
+                <a href="/phase-4-advanced/07-troubleshooting-general.html" class="nav-link">Troubleshooting: General</a>
+                <a href="/phase-4-advanced/08-technical-dual-api.html" class="nav-link">Technical: Dual API Architecture</a>
+                <a href="/phase-4-advanced/09-technical-architecture.html" class="nav-link">Technical: System Architecture</a>
+                <a href="/phase-4-advanced/10-technical-security.html" class="nav-link">Technical: Security</a>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="https://www.perfoads.com" class="back-link">
+                ← Back to PerfoAds
+            </a>
+        </div>
+    </aside>
+    <main class="main-content">
+        <div class="content"><h1>What is PerfoAds?</h1>
 <p>PerfoAds is your AI-powered assistant for managing Google Ads accounts. Instead of spending hours pulling reports and analyzing data, the system does it automatically - syncing your data, spotting problems, and suggesting fixes.</p>
 <p>Think of it as having a Google Ads expert watching all your client accounts 24/7, catching issues before they become expensive.</p>
 <hr>
@@ -322,10 +441,9 @@ A: Yes. We use OAuth (Google&#39;s secure login), encrypt all data, and only sto
 </ul>
 <hr>
 <p><strong>Ready to dive in?</strong> Head to the <a href="/docs/quick-start-guide">Quick Start Guide</a> →</p>
-<p><strong>Need help?</strong> Contact support at <a href="mailto:support@aiperfoads.xyz">support@aiperfoads.xyz</a></p>
+<p><strong>Need help?</strong> Contact support at <a href="mailto:contact@perfoads.com">contact@perfoads.com</a></p>
 <p><strong>Last Updated</strong>: October 4, 2025</p>
-
-        </div>
-    </div>
+</div>
+    </main>
 </body>
 </html>
