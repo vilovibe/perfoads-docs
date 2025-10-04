@@ -4,6 +4,9 @@
 
 Welcome to the PerfoAds documentation. Navigate using the sections below.
 
+> **📍 Deployment Status:** This documentation is deployed and live at [docs.perfoads.com](https://docs.perfoads.com)
+> **📦 Repository:** This is a separate repository from the main PerfoAds application
+
 ---
 
 ## 📚 Getting Started
