@@ -16,7 +16,7 @@
         }
 
         :root {
-            --footer-bg: #0F172A;
+            --footer-bg: #FFFFFF;
             --primary-blue: #126DFB;
             --dark-text: #000000;
             --light-gray: #6B7280;
@@ -52,7 +52,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 64px;
+            padding: 0 96px;
             z-index: 1000;
         }
 
@@ -79,7 +79,7 @@
         .header-nav {
             display: flex;
             align-items: center;
-            gap: 32px;
+            gap: 24px;
         }
 
         .header-nav a {
@@ -107,6 +107,8 @@
             font-size: 16px;
             transition: all 0.2s;
             white-space: nowrap;
+            max-width: 204px;
+            text-align: center;
         }
 
         .header-cta:hover {
@@ -117,9 +119,9 @@
         /* Footer CSS */
         .footer {
             background: var(--footer-bg);
-            color: white;
+            color: var(--dark-text);
             margin-left: 280px;
-            padding: 64px;
+            padding: 48px 96px;
         }
 
         .footer-content {
