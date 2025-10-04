@@ -242,10 +242,10 @@ A: No. PerfoAds only reads data - it never makes changes to your campaigns, bids
 
 You're all set! Here's what to explore next:
 
-- **[Adding Your First Client](/docs/adding-first-client)** - Detailed walkthrough with advanced options
-- **[Understanding the Dashboard](/docs/understanding-dashboard)** - Learn what every metric means
-- **[Smart Sync Explained](/docs/smart-sync-explained)** - How the sync system works under the hood
-- **[Smart Alerts Intro](/docs/smart-alerts-intro)** - Start getting AI-powered optimization suggestions
+- **[Adding Your First Client](03-adding-first-client.html)** - Detailed walkthrough with advanced options
+- **[Understanding the Dashboard](04-understanding-dashboard.html)** - Learn what every metric means
+- **[Smart Sync Explained](05-smart-sync-explained.html)** - How the sync system works under the hood
+- **[Smart Alerts Intro](../phase-3-ai-features/01-smart-alerts-intro.html)** - Start getting AI-powered optimization suggestions
 
 ---
 

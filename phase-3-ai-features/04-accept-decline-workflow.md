@@ -703,10 +703,10 @@ A: Yes, but not recommended. Better to Acknowledge if you need time, then Accept
 
 Optimize alert usage with these guides:
 
-- **[Smart Alerts Intro](/docs/smart-alerts-intro)** - How alerts work overall
-- **[Alert Severity](/docs/alert-severity-guide)** - Understanding the 1-10 scale
-- **[Alert Categories](/docs/alert-categories)** - All 8 categories explained
-- **[AI Chat](/docs/ai-chat-getting-started)** - Ask AI about specific alerts
+- **[Smart Alerts Intro](01-smart-alerts-intro.html)** - How alerts work overall
+- **[Alert Severity](02-alert-severity-guide.html)** - Understanding the 1-10 scale
+- **[Alert Categories](03-alert-categories.html)** - All 8 categories explained
+- **[AI Chat](05-ai-chat-getting-started.html)** - Ask AI about specific alerts
 
 ---
 

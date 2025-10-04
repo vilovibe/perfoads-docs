@@ -585,10 +585,10 @@ A: Only when you need fresh data before a client call or after making changes in
 
 Now that your first client is set up, here's what to explore:
 
-- **[Understanding the Dashboard](/docs/understanding-dashboard)** - Learn what every metric and chart means
-- **[Smart Sync Explained](/docs/smart-sync-explained)** - How the sync system works behind the scenes
-- **[Smart Alerts Intro](/docs/smart-alerts-intro)** - Start acting on AI recommendations
-- **[Client Details Page](/docs/client-details-page)** - Explore everything on the client page
+- **[Understanding the Dashboard](04-understanding-dashboard.html)** - Learn what every metric and chart means
+- **[Smart Sync Explained](05-smart-sync-explained.html)** - How the sync system works behind the scenes
+- **[Smart Alerts Intro](../phase-3-ai-features/01-smart-alerts-intro.html)** - Start acting on AI recommendations
+- **[Client Details Page](../phase-2-core-features/02-client-details-page.html)** - Explore everything on the client page
 
 ---
 

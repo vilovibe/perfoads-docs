@@ -748,10 +748,10 @@ Alerts don't auto-dismiss - you must accept/decline to clear them
 
 Master AI-powered optimization with these guides:
 
-- **[Alert Severity Guide](/docs/alert-severity-guide)** - Deep dive into the 1-10 scale
-- **[Alert Categories](/docs/alert-categories)** - All 8 categories explained in detail
-- **[Accept/Decline Workflow](/docs/accept-decline-workflow)** - How to action alerts
-- **[AI Chat](/docs/ai-chat-getting-started)** - Ask AI questions about alerts
+- **[Alert Severity Guide](02-alert-severity-guide.html)** - Deep dive into the 1-10 scale
+- **[Alert Categories](03-alert-categories.html)** - All 8 categories explained in detail
+- **[Accept/Decline Workflow](04-accept-decline-workflow.html)** - How to action alerts
+- **[AI Chat](05-ai-chat-getting-started.html)** - Ask AI questions about alerts
 
 ---
 

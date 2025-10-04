@@ -733,9 +733,9 @@ A: "Performance Summary" - gives you overview to understand what's next.
 
 ## Next Steps
 
-- **[AI Chat Getting Started](/docs/ai-chat-getting-started)** - How to use AI Chat
-- **[AI Context Explained](/docs/ai-context-explained)** - What data AI sees
-- **[Business Profile](/docs/business-profile-setup)** - Improve AI context
+- **[AI Chat Getting Started](05-ai-chat-getting-started.html)** - How to use AI Chat
+- **[AI Context Explained](07-ai-context-explained.html)** - What data AI sees
+- **[Business Profile](08-business-profile-setup.html)** - Improve AI context
 
 ---
 

@@ -145,13 +145,13 @@ A: Yes. We use OAuth (Google's secure login), encrypt all data, and only store w
 
 Now that you know what PerfoAds does, here's how to get started:
 
-- **[Quick Start Guide](/docs/quick-start-guide)** - Set up your first client in 5 minutes
-- **[Adding Your First Client](/docs/adding-first-client)** - Step-by-step walkthrough
-- **[Understanding the Dashboard](/docs/understanding-dashboard)** - Learn the interface
+- **[Quick Start Guide](02-quick-start-guide.html)** - Set up your first client in 5 minutes
+- **[Adding Your First Client](03-adding-first-client.html)** - Step-by-step walkthrough
+- **[Understanding the Dashboard](04-understanding-dashboard.html)** - Learn the interface
 
 ---
 
-**Ready to dive in?** Head to the [Quick Start Guide](/docs/quick-start-guide) →
+**Ready to dive in?** Head to the [Quick Start Guide](02-quick-start-guide.html) →
 
 **Need help?** Contact support at support@aiperfoads.xyz
 

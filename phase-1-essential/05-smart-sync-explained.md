@@ -84,15 +84,9 @@ Smart Sync uses smart logic to determine what data to pull:
 
 ### The Calculation
 
-```
-If never synced before:
-  Pull last 90 days (full history)
-
-If last sync was recent:
-  Start date = last sync date - 1 day buffer
-  End date = today
-  Pull everything in between
-```
+Smart Sync automatically determines the optimal date range:
+- **First sync**: Pulls last 90 days of data
+- **Subsequent syncs**: Pulls only data that changed since last sync (with 1-day buffer for accuracy)
 
 ### Why the 1-Day Buffer?
 
@@ -376,17 +370,7 @@ Smart Sync pulls 12 types of data from Google Ads:
 
 ### What Happens During Sync
 
-**Behind the scenes**:
-1. **Authenticate** - Verify Google Ads access
-2. **Calculate date range** - Determine what to pull
-3. **Fetch data** - Pull 12 data types from Google
-4. **Transform** - Convert to internal format
-5. **Validate** - Check data quality
-6. **Store** - Save to database
-7. **Analyze** - Trigger AI analysis
-8. **Complete** - Update last sync time
-
-**You see**: Progress bar and status updates
+PerfoAds connects to Google Ads, downloads your latest performance data, and updates your dashboard with fresh metrics. You'll see a progress bar showing real-time updates as the sync completes.
 
 ---
 
@@ -426,18 +410,7 @@ Smart Sync pulls 12 types of data from Google Ads:
 - Paused campaigns: Sync weekly or disable
 - Test accounts: Sync manually only
 
-### API Quota Management
-
-**Google's limits**:
-- 15,000 operations per day (varies by account)
-- Smart Sync uses ~200-500 operations per client
-- You can sync 30-75 clients per day comfortably
-
-**If you hit limits**:
-- Reduce sync frequency
-- Disable sync for inactive clients
-- Spread syncs across 24 hours
-- Contact Google to request higher quota
+Smart Sync is designed to be efficient with Google's API limits. If you're syncing many clients frequently and notice slower performance, consider reducing sync frequency for less active clients or spreading syncs throughout the day.
 
 ---
 
@@ -462,7 +435,7 @@ A: Yes, but Smart Sync is designed to stay well within limits. You'd need to syn
 A: The system logs the error and you'll see "Failed" status. Check Sync Logs for details. Usually it's a temporary issue - try syncing again.
 
 **Q: Can I pause automatic syncing for a client?**
-A: Yes. Go to client detail page → Settings tab → Disable "Auto-sync". You can still manually sync anytime.
+A: Auto-sync is controlled globally in Settings. You can disable it for all clients, but there is no per-client auto-sync control.
 
 ---
 
@@ -535,16 +508,15 @@ A: Yes. Go to client detail page → Settings tab → Disable "Auto-sync". You c
 
 Now that you understand how Smart Sync works, explore related topics:
 
-- **[Sync Logs](/docs/sync-logs)** - View detailed sync history and debug issues
-- **[Auto-Sync Setup](/docs/auto-sync-setup)** - Configure automatic sync schedules
-- **[Client Details Page](/docs/client-details-page)** - Explore the data that syncs pull
-- **[API Tracking](/docs/api-tracking)** - Monitor your Google Ads API usage
+- **[Sync Logs](../phase-2-core-features/06-sync-logs.html)** - View detailed sync history and debug issues
+- **[Auto-Sync Setup](../phase-2-core-features/05-auto-sync-setup.html)** - Configure automatic sync schedules
+- **[Client Details Page](../phase-2-core-features/02-client-details-page.html)** - Explore the data that syncs pull
 
 ---
 
 **Want to change your sync schedule?** Go to Settings → Sync Schedule
 
-**Need to troubleshoot a failed sync?** Check the [Sync Logs page](/sync-logs)
+**Need to troubleshoot a failed sync?** Check the [Sync Logs page](../phase-2-core-features/06-sync-logs.html)
 
 **Have a huge account?** Contact support@aiperfoads.xyz for optimization tips
 

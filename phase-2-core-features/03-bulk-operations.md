@@ -459,7 +459,6 @@ Add multiple clients from Google Ads account discovery at once.
 **Within 24 hours**:
 1. Add business profiles for each
 2. Set monthly budgets
-3. Configure per-client sync schedules
 4. Check for initial AI alerts
 
 **Within first week**:
@@ -601,12 +600,10 @@ Batch 3 (low priority): Remaining clients
 - Fresh data by 9 AM PST
 
 **International clients**:
-- Set per-client sync times
 - Respect local business hours
 
 **Implementation**:
 1. Tag clients by timezone
-2. Use per-client sync settings
 3. Or manually batch sync at different times
 
 ---
@@ -722,7 +719,7 @@ A: No, bulk operations apply the same action to all selected clients. For mixed 
 A: Syncs continue on the server. When you reload, you'll see updated statuses. The queue keeps processing.
 
 **Q: Can I schedule bulk syncs to run automatically?**
-A: Not currently. Use auto-sync per-client settings instead. Bulk sync is for manual operations.
+A: No. Bulk sync affects all selected clients. Use global sync settings in Settings page.
 
 **Q: If a bulk sync fails for one client, do the others keep going?**
 A: Yes, each client syncs independently. One failure doesn't affect others.
@@ -802,10 +799,10 @@ A: Queued syncs are user-specific and will be canceled. Active syncs complete, b
 
 Master bulk operations and explore related workflows:
 
-- **[Sync System Guide](/docs/sync-system-guide)** - Deep dive into sync mechanics
-- **[Auto-Sync Setup](/docs/auto-sync-setup)** - Configure automated syncing
-- **[Sync Logs](/docs/sync-logs)** - Troubleshoot sync issues
-- **[Client List Overview](/docs/client-list-overview)** - Advanced list management
+- **[Sync System Guide](04-sync-system-guide.html)** - Deep dive into sync mechanics
+- **[Auto-Sync Setup](05-auto-sync-setup.html)** - Configure automated syncing
+- **[Sync Logs](06-sync-logs.html)** - Troubleshoot sync issues
+- **[Client List Overview](01-client-list-overview.html)** - Advanced list management
 
 ---
 

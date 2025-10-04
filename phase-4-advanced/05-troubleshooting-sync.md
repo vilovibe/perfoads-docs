@@ -578,10 +578,10 @@ A: No. Sync is read-only. It pulls data but never modifies campaigns.
 
 Resolve sync issues and optimize data flow with these guides:
 
-- **[Smart Sync Explained](/docs/smart-sync-explained)** - How sync works
-- **[Sync Logs](/docs/sync-logs)** - Detailed log reading guide
-- **[Auto-Sync Setup](/docs/auto-sync-setup)** - Configure automated syncs
-- **[Troubleshooting OAuth](/docs/troubleshooting-oauth)** - Fix Google Ads connection issues
+- **[Smart Sync Explained](../phase-1-essential/05-smart-sync-explained.html)** - How sync works
+- **[Sync Logs](../phase-2-core-features/06-sync-logs.html)** - Detailed log reading guide
+- **[Auto-Sync Setup](../phase-2-core-features/05-auto-sync-setup.html)** - Configure automated syncs
+- **[Troubleshooting OAuth](06-troubleshooting-oauth.html)** - Fix Google Ads connection issues
 
 ---
 

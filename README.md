@@ -40,15 +40,9 @@ Welcome to the PerfoAds documentation. Navigate using the sections below.
 ## ⚙️ Advanced
 
 - [Global Settings](phase-4-advanced/01-global-settings.md)
-- [Per-Client Settings](phase-4-advanced/02-per-client-settings.md)
-- [Column Customization](phase-4-advanced/03-column-customization.md)
-- [Export Reports](phase-4-advanced/04-export-reports.md)
 - [Troubleshooting: Sync Issues](phase-4-advanced/05-troubleshooting-sync.md)
 - [Troubleshooting: OAuth Issues](phase-4-advanced/06-troubleshooting-oauth.md)
 - [Troubleshooting: General](phase-4-advanced/07-troubleshooting-general.md)
-- [Technical: Dual API Architecture](phase-4-advanced/08-technical-dual-api.md)
-- [Technical: System Architecture](phase-4-advanced/09-technical-architecture.md)
-- [Technical: Security](phase-4-advanced/10-technical-security.md)
 
 ---
 

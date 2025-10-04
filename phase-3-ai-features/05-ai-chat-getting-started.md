@@ -762,10 +762,10 @@ Be specific for specific answers
 
 Master AI Chat with these guides:
 
-- **[AI Chat Templates](/docs/ai-chat-templates)** - All templates explained
-- **[AI Context Explained](/docs/ai-context-explained)** - What data AI sees
-- **[Business Profile Setup](/docs/business-profile-setup)** - Give AI more context
-- **[Smart Alerts](/docs/smart-alerts-intro)** - AI's proactive insights
+- **[AI Chat Templates](06-ai-chat-templates.html)** - All templates explained
+- **[AI Context Explained](07-ai-context-explained.html)** - What data AI sees
+- **[Business Profile Setup](08-business-profile-setup.html)** - Give AI more context
+- **[Smart Alerts](01-smart-alerts-intro.html)** - AI's proactive insights
 
 ---
 
@@ -773,6 +773,5 @@ Master AI Chat with these guides:
 
 **Try Quick Action templates** for common questions
 
-**Export conversations** to share with clients
 
 **Last Updated**: October 4, 2025

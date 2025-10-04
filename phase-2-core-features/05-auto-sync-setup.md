@@ -1,6 +1,6 @@
 ---
 title: Auto-Sync Setup
-description: Configure automatic daily syncing - set schedules, manage timezones, and customize per-client sync preferences
+description: Configure automatic daily syncing - set schedules, manage timezones
 category: core-features
 phase: 2
 order: 05
@@ -8,14 +8,13 @@ order: 05
 
 # Auto-Sync Setup
 
-Auto-sync runs Smart Sync automatically on a schedule you choose. Set it up once and your client data stays fresh every day - no manual work required. This guide shows you how to configure global and per-client sync schedules.
+Auto-sync runs Smart Sync automatically on a schedule you choose. Set it up once and your client data stays fresh every day - no manual work required. This guide shows you how to configure global sync schedules.
 
 ---
 
 ## What You'll Learn
 
 - Setting up global auto-sync schedules
-- Configuring per-client custom sync times
 - Managing timezones for multi-region portfolios
 - Staggering syncs to avoid queue congestion
 - Enabling and disabling auto-sync
@@ -179,7 +178,6 @@ What happens:
 
 **What happens**:
 - All clients with auto-sync enabled will sync at this time
-- Clients with custom schedules use their own times
 - Disabled clients are skipped
 
 [Screenshot: Auto-sync enabled with green toggle]
@@ -187,81 +185,6 @@ What happens:
 
 ---
 
-## Per-Client Auto-Sync Settings
-
-### Why Override Global Settings
-
-**Use cases**:
-
-**Different timezone client**:
-- Global: 2 AM EST
-- West Coast client: Override to 2 AM PST (5 AM EST)
-- Reason: Sync during their night, not yours
-
-**High-priority client**:
-- Global: Once daily
-- This client: Twice daily (if future feature)
-- Reason: Needs more frequent updates
-
-**Inactive client**:
-- Global: Daily
-- This client: Disabled
-- Reason: Campaigns paused, no need to sync
-
-**Low-budget client**:
-- Global: Daily
-- This client: Every 3 days
-- Reason: Saves API quota
-
----
-
-### Accessing Per-Client Settings
-
-**Path**: Client Details → Settings Tab
-
-**What you'll see**:
-- "Override global sync settings" toggle
-- Custom sync time picker
-- Custom timezone selector
-- Enable/disable auto-sync for this client
-
-[Screenshot: Per-client sync settings]
-*Customize sync behavior for individual clients*
-
----
-
-### Overriding Global Schedule
-
-**Steps**:
-1. Open client details page
-2. Go to Settings tab
-3. Toggle "Override global settings" to ON
-4. Set custom sync time
-5. Set custom timezone (optional)
-6. Click Save
-
-**Result**:
-- This client ignores global settings
-- Uses custom schedule instead
-- Other clients unaffected
-
-**Example**:
-```
-Global setting: 2:00 AM EST
-Client A: Uses global (2:00 AM EST)
-Client B: Override to 6:00 AM PST (9:00 AM EST)
-Client C: Override to disabled (never auto-syncs)
-
-What happens:
-2:00 AM EST: Client A syncs
-9:00 AM EST: Client B syncs
-Never:       Client C doesn't auto-sync
-```
-
-[Screenshot: Override toggle enabled with custom settings]
-*Per-client overrides give you flexibility*
-
----
 
 ## Sync Staggering Strategies
 
@@ -295,7 +218,6 @@ Never:       Client C doesn't auto-sync
 **Implementation**:
 1. Group clients in batches of 5
 2. Set each batch 15 minutes apart
-3. Use per-client overrides
 
 **Time to sync 50 clients**:
 ```
@@ -405,15 +327,6 @@ Action Required:
 - Temporarily troubleshooting
 - Testing manual sync workflows
 
-**How to disable**:
-1. Go to client Settings tab
-2. Toggle "Enable auto-sync" to OFF
-3. Save
-
-**Result**:
-- This client skipped in auto-sync
-- Can still manually sync anytime
-- No API quota used for this client
 
 ---
 
@@ -665,10 +578,10 @@ A: Not yet, but email notifications are coming soon. For now, check Sync Logs da
 
 Perfect your sync setup with these guides:
 
-- **[Sync System Guide](/docs/sync-system-guide)** - Understand how syncing works
-- **[Sync Logs](/docs/sync-logs)** - Monitor and troubleshoot syncs
-- **[Bulk Operations](/docs/bulk-operations)** - Manage multiple clients efficiently
-- **[Smart Sync Explained](/docs/smart-sync-explained)** - Learn about Smart Sync
+- **[Sync System Guide](04-sync-system-guide.html)** - Understand how syncing works
+- **[Sync Logs](06-sync-logs.html)** - Monitor and troubleshoot syncs
+- **[Bulk Operations](03-bulk-operations.html)** - Manage multiple clients efficiently
+- **[Smart Sync Explained](../phase-1-essential/05-smart-sync-explained.html)** - Learn about Smart Sync
 
 ---
 

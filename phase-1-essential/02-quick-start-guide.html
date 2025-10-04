@@ -22,6 +22,7 @@
             --border-gray: #E5E7EB;
             --bg-white: #FFFFFF;
             --bg-gray: #F9FAFB;
+            --footer-bg: #0F172A;
         }
 
         body {
@@ -29,6 +30,7 @@
             line-height: 1.6;
             color: var(--dark-text);
             background: var(--bg-white);
+            padding-top: 80px;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -37,11 +39,178 @@
             letter-spacing: -0.03em;
         }
 
-        /* Sidebar */
-        .sidebar {
+        /* Top Header - Landing Page Style */
+        .top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-gray);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 64px;
+            z-index: 1000;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--dark-text);
+        }
+
+        .header-logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .header-logo span {
+            font-family: 'Geist', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .header-nav a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .header-nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        .header-cta {
+            background: var(--primary-blue);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .header-cta:hover {
+            background: #0E5AD6;
+            transform: translateY(-1px);
+        }
+
+        /* Footer - Landing Page Style */
+        .footer {
+            background: var(--footer-bg);
+            color: white;
+            margin-left: 280px;
+            padding: 64px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 64px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand h4 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            color: #94A3B8;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .footer-cta {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+            margin-bottom: 24px;
+        }
+
+        .footer-cta:hover {
+            background: #0E5AD6;
+            transform: translateY(-1px);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-social a:hover {
+            color: white;
+        }
+
+        .footer-section h5 {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+            color: #94A3B8;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .footer-bottom {
+            background: var(--footer-bg);
+            color: #94A3B8;
+            text-align: center;
+            padding: 24px 64px;
+            margin-left: 280px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+
+.sidebar {
             position: fixed;
             left: 0;
-            top: 0;
+            top: 80px;
             bottom: 0;
             width: 280px;
             background: var(--bg-white);
@@ -49,6 +218,33 @@
             overflow-y: auto;
             z-index: 100;
         }
+
+        /* Mobile Responsive */
+
+@media (max-width: 768px) {
+            .top-header {
+                padding: 0 24px;
+            }
+
+            .header-nav {
+                display: none;
+            }
+
+            .footer {
+                margin-left: 0;
+                padding: 48px 24px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                margin-left: 0;
+                padding: 24px;
+            }
+
 
         .sidebar-header {
             padding: 24px;
@@ -194,6 +390,129 @@
             color: var(--light-gray);
         }
 
+        /* Content Styling */
+        .content {
+            max-width: 800px;
+        }
+
+        .content h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-top: 48px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .content h1:first-child {
+            margin-top: 80px;
+        }
+
+        .content h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 48px;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .content h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 36px;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .content h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+
+        .content p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .content ul, .content ol {
+            margin-bottom: 24px;
+            padding-left: 28px;
+        }
+
+        .content li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .content hr {
+            border: none;
+            border-top: 1px solid var(--border-gray);
+            margin: 48px 0;
+        }
+
+        .content pre {
+            background: var(--bg-gray);
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+        }
+
+        .content code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .content p code {
+            background: var(--bg-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+
+        .content blockquote {
+            border-left: 4px solid var(--primary-blue);
+            padding-left: 20px;
+            margin: 24px 0;
+            color: var(--light-gray);
+        }
+
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+        }
+
+        .content th, .content td {
+            border: 1px solid var(--border-gray);
+            padding: 12px;
+            text-align: left;
+        }
+
+        .content th {
+            background: var(--bg-gray);
+            font-weight: 600;
+        }
+
+        .content a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .content a:hover {
+            text-decoration: underline;
+        }
+
+        .content strong {
+            font-weight: 600;
+        }
+
+        .content em {
+            font-style: italic;
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .sidebar {
@@ -217,11 +536,39 @@
             .doc-grid {
                 grid-template-columns: 1fr;
             }
+
+            .content h1 {
+                font-size: 28px;
+            }
+
+            .content h2 {
+                font-size: 24px;
+            }
+
+            .content h3 {
+                font-size: 20px;
+            }
         }
     </style>
 
 </head>
 <body>
+
+    <!-- Top Header - Landing Page Style -->
+    <header class="top-header">
+        <a href="https://www.perfoads.com" class="header-logo">
+            <img src="/logo.png" alt="PerfoAds">
+            <span>PerfoAds</span>
+        </a>
+        <nav class="header-nav">
+            <a href="https://www.perfoads.com/#features">Features</a>
+            <a href="https://www.perfoads.com/#benefits">Benefits</a>
+            <a href="https://www.perfoads.com/#pricing">Pricing</a>
+            <a href="/">Documentation</a>
+        </nav>
+        <a href="https://www.perfoads.com/#pricing" class="header-cta">Transform my Business</a>
+    </header>
+
 
     <!-- Sidebar -->
     <aside class="sidebar">
@@ -270,15 +617,9 @@
             <div class="nav-section">
                 <div class="nav-section-title">Advanced</div>
                 <a href="/phase-4-advanced/01-global-settings.html" class="nav-link">Global Settings</a>
-                <a href="/phase-4-advanced/02-per-client-settings.html" class="nav-link">Per-Client Settings</a>
-                <a href="/phase-4-advanced/03-column-customization.html" class="nav-link">Column Customization</a>
-                <a href="/phase-4-advanced/04-export-reports.html" class="nav-link">Export Reports</a>
                 <a href="/phase-4-advanced/05-troubleshooting-sync.html" class="nav-link">Troubleshooting: Sync Issues</a>
                 <a href="/phase-4-advanced/06-troubleshooting-oauth.html" class="nav-link">Troubleshooting: OAuth Issues</a>
                 <a href="/phase-4-advanced/07-troubleshooting-general.html" class="nav-link">Troubleshooting: General</a>
-                <a href="/phase-4-advanced/08-technical-dual-api.html" class="nav-link">Technical: Dual API Architecture</a>
-                <a href="/phase-4-advanced/09-technical-architecture.html" class="nav-link">Technical: System Architecture</a>
-                <a href="/phase-4-advanced/10-technical-security.html" class="nav-link">Technical: Security</a>
             </div>
         </nav>
 
@@ -483,10 +824,10 @@ A: No. PerfoAds only reads data - it never makes changes to your campaigns, bids
 <h2>Next Steps</h2>
 <p>You&#39;re all set! Here&#39;s what to explore next:</p>
 <ul>
-<li><strong><a href="/docs/adding-first-client">Adding Your First Client</a></strong> - Detailed walkthrough with advanced options</li>
-<li><strong><a href="/docs/understanding-dashboard">Understanding the Dashboard</a></strong> - Learn what every metric means</li>
-<li><strong><a href="/docs/smart-sync-explained">Smart Sync Explained</a></strong> - How the sync system works under the hood</li>
-<li><strong><a href="/docs/smart-alerts-intro">Smart Alerts Intro</a></strong> - Start getting AI-powered optimization suggestions</li>
+<li><strong><a href="03-adding-first-client.html">Adding Your First Client</a></strong> - Detailed walkthrough with advanced options</li>
+<li><strong><a href="04-understanding-dashboard.html">Understanding the Dashboard</a></strong> - Learn what every metric means</li>
+<li><strong><a href="05-smart-sync-explained.html">Smart Sync Explained</a></strong> - How the sync system works under the hood</li>
+<li><strong><a href="../phase-3-ai-features/01-smart-alerts-intro.html">Smart Alerts Intro</a></strong> - Start getting AI-powered optimization suggestions</li>
 </ul>
 <hr>
 <p><strong>Ready to add more clients?</strong> Click <strong>Add Client</strong> and repeat Step 2-3 for each account.</p>
@@ -495,5 +836,42 @@ A: No. PerfoAds only reads data - it never makes changes to your campaigns, bids
 <p><strong>Last Updated</strong>: October 4, 2025</p>
 </div>
     </main>
+
+    <!-- Footer - Landing Page Style -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h4>PerfoAds</h4>
+                <p>AI that doesn't just spot trends. It understands your clients' businesses and tells you exactly what matters.</p>
+                <a href="https://www.perfoads.com/#pricing" class="footer-cta">Transform my Business</a>
+                <div class="footer-social">
+                    <a href="https://x.com/">Twitter/X</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h5>Sections</h5>
+                <div class="footer-links">
+                    <a href="https://www.perfoads.com/#features">Features</a>
+                    <a href="https://www.perfoads.com/#benefits">Benefits</a>
+                    <a href="https://www.perfoads.com/#testimonials">Testimonials</a>
+                    <a href="https://www.perfoads.com/#pricing">Pricing</a>
+                    <a href="https://www.perfoads.com/#faq">FAQ</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h5>Pages</h5>
+                <div class="footer-links">
+                    <a href="/">Documentation</a>
+                    <a href="https://www.perfoads.com/privacy">Privacy Policy</a>
+                    <a href="https://www.perfoads.com/tos">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="footer-bottom">
+        All Rights Reserved © 2025 PerfoAds
+    </div>
+
 </body>
 </html>

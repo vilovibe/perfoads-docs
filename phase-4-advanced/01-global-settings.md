@@ -19,7 +19,6 @@ Global Settings is your control panel for account-wide configuration. Here you'l
 - Sync Settings management
 - Google Ads Connections overview
 - Email Notification preferences (coming soon)
-- When to use global vs per-client settings
 - Best practices for each setting
 
 **Time needed**: 12 minutes to read
@@ -28,7 +27,7 @@ Global Settings is your control panel for account-wide configuration. Here you'l
 
 ## What Are Global Settings?
 
-**Definition**: Account-wide configurations that apply to all clients unless overridden by per-client settings
+**Definition**: Account-wide configurations that apply to all clients 
 
 **Location**: Navigate to `/settings` from the main navigation menu
 
@@ -193,7 +192,7 @@ Global Settings is your control panel for account-wide configuration. Here you'l
 
 **Purpose**: Control when and how often Google Ads data syncs for all clients
 
-**Applies To**: All clients by default (unless overridden per-client)
+**Applies To**: All clients by default
 
 **Key Settings**:
 - Auto-Sync enable/disable
@@ -359,7 +358,7 @@ Result: All clients sync at 1 AM GMT daily
 - Token expired or revoked
 - All API calls failing
 
-**How to Fix Issues**: See [Troubleshooting OAuth](/docs/troubleshooting-oauth) guide
+**How to Fix Issues**: See [Troubleshooting OAuth](06-troubleshooting-oauth.html) guide
 
 [Screenshot: Google Ads Connections section showing healthy connection]
 *Green checkmark indicates healthy OAuth connection*
@@ -377,36 +376,6 @@ Result: All clients sync at 1 AM GMT daily
 - Weekly performance summaries
 
 **When Available**: Q1 2026 (tentative)
-
----
-
-## Global vs Per-Client Settings
-
-### When to Use Global Settings
-
-**Use for**:
-- Defaults that apply to most/all clients
-- Business-wide information (company name, logo)
-- Standard sync time for most accounts
-- General industry and audience
-
-**Example**: Agency managing 50 clients with similar needs
-
----
-
-### When to Use Per-Client Settings
-
-**Use for**:
-- Clients with unique sync requirements
-- Different sync times (e.g., e-commerce client needs morning sync)
-- Custom notification preferences
-- Special handling exceptions
-
-**Example**: One client requires 6 AM sync instead of default 2 AM
-
-**Priority**: Per-client settings always override global settings
-
-**Learn More**: See [Per-Client Settings](/docs/per-client-settings) guide
 
 ---
 
@@ -472,7 +441,7 @@ Result: All clients sync at 1 AM GMT daily
 A: New time takes effect next sync cycle. If you change from 2 AM to 6 AM today, tonight's sync will still run at 2 AM. Tomorrow it runs at 6 AM.
 
 **Q: Can I set different sync times for different clients?**
-A: Yes, via per-client settings. Global setting is the default; per-client settings override.
+A: No, all clients use the same global sync time configured in Settings.
 
 **Q: How often should I update Business Profile?**
 A: Update when business goals change, company grows, or you shift target audience. Typically quarterly.
@@ -503,7 +472,7 @@ A: Yes, all users can view. Only admin users can modify (role-based permissions)
 3. Verify connection shows ✅ Connected
 4. Run discovery refresh
 
-**If Still Failing**: See [Troubleshooting OAuth](/docs/troubleshooting-oauth)
+**If Still Failing**: See [Troubleshooting OAuth](06-troubleshooting-oauth.html)
 
 ---
 
@@ -554,10 +523,9 @@ A: Yes, all users can view. Only admin users can modify (role-based permissions)
 
 Configure account-wide settings with these guides:
 
-- **[Per-Client Settings](/docs/per-client-settings)** - Override global defaults for specific clients
-- **[Auto-Sync Setup](/docs/auto-sync-setup)** - Detailed sync scheduling guide
-- **[Business Profile Setup](/docs/business-profile-setup)** - Complete your profile for better AI
-- **[Troubleshooting OAuth](/docs/troubleshooting-oauth)** - Fix Google Ads connection issues
+- **[Auto-Sync Setup](../phase-2-core-features/05-auto-sync-setup.html)** - Detailed sync scheduling guide
+- **[Business Profile Setup](../phase-3-ai-features/08-business-profile-setup.html)** - Complete your profile for better AI
+- **[Troubleshooting OAuth](06-troubleshooting-oauth.html)** - Fix Google Ads connection issues
 
 ---
 

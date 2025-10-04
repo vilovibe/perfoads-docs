@@ -1015,10 +1015,10 @@ A: No. Severity is independent of category. Technical Issues can be severity 2 o
 
 Master alert categories with these guides:
 
-- **[Smart Alerts Intro](/docs/smart-alerts-intro)** - How alerts work
-- **[Alert Severity](/docs/alert-severity-guide)** - The 1-10 scale explained
-- **[Accept/Decline Workflow](/docs/accept-decline-workflow)** - Acting on alerts
-- **[AI Chat](/docs/ai-chat-getting-started)** - Ask AI about specific categories
+- **[Smart Alerts Intro](01-smart-alerts-intro.html)** - How alerts work
+- **[Alert Severity](02-alert-severity-guide.html)** - The 1-10 scale explained
+- **[Accept/Decline Workflow](04-accept-decline-workflow.html)** - Acting on alerts
+- **[AI Chat](05-ai-chat-getting-started.html)** - Ask AI about specific categories
 
 ---
 

@@ -829,9 +829,9 @@ A: Not directly in PerfoAds UI yet. Export campaign data and analyze in Google A
 
 Use metrics effectively with these guides:
 
-- **[Client Details Page](/docs/client-details-page)** - Customize which metrics you see
-- **[Performance Charts](/docs/performance-charts)** - Visualize metric trends
-- **[Understanding Dashboard](/docs/understanding-dashboard)** - Metric cards and overview
+- **[Client Details Page](02-client-details-page.html)** - Customize which metrics you see
+- **[Performance Charts](08-performance-charts.html)** - Visualize metric trends
+- **[Understanding Dashboard](../phase-1-essential/04-understanding-dashboard.html)** - Metric cards and overview
 
 ---
 

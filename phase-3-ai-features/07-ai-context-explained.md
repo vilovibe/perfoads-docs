@@ -662,10 +662,10 @@ A: Business Profile and custom context can be exported as part of client data ex
 
 Maximize AI effectiveness with these guides:
 
-- **[Business Profile Setup](/docs/business-profile-setup)** - Complete Business Profile guide
-- **[Custom Context Entries](/docs/custom-context-entries)** - Advanced context management
-- **[AI Chat Getting Started](/docs/ai-chat-getting-started)** - Use AI Chat effectively
-- **[Smart Alerts](/docs/smart-alerts-intro)** - How context improves alerts
+- **[Business Profile Setup](08-business-profile-setup.html)** - Complete Business Profile guide
+- **[Custom Context Entries](09-custom-context-entries.html)** - Advanced context management
+- **[AI Chat Getting Started](05-ai-chat-getting-started.html)** - Use AI Chat effectively
+- **[Smart Alerts](01-smart-alerts-intro.html)** - How context improves alerts
 
 ---
 

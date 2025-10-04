@@ -362,7 +362,7 @@ Day 4: Still shows "4 days remaining" (auto-refresh hasn't happened)
 3. Rate limiting → Fix: Wait and retry
 4. Network issues → Fix: Check internet connection
 
-**See**: [Troubleshooting Sync Issues](/docs/troubleshooting-sync) for non-OAuth sync problems
+**See**: [Troubleshooting Sync Issues](05-troubleshooting-sync.html) for non-OAuth sync problems
 
 ---
 
@@ -602,10 +602,10 @@ A: Only the OAuth token (securely encrypted) and your Google Ads data after sync
 
 Fix Google Ads connection issues with these guides:
 
-- **[Troubleshooting Sync Issues](/docs/troubleshooting-sync)** - Fix sync problems after OAuth working
-- **[Smart Sync Explained](/docs/smart-sync-explained)** - How sync works with OAuth
-- **[Global Settings](/docs/global-settings)** - Configure OAuth and connections
-- **[Adding First Client](/docs/adding-first-client)** - OAuth setup during client onboarding
+- **[Troubleshooting Sync Issues](05-troubleshooting-sync.html)** - Fix sync problems after OAuth working
+- **[Smart Sync Explained](../phase-1-essential/05-smart-sync-explained.html)** - How sync works with OAuth
+- **[Global Settings](01-global-settings.html)** - Configure OAuth and connections
+- **[Adding First Client](../phase-1-essential/03-adding-first-client.html)** - OAuth setup during client onboarding
 
 ---
 

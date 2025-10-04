@@ -20,7 +20,6 @@ The client details page is where you deep-dive into a single Google Ads account.
 - Using performance charts effectively
 - Filtering and exporting campaign data
 - Working with AI Alerts and AI Chat
-- Configuring per-client settings
 
 **Time needed**: 20 minutes to read
 
@@ -639,65 +638,6 @@ View and analyze ad group performance within campaigns.
 
 ---
 
-## Settings Tab
-
-Configure client-specific settings that override global defaults.
-
-### Auto-Sync Settings
-
-**Override global sync schedule**:
-- Enable/disable auto-sync for this client
-- Set custom sync time
-- Choose timezone
-
-**When to use**:
-- Client in different timezone
-- Needs more/less frequent syncs
-- Temporarily disable syncing
-
-**Example**:
-- Global setting: 2:00 AM EST
-- This client: 6:00 AM PST (better for West Coast business hours)
-
-[Screenshot: Auto-sync settings with time picker]
-*Per-client sync schedules give you flexibility*
-
----
-
-### Email Notification Settings (Coming Soon)
-
-**Planned features**:
-- Alert notifications when critical issues found
-- Daily/weekly performance summaries
-- Sync failure alerts
-- Budget pacing warnings
-
-**Configuration options**:
-- Email frequency
-- Severity threshold
-- Specific alert types to notify
-
----
-
-### Business Profile
-
-**Same fields as global settings but client-specific**:
-- Website URL
-- Industry
-- Monthly budget
-- Business goals
-- Target audience
-- Geographic focus
-- Main services/products
-
-**Why fill this out**:
-- AI gives more relevant recommendations
-- Context-aware chat responses
-- Better optimization suggestions
-
-[Screenshot: Business profile form]
-*Detailed context improves AI quality*
-
 ---
 
 ## Keyboard Shortcuts
@@ -708,7 +648,6 @@ Configure client-specific settings that override global defaults.
 - `3` - AI Alerts tab
 - `4` - AI Chat tab
 - `5` - Ad Groups tab
-- `6` - Settings tab
 
 **Actions**:
 - `S` - Sync client
@@ -766,7 +705,6 @@ Configure client-specific settings that override global defaults.
 5. **Export campaign data**: Bring to meeting if needed
 
 **You'll have fresh data and insights ready to discuss**
-
 ---
 
 ### Metric Selection Strategy
@@ -891,10 +829,10 @@ A: You need to add a monthly budget in the client's business profile (Edit Clien
 
 Now that you know the client details page inside and out, explore these related topics:
 
-- **[Metrics Glossary](/docs/metrics-glossary)** - Understand every metric in detail
-- **[Performance Charts Guide](/docs/performance-charts)** - Advanced charting techniques
-- **[Smart Alerts Intro](/docs/smart-alerts-intro)** - Deep dive into AI recommendations
-- **[AI Chat Getting Started](/docs/ai-chat-getting-started)** - Master the AI assistant
+- **[Metrics Glossary](07-metrics-glossary.html)** - Understand every metric in detail
+- **[Performance Charts Guide](08-performance-charts.html)** - Advanced charting techniques
+- **[Smart Alerts Intro](../phase-3-ai-features/01-smart-alerts-intro.html)** - Deep dive into AI recommendations
+- **[AI Chat Getting Started](../phase-3-ai-features/05-ai-chat-getting-started.html)** - Master the AI assistant
 
 ---
 
@@ -902,6 +840,6 @@ Now that you know the client details page inside and out, explore these related 
 
 **Want to customize your metrics?** Open a client → Overview tab → Customize Metrics.
 
-**Need help understanding specific metrics?** Check the [Metrics Glossary](/docs/metrics-glossary).
+**Need help understanding specific metrics?** Check the [Metrics Glossary](07-metrics-glossary.html).
 
 **Last Updated**: October 4, 2025

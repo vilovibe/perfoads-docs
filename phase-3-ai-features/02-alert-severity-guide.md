@@ -995,10 +995,10 @@ A: Yes, if the underlying issue worsens. A severity 5 alert today can become sev
 
 Use severity effectively with these guides:
 
-- **[Smart Alerts Intro](/docs/smart-alerts-intro)** - How alerts work
-- **[Alert Categories](/docs/alert-categories)** - Types of issues detected
-- **[Accept/Decline Workflow](/docs/accept-decline-workflow)** - Acting on alerts
-- **[AI Chat](/docs/ai-chat-getting-started)** - Ask AI about alert severity
+- **[Smart Alerts Intro](01-smart-alerts-intro.html)** - How alerts work
+- **[Alert Categories](03-alert-categories.html)** - Types of issues detected
+- **[Accept/Decline Workflow](04-accept-decline-workflow.html)** - Acting on alerts
+- **[AI Chat](05-ai-chat-getting-started.html)** - Ask AI about alert severity
 
 ---
 

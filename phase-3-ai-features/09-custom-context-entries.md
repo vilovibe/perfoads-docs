@@ -645,10 +645,10 @@ transparency about risks and limitations."
 
 Master AI context with these guides:
 
-- **[AI Context Explained](/docs/ai-context-explained)** - How all context works together
-- **[Business Profile Setup](/docs/business-profile-setup)** - Structured context fields
-- **[AI Chat Getting Started](/docs/ai-chat-getting-started)** - Using AI with context
-- **[Smart Alerts](/docs/smart-alerts-intro)** - Context improves alert relevance
+- **[AI Context Explained](07-ai-context-explained.html)** - How all context works together
+- **[Business Profile Setup](08-business-profile-setup.html)** - Structured context fields
+- **[AI Chat Getting Started](05-ai-chat-getting-started.html)** - Using AI with context
+- **[Smart Alerts](01-smart-alerts-intro.html)** - Context improves alert relevance
 
 ---
 

@@ -274,7 +274,7 @@ Client with:
 1. Go to Client List
 2. Click **Add Client** button
 3. Follow onboarding wizard
-4. See: [Adding First Client](/docs/adding-first-client)
+4. See: [Adding First Client](../phase-1-essential/03-adding-first-client.html)
 
 ---
 
@@ -703,10 +703,10 @@ A: Check https://status.render.com (our hosting provider) for infrastructure sta
 
 Resolve specific issues with these specialized guides:
 
-- **[Troubleshooting Sync Issues](/docs/troubleshooting-sync)** - Fix data sync problems
-- **[Troubleshooting OAuth](/docs/troubleshooting-oauth)** - Fix Google Ads connection
-- **[Understanding Dashboard](/docs/understanding-dashboard)** - Learn dashboard features
-- **[Quick Start Guide](/docs/quick-start-guide)** - Basic usage guide
+- **[Troubleshooting Sync Issues](05-troubleshooting-sync.html)** - Fix data sync problems
+- **[Troubleshooting OAuth](06-troubleshooting-oauth.html)** - Fix Google Ads connection
+- **[Understanding Dashboard](../phase-1-essential/04-understanding-dashboard.html)** - Learn dashboard features
+- **[Quick Start Guide](../phase-1-essential/02-quick-start-guide.html)** - Basic usage guide
 
 ---
 

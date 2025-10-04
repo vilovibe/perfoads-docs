@@ -709,9 +709,9 @@ Both on left axis, impressions appear flat
 
 Master data visualization with these guides:
 
-- **[Client Details Page](/docs/client-details-page)** - All Overview tab features
-- **[Metrics Glossary](/docs/metrics-glossary)** - Understand every metric
-- **[Understanding Dashboard](/docs/understanding-dashboard)** - Dashboard-level charts
+- **[Client Details Page](02-client-details-page.html)** - All Overview tab features
+- **[Metrics Glossary](07-metrics-glossary.html)** - Understand every metric
+- **[Understanding Dashboard](../phase-1-essential/04-understanding-dashboard.html)** - Dashboard-level charts
 
 ---
 

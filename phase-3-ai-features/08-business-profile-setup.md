@@ -73,7 +73,7 @@ Expected result: CPA drops to $38-42 range."
 
 ### Per-Client Profile
 
-**Location**: Client Details → Settings Tab → Business Profile Section
+**Location**: Client Details → Business Profile button (in sidebar)
 
 **Applies to**: This client only
 
@@ -89,7 +89,7 @@ Expected result: CPA drops to $38-42 range."
 
 **Use when**: Setting agency-wide defaults
 
-**Note**: Per-client profiles override global settings
+**Note**: Client-specific profiles take precedence over global defaults
 
 ---
 
@@ -824,10 +824,10 @@ A: Quarterly review, or immediately when major changes occur.
 
 Maximize AI effectiveness with these guides:
 
-- **[AI Context Explained](/docs/ai-context-explained)** - How context improves AI
-- **[Custom Context Entries](/docs/custom-context-entries)** - Advanced context management
-- **[AI Chat Getting Started](/docs/ai-chat-getting-started)** - Use AI Chat effectively
-- **[Smart Alerts](/docs/smart-alerts-intro)** - Context improves alert accuracy
+- **[AI Context Explained](07-ai-context-explained.html)** - How context improves AI
+- **[Custom Context Entries](09-custom-context-entries.html)** - Advanced context management
+- **[AI Chat Getting Started](05-ai-chat-getting-started.html)** - Use AI Chat effectively
+- **[Smart Alerts](01-smart-alerts-intro.html)** - Context improves alert accuracy
 
 ---
 

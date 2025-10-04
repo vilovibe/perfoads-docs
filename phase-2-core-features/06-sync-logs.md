@@ -585,7 +585,6 @@ Week 4: ???
 **Monthly reporting**:
 ```
 1. Filter: Last 30 days
-2. Export to Excel
 3. Calculate success rate
 4. Graph sync duration trends
 5. Identify problematic clients
@@ -595,7 +594,6 @@ Week 4: ???
 ```
 1. Filter: Specific client
 2. Filter: Last 90 days
-3. Export to CSV
 4. Show client their data freshness
 5. Prove regular monitoring
 ```
@@ -604,7 +602,6 @@ Week 4: ???
 ```
 1. Filter: Failed syncs only
 2. Filter: Last 7 days
-3. Export to Excel
 4. Sort by error type
 5. Identify common issues
 ```
@@ -642,7 +639,6 @@ Email alerts when:
 **Configuration**:
 - Set email addresses
 - Choose alert threshold
-- Enable/disable per client
 
 ---
 
@@ -778,14 +774,14 @@ A: Yes, in the "View Details" modal for each log entry. Shows all operations.
 
 Master sync monitoring with these related guides:
 
-- **[Sync System Guide](/docs/sync-system-guide)** - Technical deep dive
-- **[Auto-Sync Setup](/docs/auto-sync-setup)** - Configure automatic syncing
-- **[Smart Sync Explained](/docs/smart-sync-explained)** - Understand sync mechanics
-- **[Bulk Operations](/docs/bulk-operations)** - Manage multiple syncs
+- **[Sync System Guide](04-sync-system-guide.html)** - Technical deep dive
+- **[Auto-Sync Setup](05-auto-sync-setup.html)** - Configure automatic syncing
+- **[Smart Sync Explained](../phase-1-essential/05-smart-sync-explained.html)** - Understand sync mechanics
+- **[Bulk Operations](03-bulk-operations.html)** - Manage multiple syncs
 
 ---
 
-**View your sync history**: Go to [Sync Logs](/sync-logs)
+**View your sync history**: Go to [Sync Logs](06-sync-logs.html)
 
 **Need help interpreting errors?** Contact support at support@aiperfoads.xyz
 

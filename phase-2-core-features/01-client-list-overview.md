@@ -813,10 +813,10 @@ A: No. Once deleted, all data is permanently removed. You can re-add the client,
 
 Now that you've mastered the client list, explore these related topics:
 
-- **[Client Details Page](/docs/client-details-page)** - Deep dive into individual client data
-- **[Bulk Operations](/docs/bulk-operations)** - Advanced bulk management techniques
-- **[Sync Logs](/docs/sync-logs)** - Troubleshoot sync issues and view history
-- **[Auto-Sync Setup](/docs/auto-sync-setup)** - Configure automatic sync schedules
+- **[Client Details Page](02-client-details-page.html)** - Deep dive into individual client data
+- **[Bulk Operations](03-bulk-operations.html)** - Advanced bulk management techniques
+- **[Sync Logs](06-sync-logs.html)** - Troubleshoot sync issues and view history
+- **[Auto-Sync Setup](05-auto-sync-setup.html)** - Configure automatic sync schedules
 
 ---
 

@@ -551,10 +551,10 @@ A: No hard limit, but we recommend 50 or fewer for best performance. Contact sal
 
 Now that you understand the dashboard, explore these related topics:
 
-- **[Client Details Page](/docs/client-details-page)** - Deep dive into a single client's data
-- **[Smart Sync Explained](/docs/smart-sync-explained)** - How the sync system works
-- **[Sync Logs](/docs/sync-logs)** - Troubleshoot sync issues and view history
-- **[Smart Alerts Intro](/docs/smart-alerts-intro)** - Start acting on AI recommendations
+- **[Client Details Page](../phase-2-core-features/02-client-details-page.html)** - Deep dive into a single client's data
+- **[Smart Sync Explained](05-smart-sync-explained.html)** - How the sync system works
+- **[Sync Logs](../phase-2-core-features/06-sync-logs.html)** - Troubleshoot sync issues and view history
+- **[Smart Alerts Intro](../phase-3-ai-features/01-smart-alerts-intro.html)** - Start acting on AI recommendations
 
 ---
 
