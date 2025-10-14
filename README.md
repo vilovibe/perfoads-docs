@@ -43,6 +43,7 @@ Welcome to the PerfoAds documentation. Navigate using the sections below.
 ## ⚙️ Advanced
 
 - [Global Settings](phase-4-advanced/01-global-settings.md)
+- [Email Alerts Setup](phase-4-advanced/08-email-alerts-setup.md)
 - [Troubleshooting: Sync Issues](phase-4-advanced/05-troubleshooting-sync.md)
 - [Troubleshooting: OAuth Issues](phase-4-advanced/06-troubleshooting-oauth.md)
 - [Troubleshooting: General](phase-4-advanced/07-troubleshooting-general.md)

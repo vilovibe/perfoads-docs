@@ -343,7 +343,116 @@ Day 4: Still shows "4 days remaining" (auto-refresh hasn't happened)
 
 ---
 
-## Problem 5: OAuth Works But Sync Still Fails
+## Problem 5: Intentionally Disconnecting OAuth
+
+### When to Disconnect
+
+**Valid Use Cases**:
+- Switching from personal to agency Google account
+- Client transferred Google Ads account access to different user
+- Moving from direct account access to MCC access (or vice versa)
+- Troubleshooting persistent OAuth issues with fresh reconnection
+- Security: Temporarily revoking access
+- Testing different Google account configurations
+
+### How to Disconnect Safely
+
+**Step 1: Understand What Happens**
+- OAuth connection removed immediately
+- ✅ All client data preserved (campaigns, metrics, history, business profiles)
+- ✅ All AI alerts and chat history preserved
+- ❌ All syncs will fail until reconnected
+- ❌ Cannot add new clients until reconnected
+
+**Step 2: Go to Settings**
+1. Navigate to Settings → Google Ads Connections
+2. You'll see current OAuth status (should be ✅ Connected)
+
+**Step 3: Disconnect**
+1. Click **Disconnect** button
+2. Confirmation dialog appears
+3. Read warning: "This will stop all syncs until reconnected"
+4. Confirm disconnection
+5. OAuth status changes to ❌ Disconnected
+
+[Screenshot: Disconnect confirmation dialog with warning message]
+*Disconnecting requires confirmation - system warns about sync stoppage*
+
+**Step 4: All Clients Show OAuth Required**
+- Client list shows "OAuth connection required" for all clients
+- Sync buttons disabled
+- Existing data still visible (read-only until reconnected)
+
+### Reconnecting After Disconnection
+
+**Choose Your Reconnection Path**:
+
+**Path A: Same Google Account**
+1. Click **Reconnect OAuth** button
+2. Log in with same Google account as before
+3. Grant permissions
+4. System reconnects
+5. All clients work immediately (no reconfiguration)
+
+**Path B: Different Google Account**
+1. Click **Reconnect OAuth** button
+2. Log in with NEW Google account
+3. Grant permissions
+4. Click **Refresh Discovery** to find accounts
+5. Verify all clients' Google Ads accounts are accessible via new Google account
+6. Run test sync on one client
+7. All clients should work (if new account has access to those Google Ads accounts)
+
+**Important Verification Steps**:
+1. After reconnecting, go to Client List
+2. Pick 1-2 clients
+3. Run manual sync on each
+4. Verify syncs complete successfully
+5. Only then enable auto-sync again
+
+### What If New Google Account Doesn't Have Access?
+
+**Scenario**:
+```
+Old OAuth Account: user1@company.com (had access to Accounts A, B, C)
+New OAuth Account: user2@company.com (only has access to Accounts A, B)
+
+Result After Reconnection:
+- Client A: ✅ Works
+- Client B: ✅ Works
+- Client C: ❌ Fails ("Permission denied")
+```
+
+**Solution for Client C**:
+1. Contact Google Ads account owner for Account C
+2. Request they add user2@company.com as Standard/Admin user
+3. Wait 5 minutes for Google to propagate
+4. Refresh Discovery in PerfoAds
+5. Retry sync on Client C
+6. Should work now
+
+### Disconnect Best Practices
+
+**DO Disconnect When**:
+- You have a clear reason (switching accounts, testing, security)
+- You understand syncs will stop until reconnection
+- You're prepared to reconnect immediately or know when you'll reconnect
+
+**DON'T Disconnect When**:
+- Troubleshooting generic sync issues (try other fixes first)
+- Just "trying things" without a plan
+- You're unsure which Google account to reconnect with
+- It's during peak business hours (clients expect fresh data)
+
+**Warning**: Only disconnect if you have a specific reason. Routine troubleshooting rarely requires full disconnection. Try these first:
+- Refresh Discovery (for missing accounts)
+- Reconnect OAuth without disconnecting (refreshes connection)
+- Check individual client sync logs
+- Verify Google Ads account access
+
+---
+
+## Problem 6: OAuth Works But Sync Still Fails
 
 ### Symptoms
 
@@ -469,20 +578,105 @@ Why: Business account less likely to change, more stable
 
 ## When OAuth Auto-Heals
 
+### Enhanced Self-Healing System
+
+PerfoAds includes an advanced OAuth self-healing system that automatically handles most token issues without user intervention.
+
 ### Self-Healing Scenarios
 
 **Auto-Fixed** (no action required):
-- Token approaching expiration (refreshes at 7 days remaining)
-- Temporary Google API issues (retries automatically)
-- Network blips during token refresh (retries)
 
-**Your Intervention Required**:
-- Token already expired (must reconnect)
-- Google password changed (must reconnect)
-- App permissions revoked (must reconnect)
+1. **Token Approaching Expiration**
+   - System detects tokens expiring within 7 days
+   - Automatically refreshes token in background
+   - Retry logic: Up to 3 attempts with exponential backoff
+   - Timeline: Refreshes 7 days before expiration
+
+2. **Temporary Google API Issues**
+   - Retries automatically on transient API failures
+   - Exponential backoff: 1s → 2s → 4s between retries
+   - Max retries: 3 attempts
+   - Fallback: If all retries fail, alerts user to reconnect
+
+3. **Network Blips During Token Refresh**
+   - Automatic retry with exponential backoff
+   - Persists through temporary connectivity issues
+   - Logs all retry attempts for debugging
+
+4. **Token Expiry Check Enhancement**
+   - System now validates token expiry in the **else block** of self-healing logic
+   - If token is expired but connection appears valid, forces immediate refresh
+   - Prevents false "connected" status with expired tokens
+   - Gracefully handles edge cases where token expires between checks
+
+### Enhanced Token Validation
+
+**New Validation Logic**:
+```
+Check 1: Is OAuth connected?
+  → Yes: Proceed to Check 2
+  → No: User must reconnect
+
+Check 2: Is token valid and not expired?
+  → Yes: Proceed with sync
+  → No: Attempt automatic refresh
+    → Refresh succeeds: Continue normally
+    → Refresh fails: Alert user to reconnect
+```
+
+**Why This Matters**: Previous system could miss expired tokens in edge cases. Enhanced logic catches expiry at multiple checkpoints.
+
+### Your Intervention Required
+
+**You Must Reconnect When**:
+- Token already expired and self-healing failed (status shows ❌ Disconnected)
+- Google password changed (Google security policy revokes tokens)
+- App permissions revoked manually in Google Account settings
 - Wrong Google account used (must reconnect with correct account)
+- Self-healing retry limit exhausted (3 attempts failed)
 
-**How to Tell**: If OAuth status shows ❌ Disconnected, you must act. If ⚠️ Warning, system likely handling it.
+### How to Tell if Action Needed
+
+**Status Indicator Guide**:
+
+**✅ Connected** - No action required
+- Token valid
+- Auto-refresh working normally
+- System healthy
+
+**⚠️ Warning** - Monitor but don't act yet
+- Token expiring within 7 days
+- System will auto-refresh soon
+- If warning persists >3 days, manually refresh as precaution
+
+**❌ Disconnected** - Action Required
+- Token expired or invalid
+- Self-healing failed
+- Must manually reconnect OAuth
+- All syncs blocked until fixed
+
+### Self-Healing Logs
+
+**Where to Check**:
+- Settings → Google Ads Connections → "View Refresh Log"
+- Shows all automatic refresh attempts
+- Timestamps and success/failure status
+- Error messages if refresh failed
+
+**Example Log Entry**:
+```
+[2025-10-14 03:42:15] Token refresh attempt 1/3
+[2025-10-14 03:42:16] Success - Token valid for 60 days
+```
+
+or
+
+```
+[2025-10-14 03:42:15] Token refresh attempt 1/3 - Failed (network timeout)
+[2025-10-14 03:42:17] Token refresh attempt 2/3 - Failed (API rate limit)
+[2025-10-14 03:42:21] Token refresh attempt 3/3 - Failed (invalid grant)
+[2025-10-14 03:42:21] Self-healing exhausted - User reconnection required
+```
 
 ---
 

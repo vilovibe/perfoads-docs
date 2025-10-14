@@ -1,0 +1,24 @@
+{
+  "name": "perfoads-docs",
+  "version": "1.0.0",
+  "description": "**AI-Powered Google Ads Management Platform**",
+  "main": "generate-html.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vilovibe/perfoads-docs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/vilovibe/perfoads-docs/issues"
+  },
+  "homepage": "https://github.com/vilovibe/perfoads-docs#readme",
+  "dependencies": {
+    "marked": "^16.4.0"
+  }
+}

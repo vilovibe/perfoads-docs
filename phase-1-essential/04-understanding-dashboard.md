@@ -70,14 +70,14 @@ The four cards at the top give you an at-a-glance view of your entire operation.
 
 **What it shows**: Combined ad spend across all clients (last 30 days)
 
-**Example**: `$45,230`
+**Example**: `$45,230` or `Mixed Currencies` if clients use different currencies
 
 **Why it matters**:
 - Track total budget you're managing
 - Spot unusual spending patterns
 - Report to management on total ad investment
 
-**Note**: Only includes clients with recent sync data
+**Note**: Only includes clients with recent sync data. Each client displays in their account's currency (USD, EUR, GBP, PLN, etc.)
 
 [Screenshot: Total Spend card showing dollar amount]
 *Aggregate spending across your entire client portfolio*

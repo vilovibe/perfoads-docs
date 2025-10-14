@@ -186,6 +186,39 @@ Global Settings is your control panel for account-wide configuration. Here you'l
 
 ---
 
+### Subscription Management
+
+**What**: Manage your PerfoAds subscription through LemonSqueezy
+
+**Location**: Settings → Business Profile tab → "Manage Subscription" button
+
+**Features**:
+- View current subscription plan (Starter, Pro, Agency)
+- Update payment method
+- Change subscription tier (upgrade/downgrade)
+- Cancel subscription
+- View billing history and invoices
+
+**Access**: Opens LemonSqueezy customer portal in new tab
+
+**How to Use**:
+1. Navigate to Settings → Business Profile tab
+2. Scroll to "Subscription Management" section
+3. Click **Manage Subscription** button
+4. LemonSqueezy portal opens in new tab
+5. Make changes to billing, plan, or payment method
+6. Close tab when done - changes apply immediately
+
+**Subscription Plans**:
+- **Starter**: 1 Google Ads account
+- **Pro**: 10 Google Ads accounts
+- **Agency**: 30 Google Ads accounts
+
+[Screenshot: Business Profile tab showing "Manage Subscription" button]
+*The subscription management button is integrated into the Business Profile tab*
+
+---
+
 ## Section 2: Sync Settings
 
 ### What Are Sync Settings?
@@ -336,6 +369,38 @@ Result: All clients sync at 1 AM GMT daily
 2. Click **Refresh Discovery**
 3. Wait 5-10 seconds for completion
 4. New accounts appear in dropdown when adding clients
+
+---
+
+### Disconnect Google Ads Account
+
+**What**: Remove OAuth connection without deleting clients
+
+**Use Cases**:
+- Switching to different Google account
+- Temporarily revoking access for security
+- Troubleshooting OAuth issues
+- Account access changes
+
+**How to Disconnect**:
+1. Go to Settings → Google Ads Connections
+2. Click **Disconnect** button
+3. Confirm action in dialog
+4. OAuth status changes to ❌ Disconnected
+
+**What Happens**:
+- OAuth connection removed immediately
+- All clients remain in database (no data loss)
+- Syncs will fail until reconnected
+- Client data preserved but not updated
+
+**How to Reconnect**:
+1. Click **Reconnect OAuth** button
+2. Complete Google authorization flow
+3. Can use same or different Google account
+4. Existing clients work again automatically
+
+**Warning**: Only disconnect if you have a specific reason. All syncs stop until reconnected.
 
 ---
 
@@ -516,6 +581,30 @@ A: Yes, all users can view. Only admin users can modify (role-based permissions)
 4. Check dropdown again (new accounts should appear)
 
 **Cache Note**: Discovery is cached 24 hours. Refresh manually to see new accounts immediately.
+
+---
+
+## Admin Features
+
+**For admin users only** - These features are not visible to regular users.
+
+### Admin Bypass
+
+**What**: Skip subscription checks for testing and development
+
+**Use Cases**:
+- Testing features during development
+- Demonstrating product before client subscribes
+- Troubleshooting subscription-related issues
+
+**Access**: Admin users only (permission required)
+
+**How It Works**:
+- Admin users can access all features regardless of subscription tier
+- Used for internal testing and client demonstrations
+- Not available to regular users
+
+**Note**: This is an internal tool for PerfoAds administrators only.
 
 ---
 

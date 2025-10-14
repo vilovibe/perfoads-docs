@@ -224,6 +224,36 @@ Click **Advanced Settings** to see:
 [Screenshot: Advanced settings section expanded]
 *Advanced settings are optional - defaults work well for most users*
 
+### Currency Auto-Detection
+
+**What it does**: Automatically detects the account's currency during OAuth setup
+
+**How it works**:
+- When you connect a Google Ads account, PerfoAds reads the account's configured currency
+- Currency is saved automatically (USD, EUR, GBP, PLN, etc.)
+- All metrics (spend, cost per conversion, etc.) display in the account's currency
+- No manual configuration needed
+
+**Multi-Currency Support**:
+- Each client can have a different currency
+- Dashboard shows correct currency symbols ($ € £ zł)
+- Comparisons respect currency differences
+- Reports generate in each client's currency
+
+**Currency Display**:
+- **Total Spend**: Shown with currency code (e.g., "5,234 USD" or "4,120 EUR")
+- **Cost Metrics**: CPC, CPA displayed in account currency
+- **Budget Fields**: Enter budget in the account's currency
+
+**Example**:
+```
+Client A (US company) → USD → $5,234.56
+Client B (UK company) → GBP → £4,120.89
+Client C (Polish company) → PLN → 18,234 zł
+```
+
+**Note**: Currency is set once during account creation and cannot be changed (matches Google Ads account settings).
+
 ---
 
 ## Step 5: Create the Client
@@ -578,6 +608,28 @@ A: Only when you need fresh data before a client call or after making changes in
 2. Click three-dot menu → Delete Client
 3. Confirm deletion
 4. Add the correct account again
+
+### Problem: Need to reconnect with different Google account
+
+**Symptom**: You want to switch which Google account connects to PerfoAds
+
+**When you might need this**:
+- Switching to a different Google account
+- Client transferred Google Ads access to someone else
+- Troubleshooting connection issues
+
+**Solution**:
+
+1. Go to Settings → Google Ads Connections
+2. Click **Disconnect** button
+3. Click **Reconnect OAuth** button
+4. Log in with the new Google account
+5. Grant permissions
+6. Test sync on one client
+
+**Important**: Your client data stays safe - only the connection changes. Syncs won't work until you reconnect.
+
+**See Also**: [Troubleshooting OAuth](../phase-4-advanced/06-troubleshooting-oauth.html) for more connection issues
 
 ---
 

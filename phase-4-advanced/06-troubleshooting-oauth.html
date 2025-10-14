@@ -98,361 +98,121 @@
         }
 
         .header-cta {
+            padding: 10px 20px;
             background: var(--primary-blue);
             color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
             text-decoration: none;
-            font-family: 'Geist', sans-serif;
-            font-weight: 600;
+            border-radius: 8px;
+            font-family: 'Geist', 'Geist Placeholder', sans-serif;
             font-size: 15px;
+            font-weight: 500;
+            letter-spacing: -0.03em;
             transition: all 0.2s;
-            white-space: nowrap;
         }
 
         .header-cta:hover {
-            background: #0E5AD6;
+            background: #0E5DD6;
             transform: translateY(-1px);
         }
 
-        /* Footer CSS */
-        .footer {
-            background: var(--footer-bg);
-            color: var(--dark-text);
-            margin-left: 280px;
-            padding: 48px 96px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 64px;
-            margin-bottom: 48px;
-        }
-
-        .footer-brand h4 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-
-        .footer-brand p {
-            color: #575757;
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-
-        .footer-cta {
-            display: inline-block;
-            background: var(--primary-blue);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: all 0.2s;
-            margin-bottom: 24px;
-        }
-
-        .footer-cta:hover {
-            background: #0E5AD6;
-            transform: translateY(-1px);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 16px;
-        }
-
-        .footer-social a {
-            color: #575757;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.2s;
-        }
-
-        .footer-social a:hover {
-            color: var(--primary-blue);
-        }
-
-        .footer-section h5 {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 20px;
-            color: #575757;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-links a {
-            color: #575757;
-            text-decoration: none;
-            font-size: 15px;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-blue);
-        }
-
-        .footer-bottom {
-            background: var(--footer-bg);
-            color: #575757;
-            padding: 24px 64px;
-            margin-left: 280px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-        }
-
-        /* Sidebar */
+        /* Sidebar Navigation */
         .sidebar {
             position: fixed;
             left: 0;
             top: 80px;
-            bottom: 0;
             width: 280px;
+            height: calc(100vh - 80px);
             background: var(--bg-white);
             border-right: 1px solid var(--border-gray);
             overflow-y: auto;
-            z-index: 100;
+            padding: 32px 24px;
         }
 
         .nav-section {
-            padding: 24px 0;
-            border-bottom: 1px solid var(--border-gray);
+            margin-bottom: 32px;
         }
 
-        .nav-section-title {
-            padding: 0 24px 12px;
+        .nav-section h3 {
             font-family: 'Geist', sans-serif;
+            font-size: 14px;
             font-weight: 600;
-            font-size: 12px;
+            color: var(--dark-text);
+            margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: var(--light-gray);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
 
         .nav-link {
-            display: block;
-            padding: 8px 24px;
-            color: var(--dark-text);
+            font-family: 'Inter', sans-serif;
+            color: var(--light-gray);
             text-decoration: none;
             font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 6px;
             transition: all 0.2s;
         }
 
         .nav-link:hover {
             background: var(--bg-gray);
-            color: var(--primary-blue);
+            color: var(--dark-text);
         }
 
         .nav-link.active {
-            color: var(--primary-blue);
             background: var(--bg-gray);
-            border-left: 3px solid var(--primary-blue);
-            padding-left: 21px;
-        }
-
-        .sidebar-footer {
-            padding: 24px;
-            margin-top: auto;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
             color: var(--primary-blue);
-            text-decoration: none;
-            font-size: 14px;
             font-weight: 500;
         }
 
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
         /* Main Content */
-        .main-content {
+        main {
             margin-left: 280px;
-            padding: 48px 64px;
+            padding: 48px 96px 96px 96px;
+            max-width: 1400px;
         }
 
         .content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .hero {
-            margin-bottom: 48px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            color: var(--light-gray);
-        }
-
-        .doc-section {
-            margin-bottom: 48px;
-        }
-
-        .doc-section h2 {
-            font-size: 28px;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .doc-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 16px;
-        }
-
-        .doc-card {
-            padding: 20px;
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--dark-text);
-            transition: all 0.2s;
-        }
-
-        .doc-card:hover {
-            border-color: var(--primary-blue);
-            box-shadow: 0 4px 12px rgba(18, 109, 251, 0.1);
-        }
-
-        .doc-card h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .doc-card p {
-            font-size: 14px;
-            color: var(--light-gray);
-        }
-
-        /* Content Styling */
-        .content {
-            max-width: 800px;
+            max-width: 900px;
         }
 
         .content h1 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-top: 48px;
+            font-size: 42px;
             margin-bottom: 24px;
-            line-height: 1.2;
-        }
-
-        .content h1:first-child {
-            margin-top: 0;
+            color: var(--dark-text);
         }
 
         .content h2 {
-            font-size: 28px;
-            font-weight: 700;
+            font-size: 32px;
             margin-top: 48px;
-            margin-bottom: 20px;
-            line-height: 1.3;
+            margin-bottom: 16px;
+            color: var(--dark-text);
         }
 
         .content h3 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-top: 36px;
-            margin-bottom: 16px;
-            line-height: 1.4;
-        }
-
-        .content h4 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-top: 28px;
+            font-size: 24px;
+            margin-top: 32px;
             margin-bottom: 12px;
+            color: var(--dark-text);
         }
 
         .content p {
-            margin-bottom: 20px;
-            line-height: 1.7;
+            margin-bottom: 16px;
+            color: var(--dark-text);
         }
 
         .content ul, .content ol {
-            margin-bottom: 24px;
-            padding-left: 28px;
+            margin-bottom: 16px;
+            padding-left: 24px;
         }
 
         .content li {
             margin-bottom: 8px;
-            line-height: 1.6;
-        }
-
-        .content hr {
-            border: none;
-            border-top: 1px solid var(--border-gray);
-            margin: 48px 0;
-        }
-
-        .content pre {
-            background: var(--bg-gray);
-            border: 1px solid var(--border-gray);
-            border-radius: 6px;
-            padding: 16px;
-            margin-bottom: 24px;
-            overflow-x: auto;
-        }
-
-        .content code {
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-        }
-
-        .content p code {
-            background: var(--bg-gray);
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 13px;
-        }
-
-        .content blockquote {
-            border-left: 4px solid var(--primary-blue);
-            padding-left: 20px;
-            margin: 24px 0;
-            color: var(--light-gray);
-        }
-
-        .content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 24px;
-        }
-
-        .content th, .content td {
-            border: 1px solid var(--border-gray);
-            padding: 12px;
-            text-align: left;
-        }
-
-        .content th {
-            background: var(--bg-gray);
-            font-weight: 600;
+            color: var(--dark-text);
         }
 
         .content a {
@@ -464,147 +224,223 @@
             text-decoration: underline;
         }
 
+        .content code {
+            background: var(--bg-gray);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .content pre {
+            background: var(--bg-gray);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 16px;
+        }
+
+        .content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .content blockquote {
+            border-left: 4px solid var(--primary-blue);
+            padding-left: 16px;
+            margin: 16px 0;
+            color: var(--light-gray);
+        }
+
+        .content hr {
+            border: none;
+            border-top: 1px solid var(--border-gray);
+            margin: 32px 0;
+        }
+
         .content strong {
             font-weight: 600;
+            color: var(--dark-text);
         }
 
-        .content em {
-            font-style: italic;
+        /* Footer - Landing Page Style */
+        .footer {
+            background: var(--footer-bg);
+            border-top: 1px solid var(--border-gray);
+            padding: 64px 96px;
+            margin-left: 280px;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .top-header {
-                padding: 0 24px;
-            }
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 64px;
+            max-width: 1400px;
+        }
 
-            .header-nav {
-                display: none;
-            }
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
 
-            .footer {
-                margin-left: 0;
-                padding: 48px 24px;
-            }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
 
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
+        .footer-logo h4 {
+            font-family: 'Geist', 'Geist Placeholder', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            letter-spacing: -0.02em;
+        }
 
-            .footer-bottom {
-                margin-left: 0;
-                padding: 24px;
-            }
+        .footer-brand p {
+            font-size: 14px;
+            color: var(--light-gray);
+            line-height: 1.6;
+            max-width: 400px;
+        }
 
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s;
-            }
+        .footer-cta {
+            align-self: flex-start;
+            padding: 12px 24px;
+            background: var(--primary-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
 
-            .sidebar.open {
-                transform: translateX(0);
-            }
+        .footer-cta:hover {
+            background: #0E5DD6;
+            transform: translateY(-1px);
+        }
 
-            .main-content {
-                margin-left: 0;
-                padding: 24px;
-            }
+        .footer-social a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 14px;
+        }
 
-            .hero h1 {
-                font-size: 32px;
-            }
+        .footer-social a:hover {
+            color: var(--dark-text);
+        }
 
-            .doc-grid {
-                grid-template-columns: 1fr;
-            }
+        .footer-section h5 {
+            font-family: 'Geist', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--dark-text);
+        }
 
-            .content h1 {
-                font-size: 28px;
-            }
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-            .content h2 {
-                font-size: 24px;
-            }
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
 
-            .content h3 {
-                font-size: 20px;
-            }
+        .footer-links a:hover {
+            color: var(--dark-text);
+        }
+
+        .footer-bottom {
+            background: var(--footer-bg);
+            text-align: center;
+            padding: 24px;
+            color: var(--light-gray);
+            font-size: 14px;
+            border-top: 1px solid var(--border-gray);
+            margin-left: 280px;
         }
     </style>
-
 </head>
 <body>
-    <!-- Top Header - Landing Page Style -->
+    <!-- Top Header -->
     <header class="top-header">
-        <a href="https://www.perfoads.com" class="header-logo">
+        <a href="/" class="header-logo">
             <img src="/logo.png" alt="PerfoAds">
             <span>PerfoAds</span>
         </a>
         <nav class="header-nav">
             <a href="https://www.perfoads.com/#features">Features</a>
             <a href="https://www.perfoads.com/#benefits">Benefits</a>
-            <a href="https://www.perfoads.com/#testimonials">Testimonials</a>
+            <a href="/">Documentation</a>
             <a href="https://www.perfoads.com/#pricing">Pricing</a>
             <a href="https://www.perfoads.com/#faq">FAQ</a>
+            <a href="https://app.perfoads.com" class="header-cta">Start Free Trial</a>
         </nav>
-        <a href="https://www.perfoads.com/#pricing" class="header-cta">Transform my Business</a>
     </header>
 
-    <!-- Sidebar -->
+    <!-- Sidebar Navigation -->
     <aside class="sidebar">
-
         <nav>
             <div class="nav-section">
-                <div class="nav-section-title">Getting Started</div>
-                <a href="/phase-1-essential/01-what-is-perfoads.html" class="nav-link">What is PerfoAds?</a>
-                <a href="/phase-1-essential/02-quick-start-guide.html" class="nav-link">Quick Start Guide</a>
-                <a href="/phase-1-essential/03-adding-first-client.html" class="nav-link">Adding Your First Client</a>
-                <a href="/phase-1-essential/04-understanding-dashboard.html" class="nav-link">Understanding the Dashboard</a>
-                <a href="/phase-1-essential/05-smart-sync-explained.html" class="nav-link">Smart Sync Explained</a>
+                <h3>Getting Started</h3>
+                <div class="nav-links">
+                    <a href="/phase-1-essential/01-what-is-perfoads.html" class="nav-link">What is PerfoAds?</a>
+                    <a href="/phase-1-essential/02-quick-start-guide.html" class="nav-link">Quick Start Guide</a>
+                    <a href="/phase-1-essential/03-adding-first-client.html" class="nav-link">Adding Your First Client</a>
+                    <a href="/phase-1-essential/04-understanding-dashboard.html" class="nav-link">Understanding the Dashboard</a>
+                    <a href="/phase-1-essential/05-smart-sync-explained.html" class="nav-link">Smart Sync Explained</a>
+                </div>
             </div>
 
             <div class="nav-section">
-                <div class="nav-section-title">Core Features</div>
-                <a href="/phase-2-core-features/01-client-list-overview.html" class="nav-link">Client List Overview</a>
-                <a href="/phase-2-core-features/02-client-details-page.html" class="nav-link">Client Details Page</a>
-                <a href="/phase-2-core-features/03-bulk-operations.html" class="nav-link">Bulk Operations</a>
-                <a href="/phase-2-core-features/04-sync-system-guide.html" class="nav-link">Sync System Guide</a>
-                <a href="/phase-2-core-features/05-auto-sync-setup.html" class="nav-link">Auto-Sync Setup</a>
-                <a href="/phase-2-core-features/06-sync-logs.html" class="nav-link">Sync Logs</a>
-                <a href="/phase-2-core-features/07-metrics-glossary.html" class="nav-link">Metrics Glossary</a>
-                <a href="/phase-2-core-features/08-performance-charts.html" class="nav-link">Performance Charts Guide</a>
+                <h3>Core Features</h3>
+                <div class="nav-links">
+                    <a href="/phase-2-core-features/01-client-list-overview.html" class="nav-link">Client List Overview</a>
+                    <a href="/phase-2-core-features/02-client-details-page.html" class="nav-link">Client Details Page</a>
+                    <a href="/phase-2-core-features/03-bulk-operations.html" class="nav-link">Bulk Operations</a>
+                    <a href="/phase-2-core-features/04-sync-system-guide.html" class="nav-link">Sync System Guide</a>
+                    <a href="/phase-2-core-features/05-auto-sync-setup.html" class="nav-link">Auto-Sync Setup</a>
+                    <a href="/phase-2-core-features/06-sync-logs.html" class="nav-link">Sync Logs</a>
+                    <a href="/phase-2-core-features/07-metrics-glossary.html" class="nav-link">Metrics Glossary</a>
+                    <a href="/phase-2-core-features/08-performance-charts.html" class="nav-link">Performance Charts</a>
+                </div>
             </div>
 
             <div class="nav-section">
-                <div class="nav-section-title">AI Features</div>
-                <a href="/phase-3-ai-features/01-smart-alerts-intro.html" class="nav-link">Smart Alerts Introduction</a>
-                <a href="/phase-3-ai-features/02-alert-severity-guide.html" class="nav-link">Alert Severity Guide</a>
-                <a href="/phase-3-ai-features/03-alert-categories.html" class="nav-link">Alert Categories Guide</a>
-                <a href="/phase-3-ai-features/04-accept-decline-workflow.html" class="nav-link">Accept/Decline Workflow</a>
-                <a href="/phase-3-ai-features/05-ai-chat-getting-started.html" class="nav-link">AI Chat - Getting Started</a>
-                <a href="/phase-3-ai-features/06-ai-chat-templates.html" class="nav-link">AI Chat Templates</a>
-                <a href="/phase-3-ai-features/07-ai-context-explained.html" class="nav-link">AI Context Explained</a>
-                <a href="/phase-3-ai-features/08-business-profile-setup.html" class="nav-link">Business Profile Setup</a>
-                <a href="/phase-3-ai-features/09-custom-context-entries.html" class="nav-link">Custom Context Entries</a>
+                <h3>AI Features</h3>
+                <div class="nav-links">
+                    <a href="/phase-3-ai-features/01-smart-alerts-intro.html" class="nav-link">Smart Alerts Introduction</a>
+                    <a href="/phase-3-ai-features/02-alert-severity-guide.html" class="nav-link">Alert Severity Guide</a>
+                    <a href="/phase-3-ai-features/03-alert-categories.html" class="nav-link">Alert Categories</a>
+                    <a href="/phase-3-ai-features/04-accept-decline-workflow.html" class="nav-link">Accept/Decline Workflow</a>
+                    <a href="/phase-3-ai-features/05-ai-chat-getting-started.html" class="nav-link">AI Chat - Getting Started</a>
+                    <a href="/phase-3-ai-features/06-ai-chat-templates.html" class="nav-link">AI Chat Templates</a>
+                    <a href="/phase-3-ai-features/07-ai-context-explained.html" class="nav-link">AI Context Explained</a>
+                    <a href="/phase-3-ai-features/08-business-profile-setup.html" class="nav-link">Business Profile Setup</a>
+                    <a href="/phase-3-ai-features/09-custom-context-entries.html" class="nav-link">Custom Context Entries</a>
+                </div>
             </div>
 
             <div class="nav-section">
-                <div class="nav-section-title">Advanced</div>
-                <a href="/phase-4-advanced/01-global-settings.html" class="nav-link">Global Settings</a>
-                <a href="/phase-4-advanced/05-troubleshooting-sync.html" class="nav-link">Troubleshooting: Sync Issues</a>
-                <a href="/phase-4-advanced/06-troubleshooting-oauth.html" class="nav-link">Troubleshooting: OAuth Issues</a>
-                <a href="/phase-4-advanced/07-troubleshooting-general.html" class="nav-link">Troubleshooting: General</a>
+                <h3>Advanced</h3>
+                <div class="nav-links">
+                    <a href="/phase-4-advanced/01-global-settings.html" class="nav-link">Global Settings</a>
+                    <a href="/phase-4-advanced/08-email-alerts-setup.html" class="nav-link">Email Alerts Setup</a>
+                    <a href="/phase-4-advanced/05-troubleshooting-sync.html" class="nav-link">Troubleshooting: Sync Issues</a>
+                    <a href="/phase-4-advanced/06-troubleshooting-oauth.html" class="nav-link">Troubleshooting: OAuth Issues</a>
+                    <a href="/phase-4-advanced/07-troubleshooting-general.html" class="nav-link">Troubleshooting: General</a>
+                </div>
             </div>
         </nav>
-
-        <div class="sidebar-footer">
-            <a href="https://www.perfoads.com" class="back-link">
-                ← Back to PerfoAds
-            </a>
-        </div>
     </aside>
-    <main class="main-content">
+
+    <!-- Main Content -->
+    <main>
         <div class="content"><h1>Troubleshooting OAuth</h1>
 <p>OAuth connects PerfoAds to your Google Ads accounts securely. When OAuth breaks, syncs fail and data stops updating. This guide helps you diagnose and fix OAuth issues including expired tokens, permission errors, missing accounts, and connection failures. Follow step-by-step solutions to restore Google Ads access.</p>
 <hr>
@@ -882,7 +718,117 @@ Day 4: Still shows &quot;4 days remaining&quot; (auto-refresh hasn&#39;t happene
 </ol>
 <p><strong>Why Manual</strong>: Auto-refresh occasionally fails. Better safe than sorry.</p>
 <hr>
-<h2>Problem 5: OAuth Works But Sync Still Fails</h2>
+<h2>Problem 5: Intentionally Disconnecting OAuth</h2>
+<h3>When to Disconnect</h3>
+<p><strong>Valid Use Cases</strong>:</p>
+<ul>
+<li>Switching from personal to agency Google account</li>
+<li>Client transferred Google Ads account access to different user</li>
+<li>Moving from direct account access to MCC access (or vice versa)</li>
+<li>Troubleshooting persistent OAuth issues with fresh reconnection</li>
+<li>Security: Temporarily revoking access</li>
+<li>Testing different Google account configurations</li>
+</ul>
+<h3>How to Disconnect Safely</h3>
+<p><strong>Step 1: Understand What Happens</strong></p>
+<ul>
+<li>OAuth connection removed immediately</li>
+<li>✅ All client data preserved (campaigns, metrics, history, business profiles)</li>
+<li>✅ All AI alerts and chat history preserved</li>
+<li>❌ All syncs will fail until reconnected</li>
+<li>❌ Cannot add new clients until reconnected</li>
+</ul>
+<p><strong>Step 2: Go to Settings</strong></p>
+<ol>
+<li>Navigate to Settings → Google Ads Connections</li>
+<li>You&#39;ll see current OAuth status (should be ✅ Connected)</li>
+</ol>
+<p><strong>Step 3: Disconnect</strong></p>
+<ol>
+<li>Click <strong>Disconnect</strong> button</li>
+<li>Confirmation dialog appears</li>
+<li>Read warning: &quot;This will stop all syncs until reconnected&quot;</li>
+<li>Confirm disconnection</li>
+<li>OAuth status changes to ❌ Disconnected</li>
+</ol>
+<p>[Screenshot: Disconnect confirmation dialog with warning message]
+<em>Disconnecting requires confirmation - system warns about sync stoppage</em></p>
+<p><strong>Step 4: All Clients Show OAuth Required</strong></p>
+<ul>
+<li>Client list shows &quot;OAuth connection required&quot; for all clients</li>
+<li>Sync buttons disabled</li>
+<li>Existing data still visible (read-only until reconnected)</li>
+</ul>
+<h3>Reconnecting After Disconnection</h3>
+<p><strong>Choose Your Reconnection Path</strong>:</p>
+<p><strong>Path A: Same Google Account</strong></p>
+<ol>
+<li>Click <strong>Reconnect OAuth</strong> button</li>
+<li>Log in with same Google account as before</li>
+<li>Grant permissions</li>
+<li>System reconnects</li>
+<li>All clients work immediately (no reconfiguration)</li>
+</ol>
+<p><strong>Path B: Different Google Account</strong></p>
+<ol>
+<li>Click <strong>Reconnect OAuth</strong> button</li>
+<li>Log in with NEW Google account</li>
+<li>Grant permissions</li>
+<li>Click <strong>Refresh Discovery</strong> to find accounts</li>
+<li>Verify all clients&#39; Google Ads accounts are accessible via new Google account</li>
+<li>Run test sync on one client</li>
+<li>All clients should work (if new account has access to those Google Ads accounts)</li>
+</ol>
+<p><strong>Important Verification Steps</strong>:</p>
+<ol>
+<li>After reconnecting, go to Client List</li>
+<li>Pick 1-2 clients</li>
+<li>Run manual sync on each</li>
+<li>Verify syncs complete successfully</li>
+<li>Only then enable auto-sync again</li>
+</ol>
+<h3>What If New Google Account Doesn&#39;t Have Access?</h3>
+<p><strong>Scenario</strong>:</p>
+<pre><code>Old OAuth Account: user1@company.com (had access to Accounts A, B, C)
+New OAuth Account: user2@company.com (only has access to Accounts A, B)
+
+Result After Reconnection:
+- Client A: ✅ Works
+- Client B: ✅ Works
+- Client C: ❌ Fails (&quot;Permission denied&quot;)
+</code></pre>
+<p><strong>Solution for Client C</strong>:</p>
+<ol>
+<li>Contact Google Ads account owner for Account C</li>
+<li>Request they add <a href="mailto:user2@company.com">user2@company.com</a> as Standard/Admin user</li>
+<li>Wait 5 minutes for Google to propagate</li>
+<li>Refresh Discovery in PerfoAds</li>
+<li>Retry sync on Client C</li>
+<li>Should work now</li>
+</ol>
+<h3>Disconnect Best Practices</h3>
+<p><strong>DO Disconnect When</strong>:</p>
+<ul>
+<li>You have a clear reason (switching accounts, testing, security)</li>
+<li>You understand syncs will stop until reconnection</li>
+<li>You&#39;re prepared to reconnect immediately or know when you&#39;ll reconnect</li>
+</ul>
+<p><strong>DON&#39;T Disconnect When</strong>:</p>
+<ul>
+<li>Troubleshooting generic sync issues (try other fixes first)</li>
+<li>Just &quot;trying things&quot; without a plan</li>
+<li>You&#39;re unsure which Google account to reconnect with</li>
+<li>It&#39;s during peak business hours (clients expect fresh data)</li>
+</ul>
+<p><strong>Warning</strong>: Only disconnect if you have a specific reason. Routine troubleshooting rarely requires full disconnection. Try these first:</p>
+<ul>
+<li>Refresh Discovery (for missing accounts)</li>
+<li>Reconnect OAuth without disconnecting (refreshes connection)</li>
+<li>Check individual client sync logs</li>
+<li>Verify Google Ads account access</li>
+</ul>
+<hr>
+<h2>Problem 6: OAuth Works But Sync Still Fails</h2>
 <h3>Symptoms</h3>
 <ul>
 <li>OAuth: ✅ Connected</li>
@@ -992,21 +938,104 @@ Why: Business account less likely to change, more stable
 </code></pre>
 <hr>
 <h2>When OAuth Auto-Heals</h2>
+<h3>Enhanced Self-Healing System</h3>
+<p>PerfoAds includes an advanced OAuth self-healing system that automatically handles most token issues without user intervention.</p>
 <h3>Self-Healing Scenarios</h3>
 <p><strong>Auto-Fixed</strong> (no action required):</p>
+<ol>
+<li><p><strong>Token Approaching Expiration</strong></p>
 <ul>
-<li>Token approaching expiration (refreshes at 7 days remaining)</li>
-<li>Temporary Google API issues (retries automatically)</li>
-<li>Network blips during token refresh (retries)</li>
+<li>System detects tokens expiring within 7 days</li>
+<li>Automatically refreshes token in background</li>
+<li>Retry logic: Up to 3 attempts with exponential backoff</li>
+<li>Timeline: Refreshes 7 days before expiration</li>
 </ul>
-<p><strong>Your Intervention Required</strong>:</p>
+</li>
+<li><p><strong>Temporary Google API Issues</strong></p>
 <ul>
-<li>Token already expired (must reconnect)</li>
-<li>Google password changed (must reconnect)</li>
-<li>App permissions revoked (must reconnect)</li>
+<li>Retries automatically on transient API failures</li>
+<li>Exponential backoff: 1s → 2s → 4s between retries</li>
+<li>Max retries: 3 attempts</li>
+<li>Fallback: If all retries fail, alerts user to reconnect</li>
+</ul>
+</li>
+<li><p><strong>Network Blips During Token Refresh</strong></p>
+<ul>
+<li>Automatic retry with exponential backoff</li>
+<li>Persists through temporary connectivity issues</li>
+<li>Logs all retry attempts for debugging</li>
+</ul>
+</li>
+<li><p><strong>Token Expiry Check Enhancement</strong></p>
+<ul>
+<li>System now validates token expiry in the <strong>else block</strong> of self-healing logic</li>
+<li>If token is expired but connection appears valid, forces immediate refresh</li>
+<li>Prevents false &quot;connected&quot; status with expired tokens</li>
+<li>Gracefully handles edge cases where token expires between checks</li>
+</ul>
+</li>
+</ol>
+<h3>Enhanced Token Validation</h3>
+<p><strong>New Validation Logic</strong>:</p>
+<pre><code>Check 1: Is OAuth connected?
+  → Yes: Proceed to Check 2
+  → No: User must reconnect
+
+Check 2: Is token valid and not expired?
+  → Yes: Proceed with sync
+  → No: Attempt automatic refresh
+    → Refresh succeeds: Continue normally
+    → Refresh fails: Alert user to reconnect
+</code></pre>
+<p><strong>Why This Matters</strong>: Previous system could miss expired tokens in edge cases. Enhanced logic catches expiry at multiple checkpoints.</p>
+<h3>Your Intervention Required</h3>
+<p><strong>You Must Reconnect When</strong>:</p>
+<ul>
+<li>Token already expired and self-healing failed (status shows ❌ Disconnected)</li>
+<li>Google password changed (Google security policy revokes tokens)</li>
+<li>App permissions revoked manually in Google Account settings</li>
 <li>Wrong Google account used (must reconnect with correct account)</li>
+<li>Self-healing retry limit exhausted (3 attempts failed)</li>
 </ul>
-<p><strong>How to Tell</strong>: If OAuth status shows ❌ Disconnected, you must act. If ⚠️ Warning, system likely handling it.</p>
+<h3>How to Tell if Action Needed</h3>
+<p><strong>Status Indicator Guide</strong>:</p>
+<p><strong>✅ Connected</strong> - No action required</p>
+<ul>
+<li>Token valid</li>
+<li>Auto-refresh working normally</li>
+<li>System healthy</li>
+</ul>
+<p><strong>⚠️ Warning</strong> - Monitor but don&#39;t act yet</p>
+<ul>
+<li>Token expiring within 7 days</li>
+<li>System will auto-refresh soon</li>
+<li>If warning persists &gt;3 days, manually refresh as precaution</li>
+</ul>
+<p><strong>❌ Disconnected</strong> - Action Required</p>
+<ul>
+<li>Token expired or invalid</li>
+<li>Self-healing failed</li>
+<li>Must manually reconnect OAuth</li>
+<li>All syncs blocked until fixed</li>
+</ul>
+<h3>Self-Healing Logs</h3>
+<p><strong>Where to Check</strong>:</p>
+<ul>
+<li>Settings → Google Ads Connections → &quot;View Refresh Log&quot;</li>
+<li>Shows all automatic refresh attempts</li>
+<li>Timestamps and success/failure status</li>
+<li>Error messages if refresh failed</li>
+</ul>
+<p><strong>Example Log Entry</strong>:</p>
+<pre><code>[2025-10-14 03:42:15] Token refresh attempt 1/3
+[2025-10-14 03:42:16] Success - Token valid for 60 days
+</code></pre>
+<p>or</p>
+<pre><code>[2025-10-14 03:42:15] Token refresh attempt 1/3 - Failed (network timeout)
+[2025-10-14 03:42:17] Token refresh attempt 2/3 - Failed (API rate limit)
+[2025-10-14 03:42:21] Token refresh attempt 3/3 - Failed (invalid grant)
+[2025-10-14 03:42:21] Self-healing exhausted - User reconnection required
+</code></pre>
 <hr>
 <h2>Error Messages Decoded</h2>
 <h3>&quot;Invalid grant&quot;</h3>

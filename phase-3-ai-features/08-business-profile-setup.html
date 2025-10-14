@@ -98,361 +98,121 @@
         }
 
         .header-cta {
+            padding: 10px 20px;
             background: var(--primary-blue);
             color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
             text-decoration: none;
-            font-family: 'Geist', sans-serif;
-            font-weight: 600;
+            border-radius: 8px;
+            font-family: 'Geist', 'Geist Placeholder', sans-serif;
             font-size: 15px;
+            font-weight: 500;
+            letter-spacing: -0.03em;
             transition: all 0.2s;
-            white-space: nowrap;
         }
 
         .header-cta:hover {
-            background: #0E5AD6;
+            background: #0E5DD6;
             transform: translateY(-1px);
         }
 
-        /* Footer CSS */
-        .footer {
-            background: var(--footer-bg);
-            color: var(--dark-text);
-            margin-left: 280px;
-            padding: 48px 96px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 64px;
-            margin-bottom: 48px;
-        }
-
-        .footer-brand h4 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-
-        .footer-brand p {
-            color: #575757;
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-
-        .footer-cta {
-            display: inline-block;
-            background: var(--primary-blue);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: all 0.2s;
-            margin-bottom: 24px;
-        }
-
-        .footer-cta:hover {
-            background: #0E5AD6;
-            transform: translateY(-1px);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 16px;
-        }
-
-        .footer-social a {
-            color: #575757;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.2s;
-        }
-
-        .footer-social a:hover {
-            color: var(--primary-blue);
-        }
-
-        .footer-section h5 {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 20px;
-            color: #575757;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-links a {
-            color: #575757;
-            text-decoration: none;
-            font-size: 15px;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-blue);
-        }
-
-        .footer-bottom {
-            background: var(--footer-bg);
-            color: #575757;
-            padding: 24px 64px;
-            margin-left: 280px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-        }
-
-        /* Sidebar */
+        /* Sidebar Navigation */
         .sidebar {
             position: fixed;
             left: 0;
             top: 80px;
-            bottom: 0;
             width: 280px;
+            height: calc(100vh - 80px);
             background: var(--bg-white);
             border-right: 1px solid var(--border-gray);
             overflow-y: auto;
-            z-index: 100;
+            padding: 32px 24px;
         }
 
         .nav-section {
-            padding: 24px 0;
-            border-bottom: 1px solid var(--border-gray);
+            margin-bottom: 32px;
         }
 
-        .nav-section-title {
-            padding: 0 24px 12px;
+        .nav-section h3 {
             font-family: 'Geist', sans-serif;
+            font-size: 14px;
             font-weight: 600;
-            font-size: 12px;
+            color: var(--dark-text);
+            margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: var(--light-gray);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
 
         .nav-link {
-            display: block;
-            padding: 8px 24px;
-            color: var(--dark-text);
+            font-family: 'Inter', sans-serif;
+            color: var(--light-gray);
             text-decoration: none;
             font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 6px;
             transition: all 0.2s;
         }
 
         .nav-link:hover {
             background: var(--bg-gray);
-            color: var(--primary-blue);
+            color: var(--dark-text);
         }
 
         .nav-link.active {
-            color: var(--primary-blue);
             background: var(--bg-gray);
-            border-left: 3px solid var(--primary-blue);
-            padding-left: 21px;
-        }
-
-        .sidebar-footer {
-            padding: 24px;
-            margin-top: auto;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
             color: var(--primary-blue);
-            text-decoration: none;
-            font-size: 14px;
             font-weight: 500;
         }
 
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
         /* Main Content */
-        .main-content {
+        main {
             margin-left: 280px;
-            padding: 48px 64px;
+            padding: 48px 96px 96px 96px;
+            max-width: 1400px;
         }
 
         .content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .hero {
-            margin-bottom: 48px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            color: var(--light-gray);
-        }
-
-        .doc-section {
-            margin-bottom: 48px;
-        }
-
-        .doc-section h2 {
-            font-size: 28px;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .doc-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 16px;
-        }
-
-        .doc-card {
-            padding: 20px;
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--dark-text);
-            transition: all 0.2s;
-        }
-
-        .doc-card:hover {
-            border-color: var(--primary-blue);
-            box-shadow: 0 4px 12px rgba(18, 109, 251, 0.1);
-        }
-
-        .doc-card h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .doc-card p {
-            font-size: 14px;
-            color: var(--light-gray);
-        }
-
-        /* Content Styling */
-        .content {
-            max-width: 800px;
+            max-width: 900px;
         }
 
         .content h1 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-top: 48px;
+            font-size: 42px;
             margin-bottom: 24px;
-            line-height: 1.2;
-        }
-
-        .content h1:first-child {
-            margin-top: 0;
+            color: var(--dark-text);
         }
 
         .content h2 {
-            font-size: 28px;
-            font-weight: 700;
+            font-size: 32px;
             margin-top: 48px;
-            margin-bottom: 20px;
-            line-height: 1.3;
+            margin-bottom: 16px;
+            color: var(--dark-text);
         }
 
         .content h3 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-top: 36px;
-            margin-bottom: 16px;
-            line-height: 1.4;
-        }
-
-        .content h4 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-top: 28px;
+            font-size: 24px;
+            margin-top: 32px;
             margin-bottom: 12px;
+            color: var(--dark-text);
         }
 
         .content p {
-            margin-bottom: 20px;
-            line-height: 1.7;
+            margin-bottom: 16px;
+            color: var(--dark-text);
         }
 
         .content ul, .content ol {
-            margin-bottom: 24px;
-            padding-left: 28px;
+            margin-bottom: 16px;
+            padding-left: 24px;
         }
 
         .content li {
             margin-bottom: 8px;
-            line-height: 1.6;
-        }
-
-        .content hr {
-            border: none;
-            border-top: 1px solid var(--border-gray);
-            margin: 48px 0;
-        }
-
-        .content pre {
-            background: var(--bg-gray);
-            border: 1px solid var(--border-gray);
-            border-radius: 6px;
-            padding: 16px;
-            margin-bottom: 24px;
-            overflow-x: auto;
-        }
-
-        .content code {
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-        }
-
-        .content p code {
-            background: var(--bg-gray);
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 13px;
-        }
-
-        .content blockquote {
-            border-left: 4px solid var(--primary-blue);
-            padding-left: 20px;
-            margin: 24px 0;
-            color: var(--light-gray);
-        }
-
-        .content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 24px;
-        }
-
-        .content th, .content td {
-            border: 1px solid var(--border-gray);
-            padding: 12px;
-            text-align: left;
-        }
-
-        .content th {
-            background: var(--bg-gray);
-            font-weight: 600;
+            color: var(--dark-text);
         }
 
         .content a {
@@ -464,147 +224,223 @@
             text-decoration: underline;
         }
 
+        .content code {
+            background: var(--bg-gray);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .content pre {
+            background: var(--bg-gray);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 16px;
+        }
+
+        .content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .content blockquote {
+            border-left: 4px solid var(--primary-blue);
+            padding-left: 16px;
+            margin: 16px 0;
+            color: var(--light-gray);
+        }
+
+        .content hr {
+            border: none;
+            border-top: 1px solid var(--border-gray);
+            margin: 32px 0;
+        }
+
         .content strong {
             font-weight: 600;
+            color: var(--dark-text);
         }
 
-        .content em {
-            font-style: italic;
+        /* Footer - Landing Page Style */
+        .footer {
+            background: var(--footer-bg);
+            border-top: 1px solid var(--border-gray);
+            padding: 64px 96px;
+            margin-left: 280px;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .top-header {
-                padding: 0 24px;
-            }
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 64px;
+            max-width: 1400px;
+        }
 
-            .header-nav {
-                display: none;
-            }
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
 
-            .footer {
-                margin-left: 0;
-                padding: 48px 24px;
-            }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
 
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
+        .footer-logo h4 {
+            font-family: 'Geist', 'Geist Placeholder', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            letter-spacing: -0.02em;
+        }
 
-            .footer-bottom {
-                margin-left: 0;
-                padding: 24px;
-            }
+        .footer-brand p {
+            font-size: 14px;
+            color: var(--light-gray);
+            line-height: 1.6;
+            max-width: 400px;
+        }
 
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s;
-            }
+        .footer-cta {
+            align-self: flex-start;
+            padding: 12px 24px;
+            background: var(--primary-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
 
-            .sidebar.open {
-                transform: translateX(0);
-            }
+        .footer-cta:hover {
+            background: #0E5DD6;
+            transform: translateY(-1px);
+        }
 
-            .main-content {
-                margin-left: 0;
-                padding: 24px;
-            }
+        .footer-social a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 14px;
+        }
 
-            .hero h1 {
-                font-size: 32px;
-            }
+        .footer-social a:hover {
+            color: var(--dark-text);
+        }
 
-            .doc-grid {
-                grid-template-columns: 1fr;
-            }
+        .footer-section h5 {
+            font-family: 'Geist', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--dark-text);
+        }
 
-            .content h1 {
-                font-size: 28px;
-            }
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-            .content h2 {
-                font-size: 24px;
-            }
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
 
-            .content h3 {
-                font-size: 20px;
-            }
+        .footer-links a:hover {
+            color: var(--dark-text);
+        }
+
+        .footer-bottom {
+            background: var(--footer-bg);
+            text-align: center;
+            padding: 24px;
+            color: var(--light-gray);
+            font-size: 14px;
+            border-top: 1px solid var(--border-gray);
+            margin-left: 280px;
         }
     </style>
-
 </head>
 <body>
-    <!-- Top Header - Landing Page Style -->
+    <!-- Top Header -->
     <header class="top-header">
-        <a href="https://www.perfoads.com" class="header-logo">
+        <a href="/" class="header-logo">
             <img src="/logo.png" alt="PerfoAds">
             <span>PerfoAds</span>
         </a>
         <nav class="header-nav">
             <a href="https://www.perfoads.com/#features">Features</a>
             <a href="https://www.perfoads.com/#benefits">Benefits</a>
-            <a href="https://www.perfoads.com/#testimonials">Testimonials</a>
+            <a href="/">Documentation</a>
             <a href="https://www.perfoads.com/#pricing">Pricing</a>
             <a href="https://www.perfoads.com/#faq">FAQ</a>
+            <a href="https://app.perfoads.com" class="header-cta">Start Free Trial</a>
         </nav>
-        <a href="https://www.perfoads.com/#pricing" class="header-cta">Transform my Business</a>
     </header>
 
-    <!-- Sidebar -->
+    <!-- Sidebar Navigation -->
     <aside class="sidebar">
-
         <nav>
             <div class="nav-section">
-                <div class="nav-section-title">Getting Started</div>
-                <a href="/phase-1-essential/01-what-is-perfoads.html" class="nav-link">What is PerfoAds?</a>
-                <a href="/phase-1-essential/02-quick-start-guide.html" class="nav-link">Quick Start Guide</a>
-                <a href="/phase-1-essential/03-adding-first-client.html" class="nav-link">Adding Your First Client</a>
-                <a href="/phase-1-essential/04-understanding-dashboard.html" class="nav-link">Understanding the Dashboard</a>
-                <a href="/phase-1-essential/05-smart-sync-explained.html" class="nav-link">Smart Sync Explained</a>
+                <h3>Getting Started</h3>
+                <div class="nav-links">
+                    <a href="/phase-1-essential/01-what-is-perfoads.html" class="nav-link">What is PerfoAds?</a>
+                    <a href="/phase-1-essential/02-quick-start-guide.html" class="nav-link">Quick Start Guide</a>
+                    <a href="/phase-1-essential/03-adding-first-client.html" class="nav-link">Adding Your First Client</a>
+                    <a href="/phase-1-essential/04-understanding-dashboard.html" class="nav-link">Understanding the Dashboard</a>
+                    <a href="/phase-1-essential/05-smart-sync-explained.html" class="nav-link">Smart Sync Explained</a>
+                </div>
             </div>
 
             <div class="nav-section">
-                <div class="nav-section-title">Core Features</div>
-                <a href="/phase-2-core-features/01-client-list-overview.html" class="nav-link">Client List Overview</a>
-                <a href="/phase-2-core-features/02-client-details-page.html" class="nav-link">Client Details Page</a>
-                <a href="/phase-2-core-features/03-bulk-operations.html" class="nav-link">Bulk Operations</a>
-                <a href="/phase-2-core-features/04-sync-system-guide.html" class="nav-link">Sync System Guide</a>
-                <a href="/phase-2-core-features/05-auto-sync-setup.html" class="nav-link">Auto-Sync Setup</a>
-                <a href="/phase-2-core-features/06-sync-logs.html" class="nav-link">Sync Logs</a>
-                <a href="/phase-2-core-features/07-metrics-glossary.html" class="nav-link">Metrics Glossary</a>
-                <a href="/phase-2-core-features/08-performance-charts.html" class="nav-link">Performance Charts Guide</a>
+                <h3>Core Features</h3>
+                <div class="nav-links">
+                    <a href="/phase-2-core-features/01-client-list-overview.html" class="nav-link">Client List Overview</a>
+                    <a href="/phase-2-core-features/02-client-details-page.html" class="nav-link">Client Details Page</a>
+                    <a href="/phase-2-core-features/03-bulk-operations.html" class="nav-link">Bulk Operations</a>
+                    <a href="/phase-2-core-features/04-sync-system-guide.html" class="nav-link">Sync System Guide</a>
+                    <a href="/phase-2-core-features/05-auto-sync-setup.html" class="nav-link">Auto-Sync Setup</a>
+                    <a href="/phase-2-core-features/06-sync-logs.html" class="nav-link">Sync Logs</a>
+                    <a href="/phase-2-core-features/07-metrics-glossary.html" class="nav-link">Metrics Glossary</a>
+                    <a href="/phase-2-core-features/08-performance-charts.html" class="nav-link">Performance Charts</a>
+                </div>
             </div>
 
             <div class="nav-section">
-                <div class="nav-section-title">AI Features</div>
-                <a href="/phase-3-ai-features/01-smart-alerts-intro.html" class="nav-link">Smart Alerts Introduction</a>
-                <a href="/phase-3-ai-features/02-alert-severity-guide.html" class="nav-link">Alert Severity Guide</a>
-                <a href="/phase-3-ai-features/03-alert-categories.html" class="nav-link">Alert Categories Guide</a>
-                <a href="/phase-3-ai-features/04-accept-decline-workflow.html" class="nav-link">Accept/Decline Workflow</a>
-                <a href="/phase-3-ai-features/05-ai-chat-getting-started.html" class="nav-link">AI Chat - Getting Started</a>
-                <a href="/phase-3-ai-features/06-ai-chat-templates.html" class="nav-link">AI Chat Templates</a>
-                <a href="/phase-3-ai-features/07-ai-context-explained.html" class="nav-link">AI Context Explained</a>
-                <a href="/phase-3-ai-features/08-business-profile-setup.html" class="nav-link">Business Profile Setup</a>
-                <a href="/phase-3-ai-features/09-custom-context-entries.html" class="nav-link">Custom Context Entries</a>
+                <h3>AI Features</h3>
+                <div class="nav-links">
+                    <a href="/phase-3-ai-features/01-smart-alerts-intro.html" class="nav-link">Smart Alerts Introduction</a>
+                    <a href="/phase-3-ai-features/02-alert-severity-guide.html" class="nav-link">Alert Severity Guide</a>
+                    <a href="/phase-3-ai-features/03-alert-categories.html" class="nav-link">Alert Categories</a>
+                    <a href="/phase-3-ai-features/04-accept-decline-workflow.html" class="nav-link">Accept/Decline Workflow</a>
+                    <a href="/phase-3-ai-features/05-ai-chat-getting-started.html" class="nav-link">AI Chat - Getting Started</a>
+                    <a href="/phase-3-ai-features/06-ai-chat-templates.html" class="nav-link">AI Chat Templates</a>
+                    <a href="/phase-3-ai-features/07-ai-context-explained.html" class="nav-link">AI Context Explained</a>
+                    <a href="/phase-3-ai-features/08-business-profile-setup.html" class="nav-link">Business Profile Setup</a>
+                    <a href="/phase-3-ai-features/09-custom-context-entries.html" class="nav-link">Custom Context Entries</a>
+                </div>
             </div>
 
             <div class="nav-section">
-                <div class="nav-section-title">Advanced</div>
-                <a href="/phase-4-advanced/01-global-settings.html" class="nav-link">Global Settings</a>
-                <a href="/phase-4-advanced/05-troubleshooting-sync.html" class="nav-link">Troubleshooting: Sync Issues</a>
-                <a href="/phase-4-advanced/06-troubleshooting-oauth.html" class="nav-link">Troubleshooting: OAuth Issues</a>
-                <a href="/phase-4-advanced/07-troubleshooting-general.html" class="nav-link">Troubleshooting: General</a>
+                <h3>Advanced</h3>
+                <div class="nav-links">
+                    <a href="/phase-4-advanced/01-global-settings.html" class="nav-link">Global Settings</a>
+                    <a href="/phase-4-advanced/08-email-alerts-setup.html" class="nav-link">Email Alerts Setup</a>
+                    <a href="/phase-4-advanced/05-troubleshooting-sync.html" class="nav-link">Troubleshooting: Sync Issues</a>
+                    <a href="/phase-4-advanced/06-troubleshooting-oauth.html" class="nav-link">Troubleshooting: OAuth Issues</a>
+                    <a href="/phase-4-advanced/07-troubleshooting-general.html" class="nav-link">Troubleshooting: General</a>
+                </div>
             </div>
         </nav>
-
-        <div class="sidebar-footer">
-            <a href="https://www.perfoads.com" class="back-link">
-                ← Back to PerfoAds
-            </a>
-        </div>
     </aside>
-    <main class="main-content">
+
+    <!-- Main Content -->
+    <main>
         <div class="content"><h1>Business Profile Setup</h1>
 <p>The Business Profile is a structured form that tells AI about your client&#39;s business, goals, and constraints. Spending 10 minutes to complete it makes every AI recommendation 3-5x more relevant. This guide explains every field, provides examples, and shows you how to get maximum value from your profile.</p>
 <hr>
@@ -664,6 +500,40 @@ Expected result: CPA drops to $38-42 range.&quot;
 <p><strong>Applies to</strong>: Your agency/company</p>
 <p><strong>Use when</strong>: Setting agency-wide defaults</p>
 <p><strong>Note</strong>: Client-specific profiles take precedence over global defaults</p>
+<hr>
+<h3>Settings Business Profile (with Subscription Management)</h3>
+<p><strong>Location</strong>: Main Settings → Business Profile tab</p>
+<p><strong>Applies to</strong>: Your agency/company profile (account-wide settings)</p>
+<p><strong>Includes</strong>:</p>
+<ul>
+<li>Business information fields (company name, logo, industry)</li>
+<li>Company branding and customization</li>
+<li><strong>Manage Subscription button</strong> - Access LemonSqueezy billing portal</li>
+</ul>
+<p><strong>Use when</strong>:</p>
+<ul>
+<li>Setting agency-wide defaults</li>
+<li>Configuring AI context for all clients</li>
+<li>Managing your PerfoAds subscription</li>
+</ul>
+<p><strong>Difference from Client Business Profile</strong>:</p>
+<ul>
+<li>Client Business Profile: Specific to one client (accessed from client details)</li>
+<li>Settings Business Profile: Your agency info (accessed from Settings)</li>
+</ul>
+<p><strong>Subscription Management Integration</strong>:</p>
+<p>The &quot;Manage Subscription&quot; button is located at the top of the Business Profile tab in Settings. This button opens the LemonSqueezy customer portal where you can:</p>
+<ul>
+<li>View current plan (Starter, Pro, Agency)</li>
+<li>Update payment information</li>
+<li>Upgrade or downgrade subscription</li>
+<li>Cancel subscription</li>
+<li>Download invoices and billing history</li>
+</ul>
+<p><strong>Access</strong>: Settings → Business Profile → &quot;Manage Subscription&quot; button</p>
+<p><strong>Note</strong>: Subscription management is separate from client-specific business profiles. This manages YOUR PerfoAds account subscription, not client information.</p>
+<p>[Screenshot: Settings Business Profile with &quot;Manage Subscription&quot; button]
+<em>The subscription button is integrated at the top of the Business Profile tab</em></p>
 <hr>
 <h2>Business Profile Fields</h2>
 <h3>Field 1: Industry</h3>

@@ -93,6 +93,45 @@ Expected result: CPA drops to $38-42 range."
 
 ---
 
+### Settings Business Profile (with Subscription Management)
+
+**Location**: Main Settings → Business Profile tab
+
+**Applies to**: Your agency/company profile (account-wide settings)
+
+**Includes**:
+- Business information fields (company name, logo, industry)
+- Company branding and customization
+- **Manage Subscription button** - Access LemonSqueezy billing portal
+
+**Use when**:
+- Setting agency-wide defaults
+- Configuring AI context for all clients
+- Managing your PerfoAds subscription
+
+**Difference from Client Business Profile**:
+- Client Business Profile: Specific to one client (accessed from client details)
+- Settings Business Profile: Your agency info (accessed from Settings)
+
+**Subscription Management Integration**:
+
+The "Manage Subscription" button is located at the top of the Business Profile tab in Settings. This button opens the LemonSqueezy customer portal where you can:
+
+- View current plan (Starter, Pro, Agency)
+- Update payment information
+- Upgrade or downgrade subscription
+- Cancel subscription
+- Download invoices and billing history
+
+**Access**: Settings → Business Profile → "Manage Subscription" button
+
+**Note**: Subscription management is separate from client-specific business profiles. This manages YOUR PerfoAds account subscription, not client information.
+
+[Screenshot: Settings Business Profile with "Manage Subscription" button]
+*The subscription button is integrated at the top of the Business Profile tab*
+
+---
+
 ## Business Profile Fields
 
 ### Field 1: Industry

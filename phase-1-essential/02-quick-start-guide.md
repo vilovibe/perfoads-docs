@@ -33,6 +33,38 @@ Make sure you have:
 - **Active campaigns** - The account should have some campaign history (ideally 30+ days of data)
 - **Google account login** - You'll use OAuth to connect securely
 
+### Subscription Plan
+
+**PerfoAds offers multiple tiers**:
+
+**Free Plan** (Getting Started):
+- 1-2 Google Ads accounts
+- Basic sync and metrics
+- Limited AI features
+- Perfect for testing or small agencies
+
+**Starter Plan**:
+- 1 Google Ads account
+- Full AI features
+- Smart Alerts and AI Chat
+- Priority support
+
+**Pro Plan**:
+- 10 Google Ads accounts
+- All Starter features
+- Advanced automation
+- Bulk operations
+
+**Agency Plan**:
+- 30 Google Ads accounts
+- All Pro features
+- White-label options
+- Dedicated support
+
+**Where to manage**: Settings → Business Profile → "Manage Subscription"
+
+**Note**: Start with free plan and upgrade anytime. No credit card required to start.
+
 [Screenshot: Login screen showing "Connect with Google" button]
 *You'll start by logging in with your Google account*
 
@@ -165,6 +197,26 @@ Now that your first client is set up, the system starts working automatically:
 - Performance metrics update after each sync
 - Charts reflect latest trends
 - AI Chat has access to current data
+
+### Context Management
+
+**What it does**: Provides AI with business context for better recommendations
+
+**Automatic Context**:
+- Campaign names and structures
+- Performance metrics and trends
+- Budget and spend data
+
+**Custom Context** (you add):
+- Business goals and priorities
+- Industry-specific constraints
+- Client preferences
+
+**Where to manage**: Settings → Business Profile
+
+**Impact**: Complete business profile improves AI accuracy by 3-5x
+
+**Pro Tip**: Fill out Business Profile in Settings during setup. Takes 5 minutes.
 
 ---
 
