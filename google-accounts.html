@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is PerfoAds? - PerfoAds Documentation</title>
+    <title>Google Accounts - PerfoAds Documentation</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -388,7 +388,7 @@
             <div class="nav-section">
                 <h3>Getting Started</h3>
                 <div class="nav-links">
-                    <a href="/what-is-perfoads.html" class="nav-link active">What is PerfoAds?</a>
+                    <a href="/what-is-perfoads.html" class="nav-link">What is PerfoAds?</a>
                 </div>
             </div>
 
@@ -413,7 +413,7 @@
             <div class="nav-section">
                 <h3>Account Management</h3>
                 <div class="nav-links">
-                    <a href="/google-accounts.html" class="nav-link">Google Accounts</a>
+                    <a href="/google-accounts.html" class="nav-link active">Google Accounts</a>
                     <a href="/settings.html" class="nav-link">Settings</a>
                     <a href="/user-account.html" class="nav-link">User Account</a>
                 </div>
@@ -424,51 +424,103 @@
     <!-- Main Content -->
     <main>
         <div class="content">
-            <h1>What is PerfoAds?</h1>
-<p>PerfoAds is a Google Ads management tool that helps you monitor and optimize your advertising campaigns using AI.</p>
-<h2>What Does It Do?</h2>
-<p>PerfoAds automatically syncs your Google Ads data every 24 hours and analyzes it to:</p>
-<ul>
-<li><strong>Track Performance</strong>: See how your ads are performing with clear metrics like spend, conversions, and cost per conversion</li>
-<li><strong>Get AI Alerts</strong>: Receive smart notifications when something important happens in your campaigns</li>
-<li><strong>Chat with AI</strong>: Ask questions about your campaigns and get intelligent answers</li>
-<li><strong>Save Time</strong>: No more logging into Google Ads constantly - everything is in one place</li>
-</ul>
-<h2>Key Features</h2>
-<h3>Smart Sync</h3>
-<p>Your Google Ads data automatically updates every 24 hours. No manual work required.</p>
-<h3>Smart Alerts</h3>
-<p>AI monitors your campaigns 24/7 and alerts you when:</p>
-<ul>
-<li><strong>Critical issues</strong> need immediate attention (red alerts)</li>
-<li><strong>Important changes</strong> require your review (yellow alerts)</li>
-<li><strong>Good news</strong> worth celebrating (green alerts)</li>
-</ul>
-<h3>AI Chat</h3>
-<p>Ask questions about your campaigns in plain English. The AI understands your business context and gives personalized answers.</p>
-<h3>Performance Dashboard</h3>
-<p>See all your important metrics at a glance:</p>
-<ul>
-<li>Total spend across all campaigns</li>
-<li>Number of conversions</li>
-<li>Cost per conversion</li>
-<li>Click-through rates</li>
-</ul>
-<h2>Who Is It For?</h2>
-<p>PerfoAds is built for:</p>
-<ul>
-<li>Marketing agencies managing multiple clients</li>
-<li>Business owners running their own Google Ads</li>
-<li>Anyone who wants AI-powered insights without the complexity</li>
-</ul>
-<h2>Getting Started</h2>
-<p>To use PerfoAds, you need:</p>
+            <h1>Google Accounts</h1>
+<p>The Google Accounts page shows all Google accounts you&#39;ve connected to PerfoAds and manages access to your Google Ads data.</p>
+<h2>What Are Google Accounts?</h2>
+<p>A Google account is the Gmail or Google Workspace account you use to access Google Ads. You need to connect these accounts to PerfoAds so it can sync your advertising data.</p>
+<h2>Account Discovery</h2>
+<p>When you connect a Google account, PerfoAds automatically:</p>
 <ol>
-<li>A Google Ads account</li>
-<li>Active campaigns to monitor</li>
-<li>A PerfoAds subscription (free trial available)</li>
+<li><strong>Discovers all accessible Google Ads accounts</strong> linked to that Google account</li>
+<li><strong>Shows you which accounts were found</strong></li>
+<li><strong>Lets you select which ones to sync</strong></li>
 </ol>
-<p>Once you connect your Google Ads account, PerfoAds will automatically start syncing your data and providing insights within 24 hours.</p>
+<p>You don&#39;t need to manually add each Google Ads account - PerfoAds finds them automatically.</p>
+<h2>Connecting a Google Account</h2>
+<ol>
+<li>Go to <strong>Google Accounts</strong> in the sidebar</li>
+<li>Click <strong>&quot;Connect Google Account&quot;</strong></li>
+<li>Sign in with your Google credentials</li>
+<li>Grant PerfoAds permission to access Google Ads data</li>
+<li>Your account appears in the list immediately</li>
+</ol>
+<h3>What Permissions Are Needed?</h3>
+<p>PerfoAds requests permission to:</p>
+<ul>
+<li>✅ Read Google Ads data (campaigns, performance, metrics)</li>
+<li>✅ View account information (to identify which Ads accounts exist)</li>
+</ul>
+<p>PerfoAds <strong>CANNOT</strong>:</p>
+<ul>
+<li>❌ Make changes to your Google Ads campaigns</li>
+<li>❌ Access your Gmail or other Google services</li>
+<li>❌ Spend your ad budget or create new campaigns</li>
+</ul>
+<h2>Account Status</h2>
+<p>Each connected account shows:</p>
+<h3>Active Account (Green Checkmark)</h3>
+<p>Everything is working. Data is syncing normally.</p>
+<h3>Authentication Issue (Yellow Warning)</h3>
+<p>The account connection needs to be refreshed. Click &quot;Reconnect&quot; to fix.</p>
+<h3>Access Revoked (Red Error)</h3>
+<p>You&#39;ve removed PerfoAds access from your Google account settings. Reconnect to restore access.</p>
+<h2>Disconnecting a Google Account</h2>
+<p>Click the <strong>&quot;Disconnect&quot;</strong> button next to any account to:</p>
+<ul>
+<li>Remove PerfoAds access to that Google account</li>
+<li>Stop syncing data from associated Google Ads accounts</li>
+<li>Delete the account from your PerfoAds dashboard</li>
+</ul>
+<p><strong>Note</strong>: This does NOT affect your actual Google Ads campaigns. It only disconnects PerfoAds access.</p>
+<h2>Reconnecting an Account</h2>
+<p>If an account shows an authentication issue:</p>
+<ol>
+<li>Click <strong>&quot;Reconnect&quot;</strong> or <strong>&quot;Refresh&quot;</strong></li>
+<li>Sign in with Google again</li>
+<li>Grant permissions</li>
+<li>Connection is restored</li>
+</ol>
+<p>Common reasons to reconnect:</p>
+<ul>
+<li>Password changed on Google account</li>
+<li>Permissions were accidentally revoked</li>
+<li>Token expired (happens after 6 months of inactivity)</li>
+</ul>
+<h2>Multiple Google Accounts</h2>
+<p>You can connect multiple Google accounts if:</p>
+<ul>
+<li>You manage ads for multiple businesses</li>
+<li>You have separate work and personal Google Ads accounts</li>
+<li>You&#39;re an agency with access to client accounts</li>
+</ul>
+<p>Each Google account is shown separately with its own &quot;Disconnect&quot; button.</p>
+<h2>Account vs Client Difference</h2>
+<p><strong>Google Account</strong>: Your Gmail/Google Workspace login (e.g., <a href="mailto:john@example.com">john@example.com</a>)</p>
+<p><strong>Client</strong>: A specific Google Ads account discovered from your Google account (e.g., &quot;ABC Company - 123-456-7890&quot;)</p>
+<p>One Google account can have access to multiple Google Ads accounts (clients).</p>
+<h2>Troubleshooting Connection Issues</h2>
+<h3>&quot;No Google Ads accounts found&quot;</h3>
+<p>Your Google account doesn&#39;t have access to any Google Ads accounts. Either:</p>
+<ul>
+<li>Create a Google Ads account first</li>
+<li>Get added as a user to an existing Google Ads account</li>
+<li>Connect a different Google account that has Ads access</li>
+</ul>
+<h3>&quot;Authentication failed&quot;</h3>
+<p>Try these steps:</p>
+<ol>
+<li>Clear your browser cookies and cache</li>
+<li>Try connecting in an incognito/private window</li>
+<li>Make sure you&#39;re signing in with the correct Google account</li>
+<li>Check that you clicked &quot;Allow&quot; when granting permissions</li>
+</ol>
+<h3>&quot;Account keeps disconnecting&quot;</h3>
+<p>If an account frequently needs reconnection:</p>
+<ul>
+<li>Your Google account may have 2-factor authentication issues</li>
+<li>Another admin may be revoking access</li>
+<li>Contact support if the problem persists</li>
+</ul>
 
         </div>
     </main>

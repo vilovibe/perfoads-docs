@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is PerfoAds? - PerfoAds Documentation</title>
+    <title>Data Syncing - PerfoAds Documentation</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -388,7 +388,7 @@
             <div class="nav-section">
                 <h3>Getting Started</h3>
                 <div class="nav-links">
-                    <a href="/what-is-perfoads.html" class="nav-link active">What is PerfoAds?</a>
+                    <a href="/what-is-perfoads.html" class="nav-link">What is PerfoAds?</a>
                 </div>
             </div>
 
@@ -397,7 +397,7 @@
                 <div class="nav-links">
                     <a href="/managing-clients.html" class="nav-link">Managing Clients</a>
                     <a href="/viewing-performance.html" class="nav-link">Viewing Performance</a>
-                    <a href="/data-syncing.html" class="nav-link">Data Syncing</a>
+                    <a href="/data-syncing.html" class="nav-link active">Data Syncing</a>
                 </div>
             </div>
 
@@ -424,51 +424,153 @@
     <!-- Main Content -->
     <main>
         <div class="content">
-            <h1>What is PerfoAds?</h1>
-<p>PerfoAds is a Google Ads management tool that helps you monitor and optimize your advertising campaigns using AI.</p>
-<h2>What Does It Do?</h2>
-<p>PerfoAds automatically syncs your Google Ads data every 24 hours and analyzes it to:</p>
-<ul>
-<li><strong>Track Performance</strong>: See how your ads are performing with clear metrics like spend, conversions, and cost per conversion</li>
-<li><strong>Get AI Alerts</strong>: Receive smart notifications when something important happens in your campaigns</li>
-<li><strong>Chat with AI</strong>: Ask questions about your campaigns and get intelligent answers</li>
-<li><strong>Save Time</strong>: No more logging into Google Ads constantly - everything is in one place</li>
-</ul>
-<h2>Key Features</h2>
-<h3>Smart Sync</h3>
-<p>Your Google Ads data automatically updates every 24 hours. No manual work required.</p>
-<h3>Smart Alerts</h3>
-<p>AI monitors your campaigns 24/7 and alerts you when:</p>
-<ul>
-<li><strong>Critical issues</strong> need immediate attention (red alerts)</li>
-<li><strong>Important changes</strong> require your review (yellow alerts)</li>
-<li><strong>Good news</strong> worth celebrating (green alerts)</li>
-</ul>
-<h3>AI Chat</h3>
-<p>Ask questions about your campaigns in plain English. The AI understands your business context and gives personalized answers.</p>
-<h3>Performance Dashboard</h3>
-<p>See all your important metrics at a glance:</p>
-<ul>
-<li>Total spend across all campaigns</li>
-<li>Number of conversions</li>
-<li>Cost per conversion</li>
-<li>Click-through rates</li>
-</ul>
-<h2>Who Is It For?</h2>
-<p>PerfoAds is built for:</p>
-<ul>
-<li>Marketing agencies managing multiple clients</li>
-<li>Business owners running their own Google Ads</li>
-<li>Anyone who wants AI-powered insights without the complexity</li>
-</ul>
-<h2>Getting Started</h2>
-<p>To use PerfoAds, you need:</p>
+            <h1>Data Syncing</h1>
+<p>Data syncing is how PerfoAds gets your Google Ads data and keeps it up to date.</p>
+<h2>What Is Data Syncing?</h2>
+<p>Syncing means PerfoAds connects to Google Ads and copies your campaign data (performance metrics, campaigns, ad groups, keywords, etc.) into your PerfoAds dashboard.</p>
+<h2>How Syncing Works</h2>
+<h3>Automatic 24-Hour Sync</h3>
+<p><strong>Default behavior</strong>: Your data automatically syncs once every 24 hours.</p>
+<p><strong>What happens</strong>:</p>
 <ol>
-<li>A Google Ads account</li>
-<li>Active campaigns to monitor</li>
-<li>A PerfoAds subscription (free trial available)</li>
+<li>PerfoAds connects to your Google Ads account</li>
+<li>Downloads the latest data (campaigns, metrics, performance)</li>
+<li>Updates your dashboard with new information</li>
+<li>Generates Smart Alerts if it detects important changes</li>
 </ol>
-<p>Once you connect your Google Ads account, PerfoAds will automatically start syncing your data and providing insights within 24 hours.</p>
+<p><strong>When it runs</strong>: Typically overnight (during off-peak hours)</p>
+<p><strong>How long it takes</strong>: 1-5 minutes depending on account size</p>
+<h3>First Sync</h3>
+<p>When you first connect a Google Ads account:</p>
+<ul>
+<li>Initial sync can take 5-15 minutes</li>
+<li>PerfoAds downloads historical data (last 90 days)</li>
+<li>You&#39;ll get an email when the first sync completes</li>
+<li>After that, syncs are faster (only updating new data)</li>
+</ul>
+<h2>Manual Sync</h2>
+<p>Force an immediate sync instead of waiting for the automatic 24-hour sync.</p>
+<h3>How to Manually Sync</h3>
+<p><strong>From Clients List</strong>:</p>
+<ol>
+<li>Click the three dots (⋮) next to a client</li>
+<li>Select &quot;Sync Now&quot;</li>
+<li>Wait for the sync to complete (1-5 minutes)</li>
+</ol>
+<p><strong>From Client Dashboard</strong>:</p>
+<ol>
+<li>Look for the &quot;Last Synced&quot; timestamp</li>
+<li>Click &quot;Sync Now&quot; button (if available)</li>
+<li>Dashboard updates when sync finishes</li>
+</ol>
+<h3>When to Use Manual Sync</h3>
+<p><strong>Good reasons</strong>:</p>
+<ul>
+<li>You just made changes in Google Ads and want to see them immediately</li>
+<li>You&#39;re about to present data to a client and need it current</li>
+<li>Automatic sync failed and you&#39;re manually retrying</li>
+</ul>
+<p><strong>Not necessary</strong>:</p>
+<ul>
+<li>Daily monitoring (automatic sync handles this)</li>
+<li>Checking yesterday&#39;s performance (already synced)</li>
+<li>&quot;Just because&quot; (wastes API quota unnecessarily)</li>
+</ul>
+<h2>Understanding Last Sync Time</h2>
+<p>Every client shows a &quot;Last Synced&quot; timestamp:</p>
+<p><strong>&quot;Synced 2 hours ago&quot;</strong> = Data is current as of 2 hours ago</p>
+<p><strong>&quot;Synced 1 day ago&quot;</strong> = Next automatic sync is due soon</p>
+<p><strong>&quot;Synced 3 days ago&quot;</strong> = Something is wrong - sync may have failed</p>
+<h3>Data Freshness</h3>
+<p>Your dashboard shows data up to the last sync time. If it says &quot;Last synced: 10 hours ago,&quot; you&#39;re seeing data from 10 hours ago, not real-time.</p>
+<p><strong>This is normal</strong>: Google Ads data itself has a delay (usually 2-3 hours). Real-time data doesn&#39;t exist in Google Ads anyway.</p>
+<h2>Sync Status Indicators</h2>
+<h3>Syncing (In Progress)</h3>
+<p>Blue spinner icon. Sync is currently running. Wait for it to finish (1-5 minutes).</p>
+<h3>Synced Successfully (Green)</h3>
+<p>Green checkmark. Last sync completed without errors. Data is up to date.</p>
+<h3>Sync Failed (Red)</h3>
+<p>Red X icon. Last sync encountered an error. Click for details or retry manually.</p>
+<h3>Sync Pending (Yellow)</h3>
+<p>Yellow clock icon. Sync is scheduled but hasn&#39;t run yet (only appears for very new accounts).</p>
+<h2>Why Syncs Fail</h2>
+<p>Common reasons:</p>
+<h3>Authentication Expired</h3>
+<p><strong>Fix</strong>: Reconnect your Google account in the Google Accounts page.</p>
+<h3>Google Ads API Limit Reached</h3>
+<p><strong>Fix</strong>: Wait a few hours and try again. Manual syncs count against daily API quota.</p>
+<h3>Google Ads Account Suspended</h3>
+<p><strong>Fix</strong>: Check your Google Ads account directly. If it&#39;s suspended, PerfoAds can&#39;t access data.</p>
+<h3>Network Issues</h3>
+<p><strong>Fix</strong>: Temporary problem. Try manual sync again in a few minutes.</p>
+<h2>Sync History &amp; Logs</h2>
+<p>View detailed sync history in <strong>Settings &gt; Sync Settings</strong>:</p>
+<p><strong>Sync Log shows</strong>:</p>
+<ul>
+<li>Exact time of each sync</li>
+<li>Success or failure status</li>
+<li>Error messages (if failed)</li>
+<li>How much data was synced</li>
+</ul>
+<p><strong>Use sync logs to</strong>:</p>
+<ul>
+<li>Troubleshoot sync failures</li>
+<li>Verify data is updating regularly</li>
+<li>Check if manual syncs completed</li>
+</ul>
+<h2>What Data Is Synced?</h2>
+<p>PerfoAds syncs:</p>
+<ul>
+<li>✅ Campaign names, status, budgets</li>
+<li>✅ Ad group names and status</li>
+<li>✅ Performance metrics (impressions, clicks, conversions, cost)</li>
+<li>✅ Keyword data and performance</li>
+<li>✅ Ad copy and creative (for display purposes)</li>
+<li>✅ Conversion events</li>
+<li>✅ Quality scores</li>
+</ul>
+<p>PerfoAds <strong>does NOT sync</strong>:</p>
+<ul>
+<li>❌ Billing information</li>
+<li>❌ Credit card details</li>
+<li>❌ Google Ads login credentials</li>
+<li>❌ Audience lists (only references to them)</li>
+</ul>
+<h2>Data Retention</h2>
+<p><strong>How long PerfoAds keeps your data</strong>:</p>
+<ul>
+<li>Active clients: All historical data is kept</li>
+<li>Deleted clients: Data is permanently deleted within 30 days</li>
+<li>Disconnected Google accounts: Data remains until you delete the client</li>
+</ul>
+<h2>Best Practices</h2>
+<p><strong>Let automatic sync do its job</strong>: Daily automatic syncs are sufficient for most users.</p>
+<p><strong>Use manual sync only when needed</strong>: Excessive manual syncs can hit API limits.</p>
+<p><strong>Check sync status if data seems wrong</strong>: Old &quot;Last Synced&quot; time = stale data.</p>
+<p><strong>Enable &quot;Sync Failed&quot; email notifications</strong>: So you know immediately if syncing stops working.</p>
+<p><strong>Don&#39;t panic if a sync fails</strong>: Try manual sync. Most failures are temporary (network issues, API timeouts).</p>
+<h2>Troubleshooting</h2>
+<h3>&quot;Data hasn&#39;t updated in days&quot;</h3>
+<ol>
+<li>Check &quot;Last Synced&quot; timestamp</li>
+<li>Look for failed sync errors</li>
+<li>Try manual sync</li>
+<li>Check Google Accounts page for authentication issues</li>
+</ol>
+<h3>&quot;Manual sync not working&quot;</h3>
+<ol>
+<li>Verify internet connection</li>
+<li>Check if Google Ads account is accessible</li>
+<li>Wait 5 minutes and try again</li>
+<li>Reconnect Google account if issue persists</li>
+</ol>
+<h3>&quot;Sync says successful but data looks wrong&quot;</h3>
+<ol>
+<li>Check the exact sync timestamp</li>
+<li>Remember Google Ads data has 2-3 hour delay built-in</li>
+<li>Verify you&#39;re looking at the correct date range</li>
+<li>Compare with Google Ads directly to confirm discrepancy</li>
+</ol>
 
         </div>
     </main>
