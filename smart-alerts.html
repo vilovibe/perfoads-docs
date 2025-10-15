@@ -101,11 +101,11 @@
             color: var(--dark-text);
         }
 
-        .header-cta {
+        .header-nav a.header-cta {
             align-self: flex-start;
             padding: 12px 24px;
             background: var(--primary-blue);
-            color: white;
+            color: white !important;
             text-decoration: none;
             border-radius: 8px;
             font-size: 14px;
@@ -113,8 +113,9 @@
             transition: all 0.2s;
         }
 
-        .header-cta:hover {
+        .header-nav a.header-cta:hover {
             background: #0E5DD6;
+            color: white !important;
             transform: translateY(-1px);
         }
 
@@ -410,7 +411,7 @@
             <div class="nav-section">
                 <h3>AI Features</h3>
                 <div class="nav-links">
-                    <a href="/smart-alerts.html" class="nav-link active">Smart Alerts</a>
+                    <a href="/smart-alerts.html" class="nav-link">Smart Alerts</a>
                     <a href="/ai-chat.html" class="nav-link">AI Chat</a>
                     <a href="/business-context.html" class="nav-link">Business Context</a>
                 </div>

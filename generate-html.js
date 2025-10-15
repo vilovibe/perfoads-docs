@@ -142,10 +142,10 @@ function generateHTML(title, content) {
             color: var(--dark-text);
         }
 
-        .header-cta {
+        .header-nav a.header-cta {
             padding: 10px 20px;
             background: var(--primary-blue);
-            color: white;
+            color: white !important;
             text-decoration: none;
             border-radius: 8px;
             font-family: 'Geist', 'Geist Placeholder', sans-serif;
@@ -155,8 +155,9 @@ function generateHTML(title, content) {
             transition: all 0.2s;
         }
 
-        .header-cta:hover {
+        .header-nav a.header-cta:hover {
             background: #0E5DD6;
+            color: white !important;
             transform: translateY(-1px);
         }
 

@@ -101,11 +101,11 @@
             color: var(--dark-text);
         }
 
-        .header-cta {
+        .header-nav a.header-cta {
             align-self: flex-start;
             padding: 12px 24px;
             background: var(--primary-blue);
-            color: white;
+            color: white !important;
             text-decoration: none;
             border-radius: 8px;
             font-size: 14px;
@@ -113,8 +113,9 @@
             transition: all 0.2s;
         }
 
-        .header-cta:hover {
+        .header-nav a.header-cta:hover {
             background: #0E5DD6;
+            color: white !important;
             transform: translateY(-1px);
         }
 
@@ -420,7 +421,7 @@
                 <h3>Account Management</h3>
                 <div class="nav-links">
                     <a href="/google-accounts.html" class="nav-link">Google Accounts</a>
-                    <a href="/settings.html" class="nav-link active">Settings</a>
+                    <a href="/settings.html" class="nav-link">Settings</a>
                     <a href="/user-account.html" class="nav-link">User Account</a>
                 </div>
             </div>
