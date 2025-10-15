@@ -415,7 +415,7 @@ function generateHTML(title, content) {
 <body>
     <!-- Top Header -->
     <header class="top-header">
-        <a href="/" class="header-logo">
+        <a href="https://perfoads.com" class="header-logo">
             <img src="/logo.png" alt="PerfoAds">
             <span>PerfoAds</span>
         </a>
@@ -494,10 +494,10 @@ function generateHTML(title, content) {
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <div class="footer-logo">
+                <a href="https://perfoads.com" class="footer-logo" style="text-decoration: none; color: inherit;">
                     <img src="/logo.png" alt="PerfoAds" style="width: 32px; height: 32px;">
                     <h4 style="margin: 0; display: inline-block; margin-left: 12px; vertical-align: middle;">PerfoAds</h4>
-                </div>
+                </a>
                 <p>AI that doesn't just spot trends. It understands your clients' businesses and tells you exactly what matters.</p>
                 <a href="https://www.perfoads.com/#pricing" class="footer-cta">Transform my Business</a>
                 <div class="footer-social">
