@@ -46,4 +46,4 @@ To use PerfoAds, you need:
 2. Active campaigns to monitor
 3. A PerfoAds subscription
 
-Once you connect your Google Ads account, PerfoAds will automatically start syncing your data and providing insights within 24 hours.
+Once you connect your Google Ads account, PerfoAds will immediately start syncing your data. After the first sync completes, you'll instantly have access to AI insights, alerts, and analytics.
