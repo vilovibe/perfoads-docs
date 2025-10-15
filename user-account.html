@@ -51,9 +51,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 270px;
             padding: 0 96px;
             z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            gap: 120px;
         }
 
         .header-logo {
@@ -368,18 +373,20 @@
 <body>
     <!-- Top Header -->
     <header class="top-header">
-        <a href="/" class="header-logo">
-            <img src="/logo.png" alt="PerfoAds">
-            <span>PerfoAds</span>
-        </a>
-        <nav class="header-nav">
-            <a href="https://www.perfoads.com/#features">Features</a>
-            <a href="https://www.perfoads.com/#benefits">Benefits</a>
-            <a href="/">Documentation</a>
-            <a href="https://www.perfoads.com/#pricing">Pricing</a>
-            <a href="https://www.perfoads.com/#faq">FAQ</a>
-            <a href="https://app.perfoads.com" class="header-cta">Start Free Trial</a>
-        </nav>
+        <div class="header-container">
+            <a href="/" class="header-logo">
+                <img src="/logo.png" alt="PerfoAds">
+                <span>PerfoAds</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://www.perfoads.com/#features">Features</a>
+                <a href="https://www.perfoads.com/#benefits">Benefits</a>
+                <a href="/">Documentation</a>
+                <a href="https://www.perfoads.com/#pricing">Pricing</a>
+                <a href="https://www.perfoads.com/#faq">FAQ</a>
+                <a href="https://www.perfoads.com/#pricing" class="header-cta">Transform My Business</a>
+            </nav>
+        </div>
     </header>
 
     <!-- Sidebar Navigation -->
@@ -440,25 +447,11 @@
 <li>Upload a new profile picture</li>
 </ol>
 <h2>Subscription &amp; Billing</h2>
-<h3>Free Trial</h3>
-<p>New accounts get a <strong>14-day free trial</strong> with full access to all features:</p>
-<ul>
-<li>Unlimited clients</li>
-<li>Unlimited Smart Alerts</li>
-<li>Unlimited AI Chat conversations</li>
-<li>All premium features</li>
-</ul>
-<p><strong>What happens when trial ends</strong>:</p>
-<ul>
-<li>You&#39;ll receive an email reminder 3 days before expiration</li>
-<li>After trial, subscribe to continue using PerfoAds</li>
-<li>No credit card required to start trial</li>
-</ul>
 <h3>Subscription Plans</h3>
 <p>Click <strong>&quot;Manage Subscription&quot;</strong> in Settings &gt; Business Profile to:</p>
 <ul>
 <li>View available plans</li>
-<li>Subscribe after trial ends</li>
+<li>Subscribe to PerfoAds</li>
 <li>Upgrade or downgrade plans</li>
 <li>Update payment method</li>
 <li>View billing history</li>
@@ -524,13 +517,7 @@
 <li>Account updates</li>
 </ul>
 <h2>Account Limits</h2>
-<h3>Free Trial Limits</h3>
-<ul>
-<li>✅ Unlimited clients</li>
-<li>✅ Unlimited features</li>
-<li>⏰ 14 days duration</li>
-</ul>
-<h3>Paid Plan Limits</h3>
+<h3>Plan Limits</h3>
 <p>Varies by plan. Check your plan details in the billing portal.</p>
 <h2>Account Deletion</h2>
 <p>To permanently delete your account:</p>

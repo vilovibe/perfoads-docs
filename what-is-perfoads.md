@@ -44,6 +44,6 @@ PerfoAds is built for:
 To use PerfoAds, you need:
 1. A Google Ads account
 2. Active campaigns to monitor
-3. A PerfoAds subscription (free trial available)
+3. A PerfoAds subscription
 
 Once you connect your Google Ads account, PerfoAds will automatically start syncing your data and providing insights within 24 hours.

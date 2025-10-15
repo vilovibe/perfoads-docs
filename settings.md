@@ -104,9 +104,8 @@ Located in the Business Profile tab.
 
 ### Subscription Status
 Shows your current plan:
-- **Free Trial**: 14 days of full access
 - **Active**: Paid subscription (monthly or annual)
-- **Expired**: Trial or subscription ended
+- **Expired**: Subscription ended
 
 ### Manage Subscription Button
 Click to:

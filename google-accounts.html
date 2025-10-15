@@ -51,9 +51,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 270px;
             padding: 0 96px;
             z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            gap: 120px;
         }
 
         .header-logo {
@@ -368,18 +373,20 @@
 <body>
     <!-- Top Header -->
     <header class="top-header">
-        <a href="/" class="header-logo">
-            <img src="/logo.png" alt="PerfoAds">
-            <span>PerfoAds</span>
-        </a>
-        <nav class="header-nav">
-            <a href="https://www.perfoads.com/#features">Features</a>
-            <a href="https://www.perfoads.com/#benefits">Benefits</a>
-            <a href="/">Documentation</a>
-            <a href="https://www.perfoads.com/#pricing">Pricing</a>
-            <a href="https://www.perfoads.com/#faq">FAQ</a>
-            <a href="https://app.perfoads.com" class="header-cta">Start Free Trial</a>
-        </nav>
+        <div class="header-container">
+            <a href="/" class="header-logo">
+                <img src="/logo.png" alt="PerfoAds">
+                <span>PerfoAds</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://www.perfoads.com/#features">Features</a>
+                <a href="https://www.perfoads.com/#benefits">Benefits</a>
+                <a href="/">Documentation</a>
+                <a href="https://www.perfoads.com/#pricing">Pricing</a>
+                <a href="https://www.perfoads.com/#faq">FAQ</a>
+                <a href="https://www.perfoads.com/#pricing" class="header-cta">Transform My Business</a>
+            </nav>
+        </div>
     </header>
 
     <!-- Sidebar Navigation -->

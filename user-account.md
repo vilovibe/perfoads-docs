@@ -20,23 +20,11 @@ Your profile picture shown in the user menu.
 
 ## Subscription & Billing
 
-### Free Trial
-New accounts get a **14-day free trial** with full access to all features:
-- Unlimited clients
-- Unlimited Smart Alerts
-- Unlimited AI Chat conversations
-- All premium features
-
-**What happens when trial ends**:
-- You'll receive an email reminder 3 days before expiration
-- After trial, subscribe to continue using PerfoAds
-- No credit card required to start trial
-
 ### Subscription Plans
 
 Click **"Manage Subscription"** in Settings > Business Profile to:
 - View available plans
-- Subscribe after trial ends
+- Subscribe to PerfoAds
 - Upgrade or downgrade plans
 - Update payment method
 - View billing history
@@ -105,12 +93,7 @@ Configure in **Settings > Email Notifications**:
 
 ## Account Limits
 
-### Free Trial Limits
-- ✅ Unlimited clients
-- ✅ Unlimited features
-- ⏰ 14 days duration
-
-### Paid Plan Limits
+### Plan Limits
 Varies by plan. Check your plan details in the billing portal.
 
 ## Account Deletion
