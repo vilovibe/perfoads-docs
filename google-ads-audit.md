@@ -12,11 +12,20 @@ In the menu, click **Google Ads Audit**, then **New Audit**.
 
 Your past reports are under **Google Ads Audit**, then **History**.
 
+## How the audit works
+
+1. PerfoAds reads your account data from Google Ads.
+2. 156 automatic checks run on your whole account. They are calculations on your data, so the same account gives the same answers.
+3. Your conversion tracking gets a specialist review first. The later reviews are told how far the tracking can be trusted.
+4. Your biggest live Search, Performance Max, Shopping and Demand Gen campaigns get a specialist review. Live brand campaigns always get one. Your product feed gets one if Merchant Center is connected.
+5. Smaller campaigns, and paused ones that still spent in the last 90 days, get a short summary instead.
+6. Every number in a finding is checked against your data. Figures we could not trace to your data are marked as estimates and left out of the score.
+
 ## The score
 
 At the top you see 1 number from 0 to 100. Higher is better.
 
-**Score by area** shows the areas behind the score, lowest first. Fixing the weakest areas moves the score the most.
+**Score by area** shows the areas behind the score, lowest first. Fixing the weakest areas moves the score the most. Online stores that run Performance Max get a separate Performance Max area.
 
 ## The 3 tabs
 
@@ -28,7 +37,7 @@ At the top you see 1 number from 0 to 100. Higher is better.
 
 ## Findings
 
-Each finding card says what the problem is, why it matters and what to do.
+Each finding card says what the problem is, why it matters and what to do. Where your data proves the money, the card shows it in your currency. Figures we could not trace to your data are marked as estimates and left out of the score.
 
 Findings are graded by how serious they are:
 
@@ -37,6 +46,8 @@ Findings are graded by how serious they are:
 - **Positive:** things that already work well.
 
 Click a severity badge to jump to those findings.
+
+The report also lists what the audit could not check, and why. A gap is never shown as a clean result.
 
 ## Fix a problem from the report
 
