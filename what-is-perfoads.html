@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is PerfoAds? - PerfoAds Documentation</title>
+    <title>What is PerfoAds? - PerfoAds Help</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -262,6 +262,25 @@
             margin: 32px 0;
         }
 
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            font-size: 15px;
+        }
+
+        .content th, .content td {
+            text-align: left;
+            vertical-align: top;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .content th {
+            background: var(--bg-gray);
+            font-weight: 600;
+        }
+
         .content strong {
             font-weight: 600;
             color: var(--dark-text);
@@ -379,12 +398,12 @@
                 <span>PerfoAds</span>
             </a>
             <nav class="header-nav">
-                <a href="https://www.perfoads.com/#features">Features</a>
-                <a href="https://www.perfoads.com/#benefits">Benefits</a>
-                <a href="/">Documentation</a>
-                <a href="https://www.perfoads.com/#pricing">Pricing</a>
-                <a href="https://www.perfoads.com/#faq">FAQ</a>
-                <a href="https://www.perfoads.com/#pricing" class="header-cta">Transform My Business</a>
+                <a href="https://perfoads.com/#tools">Tools</a>
+                <a href="https://perfoads.com/#how-it-works">How it works</a>
+                <a href="/">Help</a>
+                <a href="https://perfoads.com/#pricing">Pricing</a>
+                <a href="https://perfoads.com/#faq">FAQ</a>
+                <a href="https://audit.perfoads.com/audit/login" class="header-cta">Open PerfoAds</a>
             </nav>
         </div>
     </header>
@@ -393,36 +412,39 @@
     <aside class="sidebar">
         <nav>
             <div class="nav-section">
-                <h3>Getting Started</h3>
+                <h3>Start Here</h3>
                 <div class="nav-links">
-                    <a href="/what-is-perfoads.html" class="nav-link">What is PerfoAds?</a>
+                    <a href="/" class="nav-link">Help home</a>
+                    <a href="/what-is-perfoads.html" class="nav-link active">What is PerfoAds?</a>
+                    <a href="/getting-started.html" class="nav-link">Getting started</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>Core Features</h3>
+                <h3>The Tools</h3>
                 <div class="nav-links">
-                    <a href="/managing-clients.html" class="nav-link">Managing Clients</a>
-                    <a href="/viewing-performance.html" class="nav-link">Viewing Performance</a>
-                    <a href="/data-syncing.html" class="nav-link">Data Syncing</a>
+                    <a href="/viewing-performance.html" class="nav-link">Overview dashboard</a>
+                    <a href="/google-ads-audit.html" class="nav-link">Google Ads Audit report</a>
+                    <a href="/search-optimizer.html" class="nav-link">Search Optimizer</a>
+                    <a href="/pmax-optimizer.html" class="nav-link">Performance Max Optimizer</a>
+                    <a href="/feed-optimizer.html" class="nav-link">Feed Optimizer</a>
+                    <a href="/campaign-builder.html" class="nav-link">Campaign Builder</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>AI Features</h3>
+                <h3>Safety and Data</h3>
                 <div class="nav-links">
-                    <a href="/smart-alerts.html" class="nav-link">Smart Alerts</a>
-                    <a href="/ai-chat.html" class="nav-link">AI Chat</a>
-                    <a href="/business-context.html" class="nav-link">Business Context</a>
+                    <a href="/changes-and-undo.html" class="nav-link">Changes and undo</a>
+                    <a href="/data-privacy.html" class="nav-link">Data and privacy</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>Account Management</h3>
+                <h3>Your Account</h3>
                 <div class="nav-links">
-                    <a href="/google-accounts.html" class="nav-link">Google Accounts</a>
-                    <a href="/settings.html" class="nav-link">Settings</a>
-                    <a href="/user-account.html" class="nav-link">User Account</a>
+                    <a href="/billing.html" class="nav-link">Billing</a>
+                    <a href="/settings.html" class="nav-link">Account and settings</a>
                 </div>
             </div>
         </nav>
@@ -432,50 +454,62 @@
     <main>
         <div class="content">
             <h1>What is PerfoAds?</h1>
-<p>PerfoAds is a Google Ads management tool that helps you monitor and optimize your advertising campaigns using AI.</p>
-<h2>What Does It Do?</h2>
-<p>PerfoAds automatically syncs your Google Ads data every 24 hours and analyzes it to:</p>
+<p>PerfoAds checks your Google Ads account, tells you what is wrong in plain English, and helps you fix it.</p>
+<p>You use it in your web browser at <a href="https://audit.perfoads.com/audit/login">audit.perfoads.com</a>.</p>
+<h2>What it does</h2>
 <ul>
-<li><strong>Track Performance</strong>: See how your ads are performing with clear metrics like spend, conversions, and cost per conversion</li>
-<li><strong>Get AI Alerts</strong>: Receive smart notifications when something important happens in your campaigns</li>
-<li><strong>Chat with AI</strong>: Ask questions about your campaigns and get intelligent answers</li>
-<li><strong>Save Time</strong>: No more logging into Google Ads constantly - everything is in one place</li>
+<li><strong>Audits your account.</strong> You get a score from 0 to 100, a list of problems, and a to-do list in order of importance.</li>
+<li><strong>Shows your campaigns in one place.</strong> Spend, clicks, conversions and more, for every account you connect.</li>
+<li><strong>Helps you improve a campaign.</strong> Search and Performance Max campaigns each get their own workspace with suggestions.</li>
+<li><strong>Improves your product feed.</strong> Better product titles, custom labels and missing product details for Google Shopping.</li>
+<li><strong>Builds new campaigns.</strong> A step-by-step wizard creates a Search or Performance Max campaign from your website.</li>
 </ul>
-<h2>Key Features</h2>
-<h3>Smart Sync</h3>
-<p>Your Google Ads data automatically updates every 24 hours. No manual work required.</p>
-<h3>Smart Alerts</h3>
-<p>AI monitors your campaigns 24/7 and alerts you when:</p>
+<h2>Your menu</h2>
+<table>
+<thead>
+<tr>
+<th>Menu item</th>
+<th>What it is for</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Overview</td>
+<td>Your home page. All your campaigns and their numbers.</td>
+</tr>
+<tr>
+<td>Google Ads Audit</td>
+<td>Start a new audit or open past reports.</td>
+</tr>
+<tr>
+<td>Campaign Builder</td>
+<td>Create a new campaign with a wizard.</td>
+</tr>
+<tr>
+<td>Feed Optimizer</td>
+<td>Improve your Google Shopping product feed.</td>
+</tr>
+<tr>
+<td>Settings</td>
+<td>Your profile, team, plan and preferences.</td>
+</tr>
+</tbody></table>
+<h2>You stay in control</h2>
+<p>PerfoAds can make changes to your Google Ads account. It only does so when you approve each change.</p>
 <ul>
-<li><strong>Critical issues</strong> need immediate attention (red alerts)</li>
-<li><strong>Important changes</strong> require your review (yellow alerts)</li>
-<li><strong>Good news</strong> worth celebrating (green alerts)</li>
+<li>You see a preview of every change first.</li>
+<li>Most changes can be undone for 30 days.</li>
+<li>Changes are switched off until the account owner turns them on.</li>
 </ul>
-<h3>AI Chat</h3>
-<p>Ask questions about your campaigns in plain English. The AI understands your business context and gives personalized answers.</p>
-<h3>Performance Dashboard</h3>
-<p>See all your important metrics at a glance:</p>
+<p>Read more in <a href="/changes-and-undo.html">Changes and undo</a>.</p>
+<h2>Who it is for</h2>
 <ul>
-<li>Total spend across all campaigns</li>
-<li>Number of conversions</li>
-<li>Cost per conversion</li>
-<li>Click-through rates</li>
+<li>Shop owners who run their own Google Ads.</li>
+<li>Marketers and agencies who look after several accounts.</li>
 </ul>
-<h2>Who Is It For?</h2>
-<p>PerfoAds is built for:</p>
-<ul>
-<li>Marketing agencies managing multiple clients</li>
-<li>Business owners running their own Google Ads</li>
-<li>Anyone who wants AI-powered insights without the complexity</li>
-</ul>
-<h2>Getting Started</h2>
-<p>To use PerfoAds, you need:</p>
-<ol>
-<li>A Google Ads account</li>
-<li>Active campaigns to monitor</li>
-<li>A PerfoAds subscription</li>
-</ol>
-<p>Once you connect your Google Ads account, PerfoAds will immediately start syncing your data. After the first sync completes, you&#39;ll instantly have access to AI insights, alerts, and analytics.</p>
+<h2>Help inside the app</h2>
+<p>Every main screen has a short guided tour. Click <strong>Guide</strong> on the page, or the <strong>?</strong> help button (Help &amp; guides) at the bottom of the menu, to replay it.</p>
+<h2>Next step</h2>
+<p>Go to <a href="/getting-started.html">Getting started</a>.</p>
 
         </div>
     </main>
@@ -488,35 +522,34 @@
                     <img src="/logo.png" alt="PerfoAds" style="width: 32px; height: 32px;">
                     <h4 style="margin: 0; display: inline-block; margin-left: 12px; vertical-align: middle;">PerfoAds</h4>
                 </a>
-                <p>AI that doesn't just spot trends. It understands your clients' businesses and tells you exactly what matters.</p>
-                <a href="https://www.perfoads.com/#pricing" class="footer-cta">Transform my Business</a>
+                <p>Checks your Google Ads account, tells you what is wrong in plain English, and helps you fix it.</p>
+                <a href="https://audit.perfoads.com/audit/login" class="footer-cta">Open PerfoAds</a>
                 <div class="footer-social">
-                    <a href="https://x.com/">Twitter/X</a>
+                    <a href="mailto:contact@perfoads.com">contact@perfoads.com</a>
                 </div>
             </div>
             <div class="footer-section">
                 <h5>Sections</h5>
                 <div class="footer-links">
-                    <a href="https://www.perfoads.com/#features">Features</a>
-                    <a href="https://www.perfoads.com/#benefits">Benefits</a>
-                    <a href="https://www.perfoads.com/#testimonials">Testimonials</a>
-                    <a href="https://www.perfoads.com/#pricing">Pricing</a>
-                    <a href="https://www.perfoads.com/#faq">FAQ</a>
+                    <a href="https://perfoads.com/#tools">Tools</a>
+                    <a href="https://perfoads.com/#how-it-works">How it works</a>
+                    <a href="https://perfoads.com/#pricing">Pricing</a>
+                    <a href="https://perfoads.com/#faq">FAQ</a>
                 </div>
             </div>
             <div class="footer-section">
                 <h5>Pages</h5>
                 <div class="footer-links">
-                    <a href="/">Documentation</a>
-                    <a href="https://www.perfoads.com/privacy">Privacy Policy</a>
-                    <a href="https://www.perfoads.com/tos">Terms of Service</a>
+                    <a href="/">Help</a>
+                    <a href="https://perfoads.com/privacypolicy">Privacy Policy</a>
+                    <a href="https://perfoads.com/termsofservice">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <div class="footer-bottom">
-        All Rights Reserved © 2025 PerfoAds
+        All Rights Reserved © 2026 PerfoAds
     </div>
 
 </body>

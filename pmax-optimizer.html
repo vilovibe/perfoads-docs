@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Context - PerfoAds Documentation</title>
+    <title>Performance Max Optimizer - PerfoAds Help</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -262,6 +262,25 @@
             margin: 32px 0;
         }
 
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            font-size: 15px;
+        }
+
+        .content th, .content td {
+            text-align: left;
+            vertical-align: top;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .content th {
+            background: var(--bg-gray);
+            font-weight: 600;
+        }
+
         .content strong {
             font-weight: 600;
             color: var(--dark-text);
@@ -379,12 +398,12 @@
                 <span>PerfoAds</span>
             </a>
             <nav class="header-nav">
-                <a href="https://www.perfoads.com/#features">Features</a>
-                <a href="https://www.perfoads.com/#benefits">Benefits</a>
-                <a href="/">Documentation</a>
-                <a href="https://www.perfoads.com/#pricing">Pricing</a>
-                <a href="https://www.perfoads.com/#faq">FAQ</a>
-                <a href="https://www.perfoads.com/#pricing" class="header-cta">Transform My Business</a>
+                <a href="https://perfoads.com/#tools">Tools</a>
+                <a href="https://perfoads.com/#how-it-works">How it works</a>
+                <a href="/">Help</a>
+                <a href="https://perfoads.com/#pricing">Pricing</a>
+                <a href="https://perfoads.com/#faq">FAQ</a>
+                <a href="https://audit.perfoads.com/audit/login" class="header-cta">Open PerfoAds</a>
             </nav>
         </div>
     </header>
@@ -393,36 +412,39 @@
     <aside class="sidebar">
         <nav>
             <div class="nav-section">
-                <h3>Getting Started</h3>
+                <h3>Start Here</h3>
                 <div class="nav-links">
+                    <a href="/" class="nav-link">Help home</a>
                     <a href="/what-is-perfoads.html" class="nav-link">What is PerfoAds?</a>
+                    <a href="/getting-started.html" class="nav-link">Getting started</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>Core Features</h3>
+                <h3>The Tools</h3>
                 <div class="nav-links">
-                    <a href="/managing-clients.html" class="nav-link">Managing Clients</a>
-                    <a href="/viewing-performance.html" class="nav-link">Viewing Performance</a>
-                    <a href="/data-syncing.html" class="nav-link">Data Syncing</a>
+                    <a href="/viewing-performance.html" class="nav-link">Overview dashboard</a>
+                    <a href="/google-ads-audit.html" class="nav-link">Google Ads Audit report</a>
+                    <a href="/search-optimizer.html" class="nav-link">Search Optimizer</a>
+                    <a href="/pmax-optimizer.html" class="nav-link active">Performance Max Optimizer</a>
+                    <a href="/feed-optimizer.html" class="nav-link">Feed Optimizer</a>
+                    <a href="/campaign-builder.html" class="nav-link">Campaign Builder</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>AI Features</h3>
+                <h3>Safety and Data</h3>
                 <div class="nav-links">
-                    <a href="/smart-alerts.html" class="nav-link">Smart Alerts</a>
-                    <a href="/ai-chat.html" class="nav-link">AI Chat</a>
-                    <a href="/business-context.html" class="nav-link">Business Context</a>
+                    <a href="/changes-and-undo.html" class="nav-link">Changes and undo</a>
+                    <a href="/data-privacy.html" class="nav-link">Data and privacy</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>Account Management</h3>
+                <h3>Your Account</h3>
                 <div class="nav-links">
-                    <a href="/google-accounts.html" class="nav-link">Google Accounts</a>
-                    <a href="/settings.html" class="nav-link">Settings</a>
-                    <a href="/user-account.html" class="nav-link">User Account</a>
+                    <a href="/billing.html" class="nav-link">Billing</a>
+                    <a href="/settings.html" class="nav-link">Account and settings</a>
                 </div>
             </div>
         </nav>
@@ -431,125 +453,96 @@
     <!-- Main Content -->
     <main>
         <div class="content">
-            <h1>Business Context</h1>
-<p>Business Context is information you provide about your business that helps the AI give you better, more personalized insights.</p>
-<h2>Why Business Context Matters</h2>
-<p>Without context, the AI can only tell you <strong>what</strong> happened:</p>
-<blockquote>
-<p>&quot;Your CPA increased to $63.&quot;</p>
-</blockquote>
-<p>With context, the AI understands <strong>why it matters</strong> and <strong>what to do</strong>:</p>
-<blockquote>
-<p>&quot;Your CPA increased to $63, which is 26% above your $50 target. The &#39;General Keywords&#39; campaign is driving this up. Consider pausing low-performing keywords or tightening your audience targeting.&quot;</p>
-</blockquote>
-<h2>Types of Context</h2>
-<h3>Business Profile</h3>
-<p>Basic information about the business:</p>
+            <h1>Performance Max Optimizer</h1>
+<p>Performance Max hides a lot of what it does. This workspace shows it: your assets, your audience signals, the searches you appear for and where your money goes. The AI suggests fixes, and you approve each one before anything changes.</p>
+<h2>How to open it</h2>
+<p>Go to the <a href="/viewing-performance.html">Overview</a>. Click the sparkle next to a Performance Max campaign.</p>
+<h2>The tabs</h2>
+<table>
+<thead>
+<tr>
+<th>Tab</th>
+<th>What you do there</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Recommendations</td>
+<td>Your to-do list for this campaign.</td>
+</tr>
+<tr>
+<td>Asset Groups</td>
+<td>Check each asset group against Google&#39;s minimums and fill the gaps.</td>
+</tr>
+<tr>
+<td>Text Assets</td>
+<td>Every headline and description, with Google&#39;s rating for each.</td>
+</tr>
+<tr>
+<td>Extensions</td>
+<td>Sitelinks, callouts and snippets for this campaign.</td>
+</tr>
+<tr>
+<td>Signals</td>
+<td>Audience signals and search themes for each asset group.</td>
+</tr>
+<tr>
+<td>Search Insights</td>
+<td>The search topics Google matched your campaign to.</td>
+</tr>
+<tr>
+<td>Breakdowns</td>
+<td>Results split in different ways.</td>
+</tr>
+<tr>
+<td>Products</td>
+<td>Only for shop campaigns. How each product performs.</td>
+</tr>
+<tr>
+<td>Channels</td>
+<td>How your budget splits across Google&#39;s networks.</td>
+</tr>
+<tr>
+<td>Placements</td>
+<td>Where your ads were shown outside Google search. You can exclude bad ones.</td>
+</tr>
+<tr>
+<td>Settings</td>
+<td>Status, budget, bidding, locations and languages.</td>
+</tr>
+<tr>
+<td>History</td>
+<td>Every change made here, with undo.</td>
+</tr>
+</tbody></table>
+<h2>Analyze</h2>
+<p>Click <strong>Analyze</strong> to run 1 deep AI check of the whole campaign. Each tab then shows its part of the result.</p>
 <ul>
-<li><strong>Company name</strong>: Full business name</li>
-<li><strong>Industry</strong>: What type of business (e-commerce, services, B2B, etc.)</li>
-<li><strong>Target audience</strong>: Who are the ideal customers</li>
-<li><strong>Key products/services</strong>: What the business sells</li>
-<li><strong>Geographic focus</strong>: Where customers are located</li>
+<li>It usually takes under a minute.</li>
+<li>The result is saved, so opening the campaign again costs nothing.</li>
+<li>Click <strong>Re-analyze</strong> to refresh it.</li>
 </ul>
-<h3>Goals &amp; Targets</h3>
-<p>What success looks like:</p>
+<h2>Recommendations</h2>
+<p>1 list of everything worth doing: items from your audit, from the daily checks and from the AI analysis. Items with a <strong>Fix</strong> button take you straight to the right tab.</p>
+<h2>Asset Groups</h2>
+<p>For each asset group you see how many headlines, long headlines, descriptions, images and videos it has, compared with what Google asks for. You also see spend, conversions, return on ad spend and more.</p>
 <ul>
-<li><strong>Target CPA</strong>: Maximum acceptable cost per conversion</li>
-<li><strong>Target ROAS</strong>: Desired return on ad spend</li>
-<li><strong>Monthly budget</strong>: Total ad spend budget</li>
-<li><strong>Conversion goals</strong>: What actions matter most (purchases, leads, calls)</li>
+<li>Pause or turn on an asset group.</li>
+<li>Click <strong>Fix</strong> to let the AI draft the missing assets. You review them before anything is sent.</li>
 </ul>
-<h3>Custom Context</h3>
-<p>Anything else the AI should know:</p>
+<h2>Text Assets</h2>
+<p>Replace weak headlines and descriptions with AI suggestions, then click <strong>Deploy changes</strong>. You see a preview first.</p>
+<h2>Signals</h2>
+<p>Signals tell Google who your buyers are. They guide Google, they do not limit it.</p>
 <ul>
-<li>Seasonal patterns (busy/slow months)</li>
-<li>Recent changes (new products, promotions)</li>
-<li>Competitive landscape</li>
-<li>Budget constraints</li>
-<li>Business priorities</li>
+<li>Add audiences from your Google Ads audience lists.</li>
+<li>Let the AI write search themes for asset groups that have few.</li>
 </ul>
-<h2>Adding Business Profile</h2>
-<ol>
-<li>Go to <strong>Settings</strong> in the sidebar</li>
-<li>Click the <strong>&quot;Business Profile&quot;</strong> tab</li>
-<li>Fill in the form fields:<ul>
-<li>Company Name</li>
-<li>Account Name (how you want to refer to this client)</li>
-<li>Country</li>
-<li>Email</li>
-</ul>
-</li>
-<li>Click <strong>&quot;Save Profile&quot;</strong></li>
-</ol>
-<h3>Company Logo (Optional)</h3>
-<p>Upload a logo to personalize the client&#39;s profile. This helps you visually identify clients quickly.</p>
-<h2>Adding Custom Context</h2>
-<ol>
-<li>Go to any client&#39;s dashboard</li>
-<li>Click the <strong>&quot;Context&quot;</strong> tab</li>
-<li>Type your context information in the text box</li>
-<li>Click <strong>&quot;Add Context Entry&quot;</strong></li>
-</ol>
-<h3>What to Include in Context</h3>
-<p><strong>Good context examples:</strong></p>
-<ul>
-<li>&quot;Target CPA is $50. Anything above that is unprofitable.&quot;</li>
-<li>&quot;Summer months (June-August) are our busiest season.&quot;</li>
-<li>&quot;We sell premium skincare products to women aged 30-55.&quot;</li>
-<li>&quot;Brand awareness campaigns should prioritize reach over conversions.&quot;</li>
-<li>&quot;We&#39;re running a 20% off promotion this month.&quot;</li>
-</ul>
-<p><strong>Avoid vague context:</strong></p>
-<ul>
-<li>&quot;Do better&quot; (not actionable)</li>
-<li>&quot;We want more sales&quot; (everyone does - be specific about targets)</li>
-<li>&quot;Fix the ads&quot; (the AI needs context, not commands)</li>
-</ul>
-<h2>Editing Context</h2>
-<h3>Business Profile</h3>
-<p>Go to Settings &gt; Business Profile and update any field, then click &quot;Save Profile.&quot;</p>
-<h3>Custom Context Entries</h3>
-<p>On the Context tab:</p>
-<ul>
-<li><strong>Edit</strong>: Click the edit icon (pencil) next to any entry</li>
-<li><strong>Delete</strong>: Click the trash icon to remove outdated context</li>
-</ul>
-<h2>How AI Uses Context</h2>
-<p>The AI references your context when:</p>
-<ul>
-<li><strong>Answering questions</strong> in AI Chat</li>
-<li><strong>Generating Smart Alerts</strong> (alerts consider your targets)</li>
-<li><strong>Analyzing performance</strong> (compares actual vs your goals)</li>
-<li><strong>Making recommendations</strong> (suggestions aligned with your business)</li>
-</ul>
-<h2>Context Privacy</h2>
-<p>Your context is:</p>
-<ul>
-<li>✅ Only visible to you and your team</li>
-<li>✅ Never shared with other users</li>
-<li>✅ Used only to personalize your AI experience</li>
-<li>✅ Stored securely in your account</li>
-</ul>
-<h2>Best Practices</h2>
-<p><strong>Update regularly</strong>: Add context when business goals or strategies change.</p>
-<p><strong>Be specific</strong>: Include actual numbers (target CPA, budget limits) rather than vague goals.</p>
-<p><strong>Include seasonal info</strong>: Tell the AI about busy/slow periods so it understands patterns.</p>
-<p><strong>Mention recent changes</strong>: If you launched a new product or changed strategy, add it to context.</p>
-<p><strong>Don&#39;t overthink it</strong>: Start with basic info and add more over time as needed.</p>
-<h2>Examples of Great Context</h2>
-<p><strong>E-commerce business:</strong></p>
-<blockquote>
-<p>&quot;We sell outdoor camping gear online. Target CPA is $35. Peak season is April-September. Average order value is $120. We focus on customers aged 25-45 who enjoy hiking and camping.&quot;</p>
-</blockquote>
-<p><strong>Local service business:</strong></p>
-<blockquote>
-<p>&quot;We&#39;re a plumbing service in Austin, TX. Target CPA is $75 per lead. We only serve customers within 30 miles. Most calls come during business hours Mon-Fri. Emergency services have higher margins.&quot;</p>
-</blockquote>
-<p><strong>B2B SaaS business:</strong></p>
-<blockquote>
-<p>&quot;We sell project management software to small businesses. Target CPA for trial sign-ups is $45. Sales cycle is 30-60 days. We focus on construction and consulting firms with 10-50 employees.&quot;</p>
-</blockquote>
+<h2>Search Insights</h2>
+<p>The search categories Google showed your ads for, with clicks, conversions and value for each. You can add a bad category as a negative.</p>
+<h2>Safety</h2>
+<p>Every change goes through a preview. You confirm it before it reaches Google Ads. Most changes can be undone for 30 days. See <a href="/changes-and-undo.html">Changes and undo</a>.</p>
+<h2>Monthly allowance</h2>
+<p>Your plan includes 8 Performance Max Optimizer runs and 3 deep analyses per account each month. See <a href="/billing.html">Billing</a>.</p>
 
         </div>
     </main>
@@ -562,35 +555,34 @@
                     <img src="/logo.png" alt="PerfoAds" style="width: 32px; height: 32px;">
                     <h4 style="margin: 0; display: inline-block; margin-left: 12px; vertical-align: middle;">PerfoAds</h4>
                 </a>
-                <p>AI that doesn't just spot trends. It understands your clients' businesses and tells you exactly what matters.</p>
-                <a href="https://www.perfoads.com/#pricing" class="footer-cta">Transform my Business</a>
+                <p>Checks your Google Ads account, tells you what is wrong in plain English, and helps you fix it.</p>
+                <a href="https://audit.perfoads.com/audit/login" class="footer-cta">Open PerfoAds</a>
                 <div class="footer-social">
-                    <a href="https://x.com/">Twitter/X</a>
+                    <a href="mailto:contact@perfoads.com">contact@perfoads.com</a>
                 </div>
             </div>
             <div class="footer-section">
                 <h5>Sections</h5>
                 <div class="footer-links">
-                    <a href="https://www.perfoads.com/#features">Features</a>
-                    <a href="https://www.perfoads.com/#benefits">Benefits</a>
-                    <a href="https://www.perfoads.com/#testimonials">Testimonials</a>
-                    <a href="https://www.perfoads.com/#pricing">Pricing</a>
-                    <a href="https://www.perfoads.com/#faq">FAQ</a>
+                    <a href="https://perfoads.com/#tools">Tools</a>
+                    <a href="https://perfoads.com/#how-it-works">How it works</a>
+                    <a href="https://perfoads.com/#pricing">Pricing</a>
+                    <a href="https://perfoads.com/#faq">FAQ</a>
                 </div>
             </div>
             <div class="footer-section">
                 <h5>Pages</h5>
                 <div class="footer-links">
-                    <a href="/">Documentation</a>
-                    <a href="https://www.perfoads.com/privacy">Privacy Policy</a>
-                    <a href="https://www.perfoads.com/tos">Terms of Service</a>
+                    <a href="/">Help</a>
+                    <a href="https://perfoads.com/privacypolicy">Privacy Policy</a>
+                    <a href="https://perfoads.com/termsofservice">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <div class="footer-bottom">
-        All Rights Reserved © 2025 PerfoAds
+        All Rights Reserved © 2026 PerfoAds
     </div>
 
 </body>

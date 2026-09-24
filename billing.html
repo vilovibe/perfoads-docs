@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chat - PerfoAds Documentation</title>
+    <title>Billing - PerfoAds Help</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -262,6 +262,25 @@
             margin: 32px 0;
         }
 
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            font-size: 15px;
+        }
+
+        .content th, .content td {
+            text-align: left;
+            vertical-align: top;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .content th {
+            background: var(--bg-gray);
+            font-weight: 600;
+        }
+
         .content strong {
             font-weight: 600;
             color: var(--dark-text);
@@ -379,12 +398,12 @@
                 <span>PerfoAds</span>
             </a>
             <nav class="header-nav">
-                <a href="https://www.perfoads.com/#features">Features</a>
-                <a href="https://www.perfoads.com/#benefits">Benefits</a>
-                <a href="/">Documentation</a>
-                <a href="https://www.perfoads.com/#pricing">Pricing</a>
-                <a href="https://www.perfoads.com/#faq">FAQ</a>
-                <a href="https://www.perfoads.com/#pricing" class="header-cta">Transform My Business</a>
+                <a href="https://perfoads.com/#tools">Tools</a>
+                <a href="https://perfoads.com/#how-it-works">How it works</a>
+                <a href="/">Help</a>
+                <a href="https://perfoads.com/#pricing">Pricing</a>
+                <a href="https://perfoads.com/#faq">FAQ</a>
+                <a href="https://audit.perfoads.com/audit/login" class="header-cta">Open PerfoAds</a>
             </nav>
         </div>
     </header>
@@ -393,36 +412,39 @@
     <aside class="sidebar">
         <nav>
             <div class="nav-section">
-                <h3>Getting Started</h3>
+                <h3>Start Here</h3>
                 <div class="nav-links">
+                    <a href="/" class="nav-link">Help home</a>
                     <a href="/what-is-perfoads.html" class="nav-link">What is PerfoAds?</a>
+                    <a href="/getting-started.html" class="nav-link">Getting started</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>Core Features</h3>
+                <h3>The Tools</h3>
                 <div class="nav-links">
-                    <a href="/managing-clients.html" class="nav-link">Managing Clients</a>
-                    <a href="/viewing-performance.html" class="nav-link">Viewing Performance</a>
-                    <a href="/data-syncing.html" class="nav-link">Data Syncing</a>
+                    <a href="/viewing-performance.html" class="nav-link">Overview dashboard</a>
+                    <a href="/google-ads-audit.html" class="nav-link">Google Ads Audit report</a>
+                    <a href="/search-optimizer.html" class="nav-link">Search Optimizer</a>
+                    <a href="/pmax-optimizer.html" class="nav-link">Performance Max Optimizer</a>
+                    <a href="/feed-optimizer.html" class="nav-link">Feed Optimizer</a>
+                    <a href="/campaign-builder.html" class="nav-link">Campaign Builder</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>AI Features</h3>
+                <h3>Safety and Data</h3>
                 <div class="nav-links">
-                    <a href="/smart-alerts.html" class="nav-link">Smart Alerts</a>
-                    <a href="/ai-chat.html" class="nav-link">AI Chat</a>
-                    <a href="/business-context.html" class="nav-link">Business Context</a>
+                    <a href="/changes-and-undo.html" class="nav-link">Changes and undo</a>
+                    <a href="/data-privacy.html" class="nav-link">Data and privacy</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>Account Management</h3>
+                <h3>Your Account</h3>
                 <div class="nav-links">
-                    <a href="/google-accounts.html" class="nav-link">Google Accounts</a>
-                    <a href="/settings.html" class="nav-link">Settings</a>
-                    <a href="/user-account.html" class="nav-link">User Account</a>
+                    <a href="/billing.html" class="nav-link active">Billing</a>
+                    <a href="/settings.html" class="nav-link">Account and settings</a>
                 </div>
             </div>
         </nav>
@@ -431,121 +453,95 @@
     <!-- Main Content -->
     <main>
         <div class="content">
-            <h1>AI Chat</h1>
-<p>AI Chat lets you have conversations with an AI assistant that understands your Google Ads campaigns and business context.</p>
-<h2>What Can You Ask?</h2>
-<p>Ask the AI anything about your campaigns in plain English:</p>
-<p><strong>Performance questions:</strong></p>
-<ul>
-<li>&quot;Why are my conversions down this week?&quot;</li>
-<li>&quot;Which campaign is performing best?&quot;</li>
-<li>&quot;What&#39;s my average cost per conversion?&quot;</li>
-</ul>
-<p><strong>Strategy questions:</strong></p>
-<ul>
-<li>&quot;Should I increase my budget?&quot;</li>
-<li>&quot;Which keywords should I pause?&quot;</li>
-<li>&quot;How can I improve my CTR?&quot;</li>
-</ul>
-<p><strong>Comparison questions:</strong></p>
-<ul>
-<li>&quot;How does this month compare to last month?&quot;</li>
-<li>&quot;Which ad group has the best conversion rate?&quot;</li>
-<li>&quot;Is my CPA improving or getting worse?&quot;</li>
-</ul>
-<p><strong>Recommendations:</strong></p>
-<ul>
-<li>&quot;What should I focus on this week?&quot;</li>
-<li>&quot;Where am I wasting money?&quot;</li>
-<li>&quot;How can I get more conversions?&quot;</li>
-</ul>
-<h2>Starting a Conversation</h2>
-<h3>From Client Dashboard</h3>
+            <h1>Billing</h1>
+<p>You pay per Google Ads account, each month, by card through Stripe. The first account is $59 a month. Each extra account is $39 a month, up to 10 accounts.</p>
+<h2>Prices</h2>
+<table>
+<thead>
+<tr>
+<th>What</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>First account</td>
+<td>$59 a month</td>
+</tr>
+<tr>
+<td>Each extra account</td>
+<td>$39 a month</td>
+</tr>
+<tr>
+<td>Most accounts on 1 plan</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1 audit on its own, no plan</td>
+<td>$19.99, paid once</td>
+</tr>
+</tbody></table>
+<p><strong>Example:</strong> 3 accounts cost $59 + $39 + $39 = $137 a month.</p>
+<p>The single audit gives you 1 audit report. The monthly tools, like the optimizers and making changes to Google Ads, need a monthly plan. You can buy the single audit on the <a href="https://perfoads.com/audit-19">single audit page</a>.</p>
+<h2>What each account gets every month</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Allowance per account, per month</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Google Ads audits</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Campaign builds</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Search Optimizer runs</td>
+<td>5</td>
+</tr>
+<tr>
+<td>AI ad suggestions</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Performance Max Optimizer runs</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Performance Max deep analyses</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Product titles written by AI</td>
+<td>1,000</td>
+</tr>
+<tr>
+<td>Custom label assignments</td>
+<td>300</td>
+</tr>
+<tr>
+<td>Products with AI-filled details</td>
+<td>300</td>
+</tr>
+</tbody></table>
+<p>Allowances reset every month. PerfoAds&#39; daily account checks are included and do not count.</p>
+<p>See how much you have used in <strong>Settings</strong>, on the <strong>Account</strong> tab. If you run out, the app tells you, and that tool stops until your allowance resets.</p>
+<h2>Pay, change or cancel</h2>
 <ol>
-<li>Go to any client&#39;s dashboard</li>
-<li>Click the &quot;Smart Chat&quot; tab</li>
-<li>Type your question in the message box at the bottom</li>
-<li>Click &quot;Send&quot; or press Enter</li>
+<li>Go to <strong>Settings</strong>, then <strong>Account</strong>.</li>
+<li>Click <strong>Subscription</strong>. This opens Stripe&#39;s secure billing page.</li>
+<li>There you manage your card, your invoices and your plan.</li>
 </ol>
-<h3>Quick Actions</h3>
-<p>Click any Quick Action button to instantly ask common questions:</p>
+<p>You can also click the <strong>PRO</strong> badge next to your name at the bottom of the menu to open your plan page.</p>
 <ul>
-<li><strong>&quot;Analyze Performance&quot;</strong>: Get a full overview of how the client is doing</li>
-<li><strong>&quot;Cost Optimization&quot;</strong>: Find ways to reduce wasted spend</li>
-<li><strong>&quot;Conversion Analysis&quot;</strong>: Understand conversion trends and patterns</li>
-<li><strong>&quot;Campaign Comparison&quot;</strong>: Compare performance across campaigns</li>
+<li>If you cancel, your plan runs until the end of the period you paid for.</li>
+<li>If a payment fails, access stops until the invoice is paid.</li>
 </ul>
-<p>These templates help you get started without typing.</p>
-<h2>How AI Chat Works</h2>
-<p>The AI has access to:</p>
-<ul>
-<li><strong>All your campaign data</strong>: Metrics, performance, trends</li>
-<li><strong>Your business context</strong>: Information you&#39;ve added in the Context tab</li>
-<li><strong>Historical data</strong>: Can compare current vs past performance</li>
-<li><strong>Smart Alerts</strong>: Knows what issues have been detected</li>
-</ul>
-<p>The AI uses this information to give you <strong>personalized, context-aware answers</strong>.</p>
-<h2>Understanding Business Context</h2>
-<p>The better your business context, the better the AI&#39;s answers.</p>
-<p><strong>Without context:</strong></p>
-<blockquote>
-<p>&quot;Your CPA increased 20%.&quot;</p>
-</blockquote>
-<p><strong>With context (AI knows your target CPA is $50):</strong></p>
-<blockquote>
-<p>&quot;Your CPA increased to $63, which is 26% above your target of $50. Consider pausing the &#39;General Keywords&#39; campaign which is driving this up.&quot;</p>
-</blockquote>
-<p>See the <a href="#business-context">Business Context</a> section to learn how to add context.</p>
-<h2>Conversation History</h2>
-<h3>New Chat</h3>
-<p>Click &quot;New Chat&quot; to start a fresh conversation about a different topic.</p>
-<h3>Chat History</h3>
-<p>Previous conversations are saved. Use the dropdown at the top to:</p>
-<ul>
-<li>View old conversations</li>
-<li>Continue previous discussions</li>
-<li>See what you asked before</li>
-</ul>
-<h2>Best Practices</h2>
-<p><strong>Be specific</strong>: Instead of &quot;How am I doing?&quot;, ask &quot;How are my conversions this week compared to last week?&quot;</p>
-<p><strong>Provide context</strong>: The more business context you add, the more helpful the AI&#39;s answers.</p>
-<p><strong>Ask follow-ups</strong>: If the answer isn&#39;t clear, ask the AI to explain further or give more details.</p>
-<p><strong>Use Quick Actions</strong>: These templates are designed to trigger comprehensive analysis.</p>
-<h2>AI Chat vs Smart Alerts</h2>
-<p><strong>Smart Alerts</strong>: Proactive notifications when something changes (AI watches for you)</p>
-<p><strong>AI Chat</strong>: On-demand answers to your specific questions (you ask the AI)</p>
-<p>Use both together:</p>
-<ol>
-<li>Smart Alerts notify you of issues</li>
-<li>AI Chat helps you understand and solve them</li>
-</ol>
-<h2>Tips for Better Answers</h2>
-<p><strong>Good questions:</strong></p>
-<ul>
-<li>&quot;Why did my conversion rate drop 15% in the last 3 days?&quot;</li>
-<li>&quot;Which campaigns should I increase budget for?&quot;</li>
-<li>&quot;What&#39;s causing my high CPA in the &#39;Summer Sale&#39; campaign?&quot;</li>
-</ul>
-<p><strong>Vague questions:</strong></p>
-<ul>
-<li>&quot;What&#39;s happening?&quot; (too broad)</li>
-<li>&quot;Fix my ads&quot; (AI can&#39;t make changes, only advise)</li>
-<li>&quot;Why?&quot; (without specifying what you&#39;re asking about)</li>
-</ul>
-<p><strong>The AI can:</strong></p>
-<ul>
-<li>✅ Analyze your data and explain trends</li>
-<li>✅ Recommend optimizations and strategies</li>
-<li>✅ Compare performance across campaigns</li>
-<li>✅ Explain why metrics changed</li>
-</ul>
-<p><strong>The AI cannot:</strong></p>
-<ul>
-<li>❌ Make changes to your Google Ads campaigns</li>
-<li>❌ Access data from other platforms</li>
-<li>❌ Predict the future with certainty</li>
-<li>❌ Make decisions for you (it advises, you decide)</li>
-</ul>
+<h2>Card details</h2>
+<p>You type your card details on Stripe&#39;s page. PerfoAds never sees your full card number.</p>
 
         </div>
     </main>
@@ -558,35 +554,34 @@
                     <img src="/logo.png" alt="PerfoAds" style="width: 32px; height: 32px;">
                     <h4 style="margin: 0; display: inline-block; margin-left: 12px; vertical-align: middle;">PerfoAds</h4>
                 </a>
-                <p>AI that doesn't just spot trends. It understands your clients' businesses and tells you exactly what matters.</p>
-                <a href="https://www.perfoads.com/#pricing" class="footer-cta">Transform my Business</a>
+                <p>Checks your Google Ads account, tells you what is wrong in plain English, and helps you fix it.</p>
+                <a href="https://audit.perfoads.com/audit/login" class="footer-cta">Open PerfoAds</a>
                 <div class="footer-social">
-                    <a href="https://x.com/">Twitter/X</a>
+                    <a href="mailto:contact@perfoads.com">contact@perfoads.com</a>
                 </div>
             </div>
             <div class="footer-section">
                 <h5>Sections</h5>
                 <div class="footer-links">
-                    <a href="https://www.perfoads.com/#features">Features</a>
-                    <a href="https://www.perfoads.com/#benefits">Benefits</a>
-                    <a href="https://www.perfoads.com/#testimonials">Testimonials</a>
-                    <a href="https://www.perfoads.com/#pricing">Pricing</a>
-                    <a href="https://www.perfoads.com/#faq">FAQ</a>
+                    <a href="https://perfoads.com/#tools">Tools</a>
+                    <a href="https://perfoads.com/#how-it-works">How it works</a>
+                    <a href="https://perfoads.com/#pricing">Pricing</a>
+                    <a href="https://perfoads.com/#faq">FAQ</a>
                 </div>
             </div>
             <div class="footer-section">
                 <h5>Pages</h5>
                 <div class="footer-links">
-                    <a href="/">Documentation</a>
-                    <a href="https://www.perfoads.com/privacy">Privacy Policy</a>
-                    <a href="https://www.perfoads.com/tos">Terms of Service</a>
+                    <a href="/">Help</a>
+                    <a href="https://perfoads.com/privacypolicy">Privacy Policy</a>
+                    <a href="https://perfoads.com/termsofservice">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <div class="footer-bottom">
-        All Rights Reserved © 2025 PerfoAds
+        All Rights Reserved © 2026 PerfoAds
     </div>
 
 </body>

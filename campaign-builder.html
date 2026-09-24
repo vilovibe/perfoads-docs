@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Alerts - PerfoAds Documentation</title>
+    <title>Campaign Builder - PerfoAds Help</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -262,6 +262,25 @@
             margin: 32px 0;
         }
 
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            font-size: 15px;
+        }
+
+        .content th, .content td {
+            text-align: left;
+            vertical-align: top;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .content th {
+            background: var(--bg-gray);
+            font-weight: 600;
+        }
+
         .content strong {
             font-weight: 600;
             color: var(--dark-text);
@@ -379,12 +398,12 @@
                 <span>PerfoAds</span>
             </a>
             <nav class="header-nav">
-                <a href="https://www.perfoads.com/#features">Features</a>
-                <a href="https://www.perfoads.com/#benefits">Benefits</a>
-                <a href="/">Documentation</a>
-                <a href="https://www.perfoads.com/#pricing">Pricing</a>
-                <a href="https://www.perfoads.com/#faq">FAQ</a>
-                <a href="https://www.perfoads.com/#pricing" class="header-cta">Transform My Business</a>
+                <a href="https://perfoads.com/#tools">Tools</a>
+                <a href="https://perfoads.com/#how-it-works">How it works</a>
+                <a href="/">Help</a>
+                <a href="https://perfoads.com/#pricing">Pricing</a>
+                <a href="https://perfoads.com/#faq">FAQ</a>
+                <a href="https://audit.perfoads.com/audit/login" class="header-cta">Open PerfoAds</a>
             </nav>
         </div>
     </header>
@@ -393,36 +412,39 @@
     <aside class="sidebar">
         <nav>
             <div class="nav-section">
-                <h3>Getting Started</h3>
+                <h3>Start Here</h3>
                 <div class="nav-links">
+                    <a href="/" class="nav-link">Help home</a>
                     <a href="/what-is-perfoads.html" class="nav-link">What is PerfoAds?</a>
+                    <a href="/getting-started.html" class="nav-link">Getting started</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>Core Features</h3>
+                <h3>The Tools</h3>
                 <div class="nav-links">
-                    <a href="/managing-clients.html" class="nav-link">Managing Clients</a>
-                    <a href="/viewing-performance.html" class="nav-link">Viewing Performance</a>
-                    <a href="/data-syncing.html" class="nav-link">Data Syncing</a>
+                    <a href="/viewing-performance.html" class="nav-link">Overview dashboard</a>
+                    <a href="/google-ads-audit.html" class="nav-link">Google Ads Audit report</a>
+                    <a href="/search-optimizer.html" class="nav-link">Search Optimizer</a>
+                    <a href="/pmax-optimizer.html" class="nav-link">Performance Max Optimizer</a>
+                    <a href="/feed-optimizer.html" class="nav-link">Feed Optimizer</a>
+                    <a href="/campaign-builder.html" class="nav-link active">Campaign Builder</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>AI Features</h3>
+                <h3>Safety and Data</h3>
                 <div class="nav-links">
-                    <a href="/smart-alerts.html" class="nav-link">Smart Alerts</a>
-                    <a href="/ai-chat.html" class="nav-link">AI Chat</a>
-                    <a href="/business-context.html" class="nav-link">Business Context</a>
+                    <a href="/changes-and-undo.html" class="nav-link">Changes and undo</a>
+                    <a href="/data-privacy.html" class="nav-link">Data and privacy</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>Account Management</h3>
+                <h3>Your Account</h3>
                 <div class="nav-links">
-                    <a href="/google-accounts.html" class="nav-link">Google Accounts</a>
-                    <a href="/settings.html" class="nav-link">Settings</a>
-                    <a href="/user-account.html" class="nav-link">User Account</a>
+                    <a href="/billing.html" class="nav-link">Billing</a>
+                    <a href="/settings.html" class="nav-link">Account and settings</a>
                 </div>
             </div>
         </nav>
@@ -431,131 +453,97 @@
     <!-- Main Content -->
     <main>
         <div class="content">
-            <h1>Smart Alerts</h1>
-<p>Smart Alerts are AI-powered notifications that tell you when something important happens in your Google Ads campaigns.</p>
-<h2>What Are Smart Alerts?</h2>
-<p>Instead of manually checking your campaigns every day, PerfoAds AI monitors everything 24/7 and alerts you when:</p>
+            <h1>Campaign Builder</h1>
+<p>The Campaign Builder creates a new Google Ads campaign for you, step by step, from your website. You check everything before it is created.</p>
+<h2>How to start</h2>
+<p>In the menu, click <strong>Campaign Builder</strong>, then <strong>New Campaign</strong>. You can also click <strong>New campaign</strong> on the <a href="/viewing-performance.html">Overview</a> when 1 account is picked.</p>
+<p>A short chat asks a few questions first: the campaign type (Search or Performance Max), your website, where the ads should show and what they should promote.</p>
+<h2>Search campaign</h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Account</td>
+<td>Pick the Google Ads account.</td>
+</tr>
+<tr>
+<td>Brief</td>
+<td>Tell PerfoAds about your business and goal.</td>
+</tr>
+<tr>
+<td>Strategy</td>
+<td>PerfoAds reads your website. You check what it found and answer a few questions about your offer.</td>
+</tr>
+<tr>
+<td>Keywords</td>
+<td>Keyword ideas with search volumes. They come from your account&#39;s past searches, from Google&#39;s Keyword Planner, or both. Keywords you already run are skipped.</td>
+</tr>
+<tr>
+<td>Structure</td>
+<td>Ad groups, match types, bids, daily budget and negative keywords. You also get advice on which bidding strategy to use.</td>
+</tr>
+<tr>
+<td>Ad Copy</td>
+<td>Headlines and descriptions, plus sitelinks, callouts and structured snippets. Rewrite any line you do not like.</td>
+</tr>
+<tr>
+<td>Deploy</td>
+<td>A full preview of everything that will be created.</td>
+</tr>
+</tbody></table>
+<h2>Performance Max campaign</h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Account</td>
+<td>Pick the Google Ads account.</td>
+</tr>
+<tr>
+<td>Brief</td>
+<td>Tell PerfoAds about your business and goal.</td>
+</tr>
+<tr>
+<td>Strategy</td>
+<td>PerfoAds reads your website.</td>
+</tr>
+<tr>
+<td>Themes</td>
+<td>Search themes. They tell Google which searches matter to you.</td>
+</tr>
+<tr>
+<td>Settings</td>
+<td>Campaign name, daily budget and bidding.</td>
+</tr>
+<tr>
+<td>Assets</td>
+<td>Headlines, descriptions and images for the asset group.</td>
+</tr>
+<tr>
+<td>Deploy</td>
+<td>A full preview of everything that will be created.</td>
+</tr>
+</tbody></table>
+<h2>Before anything is created</h2>
 <ul>
-<li>Something needs immediate attention</li>
-<li>Performance changes significantly</li>
-<li>There&#39;s an opportunity to improve</li>
-<li>Good news worth celebrating</li>
+<li>The Deploy step lists every item that will be created. Nothing is sent to Google Ads until you confirm.</li>
+<li>New campaigns are created <strong>paused</strong>. They do not spend money until you turn them on in Google Ads or in PerfoAds.</li>
+<li>You can undo a created campaign for 30 days from the account history. See <a href="/changes-and-undo.html">Changes and undo</a>.</li>
 </ul>
-<h2>Alert Severity Levels</h2>
-<p>Alerts are color-coded by importance:</p>
-<h3>🔴 Critical Alerts (Red)</h3>
-<p><strong>Urgent issues requiring immediate action.</strong></p>
-<p>Examples:</p>
-<ul>
-<li>Campaign suddenly stopped getting conversions</li>
-<li>Cost per conversion spiked dramatically</li>
-<li>Budget running out faster than expected</li>
-<li>Campaign paused unexpectedly</li>
-</ul>
-<p><strong>What to do</strong>: Review and act on these alerts immediately.</p>
-<h3>🟡 Important Alerts (Yellow)</h3>
-<p><strong>Significant changes that need your attention soon.</strong></p>
-<p>Examples:</p>
-<ul>
-<li>Conversion rate dropped by 20%</li>
-<li>Cost per click increased significantly</li>
-<li>Campaign performance trending downward</li>
-<li>New competitor ads detected</li>
-</ul>
-<p><strong>What to do</strong>: Review within 24 hours and make adjustments if needed.</p>
-<h3>🟢 Good News Alerts (Green)</h3>
-<p><strong>Positive developments worth knowing about.</strong></p>
-<p>Examples:</p>
-<ul>
-<li>Conversion rate improved significantly</li>
-<li>Cost per conversion decreased</li>
-<li>Campaign performing better than usual</li>
-<li>New high-performing keywords discovered</li>
-</ul>
-<p><strong>What to do</strong>: Note what&#39;s working well and consider scaling it.</p>
-<h2>Viewing Alerts</h2>
-<h3>Alerts Page</h3>
-<p>Click &quot;Smart Alerts&quot; in the sidebar to see all alerts across all clients.</p>
-<p><strong>Filter alerts by:</strong></p>
-<ul>
-<li>Severity (Critical, Important, Good News)</li>
-<li>Client</li>
-<li>Date range</li>
-<li>Status (Active, Dismissed, Resolved)</li>
-</ul>
-<h3>Alert Counter</h3>
-<p>The bell icon (🔔) in the top navigation shows how many unread alerts you have.</p>
-<h3>Per-Client Alerts</h3>
-<p>On each client&#39;s dashboard, the &quot;Smart Alerts&quot; tab shows only alerts for that specific client.</p>
-<h2>Understanding an Alert</h2>
-<p>Each alert shows:</p>
-<h3>Alert Title</h3>
-<p>Quick summary of what happened (e.g., &quot;Conversion Rate Dropped 30%&quot;)</p>
-<h3>Severity Badge</h3>
-<p>Color-coded indicator (Critical, Important, Good News)</p>
-<h3>Timestamp</h3>
-<p>When the alert was generated</p>
-<h3>Full Description</h3>
-<p>Detailed explanation of:</p>
-<ul>
-<li>What changed</li>
-<li>Why it matters</li>
-<li>What you should consider doing about it</li>
-</ul>
-<h3>Affected Campaigns</h3>
-<p>Which specific campaigns or ad groups are involved</p>
-<h2>Taking Action on Alerts</h2>
-<p>You have two options for each alert:</p>
-<h3>Dismiss</h3>
-<p>Use when:</p>
-<ul>
-<li>You&#39;ve seen the alert but don&#39;t need to act</li>
-<li>The alert is not relevant to you</li>
-<li>You want to clear it from your list</li>
-</ul>
-<p><strong>Effect</strong>: Alert is marked as read and moves to &quot;Dismissed&quot; status. You can still view it in the dismissed alerts list.</p>
-<h3>Resolve</h3>
-<p>Use when:</p>
-<ul>
-<li>You&#39;ve taken action based on the alert</li>
-<li>You&#39;ve fixed the issue</li>
-<li>You&#39;ve implemented the suggested improvement</li>
-</ul>
-<p><strong>Effect</strong>: Alert is marked as completed and moves to &quot;Resolved&quot; status. This helps track which alerts you&#39;ve acted on.</p>
-<h2>Alert Filters</h2>
-<p>Use filters to focus on what matters:</p>
-<h3>By Severity</h3>
-<ul>
-<li>Show only Critical alerts (urgent issues)</li>
-<li>Show only Important alerts (needs attention)</li>
-<li>Show only Good News alerts (positive updates)</li>
-</ul>
-<h3>By Status</h3>
-<ul>
-<li><strong>Active</strong>: New alerts you haven&#39;t reviewed yet</li>
-<li><strong>Dismissed</strong>: Alerts you&#39;ve seen but didn&#39;t act on</li>
-<li><strong>Resolved</strong>: Alerts you&#39;ve addressed</li>
-</ul>
-<h3>By Date</h3>
-<ul>
-<li>Last 7 days</li>
-<li>Last 30 days</li>
-<li>Custom date range</li>
-</ul>
-<h2>Alert Settings</h2>
-<p>Configure how you receive alerts in the <strong>Settings &gt; Email Notifications</strong> page:</p>
-<h3>Smart Alerts Toggle</h3>
-<p>Turn email notifications on/off for Smart Alerts.</p>
-<h3>Email Frequency</h3>
-<p>Choose how often you want alert emails (immediately, daily digest, weekly summary).</p>
-<h3>Severity Threshold</h3>
-<p>Choose which alert levels trigger emails (Critical only, Important and Critical, or All alerts).</p>
-<h2>Best Practices</h2>
-<p><strong>Check alerts daily</strong>: Even if you don&#39;t get email notifications, check the alerts page once a day.</p>
-<p><strong>Don&#39;t ignore Critical alerts</strong>: Red alerts usually indicate problems that get worse if ignored.</p>
-<p><strong>Act on patterns</strong>: If you see the same type of alert repeatedly, investigate the root cause.</p>
-<p><strong>Use Resolve vs Dismiss properly</strong>: Resolve when you&#39;ve acted, Dismiss when you&#39;ve just reviewed.</p>
-<p><strong>Review Good News alerts</strong>: Learn from what&#39;s working well so you can replicate success.</p>
+<h2>Other ways to use your campaign</h2>
+<p>On a Search campaign&#39;s Deploy step, you can also download a file for Google Ads Editor and upload it yourself.</p>
+<h2>Drafts and history</h2>
+<p>Your work is saved as a draft as you go. Find your drafts and past builds under <strong>Campaign Builder</strong>, then <strong>History</strong>.</p>
+<h2>Monthly allowance</h2>
+<p>Your plan includes 3 campaign builds per account each month. See <a href="/billing.html">Billing</a>.</p>
 
         </div>
     </main>
@@ -568,35 +556,34 @@
                     <img src="/logo.png" alt="PerfoAds" style="width: 32px; height: 32px;">
                     <h4 style="margin: 0; display: inline-block; margin-left: 12px; vertical-align: middle;">PerfoAds</h4>
                 </a>
-                <p>AI that doesn't just spot trends. It understands your clients' businesses and tells you exactly what matters.</p>
-                <a href="https://www.perfoads.com/#pricing" class="footer-cta">Transform my Business</a>
+                <p>Checks your Google Ads account, tells you what is wrong in plain English, and helps you fix it.</p>
+                <a href="https://audit.perfoads.com/audit/login" class="footer-cta">Open PerfoAds</a>
                 <div class="footer-social">
-                    <a href="https://x.com/">Twitter/X</a>
+                    <a href="mailto:contact@perfoads.com">contact@perfoads.com</a>
                 </div>
             </div>
             <div class="footer-section">
                 <h5>Sections</h5>
                 <div class="footer-links">
-                    <a href="https://www.perfoads.com/#features">Features</a>
-                    <a href="https://www.perfoads.com/#benefits">Benefits</a>
-                    <a href="https://www.perfoads.com/#testimonials">Testimonials</a>
-                    <a href="https://www.perfoads.com/#pricing">Pricing</a>
-                    <a href="https://www.perfoads.com/#faq">FAQ</a>
+                    <a href="https://perfoads.com/#tools">Tools</a>
+                    <a href="https://perfoads.com/#how-it-works">How it works</a>
+                    <a href="https://perfoads.com/#pricing">Pricing</a>
+                    <a href="https://perfoads.com/#faq">FAQ</a>
                 </div>
             </div>
             <div class="footer-section">
                 <h5>Pages</h5>
                 <div class="footer-links">
-                    <a href="/">Documentation</a>
-                    <a href="https://www.perfoads.com/privacy">Privacy Policy</a>
-                    <a href="https://www.perfoads.com/tos">Terms of Service</a>
+                    <a href="/">Help</a>
+                    <a href="https://perfoads.com/privacypolicy">Privacy Policy</a>
+                    <a href="https://perfoads.com/termsofservice">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <div class="footer-bottom">
-        All Rights Reserved © 2025 PerfoAds
+        All Rights Reserved © 2026 PerfoAds
     </div>
 
 </body>

@@ -1,49 +1,46 @@
 # What is PerfoAds?
 
-PerfoAds is a Google Ads management tool that helps you monitor and optimize your advertising campaigns using AI.
+PerfoAds checks your Google Ads account, tells you what is wrong in plain English, and helps you fix it.
 
-## What Does It Do?
+You use it in your web browser at [audit.perfoads.com](https://audit.perfoads.com/audit/login).
 
-PerfoAds automatically syncs your Google Ads data every 24 hours and analyzes it to:
+## What it does
 
-- **Track Performance**: See how your ads are performing with clear metrics like spend, conversions, and cost per conversion
-- **Get AI Alerts**: Receive smart notifications when something important happens in your campaigns
-- **Chat with AI**: Ask questions about your campaigns and get intelligent answers
-- **Save Time**: No more logging into Google Ads constantly - everything is in one place
+- **Audits your account.** You get a score from 0 to 100, a list of problems, and a to-do list in order of importance.
+- **Shows your campaigns in one place.** Spend, clicks, conversions and more, for every account you connect.
+- **Helps you improve a campaign.** Search and Performance Max campaigns each get their own workspace with suggestions.
+- **Improves your product feed.** Better product titles, custom labels and missing product details for Google Shopping.
+- **Builds new campaigns.** A step-by-step wizard creates a Search or Performance Max campaign from your website.
 
-## Key Features
+## Your menu
 
-### Smart Sync
-Your Google Ads data automatically updates every 24 hours. No manual work required.
+| Menu item | What it is for |
+|---|---|
+| Overview | Your home page. All your campaigns and their numbers. |
+| Google Ads Audit | Start a new audit or open past reports. |
+| Campaign Builder | Create a new campaign with a wizard. |
+| Feed Optimizer | Improve your Google Shopping product feed. |
+| Settings | Your profile, team, plan and preferences. |
 
-### Smart Alerts
-AI monitors your campaigns 24/7 and alerts you when:
-- **Critical issues** need immediate attention (red alerts)
-- **Important changes** require your review (yellow alerts)
-- **Good news** worth celebrating (green alerts)
+## You stay in control
 
-### AI Chat
-Ask questions about your campaigns in plain English. The AI understands your business context and gives personalized answers.
+PerfoAds can make changes to your Google Ads account. It only does so when you approve each change.
 
-### Performance Dashboard
-See all your important metrics at a glance:
-- Total spend across all campaigns
-- Number of conversions
-- Cost per conversion
-- Click-through rates
+- You see a preview of every change first.
+- Most changes can be undone for 30 days.
+- Changes are switched off until the account owner turns them on.
 
-## Who Is It For?
+Read more in [Changes and undo](/changes-and-undo.html).
 
-PerfoAds is built for:
-- Marketing agencies managing multiple clients
-- Business owners running their own Google Ads
-- Anyone who wants AI-powered insights without the complexity
+## Who it is for
 
-## Getting Started
+- Shop owners who run their own Google Ads.
+- Marketers and agencies who look after several accounts.
 
-To use PerfoAds, you need:
-1. A Google Ads account
-2. Active campaigns to monitor
-3. A PerfoAds subscription
+## Help inside the app
 
-Once you connect your Google Ads account, PerfoAds will immediately start syncing your data. After the first sync completes, you'll instantly have access to AI insights, alerts, and analytics.
+Every main screen has a short guided tour. Click **Guide** on the page, or the **?** help button (Help & guides) at the bottom of the menu, to replay it.
+
+## Next step
+
+Go to [Getting started](/getting-started.html).

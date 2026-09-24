@@ -2,7 +2,7 @@
   "name": "perfoads-docs",
   "version": "1.0.0",
   "description": "**AI-Powered Google Ads Management Platform**",
-  "main": "generate-html.js",
+  "main": "regenerate-all.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

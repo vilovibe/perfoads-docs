@@ -17,7 +17,10 @@ mdFiles.forEach(file => {
   const content = marked.parse(md);
   const html = template.replace('{{PAGE_TITLE}}', title).replace('{{MAIN_CONTENT}}', content);
   const htmlFile = file.replace('.md', '.html');
-  fs.writeFileSync(htmlFile, html);
+  // Highlight this page in the sidebar ("/" is the index page's link).
+  const navHref = htmlFile === 'index.html' ? '/' : '/' + htmlFile;
+  const withActive = html.replace(`href="${navHref}" class="nav-link"`, `href="${navHref}" class="nav-link active"`);
+  fs.writeFileSync(htmlFile, withActive);
   console.log('✅', htmlFile);
 });
 

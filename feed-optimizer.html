@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account and settings - PerfoAds Help</title>
+    <title>Feed Optimizer - PerfoAds Help</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -427,7 +427,7 @@
                     <a href="/google-ads-audit.html" class="nav-link">Google Ads Audit report</a>
                     <a href="/search-optimizer.html" class="nav-link">Search Optimizer</a>
                     <a href="/pmax-optimizer.html" class="nav-link">Performance Max Optimizer</a>
-                    <a href="/feed-optimizer.html" class="nav-link">Feed Optimizer</a>
+                    <a href="/feed-optimizer.html" class="nav-link active">Feed Optimizer</a>
                     <a href="/campaign-builder.html" class="nav-link">Campaign Builder</a>
                 </div>
             </div>
@@ -444,7 +444,7 @@
                 <h3>Your Account</h3>
                 <div class="nav-links">
                     <a href="/billing.html" class="nav-link">Billing</a>
-                    <a href="/settings.html" class="nav-link active">Account and settings</a>
+                    <a href="/settings.html" class="nav-link">Account and settings</a>
                 </div>
             </div>
         </nav>
@@ -453,38 +453,66 @@
     <!-- Main Content -->
     <main>
         <div class="content">
-            <h1>Account and settings</h1>
-<p>Click <strong>Settings</strong> at the bottom of the menu. You see 3 tabs: Account, Preferences and Team. Some accounts also see Branding and API Keys.</p>
-<h2>Account</h2>
+            <h1>Feed Optimizer</h1>
+<p>The Feed Optimizer improves the product feed you use for Google Shopping and Performance Max. It writes better product titles, sets custom labels, fills in missing product details and checks your feed for problems.</p>
+<h2>What you need</h2>
 <ul>
-<li><strong>Profile photo:</strong> upload or remove your photo. It shows in the menu and in your team.</li>
-<li><strong>Your usage:</strong> how much of this month&#39;s allowance you have used, per tool. See <a href="/billing.html">Billing</a>.</li>
-<li><strong>Subscription:</strong> opens Stripe&#39;s billing page, where you manage your plan and card.</li>
-<li><strong>Sign Out:</strong> signs you out of PerfoAds on this browser.</li>
+<li>A Google Merchant Center account with your products in it.</li>
+<li>Access to that Merchant Center account from the Google login you use for PerfoAds.</li>
 </ul>
-<p>Your email address comes from your Google login. You cannot change it in PerfoAds. There is no password to change, because you sign in with Google.</p>
-<h2>Preferences</h2>
+<h2>Get started</h2>
+<ol>
+<li>Click <strong>Feed Optimizer</strong> in the menu.</li>
+<li>Click <strong>Connect Merchant Center</strong> and pick your account and feed.</li>
+<li>Click <strong>Fetch feed</strong> to load your products.</li>
+<li>Link your Google Ads account, so PerfoAds can see how each product sells.</li>
+</ol>
+<h2>Your products</h2>
+<p>Every product is 1 row, with its title, custom labels and results.</p>
 <ul>
-<li><strong>Theme:</strong> light or dark.</li>
-<li><strong>Language:</strong> English or Polish, if Polish is switched on for your team.</li>
-<li><strong>Alert frequency:</strong> how often PerfoAds checks new accounts for problems. Choose daily, every 3 days or weekly.</li>
-<li><strong>Notifications:</strong> coming soon. PerfoAds does not send email notifications today.</li>
+<li>Click a title to edit it. Unsaved changes show a &quot;draft&quot; badge.</li>
+<li>Use the chips and filters to show only products with problems, only drafts, or only 1 label.</li>
+<li>Turn on <strong>Group variants</strong> to fold sizes and colours under their main product.</li>
 </ul>
-<h2>Team</h2>
-<p>Work on accounts together with colleagues.</p>
+<h2>AI tools</h2>
+<p>All AI actions are in the <strong>AI tools</strong> menu. Run them on the whole feed or only on the rows you select.</p>
 <ul>
-<li><strong>Create a team:</strong> give it a name. You become the owner.</li>
-<li><strong>Invite a specialist:</strong> create an invitation and share the link with your colleague.</li>
-<li><strong>Assign accounts:</strong> choose which accounts each specialist can see. Specialists only see the accounts you give them.</li>
-<li><strong>Google Ads writes:</strong> the switch that lets PerfoAds make changes to Google Ads and Merchant Center. Only the owner can turn it on. See <a href="/changes-and-undo.html">Changes and undo</a>.</li>
+<li><strong>Generate titles:</strong> clearer product titles that match what people search for.</li>
+<li><strong>Generate labels:</strong> custom labels 0 to 4, for example by best sellers or by margin. Use them to split your campaigns.</li>
+<li><strong>AI attributes:</strong> fill in missing details like colour, size and description.</li>
+<li><strong>Map Google categories:</strong> give a Google product category to products that miss one.</li>
 </ul>
-<p>Even without a team, this tab holds the Google Ads writes switch.</p>
-<h2>Branding</h2>
-<p>Only shown if white label is switched on for your account. Upload your logo. It replaces the PerfoAds logo in the menu, with a small &quot;by PerfoAds&quot; underneath.</p>
-<h2>API Keys</h2>
-<p>Only shown to accounts that bring their own keys. Your own keys are used instead of ours. Keys are stored encrypted. If you remove a key, PerfoAds goes back to its own.</p>
-<h2>Guided tours</h2>
-<p>Click the <strong>?</strong> help button (Help &amp; guides) at the bottom of the menu to replay a tour. On a tool page, click <strong>Guide</strong> to replay that page&#39;s tour.</p>
+<h2>Feed Health and Issues</h2>
+<p><strong>Feed Health</strong> checks your feed against Google Shopping&#39;s rules. You see what Google would flag, so you can fix it before it costs you.</p>
+<p>Open <strong>Issues</strong> to see which products fail which check.</p>
+<h2>Label drift</h2>
+<p>A product&#39;s best label can change, for example when its sales go up. PerfoAds calls this drift. A banner lets you <strong>Approve</strong> the new labels or <strong>Reject</strong> them.</p>
+<h2>Feed settings</h2>
+<p>The gear button holds 3 things:</p>
+<ul>
+<li><strong>Checked attributes:</strong> what Feed Health checks.</li>
+<li><strong>Feed rules:</strong> simple rules, for example &quot;label out of stock products&quot; or &quot;leave them out of the push&quot;.</li>
+<li><strong>Margins:</strong> your profit margin per category, so labels can follow profit and not only sales.</li>
+</ul>
+<h2>Save a version</h2>
+<p>Save a named version of your titles and labels before a big change. Open <strong>History</strong> to compare or restore an earlier version.</p>
+<h2>Send your changes</h2>
+<p><strong>One-time setup.</strong> Merchant Center needs 1 extra data source that PerfoAds writes into. In Merchant Center, add a source with &quot;Add product data using API&quot;, name it PerfoAds, and tick your main feed. The app shows these steps.</p>
+<p>Then you have 2 choices:</p>
+<ul>
+<li><strong>Push to GMC:</strong> your new titles and labels replace the old ones in Google.</li>
+<li><strong>Export:</strong> download a file (TSV) and upload it yourself.</li>
+</ul>
+<p><strong>To go back:</strong> click <strong>Withdraw</strong> on a product, or <strong>Withdraw all from GMC</strong> (GMC means Google Merchant Center) to remove every PerfoAds change from Merchant Center. Your drafts stay in PerfoAds. Google needs a few minutes to process it.</p>
+<p><strong>Reject drafts</strong> clears all changes you have not pushed yet. It does not touch Merchant Center.</p>
+<h2>Monthly allowance</h2>
+<p>Per account, each month, your plan includes:</p>
+<ul>
+<li>1,000 product titles written by AI</li>
+<li>300 custom label assignments</li>
+<li>300 products with AI-filled details</li>
+</ul>
+<p>See <a href="/billing.html">Billing</a>.</p>
 
         </div>
     </main>

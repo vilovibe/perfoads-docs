@@ -1,75 +1,59 @@
-# PerfoAds Documentation
+# PerfoAds Help
 
-Complete documentation for the PerfoAds Google Ads management platform.
+Source for the public help site at [docs.perfoads.com](https://docs.perfoads.com), served by GitHub Pages.
 
-## 📖 Documentation Structure
+## Pages
 
-### Getting Started
-- [What is PerfoAds?](what-is-perfoads.md) - Overview of features and capabilities
+### Start here
+- [What is PerfoAds?](what-is-perfoads.md) - What it does and who it is for
+- [Getting started](getting-started.md) - Sign in with Google, connect Google Ads, first audit, what access we ask for
 
-### Core Features
-- [Managing Clients](managing-clients.md) - Adding, viewing, and managing Google Ads accounts
-- [Viewing Performance](viewing-performance.md) - Understanding metrics, charts, and campaign data
-- [Data Syncing](data-syncing.md) - How automatic and manual syncing works
+### The tools
+- [Overview dashboard](viewing-performance.md) - Campaign table, sparkle button, data updates, what the numbers mean
+- [Google Ads Audit report](google-ads-audit.md) - Score, findings, action plan, PDF, share link
+- [Search Optimizer](search-optimizer.md) - The 7 tabs of the Search campaign workspace
+- [Performance Max Optimizer](pmax-optimizer.md) - The tabs of the Performance Max workspace
+- [Feed Optimizer](feed-optimizer.md) - Titles, custom labels, attributes, categories, push and export
+- [Campaign Builder](campaign-builder.md) - Search and Performance Max wizards
 
-### AI Features
-- [Smart Alerts](smart-alerts.md) - AI-powered notifications and alert severity levels
-- [AI Chat](ai-chat.md) - Conversational AI for campaign analysis
-- [Business Context](business-context.md) - Providing context to improve AI insights
+### Safety and data
+- [Changes and undo](changes-and-undo.md) - Approval, history, rollback, what cannot be undone
+- [Data and privacy](data-privacy.md) - What we can see and change, removing data
 
-### Account Management
-- [Google Accounts](google-accounts.md) - Connecting and managing Google Ads access
-- [Settings](settings.md) - Configuring notifications, billing, and preferences
-- [User Account](user-account.md) - Managing your PerfoAds account and subscription
+### Your account
+- [Billing](billing.md) - Prices, monthly allowances, Stripe billing page
+- [Account and settings](settings.md) - Account, Preferences, Team, Branding, API Keys
 
-## 🚀 Quick Start
+`index.md` is the help home page.
 
-New to PerfoAds? Start here:
-1. Read [What is PerfoAds?](what-is-perfoads.md) to understand the platform
-2. Learn how to [connect your Google Ads account](google-accounts.md)
-3. Explore [Smart Alerts](smart-alerts.md) to monitor your campaigns
-4. Try [AI Chat](ai-chat.md) to ask questions about your performance
+Old URLs `google-accounts.html`, `data-syncing.html` and `user-account.html` are small hand-written redirect pages to the pages that replaced them.
 
-## 🌐 Live Documentation
+## Build
 
-Visit [docs.perfoads.com](https://docs.perfoads.com) to view the formatted HTML documentation.
+```bash
+npm install
+node regenerate-all.js
+```
 
-## 🛠️ Development
+`regenerate-all.js` turns every `.md` file in this folder (except `README.md`, `CHANGELOG.md` and `DOCUMENTATION_FEATURE_MAP.md`) into an `.html` file, using `TEMPLATE.html`. The sidebar lives in `TEMPLATE.html`. Commit the `.md` and the generated `.html` together.
 
-### Converting Markdown to HTML
+To add a page: write `new-page.md`, add it to the sidebar in `TEMPLATE.html` and to `index.md`, then run the build.
 
-Run the conversion script to generate HTML files from markdown:
+To remove a page: delete its `.md` and `.html`, and take it out of `TEMPLATE.html` and `index.md`.
 
-\`\`\`bash
-node convert-docs.js
-\`\`\`
+## Writing rules
 
-This reads each `.md` file, converts it to HTML using the template, and outputs `.html` files.
+- Plain English for shop owners. Short sentences, 1 idea each.
+- Numbers as digits.
+- No em dashes.
+- No internal names, no AI model names or versions.
+- Only write what the app really does today. Check the app before you write.
+- Use the button and tab names exactly as the app shows them.
 
-### Template Structure
+## Links
 
-The `TEMPLATE.html` file contains the complete page structure including:
-- Top navigation header
-- Sidebar with documentation links
-- Main content area
-- Footer
+- App: [audit.perfoads.com](https://audit.perfoads.com/audit/login)
+- Website: [perfoads.com](https://perfoads.com)
+- Help: [docs.perfoads.com](https://docs.perfoads.com)
 
-All generated HTML files use this template for consistency.
-
-## 📝 Writing Guidelines
-
-Documentation follows these principles:
-- **Simple language**: Written for regular users, not developers
-- **Concise**: Short, useful explanations without unnecessary detail
-- **Practical**: Focus on how to use features, not technical implementation
-- **Clear structure**: Consistent H2/H3 headings and section organization
-
-## 🔗 Links
-
-- **Live App**: [app.perfoads.com](https://app.perfoads.com)
-- **Marketing Site**: [perfoads.com](https://www.perfoads.com)
-- **Documentation**: [docs.perfoads.com](https://docs.perfoads.com)
-
----
-
-**Last Updated**: January 2025
+Last updated: September 2026

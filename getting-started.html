@@ -1,54 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const { marked } = require('marked');
-
-// Configure marked options
-marked.setOptions({
-  headerIds: false,
-  mangle: false
-});
-
-// Files that were updated and need HTML regeneration
-const updatedFiles = [
-  'CHANGELOG.md',
-  'phase-1-essential/02-quick-start-guide.md',
-  'phase-1-essential/03-adding-first-client.md',
-  'phase-1-essential/04-understanding-dashboard.md',
-  'phase-3-ai-features/08-business-profile-setup.md',
-  'phase-4-advanced/01-global-settings.md',
-  'phase-4-advanced/06-troubleshooting-oauth.md'
-];
-
-// Extract title from markdown frontmatter or first h1
-function extractTitle(markdown) {
-  // Check for frontmatter title
-  const frontmatterMatch = markdown.match(/^---\s*\ntitle:\s*(.+)\s*\n/m);
-  if (frontmatterMatch) {
-    return frontmatterMatch[1].trim();
-  }
-
-  // Fallback to first H1
-  const h1Match = markdown.match(/^#\s+(.+)$/m);
-  if (h1Match) {
-    return h1Match[1].trim();
-  }
-
-  return 'PerfoAds Documentation';
-}
-
-// Strip frontmatter from markdown
-function stripFrontmatter(markdown) {
-  return markdown.replace(/^---\s*\n[\s\S]*?\n---\s*\n/, '');
-}
-
-// Generate HTML template
-function generateHTML(title, content) {
-  return `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${title} - PerfoAds Documentation</title>
+    <title>Getting started - PerfoAds Help</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,7 +39,6 @@ function generateHTML(title, content) {
             letter-spacing: -0.03em;
         }
 
-
         /* Top Header - Landing Page Style */
         .top-header {
             position: fixed;
@@ -97,9 +51,14 @@ function generateHTML(title, content) {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 270px;
             padding: 0 96px;
             z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            gap: 120px;
         }
 
         .header-logo {
@@ -143,15 +102,14 @@ function generateHTML(title, content) {
         }
 
         .header-nav a.header-cta {
-            padding: 10px 20px;
+            align-self: flex-start;
+            padding: 12px 24px;
             background: var(--primary-blue);
             color: white !important;
             text-decoration: none;
             border-radius: 8px;
-            font-family: 'Geist', 'Geist Placeholder', sans-serif;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
-            letter-spacing: -0.03em;
             transition: all 0.2s;
         }
 
@@ -304,6 +262,25 @@ function generateHTML(title, content) {
             margin: 32px 0;
         }
 
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            font-size: 15px;
+        }
+
+        .content th, .content td {
+            text-align: left;
+            vertical-align: top;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .content th {
+            background: var(--bg-gray);
+            font-weight: 600;
+        }
+
         .content strong {
             font-weight: 600;
             color: var(--dark-text);
@@ -415,71 +392,59 @@ function generateHTML(title, content) {
 <body>
     <!-- Top Header -->
     <header class="top-header">
-        <a href="https://perfoads.com" class="header-logo">
-            <img src="/logo.png" alt="PerfoAds">
-            <span>PerfoAds</span>
-        </a>
-        <nav class="header-nav">
-            <a href="https://www.perfoads.com/#features">Features</a>
-            <a href="https://www.perfoads.com/#benefits">Benefits</a>
-            <a href="/">Documentation</a>
-            <a href="https://www.perfoads.com/#pricing">Pricing</a>
-            <a href="https://www.perfoads.com/#faq">FAQ</a>
-            <a href="https://app.perfoads.com" class="header-cta">Start Free Trial</a>
-        </nav>
+        <div class="header-container">
+            <a href="https://perfoads.com" class="header-logo">
+                <img src="/logo.png" alt="PerfoAds">
+                <span>PerfoAds</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://perfoads.com/#tools">Tools</a>
+                <a href="https://perfoads.com/#how-it-works">How it works</a>
+                <a href="/">Help</a>
+                <a href="https://perfoads.com/#pricing">Pricing</a>
+                <a href="https://perfoads.com/#faq">FAQ</a>
+                <a href="https://audit.perfoads.com/audit/login" class="header-cta">Open PerfoAds</a>
+            </nav>
+        </div>
     </header>
 
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
         <nav>
             <div class="nav-section">
-                <h3>Getting Started</h3>
+                <h3>Start Here</h3>
                 <div class="nav-links">
-                    <a href="/phase-1-essential/01-what-is-perfoads.html" class="nav-link">What is PerfoAds?</a>
-                    <a href="/phase-1-essential/02-quick-start-guide.html" class="nav-link">Quick Start Guide</a>
-                    <a href="/phase-1-essential/03-adding-first-client.html" class="nav-link">Adding Your First Client</a>
-                    <a href="/phase-1-essential/04-understanding-dashboard.html" class="nav-link">Understanding the Dashboard</a>
-                    <a href="/phase-1-essential/05-smart-sync-explained.html" class="nav-link">Smart Sync Explained</a>
+                    <a href="/" class="nav-link">Help home</a>
+                    <a href="/what-is-perfoads.html" class="nav-link">What is PerfoAds?</a>
+                    <a href="/getting-started.html" class="nav-link active">Getting started</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>Core Features</h3>
+                <h3>The Tools</h3>
                 <div class="nav-links">
-                    <a href="/phase-2-core-features/01-client-list-overview.html" class="nav-link">Client List Overview</a>
-                    <a href="/phase-2-core-features/02-client-details-page.html" class="nav-link">Client Details Page</a>
-                    <a href="/phase-2-core-features/03-bulk-operations.html" class="nav-link">Bulk Operations</a>
-                    <a href="/phase-2-core-features/04-sync-system-guide.html" class="nav-link">Sync System Guide</a>
-                    <a href="/phase-2-core-features/05-auto-sync-setup.html" class="nav-link">Auto-Sync Setup</a>
-                    <a href="/phase-2-core-features/06-sync-logs.html" class="nav-link">Sync Logs</a>
-                    <a href="/phase-2-core-features/07-metrics-glossary.html" class="nav-link">Metrics Glossary</a>
-                    <a href="/phase-2-core-features/08-performance-charts.html" class="nav-link">Performance Charts</a>
+                    <a href="/viewing-performance.html" class="nav-link">Overview dashboard</a>
+                    <a href="/google-ads-audit.html" class="nav-link">Google Ads Audit report</a>
+                    <a href="/search-optimizer.html" class="nav-link">Search Optimizer</a>
+                    <a href="/pmax-optimizer.html" class="nav-link">Performance Max Optimizer</a>
+                    <a href="/feed-optimizer.html" class="nav-link">Feed Optimizer</a>
+                    <a href="/campaign-builder.html" class="nav-link">Campaign Builder</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>AI Features</h3>
+                <h3>Safety and Data</h3>
                 <div class="nav-links">
-                    <a href="/phase-3-ai-features/01-smart-alerts-intro.html" class="nav-link">Smart Alerts Introduction</a>
-                    <a href="/phase-3-ai-features/02-alert-severity-guide.html" class="nav-link">Alert Severity Guide</a>
-                    <a href="/phase-3-ai-features/03-alert-categories.html" class="nav-link">Alert Categories</a>
-                    <a href="/phase-3-ai-features/04-accept-decline-workflow.html" class="nav-link">Accept/Decline Workflow</a>
-                    <a href="/phase-3-ai-features/05-ai-chat-getting-started.html" class="nav-link">AI Chat - Getting Started</a>
-                    <a href="/phase-3-ai-features/06-ai-chat-templates.html" class="nav-link">AI Chat Templates</a>
-                    <a href="/phase-3-ai-features/07-ai-context-explained.html" class="nav-link">AI Context Explained</a>
-                    <a href="/phase-3-ai-features/08-business-profile-setup.html" class="nav-link">Business Profile Setup</a>
-                    <a href="/phase-3-ai-features/09-custom-context-entries.html" class="nav-link">Custom Context Entries</a>
+                    <a href="/changes-and-undo.html" class="nav-link">Changes and undo</a>
+                    <a href="/data-privacy.html" class="nav-link">Data and privacy</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>Advanced</h3>
+                <h3>Your Account</h3>
                 <div class="nav-links">
-                    <a href="/phase-4-advanced/01-global-settings.html" class="nav-link">Global Settings</a>
-                    <a href="/phase-4-advanced/08-email-alerts-setup.html" class="nav-link">Email Alerts Setup</a>
-                    <a href="/phase-4-advanced/05-troubleshooting-sync.html" class="nav-link">Troubleshooting: Sync Issues</a>
-                    <a href="/phase-4-advanced/06-troubleshooting-oauth.html" class="nav-link">Troubleshooting: OAuth Issues</a>
-                    <a href="/phase-4-advanced/07-troubleshooting-general.html" class="nav-link">Troubleshooting: General</a>
+                    <a href="/billing.html" class="nav-link">Billing</a>
+                    <a href="/settings.html" class="nav-link">Account and settings</a>
                 </div>
             </div>
         </nav>
@@ -487,7 +452,60 @@ function generateHTML(title, content) {
 
     <!-- Main Content -->
     <main>
-        <div class="content">${content}</div>
+        <div class="content">
+            <h1>Getting started</h1>
+<p>You sign in with Google, connect your Google Ads account, and run your first audit. It takes a few minutes to set up.</p>
+<h2>1. Sign in with Google</h2>
+<p>Go to <a href="https://audit.perfoads.com/audit/login">audit.perfoads.com</a> and click the Google sign-in button.</p>
+<ul>
+<li>Google is the only way to sign in. There is no PerfoAds password.</li>
+<li>Your Google account handles security, including 2-step verification.</li>
+<li>You stay signed in for 7 days. After that, sign in again.</li>
+</ul>
+<h2>2. Choose a plan</h2>
+<p>You need a monthly plan to use the app. You can also buy 1 audit on its own. See <a href="/billing.html">Billing</a>.</p>
+<h2>3. Connect your Google Ads account</h2>
+<p>Click <strong>Google Ads Audit</strong>, then <strong>New Audit</strong>.</p>
+<ol>
+<li>If Google Ads is not connected yet, click connect. Google opens a window and asks you to allow access.</li>
+<li>Pick the Google Ads account you want to check. If you only have 1, it is picked for you.</li>
+<li>Answer a few short questions about your business. For example: your website, what you sell, your monthly ad spend and your main goal.</li>
+<li>Start the audit. Your report is ready in about 30 minutes.</li>
+</ol>
+<p>Each new account you connect this way also shows up on your <a href="/viewing-performance.html">Overview</a>.</p>
+<h2>What access we ask for, and why</h2>
+<p>Google shows you a list when you connect. Here is what each item means.</p>
+<table>
+<thead>
+<tr>
+<th>Access</th>
+<th>Why we need it</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Google Ads</td>
+<td>To read your campaigns for the audit and the Overview. Also to make changes, but only the ones you approve.</td>
+</tr>
+<tr>
+<td>Merchant Center</td>
+<td>Only if you use the Feed Optimizer. To read your products and send improved titles and labels back.</td>
+</tr>
+<tr>
+<td>Your email address</td>
+<td>To know who you are when you sign in.</td>
+</tr>
+</tbody></table>
+<p><strong>Important:</strong> PerfoAds CAN make changes to your Google Ads account. It only makes a change after you see a preview and click to approve it. Most changes can be undone for 30 days. See <a href="/changes-and-undo.html">Changes and undo</a>.</p>
+<h2>How to remove our access</h2>
+<p>You can take away PerfoAds&#39; access at any time on your Google account&#39;s <a href="https://myaccount.google.com/permissions">third-party access page</a>. After that, PerfoAds can no longer read or change your account.</p>
+<p>To also delete the data PerfoAds holds for an account, see <a href="/data-privacy.html">Data and privacy</a>.</p>
+<h2>Next steps</h2>
+<ul>
+<li>Read your <a href="/google-ads-audit.html">audit report</a>.</li>
+<li>Look around your <a href="/viewing-performance.html">Overview</a>.</li>
+</ul>
+
+        </div>
     </main>
 
     <!-- Footer - Landing Page Style -->
@@ -498,82 +516,35 @@ function generateHTML(title, content) {
                     <img src="/logo.png" alt="PerfoAds" style="width: 32px; height: 32px;">
                     <h4 style="margin: 0; display: inline-block; margin-left: 12px; vertical-align: middle;">PerfoAds</h4>
                 </a>
-                <p>AI that doesn't just spot trends. It understands your clients' businesses and tells you exactly what matters.</p>
-                <a href="https://www.perfoads.com/#pricing" class="footer-cta">Transform my Business</a>
+                <p>Checks your Google Ads account, tells you what is wrong in plain English, and helps you fix it.</p>
+                <a href="https://audit.perfoads.com/audit/login" class="footer-cta">Open PerfoAds</a>
                 <div class="footer-social">
-                    <a href="https://x.com/">Twitter/X</a>
+                    <a href="mailto:contact@perfoads.com">contact@perfoads.com</a>
                 </div>
             </div>
             <div class="footer-section">
                 <h5>Sections</h5>
                 <div class="footer-links">
-                    <a href="https://www.perfoads.com/#features">Features</a>
-                    <a href="https://www.perfoads.com/#benefits">Benefits</a>
-                    <a href="https://www.perfoads.com/#testimonials">Testimonials</a>
-                    <a href="https://www.perfoads.com/#pricing">Pricing</a>
-                    <a href="https://www.perfoads.com/#faq">FAQ</a>
+                    <a href="https://perfoads.com/#tools">Tools</a>
+                    <a href="https://perfoads.com/#how-it-works">How it works</a>
+                    <a href="https://perfoads.com/#pricing">Pricing</a>
+                    <a href="https://perfoads.com/#faq">FAQ</a>
                 </div>
             </div>
             <div class="footer-section">
                 <h5>Pages</h5>
                 <div class="footer-links">
-                    <a href="/">Documentation</a>
-                    <a href="https://www.perfoads.com/privacy">Privacy Policy</a>
-                    <a href="https://www.perfoads.com/tos">Terms of Service</a>
+                    <a href="/">Help</a>
+                    <a href="https://perfoads.com/privacypolicy">Privacy Policy</a>
+                    <a href="https://perfoads.com/termsofservice">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <div class="footer-bottom">
-        All Rights Reserved © 2025 PerfoAds
+        All Rights Reserved © 2026 PerfoAds
     </div>
 
 </body>
-</html>`;
-}
-
-// Process a single markdown file
-function processMarkdownFile(mdPath) {
-  console.log(`Processing ${mdPath}...`);
-
-  // Read markdown
-  const markdown = fs.readFileSync(mdPath, 'utf8');
-
-  // Extract title and strip frontmatter
-  const title = extractTitle(markdown);
-  const cleanMarkdown = stripFrontmatter(markdown);
-
-  // Convert to HTML
-  const htmlContent = marked(cleanMarkdown);
-
-  // Generate full HTML with template
-  const fullHTML = generateHTML(title, htmlContent);
-
-  // Write HTML file (same path, .html extension)
-  const htmlPath = mdPath.replace('.md', '.html');
-  fs.writeFileSync(htmlPath, fullHTML, 'utf8');
-
-  console.log(`✅ Generated ${htmlPath}`);
-}
-
-// Main execution
-console.log('🔄 Regenerating HTML files from updated markdown...\n');
-
-updatedFiles.forEach(file => {
-  const fullPath = path.join(__dirname, file);
-
-  // Skip CHANGELOG.md as it doesn't need HTML version
-  if (file === 'CHANGELOG.md') {
-    console.log(`⏭️  Skipping ${file} (no HTML version needed)\n`);
-    return;
-  }
-
-  if (fs.existsSync(fullPath)) {
-    processMarkdownFile(fullPath);
-  } else {
-    console.log(`❌ File not found: ${fullPath}`);
-  }
-});
-
-console.log('\n✅ HTML regeneration complete!');
+</html>

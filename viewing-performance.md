@@ -1,108 +1,66 @@
-# Viewing Performance
+# Overview dashboard
 
-The performance view shows you how your Google Ads campaigns are doing with clear metrics and visual charts.
+The Overview is your home page. It shows every campaign in your connected accounts, with its numbers, in one table.
 
-## Overview Cards (Top of Dashboard)
+## Pick an account
 
-Four main metric cards show your most important numbers:
+Use the account picker at the top to see 1 account, or all of them together. Everything on the page follows your choice.
 
-### Total Spend
-How much money you've spent on ads in the selected time period.
+## Date range
 
-### Conversions
-Number of successful actions (purchases, sign-ups, calls, etc.) from your ads.
+Click the date chip to change the period. You can pick the last 7, 14, 30 or 90 days, or your own dates. The page opens on the last 90 days.
 
-### Cost Per Conversion (CPA)
-Average amount spent to get one conversion. Lower is usually better.
+## Your campaigns
 
-### Click-Through Rate (CTR)
-Percentage of people who clicked your ad after seeing it. Higher means more engaging ads.
+Each row is 1 campaign. You see numbers like spend, clicks, conversions, cost per conversion and return on ad spend.
 
-## Time Period Filter
+- **Sort:** click a column name.
+- **Filter:** use the chips above the table to show 1 campaign type, like Search or Performance Max.
+- **Columns:** choose which columns to show. You can save your own column views and switch between them.
+- **Details:** click a row to open a day-by-day chart and notes for that campaign.
 
-Change the date range to see different time periods:
-- Last 7 days
-- Last 30 days
-- Last 90 days
-- Custom date range
+## The sparkle button
 
-Click the date dropdown at the top to select your preferred time period.
+A sparkle sits next to each Search and Performance Max campaign. Click it to open that campaign's optimizer.
 
-## Charts Tab
+- Search campaigns open the [Search Optimizer](/search-optimizer.html).
+- Performance Max campaigns open the [Performance Max Optimizer](/pmax-optimizer.html).
 
-Visual graphs show trends over time:
+Click **Campaigns** to go back to the table.
 
-### Performance Trends
-See how your metrics change day by day:
-- Spend trends
-- Conversion trends
-- CPA trends
-- CTR trends
+## When you pick 1 account
 
-### Chart Controls
-- **Hover** over any point to see exact numbers
-- **Zoom** to focus on specific date ranges
-- **Compare** multiple metrics side-by-side
+You get a few extra things:
 
-## Campaigns Tab
+- **Account actions:** run an audit or a re-audit, start a new campaign, or remove the account.
+- **Conversions card:** see your conversion actions. You can add or edit one, and copy its website tag.
+- **Account history:** every change made through PerfoAds, with undo. See [Changes and undo](/changes-and-undo.html).
 
-Detailed breakdown of all your campaigns:
+## When your numbers update
 
-### Campaign List
-Each campaign shows:
-- Campaign name
-- Status (Active, Paused, Removed)
-- Spend for this campaign
-- Conversions generated
-- Cost per conversion
-- Click-through rate
+- PerfoAds refreshes your data once a day, at 06:00 UTC.
+- The "Data through" date at the top shows the last full day included.
+- There is no manual refresh button.
+- A new account appears after its first audit. The first load pulls the last 90 days.
+- Google itself can take a few hours to finish counting recent clicks and conversions.
 
-### Campaign Actions
-Click the **dropdown arrow** (▼) next to each campaign to:
-- View ad groups within the campaign
-- See individual ad performance
-- Check keyword performance
+## Removing an account
 
-### Sorting Campaigns
-Click any column header to sort by:
-- Highest/lowest spend
-- Most/least conversions
-- Best/worst CPA
-- Highest/lowest CTR
+Open the account's menu and choose **Remove Client**. This removes its Overview, monitoring and optimizer data straight away. It cannot be undone. Your audit reports stay in your history.
 
-## What Each Metric Means
+## What the numbers mean
 
-### Impressions
-How many times your ad was shown to people.
+| Number | What it means | How it is worked out |
+|---|---|---|
+| Impressions | How many times your ads were shown | Counted by Google |
+| Clicks | How many times people clicked your ads | Counted by Google |
+| CTR (click-through rate) | How often a shown ad got clicked | Clicks ÷ impressions |
+| Cost / spend | What you paid Google | Counted by Google |
+| Avg. CPC | Average price of 1 click | Cost ÷ clicks |
+| Conversions | Sales, leads or other goals you track | Counted by Google |
+| Conversion rate | How often a click turned into a conversion | Conversions ÷ clicks |
+| CPA (cost per conversion) | What 1 conversion cost you | Cost ÷ conversions |
+| Conv. value | The money your conversions were worth | Counted by Google |
+| ROAS (return on ad spend) | Money back for each $1 spent | Conv. value ÷ cost |
 
-### Clicks
-How many times people clicked on your ad.
-
-### Click-Through Rate (CTR)
-Impressions ÷ Clicks. Shows how engaging your ad is.
-
-### Cost
-Total amount spent on this campaign or ad group.
-
-### Conversions
-Actions you care about (purchases, leads, calls, etc.).
-
-### Cost Per Conversion (CPA)
-Cost ÷ Conversions. How much each conversion costs you.
-
-### Conversion Rate
-Clicks ÷ Conversions. What percentage of clicks become conversions.
-
-## Understanding Good vs Bad Performance
-
-**Good signs:**
-- CTR is increasing (people find your ads relevant)
-- CPA is decreasing (you're getting more efficient)
-- Conversions are increasing (your ads are working)
-
-**Warning signs:**
-- CTR is very low (ads may not be relevant)
-- CPA is very high (too expensive per conversion)
-- Conversions are dropping (something changed)
-
-Smart Alerts will automatically notify you about these patterns.
+**Example:** 1,000 impressions and 50 clicks gives a CTR of 5%. 50 clicks and 5 conversions gives a conversion rate of 10%.

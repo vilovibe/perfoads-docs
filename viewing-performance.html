@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viewing Performance - PerfoAds Documentation</title>
+    <title>Overview dashboard - PerfoAds Help</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -262,6 +262,25 @@
             margin: 32px 0;
         }
 
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            font-size: 15px;
+        }
+
+        .content th, .content td {
+            text-align: left;
+            vertical-align: top;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .content th {
+            background: var(--bg-gray);
+            font-weight: 600;
+        }
+
         .content strong {
             font-weight: 600;
             color: var(--dark-text);
@@ -379,12 +398,12 @@
                 <span>PerfoAds</span>
             </a>
             <nav class="header-nav">
-                <a href="https://www.perfoads.com/#features">Features</a>
-                <a href="https://www.perfoads.com/#benefits">Benefits</a>
-                <a href="/">Documentation</a>
-                <a href="https://www.perfoads.com/#pricing">Pricing</a>
-                <a href="https://www.perfoads.com/#faq">FAQ</a>
-                <a href="https://www.perfoads.com/#pricing" class="header-cta">Transform My Business</a>
+                <a href="https://perfoads.com/#tools">Tools</a>
+                <a href="https://perfoads.com/#how-it-works">How it works</a>
+                <a href="/">Help</a>
+                <a href="https://perfoads.com/#pricing">Pricing</a>
+                <a href="https://perfoads.com/#faq">FAQ</a>
+                <a href="https://audit.perfoads.com/audit/login" class="header-cta">Open PerfoAds</a>
             </nav>
         </div>
     </header>
@@ -393,36 +412,39 @@
     <aside class="sidebar">
         <nav>
             <div class="nav-section">
-                <h3>Getting Started</h3>
+                <h3>Start Here</h3>
                 <div class="nav-links">
+                    <a href="/" class="nav-link">Help home</a>
                     <a href="/what-is-perfoads.html" class="nav-link">What is PerfoAds?</a>
+                    <a href="/getting-started.html" class="nav-link">Getting started</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>Core Features</h3>
+                <h3>The Tools</h3>
                 <div class="nav-links">
-                    <a href="/managing-clients.html" class="nav-link">Managing Clients</a>
-                    <a href="/viewing-performance.html" class="nav-link">Viewing Performance</a>
-                    <a href="/data-syncing.html" class="nav-link">Data Syncing</a>
+                    <a href="/viewing-performance.html" class="nav-link active">Overview dashboard</a>
+                    <a href="/google-ads-audit.html" class="nav-link">Google Ads Audit report</a>
+                    <a href="/search-optimizer.html" class="nav-link">Search Optimizer</a>
+                    <a href="/pmax-optimizer.html" class="nav-link">Performance Max Optimizer</a>
+                    <a href="/feed-optimizer.html" class="nav-link">Feed Optimizer</a>
+                    <a href="/campaign-builder.html" class="nav-link">Campaign Builder</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>AI Features</h3>
+                <h3>Safety and Data</h3>
                 <div class="nav-links">
-                    <a href="/smart-alerts.html" class="nav-link">Smart Alerts</a>
-                    <a href="/ai-chat.html" class="nav-link">AI Chat</a>
-                    <a href="/business-context.html" class="nav-link">Business Context</a>
+                    <a href="/changes-and-undo.html" class="nav-link">Changes and undo</a>
+                    <a href="/data-privacy.html" class="nav-link">Data and privacy</a>
                 </div>
             </div>
 
             <div class="nav-section">
-                <h3>Account Management</h3>
+                <h3>Your Account</h3>
                 <div class="nav-links">
-                    <a href="/google-accounts.html" class="nav-link">Google Accounts</a>
-                    <a href="/settings.html" class="nav-link">Settings</a>
-                    <a href="/user-account.html" class="nav-link">User Account</a>
+                    <a href="/billing.html" class="nav-link">Billing</a>
+                    <a href="/settings.html" class="nav-link">Account and settings</a>
                 </div>
             </div>
         </nav>
@@ -431,99 +453,105 @@
     <!-- Main Content -->
     <main>
         <div class="content">
-            <h1>Viewing Performance</h1>
-<p>The performance view shows you how your Google Ads campaigns are doing with clear metrics and visual charts.</p>
-<h2>Overview Cards (Top of Dashboard)</h2>
-<p>Four main metric cards show your most important numbers:</p>
-<h3>Total Spend</h3>
-<p>How much money you&#39;ve spent on ads in the selected time period.</p>
-<h3>Conversions</h3>
-<p>Number of successful actions (purchases, sign-ups, calls, etc.) from your ads.</p>
-<h3>Cost Per Conversion (CPA)</h3>
-<p>Average amount spent to get one conversion. Lower is usually better.</p>
-<h3>Click-Through Rate (CTR)</h3>
-<p>Percentage of people who clicked your ad after seeing it. Higher means more engaging ads.</p>
-<h2>Time Period Filter</h2>
-<p>Change the date range to see different time periods:</p>
+            <h1>Overview dashboard</h1>
+<p>The Overview is your home page. It shows every campaign in your connected accounts, with its numbers, in one table.</p>
+<h2>Pick an account</h2>
+<p>Use the account picker at the top to see 1 account, or all of them together. Everything on the page follows your choice.</p>
+<h2>Date range</h2>
+<p>Click the date chip to change the period. You can pick the last 7, 14, 30 or 90 days, or your own dates. The page opens on the last 90 days.</p>
+<h2>Your campaigns</h2>
+<p>Each row is 1 campaign. You see numbers like spend, clicks, conversions, cost per conversion and return on ad spend.</p>
 <ul>
-<li>Last 7 days</li>
-<li>Last 30 days</li>
-<li>Last 90 days</li>
-<li>Custom date range</li>
+<li><strong>Sort:</strong> click a column name.</li>
+<li><strong>Filter:</strong> use the chips above the table to show 1 campaign type, like Search or Performance Max.</li>
+<li><strong>Columns:</strong> choose which columns to show. You can save your own column views and switch between them.</li>
+<li><strong>Details:</strong> click a row to open a day-by-day chart and notes for that campaign.</li>
 </ul>
-<p>Click the date dropdown at the top to select your preferred time period.</p>
-<h2>Charts Tab</h2>
-<p>Visual graphs show trends over time:</p>
-<h3>Performance Trends</h3>
-<p>See how your metrics change day by day:</p>
+<h2>The sparkle button</h2>
+<p>A sparkle sits next to each Search and Performance Max campaign. Click it to open that campaign&#39;s optimizer.</p>
 <ul>
-<li>Spend trends</li>
-<li>Conversion trends</li>
-<li>CPA trends</li>
-<li>CTR trends</li>
+<li>Search campaigns open the <a href="/search-optimizer.html">Search Optimizer</a>.</li>
+<li>Performance Max campaigns open the <a href="/pmax-optimizer.html">Performance Max Optimizer</a>.</li>
 </ul>
-<h3>Chart Controls</h3>
+<p>Click <strong>Campaigns</strong> to go back to the table.</p>
+<h2>When you pick 1 account</h2>
+<p>You get a few extra things:</p>
 <ul>
-<li><strong>Hover</strong> over any point to see exact numbers</li>
-<li><strong>Zoom</strong> to focus on specific date ranges</li>
-<li><strong>Compare</strong> multiple metrics side-by-side</li>
+<li><strong>Account actions:</strong> run an audit or a re-audit, start a new campaign, or remove the account.</li>
+<li><strong>Conversions card:</strong> see your conversion actions. You can add or edit one, and copy its website tag.</li>
+<li><strong>Account history:</strong> every change made through PerfoAds, with undo. See <a href="/changes-and-undo.html">Changes and undo</a>.</li>
 </ul>
-<h2>Campaigns Tab</h2>
-<p>Detailed breakdown of all your campaigns:</p>
-<h3>Campaign List</h3>
-<p>Each campaign shows:</p>
+<h2>When your numbers update</h2>
 <ul>
-<li>Campaign name</li>
-<li>Status (Active, Paused, Removed)</li>
-<li>Spend for this campaign</li>
-<li>Conversions generated</li>
-<li>Cost per conversion</li>
-<li>Click-through rate</li>
+<li>PerfoAds refreshes your data once a day, at 06:00 UTC.</li>
+<li>The &quot;Data through&quot; date at the top shows the last full day included.</li>
+<li>There is no manual refresh button.</li>
+<li>A new account appears after its first audit. The first load pulls the last 90 days.</li>
+<li>Google itself can take a few hours to finish counting recent clicks and conversions.</li>
 </ul>
-<h3>Campaign Actions</h3>
-<p>Click the <strong>dropdown arrow</strong> (▼) next to each campaign to:</p>
-<ul>
-<li>View ad groups within the campaign</li>
-<li>See individual ad performance</li>
-<li>Check keyword performance</li>
-</ul>
-<h3>Sorting Campaigns</h3>
-<p>Click any column header to sort by:</p>
-<ul>
-<li>Highest/lowest spend</li>
-<li>Most/least conversions</li>
-<li>Best/worst CPA</li>
-<li>Highest/lowest CTR</li>
-</ul>
-<h2>What Each Metric Means</h2>
-<h3>Impressions</h3>
-<p>How many times your ad was shown to people.</p>
-<h3>Clicks</h3>
-<p>How many times people clicked on your ad.</p>
-<h3>Click-Through Rate (CTR)</h3>
-<p>Impressions ÷ Clicks. Shows how engaging your ad is.</p>
-<h3>Cost</h3>
-<p>Total amount spent on this campaign or ad group.</p>
-<h3>Conversions</h3>
-<p>Actions you care about (purchases, leads, calls, etc.).</p>
-<h3>Cost Per Conversion (CPA)</h3>
-<p>Cost ÷ Conversions. How much each conversion costs you.</p>
-<h3>Conversion Rate</h3>
-<p>Clicks ÷ Conversions. What percentage of clicks become conversions.</p>
-<h2>Understanding Good vs Bad Performance</h2>
-<p><strong>Good signs:</strong></p>
-<ul>
-<li>CTR is increasing (people find your ads relevant)</li>
-<li>CPA is decreasing (you&#39;re getting more efficient)</li>
-<li>Conversions are increasing (your ads are working)</li>
-</ul>
-<p><strong>Warning signs:</strong></p>
-<ul>
-<li>CTR is very low (ads may not be relevant)</li>
-<li>CPA is very high (too expensive per conversion)</li>
-<li>Conversions are dropping (something changed)</li>
-</ul>
-<p>Smart Alerts will automatically notify you about these patterns.</p>
+<h2>Removing an account</h2>
+<p>Open the account&#39;s menu and choose <strong>Remove Client</strong>. This removes its Overview, monitoring and optimizer data straight away. It cannot be undone. Your audit reports stay in your history.</p>
+<h2>What the numbers mean</h2>
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th>What it means</th>
+<th>How it is worked out</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Impressions</td>
+<td>How many times your ads were shown</td>
+<td>Counted by Google</td>
+</tr>
+<tr>
+<td>Clicks</td>
+<td>How many times people clicked your ads</td>
+<td>Counted by Google</td>
+</tr>
+<tr>
+<td>CTR (click-through rate)</td>
+<td>How often a shown ad got clicked</td>
+<td>Clicks ÷ impressions</td>
+</tr>
+<tr>
+<td>Cost / spend</td>
+<td>What you paid Google</td>
+<td>Counted by Google</td>
+</tr>
+<tr>
+<td>Avg. CPC</td>
+<td>Average price of 1 click</td>
+<td>Cost ÷ clicks</td>
+</tr>
+<tr>
+<td>Conversions</td>
+<td>Sales, leads or other goals you track</td>
+<td>Counted by Google</td>
+</tr>
+<tr>
+<td>Conversion rate</td>
+<td>How often a click turned into a conversion</td>
+<td>Conversions ÷ clicks</td>
+</tr>
+<tr>
+<td>CPA (cost per conversion)</td>
+<td>What 1 conversion cost you</td>
+<td>Cost ÷ conversions</td>
+</tr>
+<tr>
+<td>Conv. value</td>
+<td>The money your conversions were worth</td>
+<td>Counted by Google</td>
+</tr>
+<tr>
+<td>ROAS (return on ad spend)</td>
+<td>Money back for each $1 spent</td>
+<td>Conv. value ÷ cost</td>
+</tr>
+</tbody></table>
+<p><strong>Example:</strong> 1,000 impressions and 50 clicks gives a CTR of 5%. 50 clicks and 5 conversions gives a conversion rate of 10%.</p>
 
         </div>
     </main>
@@ -536,35 +564,34 @@
                     <img src="/logo.png" alt="PerfoAds" style="width: 32px; height: 32px;">
                     <h4 style="margin: 0; display: inline-block; margin-left: 12px; vertical-align: middle;">PerfoAds</h4>
                 </a>
-                <p>AI that doesn't just spot trends. It understands your clients' businesses and tells you exactly what matters.</p>
-                <a href="https://www.perfoads.com/#pricing" class="footer-cta">Transform my Business</a>
+                <p>Checks your Google Ads account, tells you what is wrong in plain English, and helps you fix it.</p>
+                <a href="https://audit.perfoads.com/audit/login" class="footer-cta">Open PerfoAds</a>
                 <div class="footer-social">
-                    <a href="https://x.com/">Twitter/X</a>
+                    <a href="mailto:contact@perfoads.com">contact@perfoads.com</a>
                 </div>
             </div>
             <div class="footer-section">
                 <h5>Sections</h5>
                 <div class="footer-links">
-                    <a href="https://www.perfoads.com/#features">Features</a>
-                    <a href="https://www.perfoads.com/#benefits">Benefits</a>
-                    <a href="https://www.perfoads.com/#testimonials">Testimonials</a>
-                    <a href="https://www.perfoads.com/#pricing">Pricing</a>
-                    <a href="https://www.perfoads.com/#faq">FAQ</a>
+                    <a href="https://perfoads.com/#tools">Tools</a>
+                    <a href="https://perfoads.com/#how-it-works">How it works</a>
+                    <a href="https://perfoads.com/#pricing">Pricing</a>
+                    <a href="https://perfoads.com/#faq">FAQ</a>
                 </div>
             </div>
             <div class="footer-section">
                 <h5>Pages</h5>
                 <div class="footer-links">
-                    <a href="/">Documentation</a>
-                    <a href="https://www.perfoads.com/privacy">Privacy Policy</a>
-                    <a href="https://www.perfoads.com/tos">Terms of Service</a>
+                    <a href="/">Help</a>
+                    <a href="https://perfoads.com/privacypolicy">Privacy Policy</a>
+                    <a href="https://perfoads.com/termsofservice">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <div class="footer-bottom">
-        All Rights Reserved © 2025 PerfoAds
+        All Rights Reserved © 2026 PerfoAds
     </div>
 
 </body>
