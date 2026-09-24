@@ -15,7 +15,7 @@ Your past reports are under **Google Ads Audit**, then **History**.
 ## How the audit works
 
 1. PerfoAds reads your account data from Google Ads.
-2. 156 automatic checks run on your whole account. They are calculations on your data, so the same account gives the same answers.
+2. 165 automatic checks run on your whole account. They are calculations on your data, so the same account gives the same answers.
 3. Your conversion tracking gets a specialist review first. The later reviews are told how far the tracking can be trusted.
 4. Your biggest live Search, Performance Max, Shopping and Demand Gen campaigns get a specialist review. Live brand campaigns always get one. Your product feed gets one if Merchant Center is connected.
 5. Smaller campaigns, and paused ones that still spent in the last 90 days, get a short summary instead.
