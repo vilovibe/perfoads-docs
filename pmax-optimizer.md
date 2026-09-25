@@ -31,9 +31,29 @@ Click **Analyze** to run 1 deep AI check of the whole campaign. Each tab then sh
 - The result is saved, so opening the campaign again costs nothing.
 - Click **Re-analyze** to refresh it.
 
+The analysis reads your audit's results for this campaign first and does not argue with them. It also sees your asset ratings, where your ads showed, your channel split, your recent changes and, for shops, your product feed health.
+
+Before an idea reaches you, PerfoAds checks it. Ideas that fail are left out, and a line tells you how many were held back:
+
+- It never suggests blocking your own brand name. To keep brand searches out of Performance Max, it gives the same 2-step fix as your audit: a brand exclusion list, plus a low-priority Shopping campaign for brand searches.
+- It never suggests blocking a search category that brought sales.
+- It never suggests a negative you already have.
+- Right after a bidding, target or budget change, ideas that would change these again are marked **Too early to judge**.
+
 ## Recommendations
 
 1 list of everything worth doing: items from your audit, from the daily checks and from the AI analysis. Items with a **Fix** button take you straight to the right tab.
+
+For each AI idea you choose:
+
+- **Approve:** for negatives and placement exclusions, you see the list first, then PerfoAds sends it to Google Ads. Ideas about assets open the fix for that asset group. Several ideas of the same kind can be approved together with **Approve all**.
+- **Show me how:** for ideas PerfoAds cannot apply for you. It shows the steps.
+- **Not now:** hides it for 30 days.
+- **Never:** hides it for good.
+
+## History
+
+Every change made to this campaign through PerfoAds, with undo. 14 and 28 days after a change, a label shows whether it worked. See [Did it work?](/changes-and-undo.html).
 
 ## Asset Groups
 

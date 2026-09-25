@@ -34,6 +34,17 @@ Nothing runs on its own.
 - **History tab** in the [Search Optimizer](/search-optimizer.html) and the [Performance Max Optimizer](/pmax-optimizer.html): changes to that campaign.
 - **Account history** on the [Overview](/viewing-performance.html), when 1 account is picked: all changes to that account, including campaigns made with the [Campaign Builder](/campaign-builder.html).
 
+## Did it work?
+
+14 days and 28 days after a change, PerfoAds compares the days after it with the same number of days before it. You see the result as a label on the change in the History tab:
+
+- **Worked:** the change did what it was meant to. For a negative keyword: the money saved on the blocked searches was worth more than the sales lost. For a bid or target change: the campaign reached its target. For a budget change or a pause: cost per conversion (or return on ad spend) held or got better.
+- **Didn't work:** the numbers got worse, or the blocked searches still cost as much.
+- **Too early to tell:** not enough clicks or conversions yet. PerfoAds tries again for a few more days.
+- **Can't tell:** another budget, bidding or on/off change, or a conversion tracking change, landed in the same weeks, so the result cannot be pinned on this change.
+
+Hover over the label to see the numbers. Changes you undo do not get a label. This costs nothing and uses no AI.
+
 ## How to undo
 
 Find the change in the history and click **Rollback**. PerfoAds puts things back the way they were.

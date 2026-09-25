@@ -78,6 +78,21 @@ Click **Share** to create a link.
 - You can turn a link off at any time.
 - You can copy a link only once, when you create it. Keep it somewhere safe.
 
+## Weekly report
+
+When monitoring is on for an account, PerfoAds writes a weekly report in the app. It is ready every Tuesday and covers the last full week, Monday to Sunday, in the account's own time zone and currency. Open it with the **Weekly report** link on **Home** or in the **Inbox**. You can also look back at the last 10 weeks. No email is sent.
+
+The report has 6 parts:
+
+- **The week in 3 lines.**
+- **What we changed and did it work:** changes that reached their 14 or 28 day check that week. See [Did it work?](/changes-and-undo.html).
+- **Why the numbers moved:** this week against last week and against the 4-week average.
+- **Fixes done and still open:** your audit's findings, checked again with the same checks as the audit, plus new problems the weekly check found. It shows the money won back and the money still at risk each month.
+- **Waiting for your OK:** not tracked yet. The report says so.
+- **Watch list:** things to keep an eye on.
+
+A finding moves to fixed only when newer audit data shows it passing, or when you fixed it through PerfoAds. The AI writes the words, it never decides what is fixed.
+
 ## Re-audit
 
 Run a new audit later to see if your score went up. Your plan includes 2 audits per account each month. See [Billing](/billing.html).
