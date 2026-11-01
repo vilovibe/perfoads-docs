@@ -31,6 +31,22 @@ function extractTitle(markdown) {
   return 'PerfoAds Documentation';
 }
 
+// Meta description: the page's first paragraph as plain text, max 155 characters.
+function pageDescription(contentHtml) {
+  const m = contentHtml.match(/<p>([\s\S]*?)<\/p>/);
+  if (!m) return '';
+  let text = m[1]
+    .replace(/<[^>]+>/g, '')
+    .replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (text.length > 155) {
+    text = text.slice(0, 152);
+    text = text.slice(0, text.lastIndexOf(' ')).replace(/[\s,;:.]+$/, '') + '...';
+  }
+  return text.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 // Read template once
 const template = fs.readFileSync(path.join(__dirname, 'TEMPLATE.html'), 'utf8');
 
@@ -59,6 +75,7 @@ docsToConvert.forEach(mdFile => {
   // Replace placeholders in template
   let html = template
     .replace('{{PAGE_TITLE}}', title)
+    .replace('{{PAGE_DESCRIPTION}}', pageDescription(htmlContent))
     .replace('{{MAIN_CONTENT}}', htmlContent);
 
   // Add active class to current page in navigation
