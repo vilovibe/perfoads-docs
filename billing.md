@@ -25,7 +25,7 @@ You pay per Google Ads account, each month, by card through Stripe. Every accoun
 | Product titles written by AI | 1,000 |
 | Products with AI-filled details | 300 |
 
-AI credits pay for AI work, like ad text, campaign checks, product titles and questions in the chat. The tools above use credits and also have their own monthly limit.
+AI credits pay for AI work, like ad text, campaign checks, product titles and questions in the chat. The tools above use credits and also have their own monthly limit. Your monthly Google Ads audit doesn't use credits.
 
 Allowances and monthly credits reset every month. Unused monthly credits don't carry over. PerfoAds' daily account checks are included and do not count.
 
